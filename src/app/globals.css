@@ -183,16 +183,10 @@ h1, h2, h3 {
   filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.55));
 }
 
-/* Animation du bandeau : ralentie (et non coupée) si l'utilisateur réduit les animations. */
+/* Animation du bandeau (toujours active). */
 .marquee-track {
   animation: var(--animate-marquee);
 }
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation-duration: 30s;
-  }
-}
-
 /* Menu burger plein écran. */
 .menu-overlay[data-state="open"] {
   animation: overlay-in 0.45s var(--ease-lux) both;
@@ -200,13 +194,6 @@ h1, h2, h3 {
 .menu-overlay[data-state="closed"] {
   animation: overlay-out 0.3s var(--ease-lux) both;
 }
-@media (prefers-reduced-motion: reduce) {
-  .menu-overlay[data-state="open"],
-  .menu-overlay[data-state="closed"] {
-    animation-duration: 0.01s;
-  }
-}
-
 /* -------------------------------------------------------------------------- */
 /*  Animations d'arrivée et effets de texte (v3)                              */
 /* -------------------------------------------------------------------------- */
@@ -233,20 +220,20 @@ h1, h2, h3 {
   to { opacity: 0; visibility: hidden; }
 }
 @keyframes word-rise {
-  from { transform: translateY(105%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { transform: translateY(105%); opacity: 0; filter: blur(8px); }
+  to { transform: translateY(0); opacity: 1; filter: none; }
 }
 @keyframes enter-up {
   from { opacity: 0; transform: translateY(26px); filter: blur(6px); }
   to { opacity: 1; transform: none; filter: none; }
 }
 @keyframes enter-left {
-  from { opacity: 0; transform: translateX(-60px); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; transform: translateX(-90px); filter: blur(12px); }
+  to { opacity: 1; transform: none; filter: none; }
 }
 @keyframes enter-right {
-  from { opacity: 0; transform: translateX(70px) scale(0.97); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; transform: translateX(110px) scale(0.94); filter: blur(16px); }
+  to { opacity: 1; transform: none; filter: none; }
 }
 @keyframes shimmer {
   0% { background-position: 200% 50%; }
@@ -297,7 +284,7 @@ h1, h2, h3 {
 }
 .enter-up { animation-name: enter-up; }
 .enter-left { animation-name: enter-left; }
-.enter-right { animation-name: enter-right; animation-duration: 1.3s; }
+.enter-right { animation-name: enter-right; animation-duration: 1.5s; }
 
 /* Reflet doré qui traverse le texte. */
 .gold-shimmer {
@@ -365,21 +352,6 @@ h1, h2, h3 {
   mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .intro-curtain { display: none; }
-  .word-mask > span,
-  .enter-up,
-  .enter-left,
-  .enter-right {
-    animation: enter-fade 0.6s ease both;
-  }
-  .gold-shimmer { animation: none; background-position: 50% 50%; }
-  .scroll-cue-line { animation: none; }
-}
-@keyframes enter-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 .word-mask-static {
   display: inline-block;
@@ -396,7 +368,4 @@ h1, h2, h3 {
 }
 .kenburns {
   animation: kenburns var(--kb-duration, 4s) linear forwards;
-}
-@media (prefers-reduced-motion: reduce) {
-  .kenburns { animation: none; }
 }

@@ -35,7 +35,11 @@ export default function WinnersPage() {
             {sorted.map((w) => (
               <Reveal as="li" from="left" key={`${w.concours}-${w.edition}`}>
                 <Card className="spotlight grid items-center gap-10 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-14">
-                  <div className="relative mx-auto aspect-[3/4] w-full max-w-[400px] overflow-hidden rounded-[24px] border border-[rgba(199,209,219,0.14)] shadow-[0_30px_70px_rgba(0,0,0,0.5)]">
+                  <Reveal
+                    from="zoom"
+                    delay={0.15}
+                    className="relative mx-auto aspect-[3/4] w-full max-w-[400px] overflow-hidden rounded-[24px] border border-[rgba(199,209,219,0.14)] shadow-[0_30px_70px_rgba(0,0,0,0.5)]"
+                  >
                     <Image
                       src={w.photo.src}
                       alt={w.photo.alt}
@@ -43,7 +47,7 @@ export default function WinnersPage() {
                       sizes="(min-width: 820px) 400px, 86vw"
                       className="object-cover"
                     />
-                  </div>
+                  </Reveal>
                   <div>
                     <Badge variant="gold">{`${w.concours} — Édition #${w.edition}`}</Badge>
                     <h3 className="mt-5 text-[clamp(2.1rem,4vw,3rem)]">

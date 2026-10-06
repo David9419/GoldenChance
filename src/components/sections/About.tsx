@@ -14,7 +14,7 @@ export function About() {
     >
       <div className="container-lux grid items-center gap-12 split:grid-cols-2 split:gap-16">
         <Reveal
-          from="left"
+          from="zoom"
           className="relative mx-auto aspect-[4/5] w-full max-w-[480px] overflow-hidden rounded-[28px] border border-[rgba(199,209,219,0.14)] shadow-[0_40px_90px_rgba(0,0,0,0.5)] split:max-w-none"
         >
           <Image
@@ -41,10 +41,10 @@ export function About() {
           <h2 id="apropos-title" className="title-h2 mt-6">
             <AnimatedWords text={about.title} />
           </h2>
-          {about.paragraphs.map((p) => (
-            <p key={p.slice(0, 24)} className="lead-lux mt-6">
-              {p}
-            </p>
+          {about.paragraphs.map((p, i) => (
+            <Reveal key={p.slice(0, 24)} from="fade" delay={0.2 + i * 0.15}>
+              <p className="lead-lux mt-6">{p}</p>
+            </Reveal>
           ))}
         </Reveal>
       </div>

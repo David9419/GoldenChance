@@ -2,7 +2,10 @@
 
 import { MotionConfig } from "motion/react";
 
-/** Respecte prefers-reduced-motion : pas de déplacement, fondus conservés. */
+/**
+ * Animations toujours actives, même si l'appareil a « Réduire les animations »
+ * (choix de David : les animations font partie de l'identité du site).
+ */
 export function MotionProvider({ children }: { children: React.ReactNode }) {
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
+  return <MotionConfig reducedMotion="never">{children}</MotionConfig>;
 }

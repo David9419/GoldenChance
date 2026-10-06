@@ -14,7 +14,6 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { getLenis } from "@/lib/smooth-scroll";
 import { cn } from "@/lib/utils";
 
 const MENU_ID = "menu-principal";
@@ -24,9 +23,19 @@ function BurgerIcon({ open }: { open: boolean }) {
     "absolute left-1/2 top-1/2 -mt-[0.75px] h-[1.5px] w-[18px] -translate-x-1/2 rounded-full bg-silver-100 transition-[translate,rotate,opacity] duration-[250ms] ease-lux";
   return (
     <span aria-hidden className="relative block size-full">
-      <span className={cn(line, open ? "translate-y-0 rotate-45" : "-translate-y-[6px]")} />
+      <span
+        className={cn(
+          line,
+          open ? "translate-y-0 rotate-45" : "-translate-y-[6px]",
+        )}
+      />
       <span className={cn(line, open && "opacity-0")} />
-      <span className={cn(line, open ? "translate-y-0 -rotate-45" : "translate-y-[6px]")} />
+      <span
+        className={cn(
+          line,
+          open ? "translate-y-0 -rotate-45" : "translate-y-[6px]",
+        )}
+      />
     </span>
   );
 }
@@ -55,13 +64,6 @@ export function SiteHeader() {
     };
   }, []);
 
-  // Le défilement fluide est suspendu tant que le menu est ouvert.
-  React.useEffect(() => {
-    const lenis = getLenis();
-    if (open) lenis?.stop();
-    else lenis?.start();
-  }, [open]);
-
   return (
     <>
       {/* Navbar pilule flottante — au-dessus du menu pour garder le bouton croix visible. */}
@@ -77,6 +79,7 @@ export function SiteHeader() {
           <SmartLink
             href="/"
             onClick={close}
+            navigateDelay={open ? 380 : 0}
             className="flex items-center gap-2.5 rounded-full pr-2"
             aria-label="GoldenChance, accueil"
           >
@@ -94,6 +97,7 @@ export function SiteHeader() {
                 <SmartLink
                   href={link.href}
                   onClick={close}
+                  navigateDelay={open ? 380 : 0}
                   className="group/link relative rounded py-1 text-[0.95rem] font-medium text-silver-300 transition-colors duration-200 hover:text-gold-300"
                 >
                   {link.label}
@@ -165,6 +169,7 @@ export function SiteHeader() {
                         <SmartLink
                           href={link.href}
                           onClick={close}
+                          navigateDelay={open ? 380 : 0}
                           className="inline-block rounded font-serif text-[clamp(2rem,6vw,3.2rem)] font-medium leading-[1.1] text-silver-100 transition-colors duration-200 hover:text-gold-300"
                         >
                           {link.label}
