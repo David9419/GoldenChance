@@ -4,6 +4,7 @@ import * as React from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
+import { onSiteReady, isSiteReady } from "@/lib/site-ready";
 import { setLenis } from "@/lib/smooth-scroll";
 
 /** Défilement fluide et amorti sur tout le site. */
@@ -19,7 +20,11 @@ export function SmoothScroll() {
       prevent: (node) => !!node.closest?.("[role='dialog']"),
     });
     setLenis(lenis);
+    // Pas de défilement pendant l'écran de chargement.
+    if (!isSiteReady()) lenis.stop();
+    const unsubscribe = onSiteReady(() => lenis.start());
     return () => {
+      unsubscribe();
       setLenis(null);
       lenis.destroy();
     };
