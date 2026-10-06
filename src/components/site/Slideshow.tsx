@@ -36,7 +36,6 @@ type SlideshowProps = {
  * pleinement opaque dessous jusqu'à la fin du fondu — aucune transparence
  * intermédiaire, donc jamais d'effet « double image » avec le fond du site.
  * Packshots transparents (`contain`) : fondu croisé classique.
- * En prefers-reduced-motion, il continue de tourner, 2,2× plus lentement.
  */
 export function Slideshow({
   images,
@@ -54,19 +53,11 @@ export function Slideshow({
 }: SlideshowProps) {
   const [{ index, previous }, setState] = React.useState({ index: 0, previous: -1 });
   const [cycle, setCycle] = React.useState(0);
-  const [slow, setSlow] = React.useState(false);
   const count = images.length;
 
-  React.useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setSlow(query.matches);
-    sync();
-    query.addEventListener("change", sync);
-    return () => query.removeEventListener("change", sync);
-  }, []);
 
-  const delay = slow ? interval * 2.2 : interval;
-  const fadeMs = slow ? fade * 2.2 : fade;
+  const delay = interval;
+  const fadeMs = fade;
 
   const go = React.useCallback(
     (step: number) =>

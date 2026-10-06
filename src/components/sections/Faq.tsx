@@ -23,10 +23,12 @@ export function Faq() {
           <Card pad={false} className="px-7 py-3 sm:px-11 sm:py-5">
             <Accordion type="single" collapsible>
               {faq.items.map((item, i) => (
-                <AccordionItem key={item.question} value={`q${i}`}>
-                  <AccordionTrigger>{item.question}</AccordionTrigger>
-                  <AccordionContent>{item.answer}</AccordionContent>
-                </AccordionItem>
+                <Reveal key={item.question} from={i % 2 === 0 ? "left" : "right"} delay={0.1 + i * 0.07}>
+                  <AccordionItem value={`q${i}`}>
+                    <AccordionTrigger>{item.question}</AccordionTrigger>
+                    <AccordionContent>{item.answer}</AccordionContent>
+                  </AccordionItem>
+                </Reveal>
               ))}
             </Accordion>
           </Card>

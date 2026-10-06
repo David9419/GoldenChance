@@ -23,7 +23,7 @@ export function AnimatedWords({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
-        transition={{ staggerChildren: 0.06, delayChildren: delay }}
+        transition={{ staggerChildren: 0.07, delayChildren: delay }}
       >
         {words.map((word, i) => (
           <Fragment key={i}>
@@ -31,11 +31,13 @@ export function AnimatedWords({
               <motion.span
                 className="inline-block"
                 variants={{
-                  hidden: { y: "105%", opacity: 0 },
+                  hidden: { y: "105%", opacity: 0, filter: "blur(8px)" },
                   visible: {
                     y: "0%",
                     opacity: 1,
-                    transition: { duration: 0.85, ease: [0.22, 0.61, 0.36, 1] },
+                    filter: "blur(0px)",
+                    transitionEnd: { filter: "none" },
+                    transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
               >

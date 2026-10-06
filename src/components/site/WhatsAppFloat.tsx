@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 import { floatingWhatsApp, images, links } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -54,7 +54,6 @@ function subscribe(listener: () => void) {
  * ouvre la communauté WhatsApp.
  */
 export function WhatsAppFloat() {
-  const reduced = useReducedMotion();
   const corner = React.useSyncExternalStore(subscribe, readCorner, () => "bottom-right" as Corner);
   const [dragging, setDragging] = React.useState(false);
   const moved = React.useRef(false);
@@ -103,9 +102,9 @@ export function WhatsAppFloat() {
         onPointerDown={() => {
           moved.current = false;
         }}
-        initial={reduced ? false : { opacity: 0, scale: 0.6 }}
+        initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: dragging ? 1.1 : 1 }}
-        transition={{ type: "spring", stiffness: 380, damping: 30, opacity: { delay: reduced ? 0 : 1.6 } }}
+        transition={{ type: "spring", stiffness: 380, damping: 30, opacity: { delay: 1.6 } }}
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.95 }}
         className="group pointer-events-auto relative flex size-[54px] cursor-grab sm:size-[60px] touch-none select-none items-center justify-center rounded-full active:cursor-grabbing"

@@ -4,8 +4,6 @@ import * as React from "react";
 
 import { Logo } from "@/components/site/Logo";
 
-/** Script exécuté avant l'affichage : l'intro ne se joue qu'une fois par visite. */
-export const introScript = `try{if(sessionStorage.getItem("gc-intro")){document.documentElement.setAttribute("data-intro-seen","")}else{sessionStorage.setItem("gc-intro","1")}}catch(e){}`;
 
 /**
  * Rideau d'arrivée : logo doré + filet qui se dessine, puis fondu.

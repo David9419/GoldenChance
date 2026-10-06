@@ -48,8 +48,11 @@ export function ExampleContest() {
                 {c.prize}
               </p>
               <ul className="mt-7 flex flex-col gap-3.5 text-silver-300">
-                {c.details.map((item) => (
-                  <li
+                {c.details.map((item, i) => (
+                  <Reveal
+                    as="li"
+                    from="right"
+                    delay={0.25 + i * 0.09}
                     key={item.label + (item.strong ?? "")}
                     className="gold-bullet leading-relaxed"
                   >
@@ -59,7 +62,7 @@ export function ExampleContest() {
                         {item.strong}
                       </strong>
                     )}
-                  </li>
+                  </Reveal>
                 ))}
               </ul>
             </Reveal>

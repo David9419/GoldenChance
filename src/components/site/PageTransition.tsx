@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 import { Logo } from "@/components/site/Logo";
 import { scrollToSection, scrollToTop } from "@/lib/smooth-scroll";
@@ -20,12 +20,17 @@ type TransitionContextValue = {
   navigate: (href: string) => void;
 };
 
-const TransitionContext = React.createContext<TransitionContextValue | null>(null);
+const TransitionContext = React.createContext<TransitionContextValue | null>(
+  null,
+);
 
-export function PageTransitionProvider({ children }: { children: React.ReactNode }) {
+export function PageTransitionProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const router = useRouter();
   const pathname = usePathname();
-  const reduced = useReducedMotion();
   const [phase, setPhase] = React.useState<Phase>("idle");
   const pending = React.useRef<{ hash: string | null } | null>(null);
 
@@ -38,7 +43,11 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
       if (url.pathname === pathname) {
         if (hash) scrollToSection(hash);
         else scrollToTop();
-        window.history.replaceState(window.history.state, "", hash ? `${url.pathname}#${hash}` : url.pathname);
+        window.history.replaceState(
+          window.history.state,
+          "",
+          hash ? `${url.pathname}#${hash}` : url.pathname,
+        );
         return;
       }
 
@@ -47,11 +56,14 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
       pending.current = { hash };
       setPhase("cover");
       window.setTimeout(
-        () => router.push(url.pathname + (hash ? `#${hash}` : ""), { scroll: false }),
-        reduced ? 0 : COVER_MS,
+        () =>
+          router.push(url.pathname + (hash ? `#${hash}` : ""), {
+            scroll: false,
+          }),
+        COVER_MS,
       );
     },
-    [pathname, phase, reduced, router],
+    [pathname, phase, router],
   );
 
   React.useEffect(() => {
@@ -64,12 +76,12 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
     const done = window.setTimeout(() => {
       setPhase("idle");
       if (target.hash) scrollToSection(target.hash);
-    }, reduced ? 80 : REVEAL_MS + 80);
+    }, REVEAL_MS + 80);
     return () => {
       window.clearTimeout(reveal);
       window.clearTimeout(done);
     };
-  }, [pathname, reduced]);
+  }, [pathname]);
 
   return (
     <TransitionContext.Provider value={{ navigate }}>
@@ -81,14 +93,20 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
             aria-hidden
             initial={{ y: "100%" }}
             animate={phase === "cover" ? { y: "0%" } : { y: "-100%" }}
-            transition={{ duration: reduced ? 0 : (phase === "cover" ? COVER_MS : REVEAL_MS) / 1000, ease: EASE }}
+            transition={{
+              duration: (phase === "cover" ? COVER_MS : REVEAL_MS) / 1000,
+              ease: EASE,
+            }}
             className="fixed inset-0 z-[400] flex items-center justify-center bg-navy-950"
           >
             <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,#e0c07f,transparent)]" />
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: phase === "cover" ? 1 : 0, scale: 1 }}
-              transition={{ duration: 0.35, delay: phase === "cover" ? 0.15 : 0 }}
+              transition={{
+                duration: 0.35,
+                delay: phase === "cover" ? 0.15 : 0,
+              }}
             >
               <Logo size={110} decorative />
             </motion.div>
@@ -102,24 +120,36 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
 
 /** Contenu de page : simple conteneur (le rideau gère la transition). */
 export function PageFade({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-h-svh flex-col [overflow-x:clip]">{children}</div>;
+  return (
+    <div className="flex min-h-svh flex-col [overflow-x:clip]">{children}</div>
+  );
 }
 
 export function usePageTransition() {
   const ctx = React.useContext(TransitionContext);
-  if (!ctx) throw new Error("usePageTransition doit être utilisé dans PageTransitionProvider");
+  if (!ctx)
+    throw new Error(
+      "usePageTransition doit être utilisé dans PageTransitionProvider",
+    );
   return ctx;
 }
 
 type SmartLinkProps = Omit<React.ComponentProps<typeof Link>, "href"> & {
   href: string;
+  /** Attente avant la navigation (ms), ex. le temps que le menu se referme. */
+  navigateDelay?: number;
 };
 
 /**
  * Lien interne GoldenChance : défilement animé vers les sections de la page
  * courante, rideau de transition vers les autres pages.
  */
-export function SmartLink({ href, onClick, ...props }: SmartLinkProps) {
+export function SmartLink({
+  href,
+  onClick,
+  navigateDelay = 0,
+  ...props
+}: SmartLinkProps) {
   const { navigate } = usePageTransition();
 
   return (
@@ -139,7 +169,9 @@ export function SmartLink({ href, onClick, ...props }: SmartLinkProps) {
           return;
         }
         event.preventDefault();
-        navigate(href);
+        if (navigateDelay > 0)
+          window.setTimeout(() => navigate(href), navigateDelay);
+        else navigate(href);
       }}
       {...props}
     />

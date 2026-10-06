@@ -17,9 +17,6 @@ export function getLenis() {
 /** Courbe douce : accélère puis ralentit (easeInOutQuart). */
 const easeInOutQuart = (t: number) => (t < 0.5 ? 8 * t ** 4 : 1 - (-2 * t + 2) ** 4 / 2);
 
-function reduced() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
 
 /** Défilement animé jusqu'à une section (ou instantané si mouvements réduits). */
 export function scrollToSection(id: string) {
@@ -28,16 +25,16 @@ export function scrollToSection(id: string) {
   const distance = Math.abs(el.getBoundingClientRect().top);
   const duration = Math.min(1.8, Math.max(0.9, distance / 2200));
   if (lenis) {
-    lenis.scrollTo(el, { duration, easing: easeInOutQuart, immediate: reduced(), force: true });
+    lenis.scrollTo(el, { duration, easing: easeInOutQuart, force: true });
   } else {
-    el.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" });
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
 
 export function scrollToTop(immediate = false) {
   if (lenis) {
-    lenis.scrollTo(0, { duration: 1.2, easing: easeInOutQuart, immediate: immediate || reduced(), force: true });
+    lenis.scrollTo(0, { duration: 1.2, easing: easeInOutQuart, immediate, force: true });
   } else {
-    window.scrollTo({ top: 0, behavior: immediate || reduced() ? "instant" : "smooth" });
+    window.scrollTo({ top: 0, behavior: immediate ? "instant" : "smooth" });
   }
 }
