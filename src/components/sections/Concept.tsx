@@ -1,4 +1,5 @@
 import { concept, links } from "@/content/site";
+import { CountUp } from "@/components/site/CountUp";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { WhatsAppIcon } from "@/components/site/Social";
@@ -34,7 +35,7 @@ export function Concept() {
                 className="spotlight flex w-full flex-col p-8 transition-[border-color,transform] duration-500 ease-lux hover:-translate-y-1 hover:border-[rgba(224,192,127,0.3)] sm:p-10"
               >
                 <p className="bg-[linear-gradient(160deg,#f3dca6,#c9a25b_60%,#8f6f35)] bg-clip-text font-serif text-[clamp(4.5rem,9vw,6.5rem)] font-medium leading-none text-transparent">
-                  {fact.value}
+                  <CountUp value={fact.value} />
                 </p>
                 <p className="mt-4 font-serif text-[1.55rem] leading-tight text-silver-100">
                   {fact.label}

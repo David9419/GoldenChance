@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 type SlideshowProps = {
   images: SiteImage[];
-  /** Temps d'affichage de chaque image (ms). */
+  /** Temps entre deux changements d'image (ms), fondu compris. */
   interval: number;
   /** Durée du fondu enchaîné (ms). */
   fade: number;
@@ -22,13 +22,20 @@ type SlideshowProps = {
   /** Décoratif : masqué aux lecteurs d'écran. */
   decorative?: boolean;
   priority?: boolean;
+  /** Zoom lent sur l'image affichée (photos d'ambiance). */
+  zoom?: boolean;
   label?: string;
   className?: string;
   imageClassName?: string;
 };
 
 /**
- * Diaporama en fondu enchaîné infini : images empilées, une seule visible.
+ * Diaporama en fondu enchaîné infini.
+ *
+ * Photos (`cover`) : la nouvelle image apparaît PAR-DESSUS l'ancienne, qui reste
+ * pleinement opaque dessous jusqu'à la fin du fondu — aucune transparence
+ * intermédiaire, donc jamais d'effet « double image » avec le fond du site.
+ * Packshots transparents (`contain`) : fondu croisé classique.
  * En prefers-reduced-motion, il continue de tourner, 2,2× plus lentement.
  */
 export function Slideshow({
@@ -40,11 +47,12 @@ export function Slideshow({
   controls = false,
   decorative = false,
   priority = false,
+  zoom = fit === "cover",
   label,
   className,
   imageClassName,
 }: SlideshowProps) {
-  const [index, setIndex] = React.useState(0);
+  const [{ index, previous }, setState] = React.useState({ index: 0, previous: -1 });
   const [cycle, setCycle] = React.useState(0);
   const [slow, setSlow] = React.useState(false);
   const count = images.length;
@@ -60,24 +68,30 @@ export function Slideshow({
   const delay = slow ? interval * 2.2 : interval;
   const fadeMs = slow ? fade * 2.2 : fade;
 
+  const go = React.useCallback(
+    (step: number) =>
+      setState(({ index: i }) => ({ index: (i + step + count) % count, previous: i })),
+    [count],
+  );
+
   React.useEffect(() => {
     if (count < 2) return;
-    const timer = window.setInterval(
-      () => setIndex((i) => (i + 1) % count),
-      delay,
-    );
+    const timer = window.setInterval(() => go(1), delay);
     return () => window.clearInterval(timer);
-  }, [count, delay, cycle]);
+  }, [count, delay, cycle, go]);
 
   // Un clic sur une flèche change d'image et relance le minuteur.
-  const go = (step: number) => {
-    setIndex((i) => (i + step + count) % count);
+  const step = (dir: number) => {
+    go(dir);
     setCycle((c) => c + 1);
   };
+
+  const layered = fit === "cover";
 
   return (
     <div
       className={cn("relative overflow-hidden", className)}
+      style={{ "--kb-duration": `${delay + fadeMs}ms` } as React.CSSProperties}
       {...(decorative
         ? { "aria-hidden": true }
         : {
@@ -86,33 +100,31 @@ export function Slideshow({
             "aria-label": label,
           })}
     >
-      {images.map((image, i) => (
-        <Image
-          key={image.src}
-          src={image.src}
-          alt={decorative ? "" : image.alt}
-          fill
-          sizes={sizes}
-          priority={priority && i === 0}
-          aria-hidden={i !== index || undefined}
-          className={cn(
-            "ease-in-out",
-            fit === "contain"
-              ? "packshot transition-opacity"
-              : "object-cover transition-[opacity,transform]",
-            i === index ? "opacity-100" : "opacity-0",
-            // Zoom lent façon « Ken Burns » sur les photos d'ambiance.
-            fit === "cover" && (i === index ? "scale-[1.08]" : "scale-100"),
-            imageClassName,
-          )}
-          style={{
-            transitionDuration:
-              fit === "cover"
-                ? `${fadeMs}ms, ${delay + fadeMs}ms`
-                : `${fadeMs}ms`,
-          }}
-        />
-      ))}
+      {images.map((image, i) => {
+        const active = i === index;
+        const under = layered && i === previous;
+        return (
+          <Image
+            key={image.src}
+            src={image.src}
+            alt={decorative ? "" : image.alt}
+            fill
+            sizes={sizes}
+            quality={90}
+            priority={priority && i === 0}
+            aria-hidden={!active || undefined}
+            className={cn(
+              fit === "contain" ? "packshot" : "object-cover",
+              active ? "z-20 opacity-100" : under ? "z-10 opacity-100" : "z-0 opacity-0",
+              // Fondu uniquement sur l'image qui apparaît (et, en contain, celle qui part).
+              (active || !layered) && "transition-opacity ease-in-out",
+              zoom && (active || under) && "kenburns",
+              imageClassName,
+            )}
+            style={{ transitionDuration: `${fadeMs}ms` }}
+          />
+        );
+      })}
 
       {controls && count > 1 && (
         <>
@@ -121,8 +133,8 @@ export function Slideshow({
             variant="glassIcon"
             size="icon"
             aria-label="Photo précédente"
-            onClick={() => go(-1)}
-            className="absolute left-3.5 top-1/2 z-10 -translate-y-1/2"
+            onClick={() => step(-1)}
+            className="absolute left-3.5 top-1/2 z-30 -translate-y-1/2"
           >
             <ChevronLeft className="size-5" strokeWidth={1.8} />
           </Button>
@@ -131,8 +143,8 @@ export function Slideshow({
             variant="glassIcon"
             size="icon"
             aria-label="Photo suivante"
-            onClick={() => go(1)}
-            className="absolute right-3.5 top-1/2 z-10 -translate-y-1/2"
+            onClick={() => step(1)}
+            className="absolute right-3.5 top-1/2 z-30 -translate-y-1/2"
           >
             <ChevronRight className="size-5" strokeWidth={1.8} />
           </Button>

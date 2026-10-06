@@ -115,6 +115,11 @@ export const menuLinks: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+/** Bouton WhatsApp flottant (déplaçable dans les 4 coins). Lien : `links.whatsapp`. */
+export const floatingWhatsApp = {
+  label: "Rejoindre la communauté WhatsApp",
+};
+
 export const marqueeWords = [
   "Montres",
   "Sacs de luxe",
@@ -172,15 +177,15 @@ export const concept = {
   eyebrow: "Le concept",
   title: "Deux concours par mois, une chance tous les 15\u00a0jours",
   lead: "Chaque concours GoldenChance met en jeu des objets que l'on admire sans toujours pouvoir se les offrir. Notre promesse\u00a0: les rendre atteignables, pour de vrai, à intervalles réguliers.",
-  /** Chiffres clés (faits réels uniquement). */
+  /** Chiffres clés (faits réels uniquement) : ils défilent jusqu'à leur valeur. */
   facts: [
     {
-      value: "2",
+      value: 2,
       label: "concours par mois",
       text: "Deux éditions chaque mois, chacune avec son propre lot.",
     },
     {
-      value: "15",
+      value: 15,
       label: "jours entre chaque tirage",
       text: "Un tirage au sort tous les 15 jours, filmé en direct sur Instagram.",
     },

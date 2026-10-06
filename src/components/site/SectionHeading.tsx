@@ -23,7 +23,7 @@ export function SectionHeading({
   return (
     <div className={cn("mb-14", centered && "mx-auto text-center", className)}>
       {eyebrow && (
-        <Reveal
+        <Reveal from="left"
           className={cn(
             "mb-5 flex items-center gap-4",
             centered && "justify-center",
@@ -47,7 +47,7 @@ export function SectionHeading({
         <AnimatedWords text={title} />
       </h2>
       {lead && (
-        <Reveal delay={0.15}>
+        <Reveal from="fade" delay={0.2}>
           <p className={cn("lead-lux mt-5", centered && "mx-auto")}>{lead}</p>
         </Reveal>
       )}

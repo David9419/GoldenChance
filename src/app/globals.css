@@ -25,7 +25,7 @@
 
   --animate-accordion-down: accordion-down 0.35s var(--ease-lux);
   --animate-accordion-up: accordion-up 0.35s var(--ease-lux);
-  --animate-marquee: marquee 18s linear infinite;
+  --animate-marquee: marquee 11s linear infinite;
 }
 
 @theme inline {
@@ -189,7 +189,7 @@ h1, h2, h3 {
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
-    animation-duration: 50s;
+    animation-duration: 30s;
   }
 }
 
@@ -221,9 +221,9 @@ h1, h2, h3 {
 }
 
 @keyframes intro-logo {
-  0% { opacity: 0; transform: scale(0.86); filter: blur(8px); }
-  60% { opacity: 1; transform: scale(1); filter: blur(0); }
-  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+  0% { opacity: 0; transform: scale(0.86); }
+  60% { opacity: 1; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1); }
 }
 @keyframes intro-line {
   from { transform: scaleX(0); }
@@ -238,15 +238,15 @@ h1, h2, h3 {
 }
 @keyframes enter-up {
   from { opacity: 0; transform: translateY(26px); filter: blur(6px); }
-  to { opacity: 1; transform: none; filter: blur(0); }
+  to { opacity: 1; transform: none; filter: none; }
 }
 @keyframes enter-left {
   from { opacity: 0; transform: translateX(-60px); }
   to { opacity: 1; transform: none; }
 }
 @keyframes enter-right {
-  from { opacity: 0; transform: translateX(70px) scale(0.97); filter: blur(6px); }
-  to { opacity: 1; transform: none; filter: blur(0); }
+  from { opacity: 0; transform: translateX(70px) scale(0.97); }
+  to { opacity: 1; transform: none; }
 }
 @keyframes shimmer {
   0% { background-position: 200% 50%; }
@@ -387,4 +387,16 @@ h1, h2, h3 {
   vertical-align: bottom;
   padding-bottom: 0.1em;
   margin-bottom: -0.1em;
+}
+
+/* Zoom lent sur la photo affichée d'un diaporama. */
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+.kenburns {
+  animation: kenburns var(--kb-duration, 4s) linear forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kenburns { animation: none; }
 }
