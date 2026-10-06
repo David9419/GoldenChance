@@ -12,6 +12,8 @@ import {
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { MotionProvider } from "@/components/site/MotionProvider";
 import { Effects } from "@/components/site/Effects";
+import { SmoothScroll } from "@/components/site/SmoothScroll";
+import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Intro, introScript } from "@/components/site/Intro";
 import "./globals.css";
 
@@ -93,12 +95,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Intro />
           <FrostBackground />
           <Effects />
+          <SmoothScroll />
           <PageTransitionProvider>
             <SiteHeader />
             <PageFade>
               <main className="flex-1">{children}</main>
               <Footer />
             </PageFade>
+            <WhatsAppFloat />
           </PageTransitionProvider>
         </MotionProvider>
       </body>

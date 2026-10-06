@@ -29,8 +29,8 @@ export function ExampleContest() {
             >
               <Slideshow
                 images={c.slides}
-                interval={3400}
-                fade={1400}
+                interval={3000}
+                fade={900}
                 fit="contain"
                 controls
                 sizes="(min-width: 960px) 480px, 86vw"

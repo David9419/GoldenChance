@@ -104,8 +104,8 @@ export function Hero() {
             />
             <Slideshow
               images={heroSlides}
-              interval={3200}
-              fade={1600}
+              interval={2600}
+              fade={1000}
               priority
               sizes="(min-width: 960px) 460px, (min-width: 520px) 460px, 92vw"
               label="Exemples de lots GoldenChance"

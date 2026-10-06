@@ -3,7 +3,7 @@
 > Ce fichier décrit **tout** le site GoldenChance (structure, textes exacts, images, couleurs, typographies, animations, comportements). Il sert de cahier des charges pour **reconstruire le site de zéro, proprement, avec Claude Code**, puis le déployer sur Vercel via GitHub.
 > Le propriétaire (David) communique en français, donne des briefs détaillés et attend une exécution autonome, complète et professionnelle (pas de version minimaliste). Il a un œil très exigeant sur la qualité visuelle : rien ne doit paraître amateur. Il ne sait pas coder : explique les étapes manuelles qu'il doit faire (GitHub, Vercel, variables d'environnement) en français, simplement, pas à pas.
 
-> **État actuel (v3)** : animations d'arrivée (intro logo + rideau, titre mot par mot, entrées par les côtés), sections numérotées, nouvelle section « Trois univers de lots » (§5.1 D bis), bandeau 18s. **v2** : le site a été reconstruit selon ce document (Next.js 16 App Router, Tailwind v4, shadcn/ui sur Radix, Motion). Tous les textes sont dans `src/content/site.ts`. Les points en attente de validation sont listés dans `A_VALIDER.md`.
+> **État actuel (v4)** : navbar grande en haut puis compacte au scroll, défilement fluide Lenis + défilement animé vers les sections, rideau entre les pages, chiffres qui défilent, bouton WhatsApp flottant déplaçable (4 coins), diaporamas sans effet « double image », bandeau 11s, nouvelles photos. **v3** : animations d'arrivée (intro logo + rideau, titre mot par mot, entrées par les côtés), sections numérotées, nouvelle section « Trois univers de lots » (§5.1 D bis), bandeau 18s. **v2** : le site a été reconstruit selon ce document (Next.js 16 App Router, Tailwind v4, shadcn/ui sur Radix, Motion). Tous les textes sont dans `src/content/site.ts`. Les points en attente de validation sont listés dans `A_VALIDER.md`.
 
 ---
 
@@ -15,7 +15,8 @@
 4. **Ne change pas le design** décrit ici sans demande. Ne rajoute pas de fausses informations (faux gagnants, faux chiffres, faux avis).
 5. **Commits propres** et réguliers, messages en français ou anglais cohérents.
 6. À la fin : donne à David la liste exacte des étapes manuelles (push GitHub, import Vercel, domaine) et un récapitulatif de ce qui est fait / à faire.
-7. Les points marqués **⚠️ À CONFIRMER** sont des textes ou des affirmations à valider par David avant mise en production.
+7. **Publication** : David demande de **publier directement** chaque modification terminée et vérifiée (pull request vers `main` puis fusion → Vercel redéploie tout seul), sans attendre son accord. S'il n'aime pas un résultat, on re-modifie ensuite.
+8. Les points marqués **⚠️ À CONFIRMER** sont des textes ou des affirmations à valider par David avant mise en production.
 
 ---
 
@@ -171,7 +172,7 @@ Règles images :
 **Bandeau défilant infini** (juste sous le hero) :
 - Barre pleine largeur, fond `rgba(10,17,32,0.55)`, bordures haut/bas `rgba(199,209,219,0.1)`, flou 10px, padding vertical 13px.
 - Mots (Cormorant italique 1.15rem, `silver-300`) séparés par un **✦ doré** : **Montres, Sacs de luxe, Trottinettes, MacBook, iPhone, Dior, Bijoux, Chanel, Rolex, Louis Vuitton** (liste dupliquée pour une boucle parfaite).
-- Animation : `translateX(0 → -50%)`, **18s, linear, infinite** (accéléré à la demande de David en v3), bords fondus. En `prefers-reduced-motion` : ralentir (≈50s) plutôt que couper.
+- Animation : `translateX(0 → -50%)`, **11s, linear, infinite** (accéléré à la demande de David en v3 puis v4), bords fondus. En `prefers-reduced-motion` : ralentir (≈30s) plutôt que couper.
 
 **Footer** : logo (38px) + « GoldenChance » ; slogan en italique `slate-500` « Plus qu'un concours, une chance de rêve » ; pastilles Instagram + WhatsApp (38px) ; « © 2026 GoldenChance. Tous droits réservés. » ; bordure haute fine.
 
@@ -221,6 +222,10 @@ Plein écran (min 100vh), grille 2 colonnes (1.1fr / 0.9fr) dès 960px.
 ### Animations v3 (en plus du §6)
 - Intro à la 1ʳᵉ visite de la session : rideau navy, logo doré + filet qui se dessine (~1,3 s), puis fondu.
 - Hero : titre mot par mot, « accessible » avec reflet doré animé, texte et boutons depuis la gauche, carte photo depuis la droite, indicateur « Découvrir ».
+- **v4** : navbar large (74px, `min(1080px,94vw)`, logo 52px) en haut de page, compacte (60px, `min(760px,92vw)`) dès 40px de scroll ; défilement fluide Lenis (`src/components/site/SmoothScroll.tsx`) ; clic vers une section = défilement animé (easeInOutQuart) ; changement de page = rideau navy avec logo (`PageTransition.tsx`) ; chiffres 2 et 15 qui défilent 1, 2, 3… (`CountUp`) ; bouton WhatsApp flottant déplaçable par glisser vers l'un des 4 coins, coin mémorisé (`WhatsAppFloat.tsx`).
+- **v4 — diaporamas** : la nouvelle photo apparaît PAR-DESSUS l'ancienne restée opaque (jamais deux images semi-transparentes = pas de « double image » avec le fond). Hero 2,6s / fondu 1s ; carré du menu 2,4s / 1s ; iPad 3s / 0,9s.
+- **v4 — flou au scroll** : rendu par 3 couches pré-floutées (2, 14, 40px) dont on fait varier l'opacité, + voile sombre en opacité (fluide sur mobile).
+- **Leçon v4** : ne jamais laisser de `filter` (même `blur(0)`) sur un parent d'un panneau verre : cela casse son `backdrop-filter`.
 - Titres de section mot par mot ; sections numérotées 01 à 05 ; blocs qui arrivent par les côtés ; zoom lent sur les photos des diaporamas ; reflet doré qui suit la souris sur les cartes ; brillance sur le bouton doré ; barre de progression dorée en haut ; léger grain.
 
 #### E. À propos (`#apropos`)

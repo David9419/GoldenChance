@@ -14,71 +14,93 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { getLenis } from "@/lib/smooth-scroll";
 import { cn } from "@/lib/utils";
 
 const MENU_ID = "menu-principal";
 
 function BurgerIcon({ open }: { open: boolean }) {
   const line =
-    "absolute left-1/2 h-[1.5px] w-[18px] -translate-x-1/2 rounded-full bg-silver-100 transition-[transform,opacity] duration-[250ms] ease-lux";
+    "absolute left-1/2 top-1/2 -mt-[0.75px] h-[1.5px] w-[18px] -translate-x-1/2 rounded-full bg-silver-100 transition-[translate,rotate,opacity] duration-[250ms] ease-lux";
   return (
     <span aria-hidden className="relative block size-full">
-      <span
-        className={cn(
-          line,
-          "top-[14px]",
-          open && "translate-y-[6px] rotate-45",
-        )}
-      />
-      <span className={cn(line, "top-[20px]", open && "opacity-0")} />
-      <span
-        className={cn(
-          line,
-          "top-[26px]",
-          open && "-translate-y-[6px] -rotate-45",
-        )}
-      />
+      <span className={cn(line, open ? "translate-y-0 rotate-45" : "-translate-y-[6px]")} />
+      <span className={cn(line, open && "opacity-0")} />
+      <span className={cn(line, open ? "translate-y-0 -rotate-45" : "translate-y-[6px]")} />
     </span>
   );
 }
 
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false);
+  const [compact, setCompact] = React.useState(false);
   const navRef = React.useRef<HTMLElement>(null);
   const close = () => setOpen(false);
+
+  // Navbar grande en haut de page, plus compacte dès que l'on descend.
+  React.useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setCompact(window.scrollY > 40);
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  // Le défilement fluide est suspendu tant que le menu est ouvert.
+  React.useEffect(() => {
+    const lenis = getLenis();
+    if (open) lenis?.stop();
+    else lenis?.start();
+  }, [open]);
 
   return (
     <>
       {/* Navbar pilule flottante — au-dessus du menu pour garder le bouton croix visible. */}
       <header
         ref={navRef}
-        className="pointer-events-auto fixed left-1/2 top-[18px] z-[200] w-[min(560px,92vw)] -translate-x-1/2 nav:w-[min(760px,92vw)]"
+        data-compact={compact || open}
+        className="group/nav pointer-events-auto fixed left-1/2 top-[22px] z-[200] w-[94vw] -translate-x-1/2 transition-[top,width] duration-700 ease-lux data-[compact=true]:top-[14px] data-[compact=true]:w-[min(560px,92vw)] nav:w-[min(1080px,94vw)] nav:data-[compact=true]:w-[min(760px,92vw)]"
       >
         <nav
           aria-label="Navigation principale"
-          className="flex h-[60px] items-center justify-between gap-4 rounded-full border border-[rgba(199,209,219,0.14)] bg-[rgba(14,22,38,0.55)] pl-3 pr-[9px] shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-[18px]"
+          className="flex h-[74px] items-center justify-between gap-4 rounded-full border border-[rgba(199,209,219,0.12)] bg-[rgba(14,22,38,0.32)] pl-4 pr-3 shadow-[0_8px_30px_rgba(0,0,0,0.2)] backdrop-blur-[14px] transition-[height,background-color,box-shadow,padding,border-color] duration-700 ease-lux group-data-[compact=true]/nav:h-[60px] group-data-[compact=true]/nav:border-[rgba(199,209,219,0.16)] group-data-[compact=true]/nav:bg-[rgba(14,22,38,0.7)] group-data-[compact=true]/nav:pl-3 group-data-[compact=true]/nav:pr-[9px] group-data-[compact=true]/nav:shadow-[0_10px_34px_rgba(0,0,0,0.45)]"
         >
           <SmartLink
             href="/"
             onClick={close}
-            className="flex items-center gap-2 rounded-full pr-2"
+            className="flex items-center gap-2.5 rounded-full pr-2"
             aria-label="GoldenChance, accueil"
           >
-            <Logo size={40} priority decorative />
-            <span className="font-serif text-[1.18rem] font-semibold tracking-[0.01em] text-silver-100">
+            <span className="block size-[52px] transition-[width,height] duration-700 ease-lux group-data-[compact=true]/nav:size-10">
+              <Logo size={52} priority decorative className="!size-full" />
+            </span>
+            <span className="font-serif text-[1.42rem] font-semibold tracking-[0.01em] text-silver-100 transition-[font-size] duration-700 ease-lux group-data-[compact=true]/nav:text-[1.18rem]">
               {site.name}
             </span>
           </SmartLink>
 
-          <ul className="hidden items-center gap-7 nav:flex">
+          <ul className="hidden items-center gap-9 transition-[gap] duration-700 ease-lux group-data-[compact=true]/nav:gap-7 nav:flex">
             {navbarLinks.map((link) => (
               <li key={link.href}>
                 <SmartLink
                   href={link.href}
                   onClick={close}
-                  className="rounded text-[0.92rem] font-medium text-silver-300 transition-colors duration-200 hover:text-gold-300"
+                  className="group/link relative rounded py-1 text-[0.95rem] font-medium text-silver-300 transition-colors duration-200 hover:text-gold-300"
                 >
                   {link.label}
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-gradient-to-r from-gold-300 to-gold-400 transition-transform duration-500 ease-lux group-hover/link:scale-x-100"
+                  />
                 </SmartLink>
               </li>
             ))}
@@ -90,7 +112,7 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls={MENU_ID}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            className="size-[42px] shrink-0 cursor-pointer rounded-full border border-[rgba(199,209,219,0.18)] bg-[rgba(199,209,219,0.06)] transition-colors duration-200 hover:border-gold-300/50 hover:bg-[rgba(199,209,219,0.12)]"
+            className="size-[48px] shrink-0 cursor-pointer rounded-full border border-[rgba(199,209,219,0.18)] bg-[rgba(199,209,219,0.06)] transition-[width,height,background-color,border-color] duration-700 ease-lux hover:border-gold-300/50 hover:bg-[rgba(199,209,219,0.12)] group-data-[compact=true]/nav:size-[42px]"
           >
             <BurgerIcon open={open} />
           </button>
@@ -114,8 +136,8 @@ export function SiteHeader() {
             {/* Arrière-plan ambiant : diaporama plein écran, discret. */}
             <Slideshow
               images={menuSlides}
-              interval={3400}
-              fade={1800}
+              interval={3000}
+              fade={1400}
               sizes="100vw"
               decorative
               className="fixed inset-0 opacity-40"
@@ -156,8 +178,8 @@ export function SiteHeader() {
                 {/* Carré photo : 4 photos en fondu enchaîné, en boucle, net. */}
                 <Slideshow
                   images={menuSlides}
-                  interval={2800}
-                  fade={1600}
+                  interval={2400}
+                  fade={1000}
                   sizes="(min-width: 900px) 300px, 220px"
                   label="Aperçu des lots GoldenChance"
                   className="h-[280px] w-[220px] shrink-0 rounded-[24px] border border-[rgba(199,209,219,0.16)] shadow-[0_30px_80px_rgba(0,0,0,0.6)] nav:h-[380px] nav:w-[300px]"
