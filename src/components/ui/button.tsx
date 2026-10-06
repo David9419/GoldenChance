@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        gold: "bg-[linear-gradient(135deg,#e0c07f,#c9a25b)] text-[#241a08] shadow-[0_10px_30px_rgba(201,162,91,0.25)] hover:-translate-y-0.5 hover:shadow-[0_16px_42px_rgba(201,162,91,0.42)]",
+        gold: "btn-shine bg-[linear-gradient(135deg,#e0c07f,#c9a25b)] text-[#241a08] shadow-[0_10px_30px_rgba(201,162,91,0.25)] hover:-translate-y-0.5 hover:shadow-[0_16px_42px_rgba(201,162,91,0.42)]",
         ghost:
           "border border-[rgba(199,209,219,0.22)] bg-[rgba(199,209,219,0.06)] text-silver-100 hover:-translate-y-0.5 hover:border-[rgba(224,192,127,0.45)] hover:bg-[rgba(199,209,219,0.1)]",
         glassIcon:
@@ -25,7 +25,7 @@ const buttonVariants = cva(
       variant: "gold",
       size: "default",
     },
-  }
+  },
 );
 
 function Button({

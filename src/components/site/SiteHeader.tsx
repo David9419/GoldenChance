@@ -23,9 +23,21 @@ function BurgerIcon({ open }: { open: boolean }) {
     "absolute left-1/2 h-[1.5px] w-[18px] -translate-x-1/2 rounded-full bg-silver-100 transition-[transform,opacity] duration-[250ms] ease-lux";
   return (
     <span aria-hidden className="relative block size-full">
-      <span className={cn(line, "top-[14px]", open && "translate-y-[6px] rotate-45")} />
+      <span
+        className={cn(
+          line,
+          "top-[14px]",
+          open && "translate-y-[6px] rotate-45",
+        )}
+      />
       <span className={cn(line, "top-[20px]", open && "opacity-0")} />
-      <span className={cn(line, "top-[26px]", open && "-translate-y-[6px] -rotate-45")} />
+      <span
+        className={cn(
+          line,
+          "top-[26px]",
+          open && "-translate-y-[6px] -rotate-45",
+        )}
+      />
     </span>
   );
 }
@@ -92,7 +104,8 @@ export function SiteHeader() {
             aria-describedby={undefined}
             onInteractOutside={(event) => {
               // Le bouton burger de la navbar gère lui-même l'ouverture / fermeture.
-              if (navRef.current?.contains(event.target as Node)) event.preventDefault();
+              if (navRef.current?.contains(event.target as Node))
+                event.preventDefault();
             }}
             className="menu-overlay z-[150] overflow-y-auto bg-[linear-gradient(180deg,rgba(5,8,16,0.94),rgba(5,8,16,0.985))]"
           >

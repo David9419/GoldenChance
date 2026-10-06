@@ -15,7 +15,9 @@ type TransitionContextValue = {
   reduced: boolean;
 };
 
-const TransitionContext = React.createContext<TransitionContextValue | null>(null);
+const TransitionContext = React.createContext<TransitionContextValue | null>(
+  null,
+);
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -24,14 +26,24 @@ function prefersReducedMotion() {
 export function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
-  el.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
+  el.scrollIntoView({
+    behavior: prefersReducedMotion() ? "auto" : "smooth",
+    block: "start",
+  });
 }
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+  window.scrollTo({
+    top: 0,
+    behavior: prefersReducedMotion() ? "auto" : "smooth",
+  });
 }
 
-export function PageTransitionProvider({ children }: { children: React.ReactNode }) {
+export function PageTransitionProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const reduced = useReducedMotion();
@@ -47,7 +59,11 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
       if (url.pathname === pathname) {
         if (hash) scrollToSection(hash);
         else scrollToTop();
-        window.history.replaceState(window.history.state, "", hash ? `${url.pathname}#${hash}` : url.pathname);
+        window.history.replaceState(
+          window.history.state,
+          "",
+          hash ? `${url.pathname}#${hash}` : url.pathname,
+        );
         return;
       }
 
@@ -55,11 +71,14 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
       pending.current = { hash };
       setVisible(false);
       window.setTimeout(
-        () => router.push(url.pathname + (hash ? `#${hash}` : ""), { scroll: false }),
-        reduced ? 0 : FADE_OUT_MS
+        () =>
+          router.push(url.pathname + (hash ? `#${hash}` : ""), {
+            scroll: false,
+          }),
+        reduced ? 0 : FADE_OUT_MS,
       );
     },
-    [pathname, reduced, router]
+    [pathname, reduced, router],
   );
 
   React.useEffect(() => {
@@ -73,13 +92,18 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
     setVisible(true);
     if (target.hash) {
       const id = target.hash;
-      const timer = window.setTimeout(() => scrollToSection(id), reduced ? 0 : FADE_IN_MS);
+      const timer = window.setTimeout(
+        () => scrollToSection(id),
+        reduced ? 0 : FADE_IN_MS,
+      );
       return () => window.clearTimeout(timer);
     }
   }, [pathname, reduced]);
 
   return (
-    <TransitionContext.Provider value={{ navigate, visible, reduced: !!reduced }}>
+    <TransitionContext.Provider
+      value={{ navigate, visible, reduced: !!reduced }}
+    >
       {children}
     </TransitionContext.Provider>
   );
@@ -105,7 +129,10 @@ export function PageFade({ children }: { children: React.ReactNode }) {
 
 export function usePageTransition() {
   const ctx = React.useContext(TransitionContext);
-  if (!ctx) throw new Error("usePageTransition doit être utilisé dans PageTransitionProvider");
+  if (!ctx)
+    throw new Error(
+      "usePageTransition doit être utilisé dans PageTransitionProvider",
+    );
   return ctx;
 }
 

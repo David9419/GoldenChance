@@ -47,7 +47,10 @@ export function FrostBackground() {
   }, [pathname]);
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-navy-950">
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-navy-950"
+    >
       {backgroundImages.map((image, i) => (
         <div
           key={image.src}
@@ -57,7 +60,13 @@ export function FrostBackground() {
               "grayscale(.35) saturate(.75) brightness(.85) sepia(.08) hue-rotate(170deg) blur(var(--frost-blur))",
           }}
         >
-          <Image src={image.src} alt="" fill sizes="52vw" className="object-cover" />
+          <Image
+            src={image.src}
+            alt=""
+            fill
+            sizes="52vw"
+            className="object-cover"
+          />
         </div>
       ))}
       <div
@@ -67,6 +76,7 @@ export function FrostBackground() {
             "radial-gradient(120% 90% at 50% 0%, rgba(5,8,16,0.35) 0%, rgba(5,8,16,var(--frost-dark)) 55%, rgba(5,8,16,0.97) 100%)",
         }}
       />
+      <div className="grain absolute inset-0" />
     </div>
   );
 }

@@ -8,14 +8,25 @@ import { Card } from "@/components/ui/card";
 export function ExampleContest() {
   const c = exampleContest;
   return (
-    <section id="concours-exemple" aria-labelledby="concours-exemple-title" className="section-lux">
+    <section
+      id="concours-exemple"
+      aria-labelledby="concours-exemple-title"
+      className="section-lux"
+    >
       <div className="container-lux">
+        <SectionHeading
+          index="01"
+          id="concours-exemple-title"
+          eyebrow={c.eyebrow}
+          title={c.title}
+          lead={c.lead}
+        />
         <Reveal>
-          <SectionHeading id="concours-exemple-title" eyebrow={c.eyebrow} title={c.title} lead={c.lead} />
-        </Reveal>
-        <Reveal>
-          <Card className="grid items-center gap-10 split:grid-cols-2 split:gap-14">
-            <div className="relative aspect-square overflow-hidden rounded-[24px] border border-[rgba(199,209,219,0.1)] bg-[radial-gradient(70%_60%_at_50%_45%,rgba(126,163,194,0.16),rgba(10,17,32,0.35)_70%)]">
+          <Card className="spotlight grid items-center gap-10 split:grid-cols-2 split:gap-14">
+            <Reveal
+              from="left"
+              className="relative aspect-square overflow-hidden rounded-[24px] border border-[rgba(199,209,219,0.1)] bg-[radial-gradient(70%_60%_at_50%_45%,rgba(126,163,194,0.16),rgba(10,17,32,0.35)_70%)]"
+            >
               <Slideshow
                 images={c.slides}
                 interval={3400}
@@ -27,20 +38,31 @@ export function ExampleContest() {
                 className="absolute inset-0"
                 imageClassName="p-[9%]"
               />
-            </div>
-            <div>
+            </Reveal>
+            <Reveal from="right" delay={0.1}>
               <Badge variant="muted">{c.status}</Badge>
-              <h3 className="mt-5 text-[clamp(1.9rem,3.4vw,2.6rem)]">{c.name}</h3>
-              <p className="mt-2 font-serif text-[1.2rem] italic text-ice-400">{c.prize}</p>
+              <h3 className="mt-5 text-[clamp(1.9rem,3.4vw,2.6rem)]">
+                {c.name}
+              </h3>
+              <p className="mt-2 font-serif text-[1.2rem] italic text-ice-400">
+                {c.prize}
+              </p>
               <ul className="mt-7 flex flex-col gap-3.5 text-silver-300">
                 {c.details.map((item) => (
-                  <li key={item.label + (item.strong ?? "")} className="gold-bullet leading-relaxed">
+                  <li
+                    key={item.label + (item.strong ?? "")}
+                    className="gold-bullet leading-relaxed"
+                  >
                     {item.label}
-                    {item.strong && <strong className="font-semibold text-silver-100">{item.strong}</strong>}
+                    {item.strong && (
+                      <strong className="font-semibold text-silver-100">
+                        {item.strong}
+                      </strong>
+                    )}
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </Card>
         </Reveal>
       </div>

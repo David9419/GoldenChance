@@ -46,21 +46,27 @@ export default function ContactPage() {
     <>
       <section aria-labelledby="contact-title" className="pb-[70px] pt-[170px]">
         <div className="container-lux">
-          <Reveal>
-            <SectionHeading
-              id="contact-title"
-              eyebrow={contactPage.eyebrow}
-              title={contactPage.title}
-              lead={contactPage.lead}
-            />
-          </Reveal>
+          <SectionHeading
+            id="contact-title"
+            eyebrow={contactPage.eyebrow}
+            title={contactPage.title}
+            lead={contactPage.lead}
+          />
           <ul className="grid gap-5 md:grid-cols-2">
             {channels.map((c, i) => (
-              <Reveal as="li" key={c.href} delay={i * 0.06} className="flex">
+              <Reveal
+                as="li"
+                key={c.href}
+                from={i % 2 === 0 ? "left" : "right"}
+                delay={i * 0.08}
+                className="flex"
+              >
                 <a
                   href={c.href}
-                  {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="glass group flex w-full items-center gap-5 px-7 py-7 transition-[border-color,transform] duration-300 ease-lux hover:-translate-y-1 hover:border-[rgba(224,192,127,0.35)] sm:px-9"
+                  {...(c.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="glass spotlight group flex w-full items-center gap-5 px-7 py-7 transition-[border-color,transform] duration-300 ease-lux hover:-translate-y-1 hover:border-[rgba(224,192,127,0.35)] sm:px-9"
                 >
                   {c.icon}
                   <span className="flex min-w-0 flex-col">
@@ -71,7 +77,9 @@ export default function ContactPage() {
                       {c.value}
                     </span>
                   </span>
-                  {c.external && <span className="sr-only"> (nouvel onglet)</span>}
+                  {c.external && (
+                    <span className="sr-only"> (nouvel onglet)</span>
+                  )}
                 </a>
               </Reveal>
             ))}

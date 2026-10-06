@@ -6,7 +6,9 @@ import { Plus } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-function Accordion(props: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+function Accordion(
+  props: React.ComponentProps<typeof AccordionPrimitive.Root>,
+) {
   return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
 }
 
@@ -17,7 +19,10 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("border-b border-[rgba(199,209,219,0.12)] last:border-b-0", className)}
+      className={cn(
+        "border-b border-[rgba(199,209,219,0.12)] last:border-b-0",
+        className,
+      )}
       {...props}
     />
   );
@@ -34,7 +39,7 @@ function AccordionTrigger({
         data-slot="accordion-trigger"
         className={cn(
           "group flex flex-1 cursor-pointer items-center justify-between gap-6 rounded-md py-6 text-left font-serif text-[1.28rem] font-medium leading-snug text-silver-100 transition-colors duration-200 hover:text-gold-300",
-          className
+          className,
         )}
         {...props}
       >
@@ -60,7 +65,12 @@ function AccordionContent({
       className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
       {...props}
     >
-      <div className={cn("max-w-[760px] pb-7 pr-10 leading-[1.75] text-silver-300", className)}>
+      <div
+        className={cn(
+          "max-w-[760px] pb-7 pr-10 leading-[1.75] text-silver-300",
+          className,
+        )}
+      >
         {children}
       </div>
     </AccordionPrimitive.Content>

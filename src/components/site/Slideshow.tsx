@@ -62,7 +62,10 @@ export function Slideshow({
 
   React.useEffect(() => {
     if (count < 2) return;
-    const timer = window.setInterval(() => setIndex((i) => (i + 1) % count), delay);
+    const timer = window.setInterval(
+      () => setIndex((i) => (i + 1) % count),
+      delay,
+    );
     return () => window.clearInterval(timer);
   }, [count, delay, cycle]);
 
@@ -77,7 +80,11 @@ export function Slideshow({
       className={cn("relative overflow-hidden", className)}
       {...(decorative
         ? { "aria-hidden": true }
-        : { role: "region", "aria-roledescription": "carrousel", "aria-label": label })}
+        : {
+            role: "region",
+            "aria-roledescription": "carrousel",
+            "aria-label": label,
+          })}
     >
       {images.map((image, i) => (
         <Image
@@ -89,12 +96,21 @@ export function Slideshow({
           priority={priority && i === 0}
           aria-hidden={i !== index || undefined}
           className={cn(
-            "transition-opacity ease-in-out",
-            fit === "contain" ? "packshot" : "object-cover",
+            "ease-in-out",
+            fit === "contain"
+              ? "packshot transition-opacity"
+              : "object-cover transition-[opacity,transform]",
             i === index ? "opacity-100" : "opacity-0",
-            imageClassName
+            // Zoom lent façon « Ken Burns » sur les photos d'ambiance.
+            fit === "cover" && (i === index ? "scale-[1.08]" : "scale-100"),
+            imageClassName,
           )}
-          style={{ transitionDuration: `${fadeMs}ms` }}
+          style={{
+            transitionDuration:
+              fit === "cover"
+                ? `${fadeMs}ms, ${delay + fadeMs}ms`
+                : `${fadeMs}ms`,
+          }}
         />
       ))}
 
