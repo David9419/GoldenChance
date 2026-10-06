@@ -15,7 +15,8 @@
 4. **Ne change pas le design** décrit ici sans demande. Ne rajoute pas de fausses informations (faux gagnants, faux chiffres, faux avis).
 5. **Commits propres** et réguliers, messages en français ou anglais cohérents.
 6. À la fin : donne à David la liste exacte des étapes manuelles (push GitHub, import Vercel, domaine) et un récapitulatif de ce qui est fait / à faire.
-7. Les points marqués **⚠️ À CONFIRMER** sont des textes ou des affirmations à valider par David avant mise en production.
+7. **Publication** : David demande de **publier directement** chaque modification terminée et vérifiée (pull request vers `main` puis fusion → Vercel redéploie tout seul), sans attendre son accord. S'il n'aime pas un résultat, on re-modifie ensuite.
+8. Les points marqués **⚠️ À CONFIRMER** sont des textes ou des affirmations à valider par David avant mise en production.
 
 ---
 
