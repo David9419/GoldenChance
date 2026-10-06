@@ -1,5 +1,6 @@
 import { About } from "@/components/sections/About";
 import { Concept } from "@/components/sections/Concept";
+import { Universes } from "@/components/sections/Universes";
 import { ExampleContest } from "@/components/sections/ExampleContest";
 import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Marquee />
       <ExampleContest />
       <Concept />
+      <Universes />
       <About />
       <Faq />
       <JoinCta

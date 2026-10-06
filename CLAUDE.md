@@ -3,7 +3,7 @@
 > Ce fichier décrit **tout** le site GoldenChance (structure, textes exacts, images, couleurs, typographies, animations, comportements). Il sert de cahier des charges pour **reconstruire le site de zéro, proprement, avec Claude Code**, puis le déployer sur Vercel via GitHub.
 > Le propriétaire (David) communique en français, donne des briefs détaillés et attend une exécution autonome, complète et professionnelle (pas de version minimaliste). Il a un œil très exigeant sur la qualité visuelle : rien ne doit paraître amateur. Il ne sait pas coder : explique les étapes manuelles qu'il doit faire (GitHub, Vercel, variables d'environnement) en français, simplement, pas à pas.
 
-> **État actuel (v2)** : le site a été reconstruit selon ce document (Next.js 16 App Router, Tailwind v4, shadcn/ui sur Radix, Motion). Tous les textes sont dans `src/content/site.ts`. Les points en attente de validation sont listés dans `A_VALIDER.md`.
+> **État actuel (v3)** : animations d'arrivée (intro logo + rideau, titre mot par mot, entrées par les côtés), sections numérotées, nouvelle section « Trois univers de lots » (§5.1 D bis), bandeau 18s. **v2** : le site a été reconstruit selon ce document (Next.js 16 App Router, Tailwind v4, shadcn/ui sur Radix, Motion). Tous les textes sont dans `src/content/site.ts`. Les points en attente de validation sont listés dans `A_VALIDER.md`.
 
 ---
 
@@ -171,7 +171,7 @@ Règles images :
 **Bandeau défilant infini** (juste sous le hero) :
 - Barre pleine largeur, fond `rgba(10,17,32,0.55)`, bordures haut/bas `rgba(199,209,219,0.1)`, flou 10px, padding vertical 13px.
 - Mots (Cormorant italique 1.15rem, `silver-300`) séparés par un **✦ doré** : **Montres, Sacs de luxe, Trottinettes, MacBook, iPhone, Dior, Bijoux, Chanel, Rolex, Louis Vuitton** (liste dupliquée pour une boucle parfaite).
-- Animation : `translateX(0 → -50%)`, **32s, linear, infinite**. En `prefers-reduced-motion` : ralentir (≈90s) plutôt que couper.
+- Animation : `translateX(0 → -50%)`, **18s, linear, infinite** (accéléré à la demande de David en v3), bords fondus. En `prefers-reduced-motion` : ralentir (≈50s) plutôt que couper.
 
 **Footer** : logo (38px) + « GoldenChance » ; slogan en italique `slate-500` « Plus qu'un concours, une chance de rêve » ; pastilles Instagram + WhatsApp (38px) ; « © 2026 GoldenChance. Tous droits réservés. » ; bordure haute fine.
 
@@ -204,15 +204,24 @@ Plein écran (min 100vh), grille 2 colonnes (1.1fr / 0.9fr) dès 960px.
     - « Tirage au sort filmé en direct sur Instagram »
     - « Résultat déterminé sur une plateforme de roulette certifiée » — ⚠️ **À CONFIRMER** : David a dit « une vraie plateforme de roulette » ; le mot « certifiée » a été ajouté par l'assistant. Utiliser « une vraie plateforme de roulette » tant qu'il n'a pas confirmé la certification.
 
-#### D. Le concept (`#presentation`) — **sous l'exemple iPad**
-- Eyebrow : « Le concept »
-- **H2** : « Un tirage, deux semaines, trois univers de lots »
+#### D. Le concept (`#presentation`) — **sous l'exemple iPad** (refait en v3)
+- Eyebrow : « Le concept » ; **H2** : « Deux concours par mois, une chance tous les 15 jours »
 - Lead : « Chaque concours GoldenChance met en jeu des objets que l'on admire sans toujours pouvoir se les offrir. Notre promesse : les rendre atteignables, pour de vrai, à intervalles réguliers. »
-- **3 cartes** (panneaux verre) :
-  1. *Univers I* — **Sacs & maroquinerie** — « Sacs de créateurs et pièces de maroquinerie recherchées, celles qu'on garde toute une vie. »
-  2. *Univers II* — **Montres d'exception** — « Garde-temps suisses et éditions recherchées, du poignet au collector. »
-  3. *Univers III* — **Haute technologie & bijoux** — « Du dernier iPhone au MacBook, en passant par des bijoux précieux — la sélection change à chaque édition. »
-- **Bandeau cadence** (panneau verre, puce dorée lumineuse) : « *Un nouveau concours est lancé toutes les deux semaines, annoncé en avant-première sur notre Instagram et notre communauté WhatsApp.* »
+- 2 cartes chiffres (grand chiffre doré) : **2** « concours par mois » — « Deux éditions chaque mois, chacune avec son propre lot. » ; **15** « jours entre chaque tirage » — « Un tirage au sort tous les 15 jours, filmé en direct sur Instagram. »
+- Carte mise en avant (bordure dorée, point lumineux) : « Prochain concours » ; titre « *Disponible très prochainement* » ; texte « Un nouveau concours est lancé toutes les deux semaines, annoncé en avant-première sur notre Instagram et notre communauté WhatsApp. » ; bouton doré WhatsApp « Être prévenu en premier ».
+
+#### D bis. Trois univers de lots (`#univers`) — ajouté en v3
+- Eyebrow : « Les lots » ; **H2** : « Trois univers de lots » ; lead « Des objets que l'on admire, choisis pour chaque édition. »
+- 3 grandes cartes photo (ratio 3:4, texte sur dégradé sombre, zoom au survol) :
+  1. *Univers I* — **Sacs & maroquinerie** (photo sacs) — « Sacs de créateurs et pièces de maroquinerie recherchées, celles qu'on garde toute une vie. »
+  2. *Univers II* — **Montres d'exception** (photo montres) — « Garde-temps suisses et éditions recherchées, du poignet au collector. »
+  3. *Univers III* — **Haute technologie & bijoux** (photo tech) — « Du dernier iPhone au MacBook, en passant par des bijoux précieux — la sélection change à chaque édition. »
+- Lien « Les lots » ajouté au menu burger.
+
+### Animations v3 (en plus du §6)
+- Intro à la 1ʳᵉ visite de la session : rideau navy, logo doré + filet qui se dessine (~1,3 s), puis fondu.
+- Hero : titre mot par mot, « accessible » avec reflet doré animé, texte et boutons depuis la gauche, carte photo depuis la droite, indicateur « Découvrir ».
+- Titres de section mot par mot ; sections numérotées 01 à 05 ; blocs qui arrivent par les côtés ; zoom lent sur les photos des diaporamas ; reflet doré qui suit la souris sur les cartes ; brillance sur le bouton doré ; barre de progression dorée en haut ; léger grain.
 
 #### E. À propos (`#apropos`)
 Grille 2 colonnes : image `hero-watches.jpg` (rayon 28px, bordure fine) à gauche, texte à droite.

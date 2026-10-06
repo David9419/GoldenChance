@@ -5,9 +5,14 @@ import { images, links, site } from "@/content/site";
 import { siteUrl } from "@/lib/site-url";
 import { FrostBackground } from "@/components/site/FrostBackground";
 import { Footer } from "@/components/site/Footer";
-import { PageFade, PageTransitionProvider } from "@/components/site/PageTransition";
+import {
+  PageFade,
+  PageTransitionProvider,
+} from "@/components/site/PageTransition";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { MotionProvider } from "@/components/site/MotionProvider";
+import { Effects } from "@/components/site/Effects";
+import { Intro, introScript } from "@/components/site/Intro";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -37,7 +42,14 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
     url: "/",
-    images: [{ url: images.jewelry.src, width: 933, height: 1400, alt: images.jewelry.alt }],
+    images: [
+      {
+        url: images.jewelry.src,
+        width: 933,
+        height: 1400,
+        alt: images.jewelry.alt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -64,8 +76,13 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className={`${cormorant.variable} ${manrope.variable}`}>
+    <html
+      lang="fr"
+      className={`${cormorant.variable} ${manrope.variable}`}
+      suppressHydrationWarning
+    >
       <body>
+        <script dangerouslySetInnerHTML={{ __html: introScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -73,7 +90,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         <MotionProvider>
+          <Intro />
           <FrostBackground />
+          <Effects />
           <PageTransitionProvider>
             <SiteHeader />
             <PageFade>

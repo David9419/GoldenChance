@@ -108,6 +108,7 @@ export const navbarLinks: NavLink[] = [
 export const menuLinks: NavLink[] = [
   { label: "Accueil", href: "/" },
   { label: "Concours", href: "/#presentation" },
+  { label: "Les lots", href: "/#univers" },
   { label: "À propos", href: "/#apropos" },
   { label: "FAQ", href: "/#faq" },
   { label: "Gagnants", href: "/gagnants" },
@@ -169,27 +170,53 @@ export const exampleContest = {
 
 export const concept = {
   eyebrow: "Le concept",
-  title: "Un tirage, deux semaines, trois univers de lots",
-  lead: "Chaque concours GoldenChance met en jeu des objets que l'on admire sans toujours pouvoir se les offrir. Notre promesse : les rendre atteignables, pour de vrai, à intervalles réguliers.",
+  title: "Deux concours par mois, une chance tous les 15\u00a0jours",
+  lead: "Chaque concours GoldenChance met en jeu des objets que l'on admire sans toujours pouvoir se les offrir. Notre promesse\u00a0: les rendre atteignables, pour de vrai, à intervalles réguliers.",
+  /** Chiffres clés (faits réels uniquement). */
+  facts: [
+    {
+      value: "2",
+      label: "concours par mois",
+      text: "Deux éditions chaque mois, chacune avec son propre lot.",
+    },
+    {
+      value: "15",
+      label: "jours entre chaque tirage",
+      text: "Un tirage au sort tous les 15 jours, filmé en direct sur Instagram.",
+    },
+  ],
+  next: {
+    kicker: "Prochain concours",
+    title: "Disponible très prochainement",
+    text: "Un nouveau concours est lancé toutes les deux semaines, annoncé en avant-première sur notre Instagram et notre communauté WhatsApp.",
+    button: "Être prévenu en premier",
+  },
+};
+
+export const universes = {
+  eyebrow: "Les lots",
+  title: "Trois univers de lots",
+  lead: "Des objets que l'on admire, choisis pour chaque édition.",
   cards: [
     {
       kicker: "Univers I",
       title: "Sacs & maroquinerie",
       text: "Sacs de créateurs et pièces de maroquinerie recherchées, celles qu'on garde toute une vie.",
+      image: images.bags,
     },
     {
       kicker: "Univers II",
       title: "Montres d'exception",
       text: "Garde-temps suisses et éditions recherchées, du poignet au collector.",
+      image: images.watches,
     },
     {
       kicker: "Univers III",
       title: "Haute technologie & bijoux",
       text: "Du dernier iPhone au MacBook, en passant par des bijoux précieux — la sélection change à chaque édition.",
+      image: images.tech,
     },
   ],
-  cadence:
-    "Un nouveau concours est lancé toutes les deux semaines, annoncé en avant-première sur notre Instagram et notre communauté WhatsApp.",
 };
 
 export const about = {
