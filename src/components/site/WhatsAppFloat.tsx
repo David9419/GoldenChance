@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 
 import { floatingWhatsApp, images, links } from "@/content/site";
+import { useSiteReady } from "@/lib/site-ready";
 import { cn } from "@/lib/utils";
 
 type Corner = "top-left" | "top-right" | "bottom-left" | "bottom-right";
@@ -56,6 +57,7 @@ function subscribe(listener: () => void) {
 export function WhatsAppFloat() {
   const corner = React.useSyncExternalStore(subscribe, readCorner, () => "bottom-right" as Corner);
   const [dragging, setDragging] = React.useState(false);
+  const ready = useSiteReady();
   const moved = React.useRef(false);
 
   const snapTo = (x: number, y: number) => {
@@ -103,8 +105,8 @@ export function WhatsAppFloat() {
           moved.current = false;
         }}
         initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: 1, scale: dragging ? 1.1 : 1 }}
-        transition={{ type: "spring", stiffness: 380, damping: 30, opacity: { delay: 1.6 } }}
+        animate={{ opacity: ready ? 1 : 0, scale: !ready ? 0.6 : dragging ? 1.1 : 1 }}
+        transition={{ type: "spring", stiffness: 380, damping: 30, opacity: { delay: ready ? 1.1 : 0, duration: 0.6 } }}
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.95 }}
         className="group pointer-events-auto relative flex size-[54px] cursor-grab sm:size-[60px] touch-none select-none items-center justify-center rounded-full active:cursor-grabbing"

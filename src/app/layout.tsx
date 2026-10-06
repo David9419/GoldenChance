@@ -14,7 +14,7 @@ import { MotionProvider } from "@/components/site/MotionProvider";
 import { Effects } from "@/components/site/Effects";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
-import { Intro } from "@/components/site/Intro";
+import { SiteLoader } from "@/components/site/SiteLoader";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -84,6 +84,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body>
+        <noscript>
+          <style>{`.site-loader{display:none}html{overflow:auto!important}.word-mask>span,.enter-up,.enter-left,.enter-right,.nav-enter{opacity:1!important}`}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -91,7 +94,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         <MotionProvider>
-          <Intro />
+          <SiteLoader />
           <FrostBackground />
           <Effects />
           <SmoothScroll />

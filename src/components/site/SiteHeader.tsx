@@ -74,7 +74,7 @@ export function SiteHeader() {
       >
         <nav
           aria-label="Navigation principale"
-          className="flex h-[74px] items-center justify-between gap-4 rounded-full border border-[rgba(199,209,219,0.12)] bg-[rgba(14,22,38,0.32)] pl-4 pr-3 shadow-[0_8px_30px_rgba(0,0,0,0.2)] backdrop-blur-[14px] transition-[height,background-color,box-shadow,padding,border-color] duration-700 ease-lux group-data-[compact=true]/nav:h-[60px] group-data-[compact=true]/nav:border-[rgba(199,209,219,0.16)] group-data-[compact=true]/nav:bg-[rgba(14,22,38,0.7)] group-data-[compact=true]/nav:pl-3 group-data-[compact=true]/nav:pr-[9px] group-data-[compact=true]/nav:shadow-[0_10px_34px_rgba(0,0,0,0.45)]"
+          className="nav-enter flex h-[74px] items-center justify-between gap-4 rounded-full border border-[rgba(199,209,219,0.12)] bg-[rgba(14,22,38,0.32)] pl-4 pr-3 shadow-[0_8px_30px_rgba(0,0,0,0.2)] backdrop-blur-[14px] transition-[height,background-color,box-shadow,padding,border-color] duration-700 ease-lux group-data-[compact=true]/nav:h-[60px] group-data-[compact=true]/nav:border-[rgba(199,209,219,0.16)] group-data-[compact=true]/nav:bg-[rgba(14,22,38,0.7)] group-data-[compact=true]/nav:pl-3 group-data-[compact=true]/nav:pr-[9px] group-data-[compact=true]/nav:shadow-[0_10px_34px_rgba(0,0,0,0.45)]"
         >
           <SmartLink
             href="/"
