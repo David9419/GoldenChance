@@ -14,6 +14,24 @@ const EASE = [0.76, 0, 0.24, 1] as const;
 
 type Phase = "counting" | "leaving" | "done";
 
+/** Étincelles dorées : positions fixes (identiques serveur / navigateur). */
+const SPARKS: React.CSSProperties[] = Array.from({ length: 34 }, (_, i) => {
+  const r = (n: number) =>
+    (Math.sin(i * 12.9898 + n * 78.233) * 43758.5453) % 1;
+  const a = Math.abs(r(1));
+  const b = Math.abs(r(2));
+  const c = Math.abs(r(3));
+  const size = 1.5 + c * 2.5;
+  return {
+    left: `${(a * 100).toFixed(2)}%`,
+    top: `${(30 + b * 70).toFixed(2)}%`,
+    width: `${size.toFixed(1)}px`,
+    height: `${size.toFixed(1)}px`,
+    animationDuration: `${(5 + c * 6).toFixed(2)}s`,
+    animationDelay: `${(-a * 8).toFixed(2)}s`,
+  };
+});
+
 /** Montée régulière, qui ralentit juste avant 100 (comme un vrai chargement). */
 const progressCurve = (t: number) => 1 - Math.pow(1 - t, 1.7);
 
@@ -82,21 +100,42 @@ export function SiteLoader() {
     phase !== "done" && (
       <div
         aria-hidden
-        className="site-loader pointer-events-none fixed inset-0 z-[500]"
+        className="site-loader pointer-events-none fixed inset-0 z-[500] overflow-hidden"
       >
-        {/* Deux volets : ils s'écartent (haut / bas) pour révéler le site. */}
+        {/* Deux volets noirs : ils s'écartent (haut / bas) pour révéler le site. */}
         <motion.div
-          className="absolute inset-x-0 top-0 h-1/2 bg-navy-950"
+          className="absolute inset-x-0 top-0 h-[50.5%] bg-[#030306]"
           initial={false}
           animate={{ y: leaving ? "-100%" : "0%" }}
           transition={{ duration: 1.1, ease: EASE, delay: leaving ? 0.45 : 0 }}
         />
         <motion.div
-          className="absolute inset-x-0 bottom-0 h-1/2 bg-navy-950"
+          className="absolute inset-x-0 bottom-0 h-[50.5%] bg-[#030306]"
           initial={false}
           animate={{ y: leaving ? "100%" : "0%" }}
           transition={{ duration: 1.1, ease: EASE, delay: leaving ? 0.45 : 0 }}
         />
+
+        {/* Décor : lumière dorée, étincelles, vignette, grain (s'efface avant l'ouverture). */}
+        <motion.div
+          className="absolute inset-0"
+          initial={false}
+          animate={{ opacity: leaving ? 0 : 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <div className="loader-aurora absolute inset-0" />
+          <div className="absolute inset-0">
+            {SPARKS.map((spark, i) => (
+              <span
+                key={i}
+                className="loader-spark absolute rounded-full"
+                style={spark}
+              />
+            ))}
+          </div>
+          {/* Grain fin : lisse les dégradés sombres (pas de cercles visibles). */}
+          <div className="grain absolute inset-0 !opacity-[0.06] !mix-blend-normal" />
+        </motion.div>
 
         {/* Filet doré qui traverse l'écran juste avant l'ouverture. */}
         <motion.div
@@ -110,45 +149,49 @@ export function SiteLoader() {
           transition={{ duration: 1.1, times: [0, 0.45, 1], ease: "easeInOut" }}
         />
 
-        {/* Logo + pourcentage + barre. */}
-        <motion.div
-          className="absolute inset-0 flex flex-col items-center justify-center"
-          initial={{ opacity: 0, scale: 0.94, filter: "blur(10px)" }}
-          animate={
-            leaving
-              ? { opacity: 0, scale: 1.06, y: -24, filter: "blur(12px)" }
-              : { opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }
-          }
-          transition={{
-            duration: leaving ? 0.5 : 0.9,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-        >
-          <div className="relative">
-            <div className="absolute inset-0 -z-10 scale-150 rounded-full bg-[radial-gradient(circle,rgba(201,162,91,0.22),transparent_65%)] blur-2xl" />
-            <Logo size={148} priority decorative />
-          </div>
+        {/* Logo + anneau doré + pourcentage + barre (centrés, sans filtre plein écran). */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.92, y: 12 }}
+            animate={
+              leaving
+                ? { opacity: 0, scale: 1.08, y: -28 }
+                : { opacity: 1, scale: 1, y: 0 }
+            }
+            transition={{
+              duration: leaving ? 0.5 : 1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            <div className="relative flex size-[230px] items-center justify-center">
+              {/* Anneau fin + reflet doré qui tourne autour du logo. */}
+              <span className="absolute inset-0 rounded-full border border-[rgba(224,192,127,0.14)]" />
+              <span className="loader-ring absolute inset-0 rounded-full" />
+              <Logo size={148} priority decorative />
+            </div>
 
-          <div className="mt-8 flex items-start font-serif leading-none">
-            <span className="loader-digits bg-[linear-gradient(170deg,#f6e2b3,#e0c07f_45%,#a8823f)] bg-clip-text text-[clamp(3.6rem,9vw,5.4rem)] font-medium text-transparent">
-              {progress}
-            </span>
-            <span className="ml-1.5 mt-2 text-[clamp(1.2rem,2.6vw,1.6rem)] italic text-gold-300">
-              %
-            </span>
-          </div>
+            <div className="mt-6 flex items-start font-serif leading-none">
+              <span className="loader-digits bg-[linear-gradient(170deg,#f6e2b3,#e0c07f_45%,#a8823f)] bg-clip-text text-[clamp(3.6rem,9vw,5.4rem)] font-medium text-transparent">
+                {progress}
+              </span>
+              <span className="ml-1.5 mt-2 text-[clamp(1.2rem,2.6vw,1.6rem)] italic text-gold-300">
+                %
+              </span>
+            </div>
 
-          <div className="mt-6 h-px w-[min(260px,62vw)] overflow-hidden bg-[rgba(199,209,219,0.14)]">
-            <div
-              className="h-full origin-left bg-[linear-gradient(90deg,#a8823f,#e0c07f,#f6e2b3)] shadow-[0_0_10px_rgba(224,192,127,0.6)]"
-              style={{ transform: `scaleX(${progress / 100})` }}
-            />
-          </div>
+            <div className="mt-6 h-px w-[min(260px,62vw)] overflow-hidden bg-[rgba(224,192,127,0.12)]">
+              <div
+                className="h-full origin-left bg-[linear-gradient(90deg,#a8823f,#e0c07f,#f6e2b3)] shadow-[0_0_10px_rgba(224,192,127,0.6)]"
+                style={{ transform: `scaleX(${progress / 100})` }}
+              />
+            </div>
 
-          <p className="mt-6 text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-slate-500">
-            {site.slogan}
-          </p>
-        </motion.div>
+            <p className="mt-6 px-6 text-center text-[0.6rem] font-semibold uppercase tracking-[0.2em] sm:text-[0.66rem] sm:tracking-[0.34em] text-[#8a7a5c]">
+              {site.slogan}
+            </p>
+          </motion.div>
+        </div>
       </div>
     )
   );
