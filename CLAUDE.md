@@ -220,6 +220,7 @@ Plein écran (min 100vh), grille 2 colonnes (1.1fr / 0.9fr) dès 960px.
 - Lien « Les lots » ajouté au menu burger.
 
 ### Animations v3 (en plus du §6)
+- (v6.1) Fond de l'écran de chargement : noir profond `#030306`, lumière dorée douce (`.loader-aurora`, dégradé sans `blur`), anneau fin avec reflet doré tournant (`.loader-ring`), étincelles dorées montantes (`.loader-spark`), grain fin en mélange normal pour lisser les dégradés. **Jamais de `filter` ni de grosse ombre interne sur un calque plein écran** (bandes et formes visibles).
 - (v6) Remplacée par l'écran de chargement `SiteLoader` : compteur ~2,3 s (attend aussi le chargement réel de la page, max 6 s), ouverture ~1,1 s. Les entrées du hero sont en CSS sous `html[data-ready]` (jamais de délai fixe : c'était la cause de l'animation « coupée »). Défilement bloqué pendant le chargement.
 - Hero : titre mot par mot, « accessible » avec reflet doré animé, texte et boutons depuis la gauche, carte photo depuis la droite, indicateur « Découvrir ».
 - **v4** : navbar large (74px, `min(1080px,94vw)`, logo 52px) en haut de page, compacte (60px, `min(760px,92vw)`) dès 40px de scroll ; défilement fluide Lenis (`src/components/site/SmoothScroll.tsx`) ; clic vers une section = défilement animé (easeInOutQuart) ; changement de page = rideau navy avec logo (`PageTransition.tsx`) ; chiffres 2 et 15 qui défilent 1, 2, 3… (`CountUp`) ; bouton WhatsApp flottant déplaçable par glisser vers l'un des 4 coins, coin mémorisé (`WhatsAppFloat.tsx`).

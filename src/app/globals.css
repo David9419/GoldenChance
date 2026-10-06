@@ -363,3 +363,44 @@ html[data-ready] .nav-enter {
 .loader-digits {
   font-variant-numeric: lining-nums tabular-nums;
 }
+
+/* Écran de chargement : lumière dorée douce (dégradés lissés, sans flou → pas d'anneaux). */
+.loader-aurora {
+  background:
+    radial-gradient(circle at 50% 44%, rgba(224, 192, 127, 0.16) 0%, rgba(201, 162, 91, 0.1) 14%, rgba(201, 162, 91, 0.05) 28%, rgba(201, 162, 91, 0.015) 45%, transparent 62%),
+    #030306;
+  animation: aurora-breathe 4.5s ease-in-out infinite alternate;
+}
+@keyframes aurora-breathe {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+/* Étincelles dorées qui montent doucement en scintillant. */
+.loader-spark {
+  background: radial-gradient(circle, #f6e2b3 0%, #e0c07f 45%, transparent 75%);
+  box-shadow: 0 0 6px rgba(224, 192, 127, 0.8);
+  opacity: 0;
+  animation-name: spark-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes spark-rise {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.9; }
+  50% { opacity: 0.35; }
+  75% { opacity: 0.8; }
+  100% { transform: translateY(-180px); opacity: 0; }
+}
+
+/* Reflet doré qui tourne sur l'anneau autour du logo. */
+.loader-ring {
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(246, 226, 179, 0.95) 40deg, rgba(201, 162, 91, 0.4) 80deg, transparent 140deg, transparent 360deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 calc(100% - 1px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 calc(100% - 1px));
+  animation: ring-spin 2.4s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(224, 192, 127, 0.6));
+}
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
