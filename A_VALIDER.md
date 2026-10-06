@@ -4,7 +4,7 @@
 
 - [ ] **« Plateforme de roulette »** : le site dit « Résultat déterminé sur une vraie plateforme de roulette ». Si la plateforme est réellement certifiée, on peut écrire « certifiée » ; sinon, on garde la phrase actuelle.
 - [ ] **Photo et nom du gagnant (Lévi Siboni)** : il faut son accord écrit pour publier sa photo et son nom (droit à l'image / RGPD).
-- [ ] **Nom de domaine** : une fois choisi, ajoutez-le dans Vercel (voir la procédure de déploiement) et la variable `NEXT_PUBLIC_SITE_URL`.
+- [x] **Nom de domaine** : golden-chance.website (acheté, relié à Vercel — DNS à configurer chez Amen).
 - [ ] **Juridique (important)** : un tirage au sort avec ticket payant (10 €) est en principe encadré, voire interdit, en France (loteries prohibées sauf exceptions). À vérifier avec un avocat ou l'ANJ avant de vendre des tickets. Prévoir aussi : mentions légales, règlement du concours, politique de confidentialité, âge minimum (18 ans).
 
 ## 2. FAQ — proposition de nouvelle version (non publiée)
