@@ -29,10 +29,9 @@ export const links = {
   /** URL « propre » utilisée pour les données structurées (SEO). */
   instagramProfile: "https://www.instagram.com/goldenchanceconcours",
   whatsapp: "https://chat.whatsapp.com/CWlBcodgLiS9rhHWEuLBWD",
-  phones: [
-    { label: "07 44 98 17 75", href: "tel:0744981775" },
-    { label: "07 49 94 20 81", href: "tel:0749942081" },
-  ],
+  phones: [{ label: "07 49 94 20 81", href: "tel:0749942081" }],
+  /** WhatsApp direct de David (format international, sans le 0 ni espaces). */
+  whatsappDirect: "33749942081",
 } as const;
 
 /* -------------------------------------------------------------------------- */
@@ -99,7 +98,7 @@ export type NavLink = { label: string; href: string };
 /** Liens au centre de la navbar (écrans ≥ 900px). */
 export const navbarLinks: NavLink[] = [
   { label: "Accueil", href: "/" },
-  { label: "Concours", href: "/#presentation" },
+  { label: "Concours", href: "/#concours" },
   { label: "Gagnants", href: "/gagnants" },
   { label: "Contact", href: "/contact" },
 ];
@@ -107,7 +106,7 @@ export const navbarLinks: NavLink[] = [
 /** Liens du menu burger plein écran. */
 export const menuLinks: NavLink[] = [
   { label: "Accueil", href: "/" },
-  { label: "Concours", href: "/#presentation" },
+  { label: "Concours", href: "/#concours" },
   { label: "Les lots", href: "/#univers" },
   { label: "À propos", href: "/#apropos" },
   { label: "FAQ", href: "/#faq" },
@@ -144,34 +143,49 @@ export const hero = {
   text: "GoldenChance organise un concours toutes les deux semaines pour offrir sacs de créateurs, montres d'exception et bijoux précieux à celles et ceux qui n'auraient jamais pensé pouvoir les porter un jour.",
   primaryCta: "Rejoindre la communauté",
   secondaryCta: "Découvrir les concours",
-  secondaryHref: "/#presentation",
+  secondaryHref: "/#concours",
   badgeTitle: "Concours en cours",
   badgeText: "Un nouveau lot toutes les deux semaines",
 };
 
-export const exampleContest = {
-  eyebrow: "Exemple de concours",
-  title: "Comment se déroule un tirage",
-  lead: "Chaque édition suit le même principe : un lot annoncé, un nombre de tickets limité, et un tirage réalisé en direct sur Instagram.",
-  status: "Concours terminé",
-  name: "iPad 11 — Gris (2025)",
-  prize: "Tirage au sort effectué",
+/**
+ * Concours en cours. Pour lancer un nouveau concours : changez les textes,
+ * la date, le message WhatsApp et les photos ci-dessous.
+ */
+export const currentContest = {
+  eyebrow: "Nouveau concours",
+  title: "Le concours Essentials est lancé",
+  lead: "Un lot pensé pour le quotidien, avec style\u00a0: deux ensembles Essentials au choix et une paire de On.",
+  /** Date de début (AAAA-MM-JJ) : avant ce jour, le badge affiche « Début … ». */
+  startDate: "2026-10-15",
+  startLabel: "Début jeudi 15 octobre",
+  liveLabel: "Concours en cours",
+  name: "2 ensembles Essentials au choix + une paire de On",
+  prize: "Choisissez vos coloris parmi les ensembles proposés",
   /** `strong` est affiché en gras après `label`. */
   details: [
-    { label: "Lot : ", strong: "iPad 11, coloris gris, modèle 2025" },
-    { label: "Prix du ticket : ", strong: "10 €" },
+    { label: "Lot : ", strong: "2 ensembles Essentials au choix + 1 paire de On" },
+    { label: "Prix du ticket : ", strong: "10 €" },
     { label: "Tickets limités" },
+    { label: "Début du concours : ", strong: "jeudi 15 octobre 2026" },
     { label: "Tirage au sort filmé en direct sur Instagram" },
-    // À CONFIRMER : David a dit « une vraie plateforme de roulette ».
-    // Le mot « certifiée » ne doit être ajouté que si la certification est confirmée.
-    { label: "Résultat déterminé sur une vraie plateforme de roulette" },
   ] as { label: string; strong?: string }[],
-  slides: [
-    { src: "/images/ipad-face.png", alt: "iPad 11 argent vu de face, écran allumé" },
-    { src: "/images/ipad-coins.png", alt: "Gros plan des appareils photo de l'iPad 11 en quatre coloris" },
-    { src: "/images/ipad-dos.png", alt: "iPad 11 argent vu de dos" },
-  ] satisfies SiteImage[],
+  button: "Participer",
+  /** Message pré-rempli envoyé sur WhatsApp quand on clique sur « Participer ». */
+  whatsappMessage: "Bonjour, je veux prendre un ticket pour le concours des ensembles Essentials",
+  /** Coloris au choix (photos dans public/images/). */
+  choices: [
+    { label: "Noir", src: "/images/essentials-noir.jpg", alt: "Ensemble Essentials noir : sweat à capuche et jogging" },
+    { label: "Gris chiné", src: "/images/essentials-gris.jpg", alt: "Ensemble Essentials gris chiné : sweat à capuche et jogging" },
+    { label: "Gris clair", src: "/images/essentials-gris-clair.jpg", alt: "Ensemble Essentials gris clair : sweat à capuche et jogging" },
+    { label: "Marron", src: "/images/essentials-marron.jpg", alt: "Ensemble Essentials marron : sweat à capuche et jogging" },
+    { label: "Noir 1977", src: "/images/essentials-noir-1977.jpg", alt: "Ensemble Essentials noir 1977 : sweat à capuche et jogging" },
+  ],
+  // TODO : ajouter la photo de la paire de On dès que David l'envoie.
 };
+
+/** Lien WhatsApp direct avec message pré-rempli (bouton « Participer »). */
+export const participateHref = `https://wa.me/${links.whatsappDirect}?text=${encodeURIComponent(currentContest.whatsappMessage)}`;
 
 export const concept = {
   eyebrow: "Le concept",
@@ -191,10 +205,10 @@ export const concept = {
     },
   ],
   next: {
-    kicker: "Prochain concours",
-    title: "Disponible très prochainement",
-    text: "Un nouveau concours est lancé toutes les deux semaines, annoncé en avant-première sur notre Instagram et notre communauté WhatsApp.",
-    button: "Être prévenu en premier",
+    kicker: "Concours actuel",
+    title: "Ensembles Essentials + On",
+    text: "Deux ensembles Essentials au choix et une paire de On. Ticket à 10\u00a0€, tickets limités. Début jeudi 15 octobre.",
+    button: "Participer",
   },
 };
 
