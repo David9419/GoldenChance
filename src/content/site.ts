@@ -157,9 +157,18 @@ export const currentContest = {
   title: "Le concours Essentials est lancé",
   lead: "Un lot pensé pour le quotidien, avec style\u00a0: deux ensembles Essentials au choix et une paire de On au choix.",
   /** Date de début (AAAA-MM-JJ) : avant ce jour, le badge affiche « Début … ». */
-  startDate: "2026-10-15",
+  /**
+   * Début et fin du concours (heure de Paris). Le compte à rebours de 15 jours
+   * démarre tout seul à `startAt` et s'arrête à `endAt`.
+   */
+  startAt: "2026-10-15T00:00:00+02:00",
+  endAt: "2026-10-29T23:00:00+01:00",
   startLabel: "Début jeudi 15 octobre",
   liveLabel: "Concours en cours",
+  endedLabel: "Concours terminé",
+  countdownLabel: "Fin du concours dans",
+  upcomingNote: "Le compte à rebours de 15 jours démarre jeudi 15 octobre, à l'ouverture du concours.",
+  endedNote: "Les participations sont closes. La vidéo du tirage sera publiée sur Instagram et WhatsApp.",
   name: "2 ensembles Essentials au choix + une paire de On au choix",
   prize: "Choisissez vos coloris d'ensembles et votre modèle de On",
   /** Précision affichée sous la galerie : les photos ne sont que des exemples. */
@@ -171,6 +180,7 @@ export const currentContest = {
     { label: "Prix du ticket : ", strong: "10 €" },
     { label: "Tickets limités : ", strong: "50 tickets maximum" },
     { label: "Début du concours : ", strong: "jeudi 15 octobre 2026" },
+    { label: "Durée : ", strong: "15 jours, jusqu'au jeudi 29 octobre à 23 h" },
     { label: "Tirage au sort filmé en vidéo, publiée sur Instagram et WhatsApp" },
   ] as { label: string; strong?: string }[],
   button: "Participer",
