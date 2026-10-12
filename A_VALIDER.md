@@ -2,7 +2,6 @@
 
 ## 1. Points à confirmer
 
-- [ ] **Photo de la paire de On** (concours Essentials) : à envoyer pour l'ajouter à la galerie.
 - [ ] **Photo et nom du gagnant (Lévi Siboni)** : il faut son accord écrit pour publier sa photo et son nom (droit à l'image / RGPD).
 - [x] **Nom de domaine** : golden-chance.website (acheté, relié à Vercel — DNS à configurer chez Amen).
 - [ ] **Juridique (important)** : un tirage au sort avec ticket payant (10 €) est en principe encadré, voire interdit, en France (loteries prohibées sauf exceptions). À vérifier avec un avocat ou l'ANJ avant de vendre des tickets. Prévoir aussi : mentions légales, règlement du concours, politique de confidentialité, âge minimum (18 ans).

@@ -155,16 +155,16 @@ export const hero = {
 export const currentContest = {
   eyebrow: "Nouveau concours",
   title: "Le concours Essentials est lancé",
-  lead: "Un lot pensé pour le quotidien, avec style\u00a0: deux ensembles Essentials au choix et une paire de On.",
+  lead: "Un lot pensé pour le quotidien, avec style\u00a0: deux ensembles Essentials au choix et une paire de On au choix.",
   /** Date de début (AAAA-MM-JJ) : avant ce jour, le badge affiche « Début … ». */
   startDate: "2026-10-15",
   startLabel: "Début jeudi 15 octobre",
   liveLabel: "Concours en cours",
-  name: "2 ensembles Essentials au choix + une paire de On",
-  prize: "Choisissez vos coloris parmi les ensembles proposés",
+  name: "2 ensembles Essentials au choix + une paire de On au choix",
+  prize: "Choisissez vos coloris d'ensembles et votre modèle de On",
   /** `strong` est affiché en gras après `label`. */
   details: [
-    { label: "Lot : ", strong: "2 ensembles Essentials au choix + 1 paire de On" },
+    { label: "Lot : ", strong: "2 ensembles Essentials au choix + 1 paire de On au choix" },
     { label: "Prix du ticket : ", strong: "10 €" },
     { label: "Tickets limités" },
     { label: "Début du concours : ", strong: "jeudi 15 octobre 2026" },
@@ -181,7 +181,14 @@ export const currentContest = {
     { label: "Marron", src: "/images/essentials-marron.jpg", alt: "Ensemble Essentials marron : sweat à capuche et jogging" },
     { label: "Noir 1977", src: "/images/essentials-noir-1977.jpg", alt: "Ensemble Essentials noir 1977 : sweat à capuche et jogging" },
   ],
-  // TODO : ajouter la photo de la paire de On dès que David l'envoie.
+  /** Modèles de On au choix (photos dans public/images/). */
+  shoeChoices: [
+    { label: "Noir et blanc", src: "/images/on-noir-blanc.jpg", alt: "Chaussure On noir et blanc, vue de profil" },
+    { label: "Gris et blanc", src: "/images/on-gris-blanc.jpg", alt: "Chaussure On gris et blanc à lacets noirs, vue de profil" },
+    { label: "Tout blanc", src: "/images/on-blanc.jpg", alt: "Chaussure On entièrement blanche, vue de profil" },
+    { label: "Blanc et bleu-vert", src: "/images/on-blanc-bleu.jpg", alt: "Chaussure On blanche et bleu-vert, vue de profil" },
+    { label: "Crème et marron", src: "/images/on-creme-marron.jpg", alt: "Chaussure On crème et marron, vue de profil" },
+  ],
 };
 
 /** Lien WhatsApp direct avec message pré-rempli (bouton « Participer »). */
@@ -207,7 +214,7 @@ export const concept = {
   next: {
     kicker: "Concours actuel",
     title: "Ensembles Essentials + On",
-    text: "Deux ensembles Essentials au choix et une paire de On. Ticket à 10\u00a0€, tickets limités. Début jeudi 15 octobre.",
+    text: "Deux ensembles Essentials au choix et une paire de On au choix. Ticket à 10\u00a0€, tickets limités. Début jeudi 15 octobre.",
     button: "Participer",
   },
 };
