@@ -1,9 +1,12 @@
 import { currentContest, links, participateHref } from "@/content/site";
-import { ContestStatus } from "@/components/site/ContestStatus";
+import {
+  ContestCountdown,
+  ContestStatus,
+  ParticipateButton,
+} from "@/components/site/ContestClock";
 import { TabbedGallery } from "@/components/site/ProductGallery";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { WhatsAppIcon } from "@/components/site/Social";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -41,9 +44,11 @@ export function CurrentContest() {
             </Reveal>
             <Reveal from="right" delay={0.1}>
               <ContestStatus
-                startDate={c.startDate}
+                startAt={c.startAt}
+                endAt={c.endAt}
                 startLabel={c.startLabel}
                 liveLabel={c.liveLabel}
+                endedLabel={c.endedLabel}
               />
               <h3 className="mt-5 text-[clamp(1.9rem,3.4vw,2.6rem)]">
                 {c.name}
@@ -69,17 +74,20 @@ export function CurrentContest() {
                   </Reveal>
                 ))}
               </ul>
+              <ContestCountdown
+                startAt={c.startAt}
+                endAt={c.endAt}
+                countdownLabel={c.countdownLabel}
+                upcomingNote={c.upcomingNote}
+                endedNote={c.endedNote}
+              />
               <div className="mt-9 flex flex-col items-stretch gap-3.5 sm:flex-row sm:items-center">
-                <Button asChild variant="gold">
-                  <a
-                    href={participateHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <WhatsAppIcon size={22} />
-                    {c.button}
-                  </a>
-                </Button>
+                <ParticipateButton
+                  href={participateHref}
+                  label={c.button}
+                  startAt={c.startAt}
+                  endAt={c.endAt}
+                />
                 <Button asChild variant="ghost">
                   <a
                     href={links.whatsapp}
