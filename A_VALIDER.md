@@ -8,7 +8,7 @@
 
 ## 2. FAQ — proposition de nouvelle version (non publiée)
 
-La FAQ actuellement en ligne reprend les textes génériques d'origine. Voici une proposition cohérente avec ce que vous avez précisé (ticket à 10 €, tickets limités, tirage filmé en direct sur Instagram).
+La FAQ actuellement en ligne reprend les textes génériques d'origine. Voici une proposition cohérente avec ce que vous avez précisé (ticket à 10 €, tickets limités, tirage filmé en vidéo, publiée sur Instagram et WhatsApp).
 Les passages entre **[crochets]** sont des informations que je ne connais pas : à compléter par vous, rien n'a été inventé.
 
 **Combien coûte un ticket ?**
@@ -18,7 +18,7 @@ Le ticket coûte 10 €. Le nombre de tickets est limité pour chaque concours. 
 Chaque concours est annoncé sur notre Instagram @goldenchanceconcours et dans notre communauté WhatsApp. [Comment acheter un ticket aujourd'hui : message privé, lien de paiement… ?]
 
 **Comment se déroule le tirage ?**
-Le tirage au sort est filmé en direct sur notre Instagram, sur une vraie plateforme de roulette. Chacun peut suivre le résultat en temps réel.
+Le tirage au sort est filmé en vidéo, puis la vidéo est publiée sur notre Instagram et notre communauté WhatsApp.
 
 **Que se passe-t-il si tous les tickets ne sont pas vendus ?**
 [À définir : tirage maintenu, reporté, ou remboursement ?]

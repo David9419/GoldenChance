@@ -17,7 +17,7 @@ export const site = {
   slogan: "Plus qu'un concours, une chance de rêve",
   title: "GoldenChance — Plus qu'un concours, une chance de rêve",
   description:
-    "GoldenChance organise un concours toutes les deux semaines pour faire gagner sacs de créateurs, montres d'exception, bijoux précieux et produits high-tech. Tirage au sort filmé en direct sur Instagram.",
+    "GoldenChance organise un concours toutes les deux semaines pour faire gagner sacs de créateurs, montres d'exception, bijoux précieux et produits high-tech. Tirage au sort filmé en vidéo et publié sur Instagram et WhatsApp.",
   foundedLabel: "Fondé en juillet 2026",
   copyright: "© 2026 GoldenChance. Tous droits réservés.",
 } as const;
@@ -166,13 +166,13 @@ export const currentContest = {
   details: [
     { label: "Lot : ", strong: "2 ensembles Essentials au choix + 1 paire de On au choix" },
     { label: "Prix du ticket : ", strong: "10 €" },
-    { label: "Tickets limités" },
+    { label: "Tickets limités : ", strong: "50 tickets maximum" },
     { label: "Début du concours : ", strong: "jeudi 15 octobre 2026" },
-    { label: "Tirage au sort filmé en direct sur Instagram" },
+    { label: "Tirage au sort filmé en vidéo, publiée sur Instagram et WhatsApp" },
   ] as { label: string; strong?: string }[],
   button: "Participer",
   /** Message pré-rempli envoyé sur WhatsApp quand on clique sur « Participer ». */
-  whatsappMessage: "Bonjour, je veux prendre un ticket pour le concours des ensembles Essentials",
+  whatsappMessage: "Bonjour, je voudrais un ticket pour les ensembles Essentials et la paire de On",
   /** Coloris au choix (photos dans public/images/). */
   choices: [
     { label: "Noir", src: "/images/essentials-noir.jpg", alt: "Ensemble Essentials noir : sweat à capuche et jogging" },
@@ -208,13 +208,13 @@ export const concept = {
     {
       value: 15,
       label: "jours entre chaque tirage",
-      text: "Un tirage au sort tous les 15 jours, filmé en direct sur Instagram.",
+      text: "Un tirage au sort tous les 15 jours, filmé en vidéo et publié sur Instagram et WhatsApp.",
     },
   ],
   next: {
     kicker: "Concours actuel",
     title: "Ensembles Essentials + On",
-    text: "Deux ensembles Essentials au choix et une paire de On au choix. Ticket à 10\u00a0€, tickets limités. Début jeudi 15 octobre.",
+    text: "Deux ensembles Essentials au choix et une paire de On au choix. Ticket à 10\u00a0€, 50 tickets maximum. Début jeudi 15 octobre.",
     button: "Participer",
   },
 };
@@ -258,7 +258,7 @@ export const faq = {
   eyebrow: "Questions fréquentes",
   title: "Ce qu'il faut savoir avant de participer",
   // À CONFIRMER / À METTRE À JOUR : réponses génériques à faire valider par David
-  // (ticket à 10 €, tickets limités, tirage filmé en direct). Voir A_VALIDER.md.
+  // (ticket à 10 €, tickets limités, tirage filmé en vidéo et publié sur Instagram et WhatsApp). Voir A_VALIDER.md.
   items: [
     {
       question: "Comment participer à un concours GoldenChance ?",
@@ -268,7 +268,7 @@ export const faq = {
     {
       question: "Comment le gagnant est-il désigné ?",
       answer:
-        "Le tirage se fait au hasard parmi les participants ayant respecté les conditions du concours en cours. Le résultat est annoncé en direct et publié sur notre page Gagnants ainsi que sur Instagram.",
+        "Le tirage se fait au hasard parmi les participants ayant respecté les conditions du concours en cours. Le tirage est filmé en vidéo, puis publié sur Instagram, sur notre communauté WhatsApp et sur notre page Gagnants.",
     },
     {
       question: "Les lots sont-ils authentiques ?",
@@ -362,7 +362,7 @@ export const contactPage = {
   lead: "Retrouvez tous nos canaux pour nous joindre, suivre les concours et rejoindre la communauté GoldenChance.",
   final: {
     title: "Rejoignez notre communauté",
-    text: "Recevez les annonces de concours en priorité, échangez avec les autres membres et suivez chaque tirage en direct.",
+    text: "Recevez les annonces de concours en priorité, échangez avec les autres membres et retrouvez la vidéo de chaque tirage.",
     button: "Rejoignez notre communauté",
   },
 };
