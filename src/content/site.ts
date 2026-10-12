@@ -162,6 +162,9 @@ export const currentContest = {
   liveLabel: "Concours en cours",
   name: "2 ensembles Essentials au choix + une paire de On au choix",
   prize: "Choisissez vos coloris d'ensembles et votre modèle de On",
+  /** Précision affichée sous la galerie : les photos ne sont que des exemples. */
+  galleryNote:
+    "Ces photos ne sont que quelques exemples\u00a0: bien d'autres coloris d'ensembles Essentials et modèles de On sont disponibles au choix.",
   /** `strong` est affiché en gras après `label`. */
   details: [
     { label: "Lot : ", strong: "2 ensembles Essentials au choix + 1 paire de On au choix" },

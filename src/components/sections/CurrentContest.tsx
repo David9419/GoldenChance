@@ -32,6 +32,12 @@ export function CurrentContest() {
                   { title: "Chaussures On", choices: c.shoeChoices },
                 ]}
               />
+              <p className="mt-4 flex gap-2.5 text-[0.9rem] leading-relaxed text-silver-300">
+                <span aria-hidden className="text-gold-400">
+                  ✦
+                </span>
+                <span>{c.galleryNote}</span>
+              </p>
             </Reveal>
             <Reveal from="right" delay={0.1}>
               <ContestStatus
