@@ -78,7 +78,7 @@ export function ProductGallery({
           );
         })}
         <span className="absolute left-4 top-4 z-30 rounded-full bg-[rgba(5,8,16,0.82)] px-3.5 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-300 backdrop-blur-md">
-          Au choix
+          Quelques exemples
         </span>
         <span
           aria-live="polite"
