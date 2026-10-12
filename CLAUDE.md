@@ -3,7 +3,7 @@
 > Ce fichier décrit **tout** le site GoldenChance (structure, textes exacts, images, couleurs, typographies, animations, comportements). Il sert de cahier des charges pour **reconstruire le site de zéro, proprement, avec Claude Code**, puis le déployer sur Vercel via GitHub.
 > Le propriétaire (David) communique en français, donne des briefs détaillés et attend une exécution autonome, complète et professionnelle (pas de version minimaliste). Il a un œil très exigeant sur la qualité visuelle : rien ne doit paraître amateur. Il ne sait pas coder : explique les étapes manuelles qu'il doit faire (GitHub, Vercel, variables d'environnement) en français, simplement, pas à pas.
 
-> **État actuel (v6)** : écran de chargement à chaque arrivée (`SiteLoader.tsx`) : logo + pourcentage 0 → 100 (chiffres dorés) + barre dorée, puis filet doré et ouverture en deux volets ; l'accueil (navbar, titre, texte, photo) ne s'anime qu'à ce moment-là via `data-ready` sur `<html>` (`src/lib/site-ready.ts`). **v5** : animations **toujours actives**, même si l'appareil a « Réduire les animations » (demande explicite de David : sur son téléphone, tout était instantané) ; intro logo à **chaque** visite ; textes et images qui apparaissent en sortant du flou (fondu, gauche, droite, zoom) ; liens du menu : le menu se referme puis défilement animé. **v4** : navbar grande en haut puis compacte au scroll, défilement fluide Lenis + défilement animé vers les sections, rideau entre les pages, chiffres qui défilent, bouton WhatsApp flottant déplaçable (4 coins), diaporamas sans effet « double image », bandeau 11s, nouvelles photos. **v3** : animations d'arrivée (intro logo + rideau, titre mot par mot, entrées par les côtés), sections numérotées, nouvelle section « Trois univers de lots » (§5.1 D bis), bandeau 18s. **v2** : le site a été reconstruit selon ce document (Next.js 16 App Router, Tailwind v4, shadcn/ui sur Radix, Motion). Tous les textes sont dans `src/content/site.ts`. Les points en attente de validation sont listés dans `A_VALIDER.md`.
+> **État actuel (v7, oct. 2026)** : section iPad supprimée ; nouvelle section « Concours en cours » (`#concours`, `CurrentContest.tsx`, données `currentContest` dans `site.ts`) : 2 ensembles Essentials au choix + une paire de On, ticket 10 €, début jeudi 15 octobre 2026, bouton « Participer » → WhatsApp direct 07 49 94 20 81 avec message pré-rempli. **Un seul numéro de téléphone** désormais (07 49 94 20 81). Domaine en ligne : www.golden-chance.website. **v6** : écran de chargement à chaque arrivée (`SiteLoader.tsx`) : logo + pourcentage 0 → 100 (chiffres dorés) + barre dorée, puis filet doré et ouverture en deux volets ; l'accueil (navbar, titre, texte, photo) ne s'anime qu'à ce moment-là via `data-ready` sur `<html>` (`src/lib/site-ready.ts`). **v5** : animations **toujours actives**, même si l'appareil a « Réduire les animations » (demande explicite de David : sur son téléphone, tout était instantané) ; intro logo à **chaque** visite ; textes et images qui apparaissent en sortant du flou (fondu, gauche, droite, zoom) ; liens du menu : le menu se referme puis défilement animé. **v4** : navbar grande en haut puis compacte au scroll, défilement fluide Lenis + défilement animé vers les sections, rideau entre les pages, chiffres qui défilent, bouton WhatsApp flottant déplaçable (4 coins), diaporamas sans effet « double image », bandeau 11s, nouvelles photos. **v3** : animations d'arrivée (intro logo + rideau, titre mot par mot, entrées par les côtés), sections numérotées, nouvelle section « Trois univers de lots » (§5.1 D bis), bandeau 18s. **v2** : le site a été reconstruit selon ce document (Next.js 16 App Router, Tailwind v4, shadcn/ui sur Radix, Motion). Tous les textes sont dans `src/content/site.ts`. Les points en attente de validation sont listés dans `A_VALIDER.md`.
 
 ---
 
@@ -41,8 +41,7 @@
 | Instagram (compte) | `@goldenchanceconcours` |
 | Instagram (URL) | `https://www.instagram.com/goldenchanceconcours?stkn=MXc5cGU3Zmwyd3k0dA%3D%3D&utm_source=qr` |
 | Communauté WhatsApp (URL) | `https://chat.whatsapp.com/CWlBcodgLiS9rhHWEuLBWD` |
-| Téléphone 1 | `07 44 98 17 75` → `tel:0744981775` |
-| Téléphone 2 | `07 49 94 20 81` → `tel:0749942081` |
+| Téléphone (seul numéro) | `07 49 94 20 81` → `tel:0749942081` ; WhatsApp direct `https://wa.me/33749942081` |
 
 ---
 
@@ -136,9 +135,7 @@ Tous à placer dans `public/images/` (David possède les fichiers originaux ; si
 | `favicon.png` | **Uniquement le médaillon circulaire « GC »** (sans le texte), recadré carré, fond transparent, 512×512 | Favicon + apple-touch-icon |
 | `logo-instagram.jpg` | Pictogramme Instagram (dégradé) fond noir | Menu burger, contact, footer (rond 52px / 38px, `object-fit: cover`) |
 | `logo-whatsapp.png` | Pictogramme WhatsApp vert, **fond transparent** | Boutons « Rejoindre la communauté », menu, contact, footer |
-| `ipad-face.png` | iPad 11 argent vu de face, écran coloré, **fond transparent** | Carrousel concours iPad |
-| `ipad-coins.png` | Gros plan des coins/appareils photo d'iPad en 4 couleurs, fond transparent | Carrousel concours iPad |
-| `ipad-dos.png` | iPad argent vu de dos (pomme), fond transparent | Carrousel concours iPad |
+| `essentials-*.jpg` (noir, gris, gris-clair, marron, noir-1977) | Ensembles Essentials, recadrés en 4:5 sur fond clair | Galerie « au choix » du concours en cours (v7). Photo de la paire de On : à recevoir de David |
 | `winner-levi.jpg` | Photo de David (équipe GoldenChance) avec le gagnant **Lévi Siboni** dans un centre commercial, sac Swatch en main — portrait ~506×900 | Page Gagnants |
 
 Règles images :
@@ -268,8 +265,7 @@ Panneau verre centré : eyebrow « Rejoignez l'aventure » ; H3 « Ne manquez pl
 ### 5.3 Page Contact (`/contact`)
 - Eyebrow « Page Contact » ; **H2** « Une question ? Parlons-en » ; lead « Retrouvez tous nos canaux pour nous joindre, suivre les concours et rejoindre la communauté GoldenChance. »
 - **Grille 2×2 de cartes verre** (icône ronde 52px + label discret majuscules + valeur en Cormorant 1.35rem) :
-  1. Téléphone — **07 44 98 17 75** (`tel:0744981775`)
-  2. Téléphone — **07 49 94 20 81** (`tel:0749942081`)
+  1. Téléphone — **07 49 94 20 81** (`tel:0749942081`) — seul numéro depuis la v7 (grille de 3 cartes)
   3. Instagram — **@goldenchanceconcours** (logo Instagram, lien externe)
   4. Communauté — **Groupe WhatsApp** (logo WhatsApp, lien externe)
 - Panneau final : H3 « Rejoignez notre communauté » ; texte « Recevez les annonces de concours en priorité, échangez avec les autres membres et suivez chaque tirage en direct. » ; bouton doré WhatsApp « **Rejoignez notre communauté** ».

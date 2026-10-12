@@ -1,4 +1,4 @@
-import { concept, links } from "@/content/site";
+import { concept, participateHref } from "@/content/site";
 import { CountUp } from "@/components/site/CountUp";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -77,7 +77,7 @@ export function Concept() {
               </div>
               <Button asChild variant="gold" className="mt-8 self-start">
                 <a
-                  href={links.whatsapp}
+                  href={participateHref}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

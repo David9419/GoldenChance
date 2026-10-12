@@ -52,7 +52,7 @@ export default function ContactPage() {
             title={contactPage.title}
             lead={contactPage.lead}
           />
-          <ul className="grid gap-5 md:grid-cols-2">
+          <ul className="grid gap-5 split:grid-cols-3">
             {channels.map((c, i) => (
               <Reveal
                 as="li"
