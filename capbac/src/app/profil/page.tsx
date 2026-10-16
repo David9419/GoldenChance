@@ -1,9 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { CalendarRange, Palette, Download, KeyRound, Palmtree, Plus, RotateCcw, Save, ShieldCheck, Trash2, Upload, UserRound } from "lucide-react";
+import { Briefcase, CalendarRange, Palette, Download, KeyRound, Palmtree, Plus, RotateCcw, Save, ShieldCheck, Trash2, Upload, UserRound } from "lucide-react";
 import { PageHeader } from "@/components/app/common";
-import { ParentToggle } from "@/components/app/parent-gate";
 import { PhotoPicker } from "@/components/app/photo-picker";
 import { ThemePicker } from "@/components/app/theme-toggle";
 import { toast } from "@/components/app/toast";
@@ -16,21 +15,21 @@ import { Label } from "@/components/ui/label";
 import { LEVELS } from "@/content/subjects";
 import { levelAt } from "@/lib/calendar";
 import { formatFull, formatShort, toISO } from "@/lib/dates";
-import { useParentMode } from "@/lib/parent-mode";
+import { ROLE_LABEL, useRole } from "@/lib/auth";
 import { attendanceStats, fmtNote, generalAverage } from "@/lib/stats";
 import { actions, uid, useData, type AppData, type Settings } from "@/lib/store";
 
 export default function ProfilePage() {
   const data = useData();
-  const parent = useParentMode();
-  if (!data?.profile) return null;
+  const role = useRole();
+  if (!data?.profile || !role) return null;
   const level = levelAt(toISO(new Date()), data.settings) ?? "seconde";
   const avg = generalAverage(data, level);
   const att = attendanceStats(data);
 
   return (
     <div>
-      <PageHeader eyebrow="Mon profil" title="Profil & paramètres" actions={<ParentToggle />} />
+      <PageHeader eyebrow={`Espace ${ROLE_LABEL[role].toLowerCase()}`} title={role === "directeur" ? "Paramètres" : "Profil & paramètres"} />
 
       {/* Carte d'identité */}
       <div className="relative mb-6 overflow-hidden rounded-3xl border border-fg/10 bg-[linear-gradient(135deg,rgba(99,102,241,0.35),rgba(192,38,211,0.18)_50%,var(--surface))] p-6 sm:p-8">
@@ -56,7 +55,13 @@ export default function ProfilePage() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="flex flex-col gap-6">
-          <IdentityCard data={data} />
+          {role === "prof" ? <StaffCard data={data} role="prof" /> : <IdentityCard data={data} title={role === "directeur" ? "Profil de l’élève" : "Mon identité"} />}
+          {role === "directeur" && (
+            <>
+              <StaffCard data={data} role="directeur" />
+              <StaffCard data={data} role="prof" />
+            </>
+          )}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -69,18 +74,58 @@ export default function ProfilePage() {
             </CardContent>
           </Card>
         </div>
-        {parent ? (
+        {role === "directeur" ? (
           <SettingsCard data={data} />
         ) : (
-          <Card className="flex flex-col items-center justify-center gap-3 p-8 text-center">
+          <Card className="flex flex-col items-center justify-center gap-3 p-8 text-center lg:self-start">
             <ShieldCheck className="size-10 text-amber-300" />
-            <p className="font-display text-lg font-semibold">Réglages réservés aux parents</p>
-            <p className="max-w-sm text-sm text-mist-500">Dates de l’année, vacances, code parent, sauvegarde : active le mode parent pour y accéder.</p>
-            <ParentToggle />
+            <p className="font-display text-lg font-semibold">Réglages de l’établissement</p>
+            <p className="max-w-sm text-sm text-mist-500">
+              Calendrier de l’année, vacances, comptes et sauvegardes sont gérés par la direction.
+            </p>
           </Card>
         )}
       </div>
     </div>
+  );
+}
+
+function StaffCard({ data, role }: { data: AppData; role: "prof" | "directeur" }) {
+  const acc = data.accounts[role];
+  const [name, setName] = useState(acc.name);
+  const [pin, setPin] = useState(acc.pin);
+  const other = data.accounts[role === "prof" ? "directeur" : "prof"].pin;
+  const ok = name.trim() && pin.length >= 4 && pin !== other;
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          {role === "prof" ? <Briefcase className="size-5 text-emerald-300" /> : <ShieldCheck className="size-5 text-amber-300" />} Compte {ROLE_LABEL[role].toLowerCase()}
+        </CardTitle>
+        <CardDescription>Nom affiché et code d’accès (4 chiffres ou plus).</CardDescription>
+      </CardHeader>
+      <CardContent className="grid gap-3 sm:grid-cols-[1fr_140px_auto] sm:items-end">
+        <div className="grid gap-2">
+          <Label htmlFor={`${role}-name`}>Nom</Label>
+          <Input id={`${role}-name`} value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor={`${role}-pin`} className="flex items-center gap-1.5">
+            <KeyRound className="size-3.5" /> Code
+          </Label>
+          <Input id={`${role}-pin`} inputMode="numeric" value={pin} onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 8))} className="font-mono tracking-[0.3em]" />
+        </div>
+        <Button
+          disabled={!ok}
+          onClick={() => {
+            actions.saveAccount(role, { name: name.trim(), pin });
+            toast("Compte mis à jour", "success");
+          }}
+        >
+          <Save /> Enregistrer
+        </Button>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -93,7 +138,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function IdentityCard({ data }: { data: AppData }) {
+function IdentityCard({ data, title = "Mon identité" }: { data: AppData; title?: string }) {
   const p = data.profile!;
   const [firstName, setFirstName] = useState(p.firstName);
   const [lastName, setLastName] = useState(p.lastName);
@@ -102,7 +147,7 @@ function IdentityCard({ data }: { data: AppData }) {
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <UserRound className="size-5 text-brand-300" /> Mon identité
+          <UserRound className="size-5 text-brand-300" /> {title}
         </CardTitle>
         <CardDescription>Photo de profil, prénom et nom.</CardDescription>
       </CardHeader>
@@ -139,7 +184,7 @@ function SettingsCard({ data }: { data: AppData }) {
   const set = <K extends keyof Settings>(k: K, v: Settings[K]) => setS((prev) => ({ ...prev, [k]: v }));
 
   const dateFields: { key: keyof Settings; label: string }[] = [
-    { key: "startDate", label: "Début de la remise à niveau (Seconde)" },
+    { key: "startDate", label: "Début de l’emploi du temps (Seconde)" },
     { key: "premiereStart", label: "Début de la Première" },
     { key: "bacFrancaisDate", label: "Bac de français (écrit)" },
     { key: "premiereEnd", label: "Fin de la Première" },
@@ -156,7 +201,7 @@ function SettingsCard({ data }: { data: AppData }) {
           <CardDescription>Ces dates déterminent le niveau et la répartition des cours.</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2 [&>*]:min-w-0">
             {dateFields.map((f) => (
               <div key={f.key} className="grid gap-2">
                 <Label htmlFor={f.key}>{f.label}</Label>
@@ -165,7 +210,19 @@ function SettingsCard({ data }: { data: AppData }) {
             ))}
             <div className="grid gap-2">
               <Label htmlFor="tm">Durée d’un contrôle (minutes)</Label>
-              <Input id="tm" type="number" min={5} max={120} value={s.testMinutes} onChange={(e) => set("testMinutes", Number(e.target.value) || 20)} />
+              <Input id="tm" type="number" min={5} max={120} value={s.testMinutes} onChange={(e) => set("testMinutes", Number(e.target.value) || 25)} />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="cd">Correction des contrôles après (jours)</Label>
+              <Input
+                id="cd"
+                type="number"
+                min={0}
+                max={10}
+                step={0.5}
+                value={s.correctionDelayHours / 24}
+                onChange={(e) => set("correctionDelayHours", Math.max(0, Number(e.target.value) || 0) * 24)}
+              />
             </div>
           </div>
 
@@ -184,8 +241,8 @@ function SettingsCard({ data }: { data: AppData }) {
                 </div>
               ))}
             </div>
-            <div className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto_auto_auto]">
-              <Input placeholder="Ex. Vacances d’hiver" value={newHoliday.label} onChange={(e) => setNewHoliday({ ...newHoliday, label: e.target.value })} />
+            <Input className="mt-3" placeholder="Nouvelle période, ex. Vacances d’hiver" value={newHoliday.label} onChange={(e) => setNewHoliday({ ...newHoliday, label: e.target.value })} />
+            <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-[1fr_1fr_auto] [&>*]:min-w-0">
               <Input type="date" value={newHoliday.start} onChange={(e) => setNewHoliday({ ...newHoliday, start: e.target.value })} />
               <Input type="date" value={newHoliday.end} onChange={(e) => setNewHoliday({ ...newHoliday, end: e.target.value })} />
               <Button
@@ -202,15 +259,7 @@ function SettingsCard({ data }: { data: AppData }) {
             </div>
           </div>
 
-          <div className="grid gap-2">
-            <Label htmlFor="pin" className="flex items-center gap-2">
-              <KeyRound className="size-4" /> Code parent (4 chiffres ou plus)
-            </Label>
-            <Input id="pin" inputMode="numeric" value={s.parentPin} onChange={(e) => set("parentPin", e.target.value.replace(/\D/g, "").slice(0, 8))} />
-          </div>
-
           <Button
-            disabled={s.parentPin.length < 4}
             onClick={() => {
               actions.saveSettings(s);
               toast("Réglages enregistrés", "success");

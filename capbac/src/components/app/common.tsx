@@ -140,7 +140,7 @@ export const STATUS_META: Record<LiveStatus, { label: string; className: string;
   "non-suivi": { label: "Non suivi", className: "border-border bg-fg/[0.02] text-mist-500", icon: Minus },
 };
 
-export function StatusPill({ status, justified, className }: { status: LiveStatus; justified?: boolean; className?: string }) {
+export function StatusPill({ status, justified, className, compact }: { status: LiveStatus; justified?: boolean; className?: string; compact?: boolean }) {
   const meta = STATUS_META[status];
   const Icon = meta.icon;
   return (
@@ -153,7 +153,7 @@ export function StatusPill({ status, justified, className }: { status: LiveStatu
     >
       <Icon className="size-3" />
       {meta.label}
-      {status === "absent" && (justified ? " · justifiée" : " · non justifiée")}
+      {status === "absent" && !compact && (justified ? " · justifiée" : " · non justifiée")}
     </span>
   );
 }

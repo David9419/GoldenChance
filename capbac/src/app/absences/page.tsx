@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { CalendarCheck2, CheckCircle2, Clock, Flame, Pencil, ShieldCheck, XCircle } from "lucide-react";
 import { CountUp, EmptyState, PageHeader, Ring, StatusPill } from "@/components/app/common";
-import { ParentToggle } from "@/components/app/parent-gate";
 import { SubjectBadge } from "@/components/app/subject-icon";
 import { toast } from "@/components/app/toast";
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SUBJECTS } from "@/content/subjects";
 import type { Session } from "@/lib/calendar";
 import { formatHour, formatLong } from "@/lib/dates";
-import { useParentMode } from "@/lib/parent-mode";
+import { isStaff, useRole } from "@/lib/auth";
 import { attendanceStats, durationHours } from "@/lib/stats";
 import { actions, useData, type AttendanceStatus } from "@/lib/store";
 import { useNow } from "@/lib/use-now";
@@ -28,7 +27,8 @@ type Filter = "tout" | "absent" | "retard" | "present";
 export default function AttendancePage() {
   const data = useData();
   const now = useNow();
-  const parent = useParentMode();
+  const role = useRole();
+  const parent = isStaff(role);
   const [filter, setFilter] = useState<Filter>("tout");
   const [editing, setEditing] = useState<{ session: Session; status: AttendanceStatus; justified?: boolean; reason?: string } | null>(null);
   if (!data) return null;
@@ -48,7 +48,6 @@ export default function AttendancePage() {
         eyebrow="Vie scolaire"
         title="Absences & retards"
         description="À chaque cours, clique sur « Je suis présent » (ou ouvre ta séance) : ouverture 15 min avant, retard après 10 min. Un cours non pointé compte comme une absence."
-        actions={<ParentToggle />}
       />
 
       <div className="grid gap-4 lg:grid-cols-[300px_1fr]">
@@ -94,7 +93,7 @@ export default function AttendancePage() {
         <CardContent>
           {parent && (
             <p className="mb-4 flex items-center gap-2 rounded-xl border border-amber-400/25 bg-amber-500/10 px-3 py-2 text-xs font-semibold text-amber-200">
-              <ShieldCheck className="size-4" /> Mode parent : clique sur un cours pour modifier sa présence ou justifier une absence.
+              <ShieldCheck className="size-4" /> Espace {role === "prof" ? "professeur" : "direction"} : clique sur un cours pour modifier la présence ou justifier une absence.
             </p>
           )}
           {list.length ? (
@@ -143,6 +142,7 @@ function EditDialog({
   editing: { session: Session; status: AttendanceStatus; justified?: boolean; reason?: string } | null;
   onClose: () => void;
 }) {
+  const role = useRole();
   const [status, setStatus] = useState<AttendanceStatus>("absent");
   const [justified, setJustified] = useState(false);
   const [reason, setReason] = useState("");
@@ -223,7 +223,7 @@ function EditDialog({
                   actions.setAttendance(editing.session.key, {
                     status,
                     at: new Date().toISOString(),
-                    by: "parent",
+                    by: role ?? "directeur",
                     justified: status === "present" ? undefined : justified,
                     reason: status === "present" ? undefined : reason.trim() || undefined,
                   });

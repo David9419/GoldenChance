@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Plus, Printer, Trash2, Trophy } from "lucide-react";
+import { Hourglass, Plus, Printer, Trash2, Trophy } from "lucide-react";
 import { EmptyState, PageHeader, Ring } from "@/components/app/common";
-import { ParentToggle } from "@/components/app/parent-gate";
 import { SubjectBadge } from "@/components/app/subject-icon";
 import { toast } from "@/components/app/toast";
 import { Badge } from "@/components/ui/badge";
@@ -19,14 +18,15 @@ import { LEVELS, SUBJECT_IDS, SUBJECTS } from "@/content/subjects";
 import type { Level, SubjectId } from "@/content/types";
 import { levelAt } from "@/lib/calendar";
 import { formatShort, toISO } from "@/lib/dates";
-import { useParentMode } from "@/lib/parent-mode";
-import { appreciation, fmtNote, generalAverage, gradeLines, noteTone, subjectAverages, type GradeLine } from "@/lib/stats";
+import { isStaff, useRole } from "@/lib/auth";
+import { appreciation, fmtNote, generalAverage, gradeLines, noteTone, pendingCorrections, subjectAverages, type GradeLine } from "@/lib/stats";
 import { actions, useData } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 export default function GradesPage() {
   const data = useData();
-  const parent = useParentMode();
+  const role = useRole();
+  const parent = isStaff(role);
   const [level, setLevel] = useState<Level | null>(null);
   const [adding, setAdding] = useState(false);
   if (!data?.profile) return null;
@@ -34,13 +34,14 @@ export default function GradesPage() {
   const avgs = subjectAverages(data, current);
   const general = generalAverage(data, current);
   const lines = gradeLines(data, current);
+  const pending = pendingCorrections(data).filter((p) => p.level === current);
 
   return (
     <div>
       <PageHeader
         eyebrow="Notes & bulletin"
         title="Mon bulletin"
-        description="Exercices notés (coef 1), contrôles (coef 2) et devoirs ajoutés par les parents. Seule la 1re tentative compte."
+        description="Exercices notés (coef 1, corrigés tout de suite), contrôles (coef 2, corrigés quelques jours après) et devoirs du professeur."
         actions={
           <>
             <Tabs value={current} onValueChange={(v) => setLevel(v as Level)}>
@@ -74,7 +75,6 @@ export default function GradesPage() {
                 <Plus /> Ajouter une note
               </Button>
             ) : null}
-            <ParentToggle />
           </div>
         </Card>
 
@@ -117,6 +117,41 @@ export default function GradesPage() {
             </CardContent>
           </Card>
 
+          {pending.length > 0 && (
+            <Card className="border-amber-400/25">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Hourglass className="size-5 text-amber-300" /> Contrôles en cours de correction
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-2">
+                {pending.map((p) => (
+                  <div key={p.id} className="flex items-center gap-3 rounded-xl border border-border bg-fg/[0.02] p-3">
+                    <SubjectBadge subject={p.subject} size="sm" />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold">{getChapter(p.chapterId)?.chapter.title ?? "Contrôle"}</p>
+                      <p className="text-xs text-mist-500">
+                        Rendu le {formatShort(p.date.slice(0, 10))} · note publiée le{" "}
+                        {new Date(p.releaseAt!).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}
+                        {parent && (
+                          <>
+                            {" "}
+                            · <span className={noteTone(p.score)}>{fmtNote(p.score)}/20</span>
+                          </>
+                        )}
+                      </p>
+                    </div>
+                    {parent && (
+                      <Button size="sm" variant="secondary" onClick={() => (actions.releaseAttempt(p.id), toast("Correction publiée", "success"))}>
+                        Publier
+                      </Button>
+                    )}
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          )}
+
           <Card>
             <CardHeader>
               <CardTitle>Toutes les notes</CardTitle>
@@ -149,14 +184,14 @@ function GradeRow({ line, parent }: { line: GradeLine; parent: boolean }) {
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-semibold">{ch ? ch.chapter.title : line.label}</p>
         <p className="flex flex-wrap items-center gap-x-2 text-xs text-mist-500">
-          <span>{SUBJECTS[line.subject].short}</span>·<span>{line.kind === "manual" ? "Devoir" : line.label}</span>·<span>coef {line.coef}</span>·
+          <span>{SUBJECTS[line.subject].short}</span>·<span>{line.kind === "manual" ? "Note du professeur" : line.kind === "devoir" ? "Devoir du professeur" : line.label}</span>·<span>coef {line.coef}</span>·
           <span>{formatShort(line.date.slice(0, 10))}</span>
         </p>
         {line.comment && <p className="mt-1 text-xs text-mist-300 italic">« {line.comment} »</p>}
       </div>
       {line.kind === "test" && <Badge variant="warning">Contrôle</Badge>}
       <span className={cn("w-16 text-right font-display text-lg font-bold", noteTone(line.score20))}>{line.raw}</span>
-      {parent && (
+      {parent && !line.id.startsWith("sub-") && (
         <Button
           variant="ghost"
           size="icon"

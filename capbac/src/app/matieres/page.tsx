@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 import { PageHeader } from "@/components/app/common";
 import { SubjectIcon } from "@/components/app/subject-icon";
 import { Progress } from "@/components/ui/progress";
@@ -11,17 +11,21 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PROGRAMS } from "@/content";
 import { LEVELS, SUBJECT_IDS, SUBJECTS } from "@/content/subjects";
 import type { Level } from "@/content/types";
-import { levelAt } from "@/lib/calendar";
-import { toISO } from "@/lib/dates";
+import { useRole } from "@/lib/auth";
+import { levelAt, levelRange, levelUnlocked } from "@/lib/calendar";
+import { daysBetween, formatFull, toISO } from "@/lib/dates";
 import { chapterResults, fmtNote, subjectAverages } from "@/lib/stats";
 import { useData } from "@/lib/store";
 
 export default function SubjectsPage() {
   const data = useData();
+  const role = useRole();
   const [level, setLevel] = useState<Level | null>(null);
   if (!data) return null;
   const current = level ?? levelAt(toISO(new Date()), data.settings) ?? "seconde";
   const avgs = subjectAverages(data, current);
+  const isLocked = (l: Level) => role === "eleve" && !levelUnlocked(l, data.settings);
+  const locked = isLocked(current);
 
   return (
     <div>
@@ -34,6 +38,7 @@ export default function SubjectsPage() {
             <TabsList>
               {(["seconde", "premiere", "terminale"] as Level[]).map((l) => (
                 <TabsTrigger key={l} value={l}>
+                  {isLocked(l) && <Lock />}
                   {LEVELS[l].name}
                 </TabsTrigger>
               ))}
@@ -41,6 +46,9 @@ export default function SubjectsPage() {
           </Tabs>
         }
       />
+      {locked ? (
+        <LockedLevel level={current} from={levelRange(current, data.settings)[0]} />
+      ) : (
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {SUBJECT_IDS.map((id, i) => {
           const meta = SUBJECTS[id];
@@ -79,6 +87,27 @@ export default function SubjectsPage() {
           );
         })}
       </div>
+      )}
     </div>
+  );
+}
+
+function LockedLevel({ level, from }: { level: Level; from: string }) {
+  const days = daysBetween(toISO(new Date()), from);
+  return (
+    <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} className="glass flex flex-col items-center gap-4 rounded-3xl px-6 py-14 text-center">
+      <motion.span
+        animate={{ rotate: [0, -8, 8, -4, 0] }}
+        transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2.5 }}
+        className="flex size-16 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#818cf8,#c026d3)] text-white shadow-xl"
+      >
+        <Lock className="size-7" />
+      </motion.span>
+      <h2 className="font-display text-2xl font-bold">Programme de {LEVELS[level].name} verrouillé</h2>
+      <p className="max-w-md text-mist-300">
+        Il s’ouvrira automatiquement le <strong>{formatFull(from)}</strong>
+        {days > 0 && <> — dans {days} jour{days > 1 ? "s" : ""}</>}. D’ici là, concentre-toi sur ton programme actuel : chaque chapitre réussi te prépare pour la suite.
+      </p>
+    </motion.div>
   );
 }

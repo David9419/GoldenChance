@@ -11,7 +11,7 @@ export type GradeLine = {
   subject: SubjectId;
   level: Level;
   label: string;
-  kind: "exercise" | "test" | "manual";
+  kind: "exercise" | "test" | "manual" | "devoir";
   /** Note ramenée sur 20. */
   score20: number;
   raw: string;
@@ -19,24 +19,52 @@ export type GradeLine = {
   date: string;
   chapterId?: string;
   comment?: string;
+  /** Pour les devoirs du professeur. */
+  assignmentId?: string;
 };
 
-export function gradeLines(data: AppData, level?: Level): GradeLine[] {
+/** La correction d'un contrôle est-elle publiée ? */
+export function isReleased(a: Attempt, now = new Date()) {
+  return !a.releaseAt || new Date(a.releaseAt) <= now;
+}
+
+export function gradeLines(data: AppData, level?: Level, now = new Date()): GradeLine[] {
   const lines: GradeLine[] = [];
+  const assignments = new Map(data.assignments.map((a) => [a.id, a]));
   for (const a of data.attempts) {
-    if (!a.official) continue;
+    if (!a.official || !isReleased(a, now)) continue;
     if (level && a.level !== level) continue;
+    const asg = a.assignmentId ? assignments.get(a.assignmentId) : undefined;
     lines.push({
       id: a.id,
       subject: a.subject,
       level: a.level,
-      label: a.kind === "test" ? "Contrôle" : "Exercice noté",
-      kind: a.kind,
+      label: asg ? asg.title : a.kind === "test" ? "Contrôle" : "Exercice noté",
+      kind: asg ? "devoir" : a.kind,
       score20: a.score,
       raw: `${fmtNote(a.score)}/20`,
-      coef: COEF[a.kind],
+      coef: asg ? asg.coef : COEF[a.kind],
       date: a.date,
-      chapterId: a.chapterId,
+      chapterId: asg ? undefined : a.chapterId,
+      assignmentId: asg?.id,
+    });
+  }
+  for (const sub of Object.values(data.submissions)) {
+    const asg = assignments.get(sub.assignmentId);
+    if (!asg || sub.grade === undefined || !sub.outOf) continue;
+    if (level && asg.level !== level) continue;
+    lines.push({
+      id: `sub-${asg.id}`,
+      subject: asg.subject,
+      level: asg.level,
+      label: asg.title,
+      kind: "devoir",
+      score20: (sub.grade / sub.outOf) * 20,
+      raw: `${fmtNote(sub.grade)}/${sub.outOf}`,
+      coef: asg.coef,
+      date: sub.gradedAt ?? sub.submittedAt,
+      comment: sub.comment,
+      assignmentId: asg.id,
     });
   }
   for (const g of data.manualGrades) {
@@ -106,7 +134,8 @@ export function appreciation(n: number | null) {
 
 /** Meilleure tentative et tentative officielle d'un chapitre. */
 export function chapterResults(data: AppData, chapterId: string, kind: Attempt["kind"]) {
-  const list = data.attempts.filter((a) => a.chapterId === chapterId && a.kind === kind);
+  const context = `${kind === "test" ? "ct" : "ex"}:${chapterId}`;
+  const list = data.attempts.filter((a) => a.context === context);
   const official = list.find((a) => a.official) ?? null;
   const best = list.reduce<Attempt | null>((b, a) => (!b || a.score > b.score ? a : b), null);
   return { official, best, count: list.length };
@@ -174,4 +203,14 @@ export function durationHours(s: Session) {
   const [h1, m1] = s.start.split(":").map(Number);
   const [h2, m2] = s.end.split(":").map(Number);
   return (h2 * 60 + m2 - (h1 * 60 + m1)) / 60;
+}
+
+/** Contrôles rendus dont la correction n'est pas encore publiée. */
+export function pendingCorrections(data: AppData, now = new Date()) {
+  return data.attempts.filter((a) => a.kind === "test" && a.official && !isReleased(a, now));
+}
+
+/** Copies rédigées en attente de correction par le professeur. */
+export function submissionsToGrade(data: AppData) {
+  return Object.values(data.submissions).filter((s) => s.text !== undefined && s.grade === undefined);
 }

@@ -23,12 +23,19 @@ export function Onboarding() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [photo, setPhoto] = useState<string | undefined>();
+  const [profName, setProfName] = useState("Professeur");
+  const [profPin, setProfPin] = useState("1111");
+  const [dirName, setDirName] = useState("Direction");
+  const [dirPin, setDirPin] = useState("9999");
 
   const initials = `${firstName[0] ?? ""}${lastName[0] ?? ""}`.toUpperCase();
 
   function finish() {
+    actions.saveAccount("prof", { name: profName.trim() || "Professeur", pin: profPin });
+    actions.saveAccount("directeur", { name: dirName.trim() || "Direction", pin: dirPin });
     actions.saveProfile({ firstName: firstName.trim(), lastName: lastName.trim(), photo });
   }
+  const pinsOk = profPin.length >= 4 && dirPin.length >= 4 && profPin !== dirPin;
 
   return (
     <div className="relative grid min-h-dvh place-items-center overflow-hidden px-4 py-10">
@@ -91,7 +98,7 @@ export function Onboarding() {
                 ))}
               </div>
               <Button size="lg" className="mt-8 w-full" onClick={() => setStep(1)}>
-                Créer mon profil <ArrowRight />
+                Configurer CapBac <ArrowRight />
               </Button>
             </motion.div>
           )}
@@ -106,7 +113,7 @@ export function Onboarding() {
                 if (firstName.trim()) setStep(2);
               }}
             >
-              <StepHeader n={1} title="Comment tu t’appelles ?" text="Ton nom apparaîtra sur ton profil et ton bulletin." />
+              <StepHeader n={1} title="L’élève" text="Prénom et nom de l’élève : ils apparaîtront sur son profil et son bulletin." />
               <div className="mt-6 grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="fn">Prénom</Label>
@@ -130,14 +137,46 @@ export function Onboarding() {
 
           {step === 2 && (
             <motion.div key="photo" {...stepAnim} className="glass rounded-3xl p-6 sm:p-8">
-              <StepHeader n={2} title="Ta photo de profil" text="Ajoute une photo (tu pourras la changer plus tard)." />
+              <StepHeader n={2} title="Photo de profil" text="Ajoute une photo de l’élève (modifiable plus tard)." />
               <PhotoPicker className="mt-7" value={photo} onChange={setPhoto} initials={initials} />
               <div className="mt-8 flex justify-between gap-3">
                 <Button variant="ghost" onClick={() => setStep(1)}>
                   <ArrowLeft /> Retour
                 </Button>
-                <Button onClick={finish}>
-                  <Sparkles /> C’est parti, {firstName.trim()} !
+                <Button onClick={() => setStep(3)}>
+                  Continuer <ArrowRight />
+                </Button>
+              </div>
+            </motion.div>
+          )}
+
+          {step === 3 && (
+            <motion.div key="accounts" {...stepAnim} className="glass rounded-3xl p-6 sm:p-8">
+              <StepHeader n={3} title="Comptes professeur et direction" text="Choisis les noms et les codes d’accès (4 chiffres ou plus). Garde-les secrets." />
+              <div className="mt-6 grid gap-5">
+                {[
+                  { label: "Professeur", name: profName, setName: setProfName, pin: profPin, setPin: setProfPin, color: "#34d399" },
+                  { label: "Direction", name: dirName, setName: setDirName, pin: dirPin, setPin: setDirPin, color: "#fbbf24" },
+                ].map((a) => (
+                  <div key={a.label} className="grid gap-3 rounded-2xl border border-border p-4 sm:grid-cols-[1fr_120px]">
+                    <div className="grid gap-2">
+                      <Label style={{ color: a.color }}>Nom affiché · {a.label}</Label>
+                      <Input value={a.name} onChange={(e) => a.setName(e.target.value)} />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label>Code</Label>
+                      <Input inputMode="numeric" value={a.pin} onChange={(e) => a.setPin(e.target.value.replace(/\D/g, "").slice(0, 8))} className="font-mono tracking-[0.3em]" />
+                    </div>
+                  </div>
+                ))}
+                {!pinsOk && <p className="text-sm text-rose-300">Les deux codes doivent faire au moins 4 chiffres et être différents.</p>}
+              </div>
+              <div className="mt-8 flex justify-between gap-3">
+                <Button variant="ghost" onClick={() => setStep(2)}>
+                  <ArrowLeft /> Retour
+                </Button>
+                <Button onClick={finish} disabled={!pinsOk}>
+                  <Sparkles /> Terminer
                 </Button>
               </div>
             </motion.div>
@@ -158,7 +197,7 @@ const stepAnim = {
 function StepHeader({ n, title, text }: { n: number; title: string; text: string }) {
   return (
     <div>
-      <span className="text-xs font-bold tracking-[0.16em] text-brand-300 uppercase">Étape {n} sur 2</span>
+      <span className="text-xs font-bold tracking-[0.16em] text-brand-300 uppercase">Étape {n} sur 3</span>
       <h2 className="mt-2 font-display text-2xl font-bold">{title}</h2>
       <p className="mt-1 text-sm text-mist-500">{text}</p>
     </div>

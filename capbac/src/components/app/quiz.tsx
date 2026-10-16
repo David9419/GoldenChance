@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowLeft, ArrowRight, Check, ClipboardList, Clock, Flag, RotateCcw, Timer, Trophy, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ClipboardList, Clock, Flag, Hourglass, Lock, RotateCcw, Send, Timer, Trophy, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,8 +10,10 @@ import { Progress } from "@/components/ui/progress";
 import { getChapter } from "@/content";
 import { SUBJECTS } from "@/content/subjects";
 import type { Question } from "@/content/types";
-import { actions, useData, type Attempt } from "@/lib/store";
-import { appreciation, chapterResults, COEF, fmtNote, noteTone } from "@/lib/stats";
+import { isStaff, useRole } from "@/lib/auth";
+import { actions, useData, type Assignment, type Attempt } from "@/lib/store";
+import { appreciation, COEF, fmtNote, isReleased, noteTone } from "@/lib/stats";
+import { useNow } from "@/lib/use-now";
 import { cn } from "@/lib/utils";
 import { Ring } from "./common";
 import { Confetti } from "./confetti";
@@ -19,10 +21,25 @@ import { RichText } from "./rich-text";
 
 type Phase = "intro" | "run" | "result";
 
-export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind: Attempt["kind"]; onFinished?: (a: Attempt) => void }) {
+type QuizProps = {
+  chapterId: string;
+  kind: Attempt["kind"];
+  /** Contexte de la note (par défaut : exercice ou contrôle du chapitre). */
+  context?: string;
+  /** Devoir / contrôle du professeur. */
+  assignment?: Assignment;
+  /** Le contrôle n'est ouvert qu'à partir de cette date. */
+  availableFrom?: Date;
+  title?: string;
+};
+
+export function Quiz({ chapterId, kind, context, assignment, availableFrom, title }: QuizProps) {
   const data = useData();
+  const role = useRole();
+  const now = useNow(30_000);
   const ref = getChapter(chapterId);
   const questions: Question[] = useMemo(() => (ref ? (kind === "test" ? ref.chapter.test : ref.chapter.exercise) : []), [ref, kind]);
+  const ctx = context ?? `${kind === "test" ? "ct" : "ex"}:${chapterId}`;
   const [phase, setPhase] = useState<Phase>("intro");
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -31,7 +48,7 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
   const [remaining, setRemaining] = useState(0);
   const submitted = useRef(false);
 
-  const minutes = data?.settings.testMinutes ?? 20;
+  const minutes = data?.settings.testMinutes ?? 25;
   const timed = kind === "test";
 
   function start() {
@@ -49,20 +66,25 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
     submitted.current = true;
     const correct = final.filter((a, i) => a === questions[i].answer).length;
     const score = Math.round((correct / questions.length) * 200) / 10;
-    const saved = actions.addAttempt({
-      chapterId,
-      subject: ref.subject,
-      level: ref.level,
-      kind,
-      score,
-      correct,
-      total: questions.length,
-      answers: final,
-      durationSec: Math.round((Date.now() - startedAt) / 1000),
-    });
+    const saved = actions.addAttempt(
+      {
+        chapterId,
+        subject: ref.subject,
+        level: ref.level,
+        kind,
+        context: ctx,
+        score,
+        correct,
+        total: questions.length,
+        answers: final,
+        durationSec: Math.round((Date.now() - startedAt) / 1000),
+        assignmentId: assignment?.id,
+      },
+      assignment?.title ?? ref.chapter.title,
+    );
+    if (assignment) actions.submitAssignment({ assignmentId: assignment.id, attemptId: saved.id, submittedAt: saved.date }, assignment.title);
     setResult(saved);
     setPhase("result");
-    onFinished?.(saved);
   }
 
   // Minuteur du contrôle
@@ -83,8 +105,51 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
 
   if (!ref || !data) return null;
   const meta = SUBJECTS[ref.subject];
-  const previous = chapterResults(data, chapterId, kind);
-  const label = kind === "test" ? "Contrôle" : "Exercice noté";
+  const attempts = data.attempts.filter((a) => a.context === ctx);
+  const official = attempts.find((a) => a.official) ?? null;
+  const best = attempts.reduce<Attempt | null>((b, a) => (!b || a.score > b.score ? a : b), null);
+  const label = title ?? (kind === "test" ? "Contrôle" : "Exercice noté");
+  const coef = assignment?.coef ?? COEF[kind];
+  const staff = isStaff(role);
+
+  // Contrôle : une seule copie, corrigée plus tard.
+  if (kind === "test" && official && phase !== "run") {
+    if (!isReleased(official, now)) {
+      return <PendingCorrection attempt={official} label={label} color={meta.color} staff={staff} />;
+    }
+    return <QuizResult attempt={official} questions={questions} label={label} color={meta.color} />;
+  }
+
+  if (staff && phase === "intro") {
+    return (
+      <Card className="flex items-center gap-4 p-6">
+        <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl text-white" style={{ background: meta.gradient }}>
+          {kind === "test" ? <Trophy className="size-6" /> : <ClipboardList className="size-6" />}
+        </span>
+        <div className="flex-1">
+          <p className="font-display text-lg font-bold">{label}</p>
+          <p className="text-sm text-mist-500">
+            {official ? `Rendu le ${new Date(official.date).toLocaleDateString("fr-FR")} · note ${fmtNote(official.score)}/20` : "L’élève n’a pas encore rendu ce travail."} · {questions.length} questions · coef {coef}
+          </p>
+        </div>
+      </Card>
+    );
+  }
+
+  if (phase === "intro" && availableFrom && now < availableFrom) {
+    return (
+      <Card className="flex flex-col items-center gap-3 p-8 text-center">
+        <span className="flex size-14 items-center justify-center rounded-2xl bg-fg/[0.06] text-mist-500">
+          <Lock className="size-6" />
+        </span>
+        <p className="font-display text-lg font-bold">{label} verrouillé</p>
+        <p className="max-w-sm text-sm text-mist-500">
+          Il s’ouvrira le {availableFrom.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })} à{" "}
+          {availableFrom.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}. Révise le chapitre d’ici là !
+        </p>
+      </Card>
+    );
+  }
 
   if (phase === "intro") {
     return (
@@ -100,7 +165,7 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
               <p className="mt-1 text-sm text-mist-300">{ref.chapter.title}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Badge variant="outline">{questions.length} questions</Badge>
-                <Badge variant="outline">Coefficient {COEF[kind]}</Badge>
+                <Badge variant="outline">Coefficient {coef}</Badge>
                 {timed && (
                   <Badge variant="warning">
                     <Timer /> {minutes} minutes
@@ -108,20 +173,22 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
                 )}
               </div>
               <p className="mt-3 max-w-md text-xs text-mist-500">
-                {previous.count
-                  ? `Note officielle : ${fmtNote(previous.official?.score)}/20 (1re tentative). Tu peux recommencer pour t’entraîner : la note du bulletin ne change pas.`
-                  : "Attention : seule ta première tentative compte dans ta moyenne. Prends ton temps et relis le cours avant."}
+                {kind === "test"
+                  ? "Une seule copie possible. Le contrôle est chronométré et sera corrigé par le professeur : ta note et la correction arrivent quelques jours après."
+                  : official
+                    ? `Note officielle : ${fmtNote(official.score)}/20 (1re tentative). Tu peux recommencer pour t’entraîner : la note du bulletin ne change pas.`
+                    : "Correction immédiate. Attention : seule ta première tentative compte dans ta moyenne."}
               </p>
             </div>
           </div>
           <div className="flex flex-col items-stretch gap-2 sm:items-end">
-            {previous.best && (
+            {best && kind === "exercise" && (
               <p className="text-sm text-mist-500">
-                Meilleure note : <span className={cn("font-bold", noteTone(previous.best.score))}>{fmtNote(previous.best.score)}/20</span>
+                Meilleure note : <span className={cn("font-bold", noteTone(best.score))}>{fmtNote(best.score)}/20</span>
               </p>
             )}
             <Button size="lg" onClick={start}>
-              {previous.count ? (
+              {official ? (
                 <>
                   <RotateCcw /> S’entraîner à nouveau
                 </>
@@ -135,6 +202,10 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
         </div>
       </Card>
     );
+  }
+
+  if (phase === "result" && result && kind === "test") {
+    return <PendingCorrection attempt={result} label={label} color={meta.color} staff={false} justSubmitted />;
   }
 
   if (phase === "result" && result) {
@@ -258,7 +329,7 @@ function QuizResult({
   attempt: Attempt;
   questions: Question[];
   label: string;
-  onRetry: () => void;
+  onRetry?: () => void;
   color: string;
 }) {
   return (
@@ -281,9 +352,11 @@ function QuizResult({
               {attempt.official ? "Cette note est enregistrée dans ton bulletin." : "Tentative d’entraînement : ta note officielle reste inchangée."}
             </p>
           </div>
-          <Button variant="secondary" onClick={onRetry}>
-            <RotateCcw /> Recommencer
-          </Button>
+          {onRetry && (
+            <Button variant="secondary" onClick={onRetry}>
+              <RotateCcw /> Recommencer
+            </Button>
+          )}
         </div>
       </Card>
 
@@ -329,5 +402,60 @@ function QuizResult({
         })}
       </div>
     </div>
+  );
+}
+
+function PendingCorrection({
+  attempt,
+  label,
+  color,
+  staff,
+  justSubmitted,
+}: {
+  attempt: Attempt;
+  label: string;
+  color: string;
+  staff: boolean;
+  justSubmitted?: boolean;
+}) {
+  const release = attempt.releaseAt ? new Date(attempt.releaseAt) : null;
+  return (
+    <Card className="relative overflow-hidden p-6 sm:p-8">
+      <div className="pointer-events-none absolute -top-20 -right-20 size-60 rounded-full blur-3xl" style={{ background: color, opacity: 0.16 }} />
+      <div className="relative flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
+        <motion.span
+          initial={{ scale: 0.6, rotate: -20, opacity: 0 }}
+          animate={{ scale: 1, rotate: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 14 }}
+          className="flex size-20 shrink-0 items-center justify-center rounded-3xl text-white shadow-xl"
+          style={{ background: `linear-gradient(135deg, ${color}, #6366f1)` }}
+        >
+          {justSubmitted ? <Send className="size-9" /> : <Hourglass className="size-9" />}
+        </motion.span>
+        <div className="flex-1">
+          <p className="text-xs font-bold tracking-[0.16em] text-mist-500 uppercase">{label}</p>
+          <h3 className="mt-1 font-display text-2xl font-bold">{justSubmitted ? "Copie rendue, bravo !" : "Copie en cours de correction"}</h3>
+          <p className="mt-2 text-sm text-mist-300">
+            Rendue le {new Date(attempt.date).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}.{" "}
+            {release && (
+              <>
+                Note et correction disponibles le{" "}
+                <strong>{release.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}</strong>.
+              </>
+            )}
+          </p>
+          {staff && (
+            <p className="mt-1 text-sm text-mist-500">
+              Note obtenue : <strong className={noteTone(attempt.score)}>{fmtNote(attempt.score)}/20</strong> ({attempt.correct}/{attempt.total})
+            </p>
+          )}
+        </div>
+        {staff && (
+          <Button onClick={() => actions.releaseAttempt(attempt.id)}>
+            <Check /> Publier la correction
+          </Button>
+        )}
+      </div>
+    </Card>
   );
 }

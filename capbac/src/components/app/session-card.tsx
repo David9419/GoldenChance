@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ChevronRight, Fingerprint } from "lucide-react";
+import { useRole } from "@/lib/auth";
 import { toast } from "./toast";
 import { Button } from "@/components/ui/button";
 import { getChapter } from "@/content";
@@ -20,12 +21,14 @@ export function sessionHref(s: Session) {
 
 export function checkIn(s: Session) {
   const status = checkInStatus(s);
-  actions.setAttendance(s.key, { status, at: new Date().toISOString(), by: "eleve" });
+  actions.setAttendance(s.key, { status, at: new Date().toISOString(), by: "eleve" }, `${SUBJECTS[s.subject].name} ${formatHour(s.start)}`);
   toast(status === "present" ? "Présence enregistrée ✓" : "Présence enregistrée (en retard)", status === "present" ? "success" : "warning");
 }
 
 export function CheckInButton({ session, data, now, className }: { session: Session; data: AppData; now: Date; className?: string }) {
+  const role = useRole();
   const { status } = liveStatus(session, data, now);
+  if (role !== "eleve") return null;
   if (status !== "en-cours" && status !== "a-venir") return null;
   if (!canCheckIn(session, now)) return null;
   return (
@@ -75,11 +78,13 @@ export function SessionRow({ session, data, now, index = 0 }: { session: Session
             <span className="hidden rounded-md px-1.5 py-0.5 text-[0.65rem] font-bold sm:inline" style={{ background: `${meta.color}22`, color: meta.color }}>
               {KIND_LABEL[session.kind]}
             </span>
+            {session.test && (
+              <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[0.65rem] font-bold text-amber-300">Contrôle</span>
+            )}
           </p>
           <p className="truncate text-xs text-mist-500">{ref ? ref.chapter.title : "Programme bientôt disponible"}</p>
         </div>
         <div className="flex shrink-0 items-center gap-2">
-          <CheckInButton session={session} data={data} now={now} className="hidden sm:inline-flex" />
           <StatusPill status={status} justified={record?.justified} className="hidden md:inline-flex" />
           <ChevronRight className="size-4 text-mist-500 transition-transform group-hover:translate-x-0.5" />
         </div>

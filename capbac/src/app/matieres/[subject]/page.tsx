@@ -12,8 +12,9 @@ import { Card } from "@/components/ui/card";
 import { PROGRAMS } from "@/content";
 import { LEVELS, SUBJECTS } from "@/content/subjects";
 import type { Level, SubjectId } from "@/content/types";
-import { levelAt, sessionsOfChapter } from "@/lib/calendar";
-import { formatShort, toISO } from "@/lib/dates";
+import { useRole } from "@/lib/auth";
+import { levelAt, levelRange, levelUnlocked, sessionsOfChapter } from "@/lib/calendar";
+import { formatFull, formatShort, toISO } from "@/lib/dates";
 import { chapterResults, fmtNote, noteTone, subjectAverages } from "@/lib/stats";
 import { useData } from "@/lib/store";
 
@@ -21,6 +22,7 @@ export default function SubjectPage() {
   const { subject } = useParams<{ subject: SubjectId }>();
   const search = useSearchParams();
   const data = useData();
+  const role = useRole();
   if (!SUBJECTS[subject]) notFound();
   if (!data) return null;
   const level = (search.get("niveau") as Level | null) ?? levelAt(toISO(new Date()), data.settings) ?? "seconde";
@@ -60,7 +62,9 @@ export default function SubjectPage() {
         </div>
       </div>
 
-      {!chapters.length ? (
+      {role === "eleve" && !levelUnlocked(level, data.settings) ? (
+        <EmptyState icon={Lock} title={`Programme de ${LEVELS[level].name} verrouillé`} text={`Il s’ouvrira le ${formatFull(levelRange(level, data.settings)[0])}.`} />
+      ) : !chapters.length ? (
         <EmptyState icon={Lock} title="Programme bientôt disponible" text="Les chapitres de ce niveau seront ajoutés avant la rentrée correspondante." />
       ) : (
         <div className="relative flex flex-col gap-3">

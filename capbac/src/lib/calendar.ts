@@ -1,7 +1,7 @@
 import { PROGRAMS } from "@/content";
 import { SLOTS, WEEK } from "@/content/schedule";
 import type { Level, SubjectId } from "@/content/types";
-import { addDays, at, fromISO, type ISODate } from "./dates";
+import { addDays, at, fromISO, mondayOf, toISO, type ISODate } from "./dates";
 import type { AppData, AttendanceRecord, Holiday, Settings } from "./store";
 
 /* -------------------------------------------------------------------------- */
@@ -9,7 +9,7 @@ import type { AppData, AttendanceRecord, Holiday, Settings } from "./store";
 /*  rattachée à un chapitre du programme du niveau en cours.                  */
 /* -------------------------------------------------------------------------- */
 
-export type SessionKind = "cours" | "exercice" | "revision" | "controle" | "complet" | "libre";
+export type SessionKind = "cours" | "exercice" | "revision" | "complet" | "libre";
 
 export type Session = {
   key: string;
@@ -29,13 +29,14 @@ export type Session = {
   /** Nombre de séances de ce chapitre et position dans le chapitre. */
   chapterSessions: number;
   chapterSessionIndex: number;
+  /** Contrôle programmé en début de séance (sur un chapitre déjà terminé). */
+  test?: { chapterId: string };
 };
 
 export const KIND_LABEL: Record<SessionKind, string> = {
   cours: "Cours",
   exercice: "Exercice noté",
   revision: "Révisions",
-  controle: "Contrôle",
   complet: "Cours + exercice",
   libre: "Séance libre",
 };
@@ -67,17 +68,12 @@ export function isSchoolDay(date: ISODate, s: Settings) {
   return dow >= 1 && dow <= 5 && !holidayOn(date, s.holidays) && levelAt(date, s) !== null;
 }
 
-/**
- * Plan d'un chapitre réparti sur `n` séances.
- * `withTest` : le contrôle n'a lieu qu'un chapitre sur deux (et au dernier),
- * pour ne pas en avoir tout le temps. Les autres chapitres finissent par un exercice noté.
- */
-function chapterPlan(n: number, sectionCount: number, withTest: boolean): { kind: SessionKind; sections: number[] }[] {
+/** Plan d'un chapitre réparti sur `n` séances : cours → exercice noté → révisions. */
+function chapterPlan(n: number, sectionCount: number): { kind: SessionKind; sections: number[] }[] {
   const all = Array.from({ length: sectionCount }, (_, i) => i);
   if (n <= 1) return [{ kind: "complet", sections: all }];
-  const tail: SessionKind[] = withTest ? ["exercice", "controle"] : ["exercice"];
-  if (n <= tail.length) return withTest ? [{ kind: "complet", sections: all }, { kind: "controle", sections: [] }] : [{ kind: "cours", sections: all }, { kind: "exercice", sections: [] }];
-  const coursCount = Math.min(sectionCount, n - tail.length);
+  if (n === 2) return [{ kind: "cours", sections: all }, { kind: "exercice", sections: [] }];
+  const coursCount = Math.min(sectionCount, n - 1);
   const plan: { kind: SessionKind; sections: number[] }[] = [];
   for (let i = 0; i < coursCount; i++) {
     const from = Math.floor((i * sectionCount) / coursCount);
@@ -85,14 +81,59 @@ function chapterPlan(n: number, sectionCount: number, withTest: boolean): { kind
     plan.push({ kind: "cours", sections: all.slice(from, to) });
   }
   plan.push({ kind: "exercice", sections: [] });
-  while (plan.length < n - (withTest ? 1 : 0)) plan.push({ kind: "revision", sections: all });
-  if (withTest) plan.push({ kind: "controle", sections: [] });
+  while (plan.length < n) plan.push({ kind: "revision", sections: all });
   return plan;
 }
 
-/** Un contrôle tous les deux chapitres (chapitres 2, 4, 6, 8…). */
-export function chapterHasTest(index: number, count: number) {
-  return index % 2 === 1 || index === count - 1;
+/**
+ * Contrôles : 3 à 4 par semaine (en alternance), dans des matières différentes
+ * et si possible des jours différents. Chaque contrôle porte sur un chapitre
+ * entièrement terminé (cours + exercice) et pas encore évalué.
+ */
+function scheduleTests(sessions: Session[]) {
+  const lastDate = new Map<string, string>();
+  const subjectOf = new Map<string, SubjectId>();
+  for (const s of sessions) {
+    if (!s.chapterId) continue;
+    lastDate.set(s.chapterId, s.date);
+    subjectOf.set(s.chapterId, s.subject);
+  }
+  const tested = new Set<string>();
+  const byWeek = new Map<string, Session[]>();
+  for (const s of sessions) {
+    const w = mondayOf(s.date);
+    byWeek.set(w, [...(byWeek.get(w) ?? []), s]);
+  }
+  let weekIndex = 0;
+  for (const [, week] of byWeek) {
+    const target = weekIndex % 2 === 0 ? 4 : 3;
+    weekIndex++;
+    // Chapitres terminés et non évalués, par matière (du plus ancien au plus récent).
+    const pending = (subject: SubjectId, before: string) =>
+      [...lastDate.entries()]
+        .filter(([id, d]) => d < before && !tested.has(id) && subjectOf.get(id) === subject)
+        .map(([id]) => id);
+    const candidates = week
+      .map((s) => ({ s, chapters: pending(s.subject, s.date) }))
+      .filter((c) => c.chapters.length > 0)
+      .sort((a, b) => b.chapters.length - a.chapters.length || a.s.date.localeCompare(b.s.date) || a.s.slot - b.s.slot);
+    const usedSubjects = new Set<SubjectId>();
+    const usedDays = new Set<string>();
+    const pick = (strictDays: boolean) => {
+      for (const c of candidates) {
+        if (usedSubjects.size >= target) return;
+        if (usedSubjects.has(c.s.subject) || (strictDays && usedDays.has(c.s.date)) || c.s.test) continue;
+        const chapterId = pending(c.s.subject, c.s.date)[0];
+        if (!chapterId) continue;
+        c.s.test = { chapterId };
+        tested.add(chapterId);
+        usedSubjects.add(c.s.subject);
+        usedDays.add(c.s.date);
+      }
+    };
+    pick(true);
+    pick(false);
+  }
 }
 
 const cache = new Map<string, Session[]>();
@@ -133,7 +174,7 @@ export function allSessions(s: Settings): Session[] {
         const a = Math.floor((c * N) / C);
         const b = Math.floor(((c + 1) * N) / C);
         const block = list.slice(a, Math.max(b, a + 1)).filter(Boolean);
-        const plan = chapterPlan(block.length, chapters[c].sections.length, chapterHasTest(c, C));
+        const plan = chapterPlan(block.length, chapters[c].sections.length);
         block.forEach((r, i) =>
           assigned.set(r.key, {
             ...r,
@@ -147,10 +188,13 @@ export function allSessions(s: Settings): Session[] {
         );
       }
     }
+    const levelSessions: Session[] = [];
     raw.forEach((r) => {
       const sess = assigned.get(r.key);
-      if (sess) out.push(sess);
+      if (sess) levelSessions.push(sess);
     });
+    scheduleTests(levelSessions);
+    out.push(...levelSessions);
   }
   cache.set(cacheKey, out);
   return out;
@@ -169,6 +213,31 @@ export function sessionsOfChapter(chapterId: string, s: Settings) {
   return allSessions(s).filter((x) => x.chapterId === chapterId);
 }
 
+/** Toutes les séances avec un contrôle programmé. */
+export function scheduledTests(s: Settings) {
+  return allSessions(s).filter((x) => x.test);
+}
+
+/** La séance où le contrôle d'un chapitre est programmé (s'il y en a un). */
+export function testSessionOf(chapterId: string, s: Settings) {
+  return allSessions(s).find((x) => x.test?.chapterId === chapterId);
+}
+
+/** Un niveau est ouvert à l'élève à partir de sa date de début. */
+export function levelUnlocked(level: Level, s: Settings, today = toISO(new Date())) {
+  if (level === "seconde") return true;
+  return today >= levelRange(level, s)[0];
+}
+
+/**
+ * Semaine affichée par défaut : la semaine en cours du lundi au samedi,
+ * et dès le dimanche, la semaine qui arrive.
+ */
+export function defaultWeek(today: ISODate) {
+  const dow = fromISO(today).getDay();
+  return dow === 0 ? addDays(today, 1) : mondayOf(today);
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Présences                                                                  */
 /* -------------------------------------------------------------------------- */
@@ -179,11 +248,6 @@ export type LiveStatus = "a-venir" | "en-cours" | "present" | "retard" | "absent
 export const CHECKIN_BEFORE_MIN = 15;
 export const LATE_AFTER_MIN = 10;
 
-export function trackingStart(data: AppData): ISODate {
-  const created = data.profile?.createdAt?.slice(0, 10) ?? data.settings.startDate;
-  return created > data.settings.startDate ? created : data.settings.startDate;
-}
-
 export function liveStatus(sess: Session, data: AppData, now = new Date()): { status: LiveStatus; record?: AttendanceRecord } {
   const record = data.attendance[sess.key];
   if (record) return { status: record.status, record };
@@ -191,7 +255,8 @@ export function liveStatus(sess: Session, data: AppData, now = new Date()): { st
   const end = at(sess.date, sess.end);
   if (now < start) return { status: "a-venir" };
   if (now <= end) return { status: "en-cours" };
-  if (sess.date < trackingStart(data)) return { status: "non-suivi" };
+  // Les cours terminés avant la création du compte ne comptent pas.
+  if (sess.date < data.settings.startDate || (data.profile && end < new Date(data.profile.createdAt))) return { status: "non-suivi" };
   return { status: "absent" };
 }
 

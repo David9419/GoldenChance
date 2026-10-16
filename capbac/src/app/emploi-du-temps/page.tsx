@@ -12,8 +12,8 @@ import { Card } from "@/components/ui/card";
 import { getChapter } from "@/content";
 import { LUNCH, SLOTS, weeklyHours } from "@/content/schedule";
 import { LEVELS, SUBJECT_IDS, SUBJECTS } from "@/content/subjects";
-import { holidayOn, KIND_LABEL, levelAt, liveStatus, sessionsOn, type Session } from "@/lib/calendar";
-import { addDays, formatHour, formatShort, formatWeekday, fromISO, mondayOf, toISO } from "@/lib/dates";
+import { defaultWeek, holidayOn, KIND_LABEL, levelAt, liveStatus, sessionsOn, type Session } from "@/lib/calendar";
+import { addDays, formatHour, formatShort, formatWeekday, fromISO, toISO } from "@/lib/dates";
 import { useData, type AppData } from "@/lib/store";
 import { useNow } from "@/lib/use-now";
 import { cn } from "@/lib/utils";
@@ -22,15 +22,12 @@ export default function TimetablePage() {
   const data = useData();
   const now = useNow();
   const today = toISO(now);
-  const [monday, setMonday] = useState(() => {
-    const m = mondayOf(today);
-    const dow = fromISO(today).getDay();
-    return dow === 0 || dow === 6 ? addDays(m, 7) : m;
-  });
+  // Semaine en cours jusqu'au samedi ; dès le dimanche, la semaine qui arrive.
+  const [monday, setMonday] = useState(() => defaultWeek(today));
   const [dir, setDir] = useState(0);
   const [mobileDay, setMobileDay] = useState(() => {
     const dow = fromISO(today).getDay();
-    return dow >= 1 && dow <= 5 ? dow - 1 : 0;
+    return dow >= 1 && dow <= 5 ? dow - 1 : dow === 6 ? 4 : 0;
   });
 
   if (!data) return null;
@@ -42,7 +39,7 @@ export default function TimetablePage() {
 
   const go = (n: number) => {
     setDir(n);
-    setMonday(n === 0 ? mondayOf(today) : addDays(monday, 7 * n));
+    setMonday(n === 0 ? defaultWeek(today) : addDays(monday, 7 * n));
   };
 
   return (
@@ -226,8 +223,11 @@ function Cell({ s, data, now, isToday }: { s: Session; data: AppData; now: Date;
       </p>
       <p className="line-clamp-2 text-[0.72rem] leading-snug font-semibold text-mist-100">{ref ? ref.chapter.title : "Programme à venir"}</p>
       <div className="mt-auto flex items-center justify-between gap-1">
-        <span className="text-[0.65rem] font-semibold text-mist-300">{KIND_LABEL[s.kind]}</span>
-        {status !== "a-venir" && status !== "non-suivi" && <StatusPill status={status} justified={record?.justified} className="px-1.5 text-[0.6rem]" />}
+        <span className="flex items-center gap-1 text-[0.65rem] font-semibold text-mist-300">
+          {s.test && <span className="rounded bg-amber-400 px-1 text-[0.6rem] font-bold text-amber-950">CONTRÔLE</span>}
+          {KIND_LABEL[s.kind]}
+        </span>
+        {status !== "a-venir" && status !== "non-suivi" && <StatusPill status={status} justified={record?.justified} compact className="px-1.5 text-[0.6rem]" />}
       </div>
     </Link>
   );

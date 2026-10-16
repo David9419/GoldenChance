@@ -15,25 +15,27 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getChapter } from "@/content";
 import { LEVELS, SUBJECTS } from "@/content/subjects";
-import { canCheckIn, checkInStatus, findSession, KIND_LABEL, liveStatus, sessionKey } from "@/lib/calendar";
-import { formatHour, formatLong } from "@/lib/dates";
+import { useRole } from "@/lib/auth";
+import { canCheckIn, checkInStatus, findSession, KIND_LABEL, levelRange, levelUnlocked, liveStatus, sessionKey } from "@/lib/calendar";
+import { at, formatHour, formatLong } from "@/lib/dates";
 import { actions, useData } from "@/lib/store";
 import { useNow } from "@/lib/use-now";
 
 export default function SessionPage() {
   const params = useParams<{ date: string; slot: string }>();
   const data = useData();
+  const role = useRole();
   const now = useNow();
   const key = sessionKey(params.date, Number(params.slot));
   const session = data ? findSession(key, data.settings) : undefined;
 
   // Ouvrir sa séance pendant le créneau = présence enregistrée automatiquement.
   useEffect(() => {
-    if (!data || !session) return;
-    if (!data.attendance[session.key] && canCheckIn(session)) {
-      actions.setAttendance(session.key, { status: checkInStatus(session), at: new Date().toISOString(), by: "eleve" });
+    if (!data || !session || role !== "eleve") return;
+    if (!data.attendance[session.key] && canCheckIn(session) && levelUnlocked(session.level, data.settings)) {
+      actions.setAttendance(session.key, { status: checkInStatus(session), at: new Date().toISOString(), by: "eleve" }, `${SUBJECTS[session.subject].name} ${formatHour(session.start)}`);
     }
-  }, [data, session]);
+  }, [data, session, role]);
 
   if (!data) return null;
   if (!session)
@@ -50,8 +52,9 @@ export default function SessionPage() {
   const { status, record } = liveStatus(session, data, now);
   const lessonDone = !!data.lessonsDone[session.key];
 
-  const kindIcon = { cours: BookOpen, exercice: ClipboardList, controle: Trophy, revision: Repeat, complet: BookOpen, libre: BookOpen }[session.kind];
-  const KindIcon = kindIcon;
+  const KindIcon = { cours: BookOpen, exercice: ClipboardList, revision: Repeat, complet: BookOpen, libre: BookOpen }[session.kind];
+  const locked = role === "eleve" && !levelUnlocked(session.level, data.settings);
+  const testRef = session.test ? getChapter(session.test.chapterId) : undefined;
 
   return (
     <div className="flex flex-col gap-6">
@@ -77,6 +80,11 @@ export default function SessionPage() {
                   <KindIcon /> {KIND_LABEL[session.kind]}
                 </Badge>
                 <Badge variant="outline">{LEVELS[session.level].name}</Badge>
+                {session.test && (
+                  <Badge variant="warning">
+                    <Trophy /> Contrôle
+                  </Badge>
+                )}
                 <Badge variant="outline">Séance n° {session.number}</Badge>
                 <StatusPill status={status} justified={record?.justified} />
               </div>
@@ -97,10 +105,30 @@ export default function SessionPage() {
         )}
       </div>
 
-      {!ref ? (
+      {locked ? (
+        <EmptyState
+          icon={Lock}
+          title={`Programme de ${LEVELS[session.level].name} verrouillé`}
+          text={`Il s’ouvrira le ${formatLong(levelRange(session.level, data.settings)[0])}. Concentre-toi sur ton programme actuel !`}
+        />
+      ) : !ref ? (
         <EmptyState icon={Lock} title="Programme bientôt disponible" text="Le contenu de ce niveau sera ajouté avant la rentrée. En attendant, révise les chapitres précédents." />
       ) : (
-        <SessionBody kind={session.kind} sessionSections={session.sections} chapterId={ref.chapter.id} color={meta.color} sessionKey={session.key} lessonDone={lessonDone} />
+        <>
+          {testRef && (
+            <section className="flex flex-col gap-3">
+              <div className="flex items-center gap-3 rounded-2xl border border-amber-400/30 bg-amber-500/10 p-4 text-sm text-amber-100">
+                <Trophy className="size-5 shrink-0 text-amber-300" />
+                <p>
+                  <strong>Contrôle en début de séance</strong> sur le chapitre « {testRef.chapter.title} » ({data.settings.testMinutes} min, coefficient 2). Une
+                  seule copie : la correction est publiée quelques jours après.
+                </p>
+              </div>
+              <Quiz chapterId={testRef.chapter.id} kind="test" availableFrom={at(session.date, session.start)} />
+            </section>
+          )}
+          <SessionBody kind={session.kind} sessionSections={session.sections} chapterId={ref.chapter.id} color={meta.color} sessionKey={session.key} lessonDone={lessonDone} />
+        </>
       )}
     </div>
   );
@@ -159,16 +187,6 @@ function SessionBody({
       </>
     );
   }
-  if (kind === "controle") {
-    return (
-      <>
-        <Card className="border-amber-400/25 p-5 text-sm text-amber-100">
-          Jour de contrôle ! Le contrôle est chronométré et compte <strong>coefficient 2</strong>. Seule la première tentative est notée.
-        </Card>
-        <Quiz chapterId={chapterId} kind="test" />
-      </>
-    );
-  }
   // Séance complète ou révisions : cours + exercice (+ contrôle) dans des onglets.
   return (
     <Tabs defaultValue="cours" className="flex flex-col gap-5">
@@ -179,16 +197,11 @@ function SessionBody({
         <TabsTrigger value="exercice">
           <ClipboardList /> Exercice
         </TabsTrigger>
-        {kind === "complet" && (
-          <TabsTrigger value="controle">
-            <Trophy /> Contrôle
-          </TabsTrigger>
-        )}
       </TabsList>
       <TabsContent value="cours" className="flex flex-col gap-5">
         {kind === "revision" && (
           <Card className="p-5 text-sm text-mist-300">
-            Séance de révisions : relis les points essentiels, refais l’exercice pour t’entraîner et prépare le contrôle.
+            Séance de révisions : relis les points essentiels et refais l’exercice pour t’entraîner. Un contrôle peut tomber sur ce chapitre dans les prochains jours : regarde ton agenda !
           </Card>
         )}
         <Objectives chapter={chapter} color={color} />
@@ -197,9 +210,6 @@ function SessionBody({
       </TabsContent>
       <TabsContent value="exercice">
         <Quiz chapterId={chapterId} kind="exercise" />
-      </TabsContent>
-      <TabsContent value="controle">
-        <Quiz chapterId={chapterId} kind="test" />
       </TabsContent>
     </Tabs>
   );
