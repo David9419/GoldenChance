@@ -184,7 +184,7 @@ function SettingsCard({ data }: { data: AppData }) {
   const set = <K extends keyof Settings>(k: K, v: Settings[K]) => setS((prev) => ({ ...prev, [k]: v }));
 
   const dateFields: { key: keyof Settings; label: string }[] = [
-    { key: "startDate", label: "Début de l’emploi du temps (Seconde)" },
+    { key: "startDate", label: "Jour de la rentrée (Seconde)" },
     { key: "premiereStart", label: "Début de la Première" },
     { key: "bacFrancaisDate", label: "Bac de français (écrit)" },
     { key: "premiereEnd", label: "Fin de la Première" },
@@ -208,6 +208,14 @@ function SettingsCard({ data }: { data: AppData }) {
                 <Input id={f.key} type="date" value={s[f.key] as string} onChange={(e) => set(f.key, e.target.value as never)} />
               </div>
             ))}
+            <div className="grid gap-2">
+              <Label htmlFor="ramp">Rentrée en douceur sans contrôle ni devoir (jours)</Label>
+              <Input id="ramp" type="number" min={0} max={60} value={s.rampUpDays} onChange={(e) => set("rampUpDays", Math.max(0, Number(e.target.value) || 0))} />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="tpw">Contrôles par semaine</Label>
+              <Input id="tpw" type="number" min={0} max={6} value={s.testsPerWeek} onChange={(e) => set("testsPerWeek", Math.min(6, Math.max(0, Number(e.target.value) || 0)))} />
+            </div>
             <div className="grid gap-2">
               <Label htmlFor="cd">Correction des contrôles après (jours)</Label>
               <Input

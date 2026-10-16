@@ -74,6 +74,20 @@ export function StudentDashboard() {
       </div>
 
       <QuoteCard date={now} />
+      {today < s.startDate && (
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative overflow-hidden rounded-3xl border border-emerald-400/30 bg-[linear-gradient(135deg,rgba(52,211,153,0.22),var(--surface)_60%)] p-6 sm:p-8"
+        >
+          <p className="text-xs font-bold tracking-[0.16em] text-emerald-300 uppercase">C’est bientôt la rentrée</p>
+          <h2 className="mt-1 font-display text-2xl font-bold sm:text-3xl">Rentrée le {formatLong(s.startDate).toLowerCase()} 🎒</h2>
+          <p className="mt-2 max-w-2xl text-mist-300">
+            Les {Math.round(s.rampUpDays / 7)} premières semaines se font en douceur : des leçons et des exercices, sans contrôle ni devoir. Ensuite, {s.testsPerWeek} contrôles
+            par semaine et 1 à 2 devoirs chaque soir.
+          </p>
+        </motion.div>
+      )}
       <NotificationPrompt />
 
       {/* Séance en cours / prochaine */}

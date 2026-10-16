@@ -24,7 +24,7 @@ export default function JourneyPage() {
   const sessions = allSessions(data);
 
   const steps = [
-    { id: "seconde", icon: Rocket, title: "Remise à niveau de Seconde", date: s.startDate, end: s.premiereStart, text: "Reprendre toutes les bases des 6 matières : cours, exercices notés et contrôles." },
+    { id: "seconde", icon: Rocket, title: "Remise à niveau de Seconde", date: s.startDate, end: s.premiereStart, text: `Rentrée en douceur : ${s.rampUpDays} premiers jours sans contrôle ni devoir. Ensuite ${s.testsPerWeek} contrôles par semaine et 1 à 2 devoirs chaque soir, pour reprendre toutes les bases des 6 matières.` },
     { id: "premiere", icon: BookMarked, title: "Première générale", date: s.premiereStart, end: s.bacFrancaisDate, text: "Programme de Première en maths, physique-chimie, SVT, histoire-géo, anglais et français." },
     { id: "bac", icon: Feather, title: "Bac de français", date: s.bacFrancaisDate, end: s.terminaleStart, text: "Épreuves anticipées : écrit de 4 h (commentaire ou dissertation) et oral. Date exacte à confirmer selon le calendrier officiel." },
     { id: "terminale", icon: GraduationCap, title: "Terminale", date: s.terminaleStart, end: s.terminaleEnd, text: "Dernière ligne droite vers le baccalauréat. Le programme sera ajouté avant la rentrée 2027." },

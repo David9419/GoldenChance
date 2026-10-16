@@ -37,6 +37,12 @@ export type Settings = {
   testsFrom?: ISODate;
   /** Délai avant la publication de la correction d'un contrôle (heures). */
   correctionDelayHours: number;
+  /** Jours de « rentrée en douceur » sans contrôle ni devoir. */
+  rampUpDays: number;
+  /** Nombre de contrôles automatiques par semaine. */
+  testsPerWeek: number;
+  /** Version des réglages (migration des anciennes dates par défaut). */
+  settingsRev?: number;
 };
 
 export type Attempt = {
@@ -139,8 +145,8 @@ export type AppData = {
 };
 
 export const DEFAULT_SETTINGS: Settings = {
-  startDate: "2026-10-12",
-  premiereStart: "2026-12-01",
+  startDate: "2026-10-19",
+  premiereStart: "2027-01-01",
   premiereEnd: "2027-07-02",
   bacFrancaisDate: "2027-06-14",
   terminaleStart: "2027-09-01",
@@ -154,6 +160,9 @@ export const DEFAULT_SETTINGS: Settings = {
   ],
   testMinutes: 25,
   correctionDelayHours: 48,
+  rampUpDays: 14,
+  testsPerWeek: 3,
+  settingsRev: 3,
 };
 
 export const DEFAULT_ACCOUNTS: AppData["accounts"] = {
@@ -186,6 +195,12 @@ function migrate(raw: Partial<AppData> & Record<string, unknown>): AppData {
   const base = emptyData();
   const settings = { ...DEFAULT_SETTINGS, ...(raw.settings ?? {}) } as Settings & { parentPin?: string };
   delete settings.parentPin;
+  // Rentrée le lundi 19 octobre 2026 et Première au 1er janvier 2027.
+  if (((raw.settings as Partial<Settings> | undefined)?.settingsRev ?? 0) < 3) {
+    if (settings.startDate === "2026-10-12") settings.startDate = "2026-10-19";
+    if (settings.premiereStart === "2026-12-01") settings.premiereStart = "2027-01-01";
+    settings.settingsRev = 3;
+  }
   if (!settings.testsFrom && raw.profile?.createdAt) {
     const d = new Date(raw.profile.createdAt);
     d.setDate(d.getDate() + 3);

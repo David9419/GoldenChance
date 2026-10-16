@@ -165,7 +165,10 @@ function chapterEnds(sessions: Iterable<Session>) {
  * prévenu au moins 3 jours avant). Ils portent sur des chapitres déjà terminés.
  */
 function planTests(level: Level, raw: RawSlot[], first: Map<string, Session>, s: Settings, profTests: PlannedTest[]): PlannedTest[] {
-  const testsFrom = s.testsFrom ?? addDays(s.startDate, 3);
+  // Rentrée en douceur : aucun contrôle pendant les premières semaines.
+  const rampEnd = addDays(s.startDate, s.rampUpDays ?? 14);
+  const fromAccount = s.testsFrom ?? addDays(s.startDate, 3);
+  const testsFrom = fromAccount > rampEnd ? fromAccount : rampEnd;
   const { end, subject: subjectOf } = chapterEnds(first.values());
   const tested = new Set<string>(profTests.flatMap((t) => t.chapterIds));
   const used = new Set<string>(profTests.flatMap((t) => t.slots.map((sl) => sessionKey(t.date, sl))));
@@ -179,7 +182,7 @@ function planTests(level: Level, raw: RawSlot[], first: Map<string, Session>, s:
   }
   let weekIndex = 0;
   for (const [week, slots] of byWeek) {
-    const target = weekIndex % 2 === 0 ? 4 : 3;
+    const target = s.testsPerWeek ?? 3;
     weekIndex++;
     const already = planned.filter((p) => mondayOf(p.date) === week);
     const usedSubjects = new Set<SubjectId>(already.map((p) => p.subject));
@@ -242,7 +245,7 @@ function profTestsOf(assignments: Assignment[], level: Level, s: Settings): Plan
 export function allSessions(src: CalendarSource): Session[] {
   const s = src.settings;
   const profAssignments = src.assignments.filter((a) => a.kind === "controle" && a.slot !== undefined);
-  const cacheKey = JSON.stringify([s.startDate, s.premiereStart, s.premiereEnd, s.terminaleStart, s.terminaleEnd, s.holidays, s.testsFrom, profAssignments.map((a) => [a.id, a.dueDate, a.slot, a.long, a.chapterId, a.subject])]);
+  const cacheKey = JSON.stringify([s.startDate, s.premiereStart, s.premiereEnd, s.terminaleStart, s.terminaleEnd, s.holidays, s.testsFrom, s.rampUpDays, s.testsPerWeek, profAssignments.map((a) => [a.id, a.dueDate, a.slot, a.long, a.chapterId, a.subject])]);
   const hit = cache.get(cacheKey);
   if (hit) return hit;
 
@@ -398,7 +401,7 @@ const hwCache = new Map<string, AutoHomework[]>();
 
 export function autoHomework(src: CalendarSource): AutoHomework[] {
   const sessions = allSessions(src);
-  const key = JSON.stringify([sessions.length, sessions[0]?.key, sessions[sessions.length - 1]?.key, src.settings.holidays, src.settings.testsFrom]);
+  const key = JSON.stringify([sessions.length, sessions[0]?.key, sessions[sessions.length - 1]?.key, src.settings.holidays, src.settings.testsFrom, src.settings.rampUpDays, src.settings.startDate]);
   const hit = hwCache.get(key);
   if (hit) return hit;
 
@@ -410,11 +413,13 @@ export function autoHomework(src: CalendarSource): AutoHomework[] {
   };
   const usedChapters = new Set<string>();
   const lastGiven = new Map<SubjectId, number>();
+  // Pas de devoirs pendant la rentrée en douceur.
+  const homeworkFrom = addDays(src.settings.startDate, src.settings.rampUpDays ?? 14);
   const out: AutoHomework[] = [];
   days.forEach((d, dayIndex) => {
     const daySessions = sessions.filter((s) => s.date === d);
     const learned = daySessions.filter((s) => (s.kind === "cours" || s.kind === "complet") && s.chapterId && getChapter(s.chapterId)?.chapter.homework?.length);
-    if (!learned.length || dayIndex === days.length - 1) return;
+    if (!learned.length || dayIndex === days.length - 1 || d < homeworkFrom) return;
     const want = dayIndex % 3 === 1 ? 2 : 1;
     const testsSoon = new Set(sessions.filter((s) => s.test && s.date > d && s.date <= nextSchoolDay(d, 2)).map((s) => s.subject));
     const choices = learned
