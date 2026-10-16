@@ -34,7 +34,7 @@ export default function ChapterPage() {
           <ArrowLeft /> {meta.name}
         </Link>
       </Button>
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}30, rgba(17,20,39,0.88) 60%)` }}>
+      <div className="relative overflow-hidden rounded-3xl border border-fg/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}30, var(--surface) 60%)` }}>
         <div className="flex items-start gap-4">
           <SubjectBadge subject={ref.subject} size="lg" />
           <div>

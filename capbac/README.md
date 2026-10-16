@@ -4,9 +4,10 @@ Application d’école à la maison : emploi du temps, cours de la Seconde (remi
 
 ## Ce que contient l’application
 
-- **Profil** : prénom, nom et photo de profil (création au premier lancement).
+- **Profil & paramètres** : prénom, nom et photo de profil, mode clair / sombre / automatique.
+- **Phrase motivante** différente chaque jour sur l’accueil.
 - **Emploi du temps** : repris du PDF (lun.–jeu. 10h–12h30 / 13h30–16h30, ven. 10h–12h30), une couleur par matière, navigation de semaine en semaine, impression.
-- **Séances** : chaque créneau est relié automatiquement à un chapitre du programme (cours → exercice noté → révisions → contrôle).
+- **Séances** : chaque créneau est relié automatiquement à un chapitre du programme (cours → exercice noté → révisions, et un contrôle tous les deux chapitres).
 - **6 matières × 8 chapitres** pour la Seconde et pour la Première : Maths, Français, Physique-Chimie, SVT, Histoire-Géo, Anglais. Chaque chapitre = 3 parties de cours, 6 questions d’exercice noté, 8 questions de contrôle chronométré, avec correction détaillée.
 - **Notes** : exercice = coef 1, contrôle = coef 2. Seule la 1re tentative compte (les suivantes servent à s’entraîner). Moyennes par matière, moyenne générale, appréciation.
 - **Vie scolaire** : bouton « Je suis présent » (15 min avant le cours → fin du cours, retard après 10 min). Un cours non pointé = absence. Les parents justifient les absences.

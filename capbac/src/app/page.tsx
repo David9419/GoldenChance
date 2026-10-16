@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, BookOpenCheck, CalendarClock, Flame, GraduationCap, PartyPopper, Sparkles, Target, Trophy } from "lucide-react";
 import { CountUp, Ring, Stagger, StaggerItem, StatusPill } from "@/components/app/common";
+import { QuoteCard } from "@/components/app/quote-card";
 import { CheckInButton, SessionRow, sessionHref } from "@/components/app/session-card";
 import { SubjectBadge } from "@/components/app/subject-icon";
 import { Badge } from "@/components/ui/badge";
@@ -30,7 +31,7 @@ export default function Dashboard() {
   const todaySessions = sessions.filter((x) => x.date === today);
   const upcoming = sessions.find((x) => at(x.date, x.end) > now);
   const nextDaySessions = todaySessions.length ? todaySessions : upcoming ? sessions.filter((x) => x.date === upcoming.date) : [];
-  const current = todaySessions.find((x) => liveStatus(x, data, now).status === "en-cours");
+  const current = todaySessions.find((x) => at(x.date, x.start) <= now && now <= at(x.date, x.end));
   const focus = current ?? upcoming;
 
   const avg = generalAverage(data, level);
@@ -65,10 +66,12 @@ export default function Dashboard() {
         </div>
       </div>
 
+      <QuoteCard date={now} />
+
       {/* Séance en cours / prochaine */}
       {focus && <FocusCard key={focus.key} session={focus} live={!!current} now={now} />}
 
-      <Stagger className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StaggerItem>
           <Card className="flex h-full items-center gap-4 p-5">
             <Ring value={avg} max={20} size={84} stroke={8}>
@@ -129,7 +132,7 @@ export default function Dashboard() {
         </StaggerItem>
       </Stagger>
 
-      <div className="grid gap-6 xl:grid-cols-[1.35fr_1fr]">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
         {/* Journée */}
         <Card>
           <CardHeader className="flex-row items-center justify-between">
@@ -189,7 +192,7 @@ export default function Dashboard() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-white/[0.02] p-3"
+                    className="flex items-center gap-3 rounded-xl border border-border bg-fg/[0.02] p-3"
                   >
                     <SubjectBadge subject={g.subject} size="sm" />
                     <div className="min-w-0 flex-1">
@@ -228,14 +231,14 @@ export default function Dashboard() {
           {SUBJECT_IDS.map((id) => {
             const chapters = sessions.filter((x) => x.level === level && x.subject === id);
             const chapterIds = [...new Set(chapters.map((x) => x.chapterId).filter(Boolean))] as string[];
-            const done = chapterIds.filter((c) => chapterResults(data, c, "test").count > 0).length;
+            const done = chapterIds.filter((c) => chapterResults(data, c, "exercise").count > 0).length;
             const pct = chapterIds.length ? (done / chapterIds.length) * 100 : 0;
             return (
               <Link key={id} href={`/matieres/${id}`} className="group flex items-center gap-3">
                 <SubjectBadge subject={id} size="sm" />
                 <div className="flex-1">
                   <div className="flex items-baseline justify-between text-sm">
-                    <span className="font-semibold group-hover:text-white">{SUBJECTS[id].name}</span>
+                    <span className="font-semibold group-hover:text-mist-100">{SUBJECTS[id].name}</span>
                     <span className={`text-xs font-bold ${noteTone(subjAvg[id].avg)}`}>{fmtNote(subjAvg[id].avg)}</span>
                   </div>
                   <Progress value={pct} className="mt-1.5 h-1.5" indicatorStyle={{ background: SUBJECTS[id].gradient }} />
@@ -265,7 +268,7 @@ function FocusCard({ session, live, now }: { session: NonNullable<ReturnType<typ
 
   return (
     <motion.div initial={{ opacity: 0, y: 16, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.5 }}>
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}33, rgba(17,20,39,0.85) 55%)` }}>
+      <div className="relative overflow-hidden rounded-3xl border border-fg/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}33, var(--surface) 55%)` }}>
         <motion.div
           className="pointer-events-none absolute -top-24 -right-16 size-72 rounded-full blur-3xl"
           style={{ background: meta.color, opacity: 0.25 }}

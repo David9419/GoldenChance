@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { CalendarRange, Download, KeyRound, Palmtree, Plus, RotateCcw, Save, ShieldCheck, Trash2, Upload, UserRound } from "lucide-react";
+import { CalendarRange, Palette, Download, KeyRound, Palmtree, Plus, RotateCcw, Save, ShieldCheck, Trash2, Upload, UserRound } from "lucide-react";
 import { PageHeader } from "@/components/app/common";
 import { ParentToggle } from "@/components/app/parent-gate";
 import { PhotoPicker } from "@/components/app/photo-picker";
+import { ThemePicker } from "@/components/app/theme-toggle";
 import { toast } from "@/components/app/toast";
 import { UserAvatar } from "@/components/app/user-avatar";
 import { Badge } from "@/components/ui/badge";
@@ -29,10 +30,10 @@ export default function ProfilePage() {
 
   return (
     <div>
-      <PageHeader eyebrow="Mon profil" title="Profil & réglages" actions={<ParentToggle />} />
+      <PageHeader eyebrow="Mon profil" title="Profil & paramètres" actions={<ParentToggle />} />
 
       {/* Carte d'identité */}
-      <div className="relative mb-6 overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(99,102,241,0.35),rgba(192,38,211,0.18)_50%,rgba(17,20,39,0.9))] p-6 sm:p-8">
+      <div className="relative mb-6 overflow-hidden rounded-3xl border border-fg/10 bg-[linear-gradient(135deg,rgba(99,102,241,0.35),rgba(192,38,211,0.18)_50%,var(--surface))] p-6 sm:p-8">
         <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
         <div className="relative flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
           <UserAvatar profile={data.profile} className="size-28 text-3xl ring-4" />
@@ -54,7 +55,20 @@ export default function ProfilePage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <IdentityCard data={data} />
+        <div className="flex flex-col gap-6">
+          <IdentityCard data={data} />
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Palette className="size-5 text-fuchsia-300" /> Apparence
+              </CardTitle>
+              <CardDescription>Mode clair, mode sombre, ou automatique selon l’appareil.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ThemePicker />
+            </CardContent>
+          </Card>
+        </div>
         {parent ? (
           <SettingsCard data={data} />
         ) : (

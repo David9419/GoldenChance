@@ -12,8 +12,8 @@ const buttonVariants = cva(
         default:
           "btn-shine bg-[linear-gradient(135deg,#818cf8,#6366f1_45%,#7c3aed)] text-white shadow-[0_8px_24px_-6px_rgba(99,102,241,0.6)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-8px_rgba(99,102,241,0.75)]",
         secondary:
-          "border border-border bg-white/[0.05] text-mist-100 hover:-translate-y-0.5 hover:border-brand-400/40 hover:bg-white/[0.09]",
-        ghost: "text-mist-300 hover:bg-white/[0.06] hover:text-mist-100",
+          "border border-border bg-fg/[0.05] text-mist-100 hover:-translate-y-0.5 hover:border-brand-400/40 hover:bg-fg/[0.09]",
+        ghost: "text-mist-300 hover:bg-fg/[0.06] hover:text-mist-100",
         success:
           "bg-emerald-500 text-emerald-950 shadow-[0_8px_24px_-6px_rgba(16,185,129,0.6)] hover:-translate-y-0.5 hover:bg-emerald-400",
         danger:

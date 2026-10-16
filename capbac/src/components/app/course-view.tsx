@@ -69,7 +69,7 @@ export function CourseSections({ chapter, sections, color }: { chapter: Chapter;
             )}
 
             {s.keyPoints && s.keyPoints.length > 0 && (
-              <div className="mt-6 rounded-2xl border border-border bg-white/[0.03] p-4 sm:p-5">
+              <div className="mt-6 rounded-2xl border border-border bg-fg/[0.03] p-4 sm:p-5">
                 <p className="mb-3 flex items-center gap-2 text-xs font-bold tracking-[0.14em] text-mist-300 uppercase">
                   <ListChecks className="size-4" /> L’essentiel
                 </p>

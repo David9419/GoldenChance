@@ -59,8 +59,8 @@ export function SessionRow({ session, data, now, index = 0 }: { session: Session
       <Link
         href={sessionHref(session)}
         className={cn(
-          "group relative flex items-center gap-4 overflow-hidden rounded-2xl border p-3.5 transition-all hover:-translate-y-0.5 hover:bg-white/[0.05] sm:p-4",
-          live ? "border-brand-400/40 bg-brand-500/[0.08]" : "border-border bg-white/[0.02]",
+          "group relative flex items-center gap-4 overflow-hidden rounded-2xl border p-3.5 transition-all hover:-translate-y-0.5 hover:bg-fg/[0.05] sm:p-4",
+          live ? "border-brand-400/40 bg-brand-500/[0.08]" : "border-border bg-fg/[0.02]",
         )}
       >
         <span className="absolute inset-y-0 left-0 w-1" style={{ background: meta.color }} />

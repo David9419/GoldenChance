@@ -37,7 +37,7 @@ export function Onboarding() {
         {[520, 760, 1000].map((s, i) => (
           <motion.div
             key={s}
-            className="absolute rounded-full border border-white/[0.05]"
+            className="absolute rounded-full border border-fg/[0.05]"
             style={{ width: s, height: s }}
             animate={{ rotate: i % 2 ? -360 : 360 }}
             transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }}

@@ -136,8 +136,8 @@ export const STATUS_META: Record<LiveStatus, { label: string; className: string;
   retard: { label: "En retard", className: "border-amber-400/30 bg-amber-500/15 text-amber-300", icon: Clock },
   absent: { label: "Absent", className: "border-rose-400/30 bg-rose-500/15 text-rose-300", icon: X },
   "en-cours": { label: "En cours", className: "border-brand-400/40 bg-brand-500/20 text-brand-200", icon: CircleDot },
-  "a-venir": { label: "À venir", className: "border-border bg-white/[0.04] text-mist-500", icon: CircleDashed },
-  "non-suivi": { label: "Non suivi", className: "border-border bg-white/[0.02] text-mist-500", icon: Minus },
+  "a-venir": { label: "À venir", className: "border-border bg-fg/[0.04] text-mist-500", icon: CircleDashed },
+  "non-suivi": { label: "Non suivi", className: "border-border bg-fg/[0.02] text-mist-500", icon: Minus },
 };
 
 export function StatusPill({ status, justified, className }: { status: LiveStatus; justified?: boolean; className?: string }) {
@@ -161,7 +161,7 @@ export function StatusPill({ status, justified, className }: { status: LiveStatu
 export function EmptyState({ icon: Icon, title, text, children }: { icon: typeof Check; title: string; text: string; children?: React.ReactNode }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border px-6 py-12 text-center">
-      <span className="flex size-12 items-center justify-center rounded-2xl bg-white/[0.05] text-mist-500">
+      <span className="flex size-12 items-center justify-center rounded-2xl bg-fg/[0.05] text-mist-500">
         <Icon className="size-6" />
       </span>
       <p className="mt-4 font-semibold">{title}</p>

@@ -150,13 +150,13 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
     <Card className="overflow-hidden p-5 sm:p-8">
       <div className="flex items-center justify-between gap-3">
         <p className="text-sm font-semibold text-mist-300">
-          {label} · Question <span className="text-white">{index + 1}</span>/{questions.length}
+          {label} · Question <span className="text-mist-100">{index + 1}</span>/{questions.length}
         </p>
         {timed && (
           <span
             className={cn(
               "flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-sm font-bold",
-              remaining < 60 ? "border-rose-400/40 bg-rose-500/15 text-rose-200" : "border-border bg-white/[0.04]",
+              remaining < 60 ? "border-rose-400/40 bg-rose-500/15 text-rose-200" : "border-border bg-fg/[0.04]",
             )}
           >
             <Clock className="size-3.5" />
@@ -189,8 +189,8 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
                   className={cn(
                     "flex cursor-pointer items-center gap-3 rounded-xl border p-4 text-left text-sm transition-all",
                     active
-                      ? "border-brand-400/70 bg-brand-500/20 text-white shadow-[0_0_0_3px_rgba(99,102,241,0.18)]"
-                      : "border-border bg-white/[0.02] text-mist-300 hover:border-white/20 hover:bg-white/[0.05]",
+                      ? "border-brand-400/70 bg-brand-500/20 text-mist-100 shadow-[0_0_0_3px_rgba(99,102,241,0.18)]"
+                      : "border-border bg-fg/[0.02] text-mist-300 hover:border-fg/20 hover:bg-fg/[0.05]",
                   )}
                 >
                   <span
@@ -223,7 +223,7 @@ export function Quiz({ chapterId, kind, onFinished }: { chapterId: string; kind:
               aria-label={`Question ${i + 1}`}
               className={cn(
                 "size-2.5 cursor-pointer rounded-full transition-all",
-                i === index ? "w-6 bg-brand-400" : answers[i] >= 0 ? "bg-brand-400/50" : "bg-white/15",
+                i === index ? "w-6 bg-brand-400" : answers[i] >= 0 ? "bg-brand-400/50" : "bg-fg/15",
               )}
             />
           ))}
@@ -318,7 +318,7 @@ function QuizResult({
                         Bonne réponse : <RichText text={q.choices[q.answer]} />
                       </p>
                     </div>
-                    <p className="prose-course mt-3 rounded-xl bg-white/[0.03] p-3 text-sm leading-relaxed text-mist-300">
+                    <p className="prose-course mt-3 rounded-xl bg-fg/[0.03] p-3 text-sm leading-relaxed text-mist-300">
                       <RichText text={q.explanation} />
                     </p>
                   </div>

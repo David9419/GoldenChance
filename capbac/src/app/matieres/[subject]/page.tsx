@@ -36,7 +36,7 @@ export default function SubjectPage() {
           <ArrowLeft /> Toutes les matières
         </Link>
       </Button>
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}33, rgba(17,20,39,0.88) 60%)` }}>
+      <div className="relative overflow-hidden rounded-3xl border border-fg/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}33, var(--surface) 60%)` }}>
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
             <SubjectBadge subject={subject} size="lg" />
@@ -70,7 +70,7 @@ export default function SubjectPage() {
             const ct = chapterResults(data, c.id, "test");
             const plan = sessionsOfChapter(c.id, data.settings);
             const first = plan[0];
-            const done = ct.count > 0;
+            const done = ex.count > 0;
             const isNow = plan.some((p) => p.date === today) || (first && first.date <= today && plan[plan.length - 1].date >= today);
             return (
               <motion.div key={c.id} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}>
@@ -81,7 +81,7 @@ export default function SubjectPage() {
                   >
                     {done ? <CheckCircle2 className="size-6" /> : i + 1}
                   </span>
-                  <Card className="flex flex-1 flex-col gap-3 p-4 transition-all group-hover:-translate-y-0.5 group-hover:border-white/20 sm:flex-row sm:items-center sm:p-5">
+                  <Card className="flex flex-1 flex-col gap-3 p-4 transition-all group-hover:-translate-y-0.5 group-hover:border-fg/20 sm:flex-row sm:items-center sm:p-5">
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="text-xs font-bold text-mist-500 sm:hidden">Chapitre {i + 1}</span>
@@ -92,7 +92,7 @@ export default function SubjectPage() {
                           </span>
                         )}
                       </div>
-                      <p className="mt-1 font-semibold group-hover:text-white">{c.title}</p>
+                      <p className="mt-1 font-semibold group-hover:text-mist-100">{c.title}</p>
                       <p className="mt-0.5 line-clamp-1 text-sm text-mist-500">{c.summary}</p>
                     </div>
                     <div className="flex items-center gap-4 text-sm">

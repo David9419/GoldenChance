@@ -97,7 +97,7 @@ export default function GradesPage() {
                           <span className="text-xs text-mist-500">{a.avg !== null && "/20"}</span>
                         </span>
                       </div>
-                      <div className="relative mt-1.5 h-2 overflow-hidden rounded-full bg-white/[0.07]">
+                      <div className="relative mt-1.5 h-2 overflow-hidden rounded-full bg-fg/[0.07]">
                         <motion.div
                           className="absolute inset-y-0 left-0 rounded-full"
                           style={{ background: SUBJECTS[id].gradient }}
@@ -105,7 +105,7 @@ export default function GradesPage() {
                           animate={{ width: `${((a.avg ?? 0) / 20) * 100}%` }}
                           transition={{ duration: 1, delay: 0.2 + i * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
                         />
-                        <span className="absolute inset-y-0 left-1/2 w-px bg-white/25" title="10/20" />
+                        <span className="absolute inset-y-0 left-1/2 w-px bg-fg/25" title="10/20" />
                       </div>
                       <p className="mt-1 text-[0.7rem] text-mist-500">
                         {a.count} note{a.count > 1 ? "s" : ""} · {appreciation(a.avg)}
@@ -203,7 +203,7 @@ function AddGradeDialog({ open, onOpenChange, level }: { open: boolean; onOpenCh
                   onClick={() => setSubject(id)}
                   className={cn(
                     "cursor-pointer rounded-xl border px-2 py-2 text-xs font-semibold transition-colors",
-                    subject === id ? "text-white" : "border-border text-mist-500 hover:text-mist-100",
+                    subject === id ? "text-mist-100" : "border-border text-mist-500 hover:text-mist-100",
                   )}
                   style={subject === id ? { background: `${SUBJECTS[id].color}30`, borderColor: SUBJECTS[id].color } : undefined}
                 >

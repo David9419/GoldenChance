@@ -67,12 +67,17 @@ export function isSchoolDay(date: ISODate, s: Settings) {
   return dow >= 1 && dow <= 5 && !holidayOn(date, s.holidays) && levelAt(date, s) !== null;
 }
 
-/** Plan d'un chapitre réparti sur `n` séances. */
-function chapterPlan(n: number, sectionCount: number): { kind: SessionKind; sections: number[] }[] {
+/**
+ * Plan d'un chapitre réparti sur `n` séances.
+ * `withTest` : le contrôle n'a lieu qu'un chapitre sur deux (et au dernier),
+ * pour ne pas en avoir tout le temps. Les autres chapitres finissent par un exercice noté.
+ */
+function chapterPlan(n: number, sectionCount: number, withTest: boolean): { kind: SessionKind; sections: number[] }[] {
   const all = Array.from({ length: sectionCount }, (_, i) => i);
   if (n <= 1) return [{ kind: "complet", sections: all }];
-  if (n === 2) return [{ kind: "complet", sections: all }, { kind: "controle", sections: [] }];
-  const coursCount = Math.min(sectionCount, n - 2);
+  const tail: SessionKind[] = withTest ? ["exercice", "controle"] : ["exercice"];
+  if (n <= tail.length) return withTest ? [{ kind: "complet", sections: all }, { kind: "controle", sections: [] }] : [{ kind: "cours", sections: all }, { kind: "exercice", sections: [] }];
+  const coursCount = Math.min(sectionCount, n - tail.length);
   const plan: { kind: SessionKind; sections: number[] }[] = [];
   for (let i = 0; i < coursCount; i++) {
     const from = Math.floor((i * sectionCount) / coursCount);
@@ -80,9 +85,14 @@ function chapterPlan(n: number, sectionCount: number): { kind: SessionKind; sect
     plan.push({ kind: "cours", sections: all.slice(from, to) });
   }
   plan.push({ kind: "exercice", sections: [] });
-  while (plan.length < n - 1) plan.push({ kind: "revision", sections: all });
-  plan.push({ kind: "controle", sections: [] });
+  while (plan.length < n - (withTest ? 1 : 0)) plan.push({ kind: "revision", sections: all });
+  if (withTest) plan.push({ kind: "controle", sections: [] });
   return plan;
+}
+
+/** Un contrôle tous les deux chapitres (chapitres 2, 4, 6, 8…). */
+export function chapterHasTest(index: number, count: number) {
+  return index % 2 === 1 || index === count - 1;
 }
 
 const cache = new Map<string, Session[]>();
@@ -123,7 +133,7 @@ export function allSessions(s: Settings): Session[] {
         const a = Math.floor((c * N) / C);
         const b = Math.floor(((c + 1) * N) / C);
         const block = list.slice(a, Math.max(b, a + 1)).filter(Boolean);
-        const plan = chapterPlan(block.length, chapters[c].sections.length);
+        const plan = chapterPlan(block.length, chapters[c].sections.length, chapterHasTest(c, C));
         block.forEach((r, i) =>
           assigned.set(r.key, {
             ...r,

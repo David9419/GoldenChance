@@ -95,7 +95,7 @@ export default function TimetablePage() {
                     key={d}
                     className={cn(
                       "rounded-xl px-3 py-2.5 text-center",
-                      isToday ? "bg-brand-500/20 text-white ring-1 ring-brand-400/40" : "text-mist-300",
+                      isToday ? "bg-brand-500/20 text-mist-100 ring-1 ring-brand-400/40" : "text-mist-300",
                     )}
                   >
                     <p className="text-xs font-bold tracking-wider uppercase">{formatWeekday(d)}</p>
@@ -132,7 +132,7 @@ export default function TimetablePage() {
                   onClick={() => setMobileDay(i)}
                   className={cn(
                     "cursor-pointer rounded-xl border py-2 text-center transition-colors",
-                    mobileDay === i ? "border-brand-400/50 bg-brand-500/20 text-white" : "border-border bg-white/[0.02] text-mist-500",
+                    mobileDay === i ? "border-brand-400/50 bg-brand-500/20 text-mist-100" : "border-border bg-fg/[0.02] text-mist-500",
                     d === today && mobileDay !== i && "border-brand-400/30",
                   )}
                 >
@@ -214,7 +214,7 @@ function Cell({ s, data, now, isToday }: { s: Session; data: AppData; now: Date;
       href={sessionHref(s)}
       className={cn(
         "group relative flex min-h-[104px] flex-col gap-1 overflow-hidden rounded-xl border p-2.5 transition-all hover:-translate-y-0.5 hover:shadow-xl",
-        status === "en-cours" && "ring-2 ring-white/60",
+        status === "en-cours" && "ring-2 ring-fg/60",
         !isToday && status !== "a-venir" && "opacity-80",
       )}
       style={{ background: `linear-gradient(160deg, ${meta.color}30, ${meta.color}10)`, borderColor: `${meta.color}40` }}

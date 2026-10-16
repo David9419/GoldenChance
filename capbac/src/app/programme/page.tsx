@@ -103,7 +103,7 @@ export default function JourneyPage() {
                     <ol className="mt-4 grid gap-1.5">
                       {chapters.map((c, i) => (
                         <li key={c.id}>
-                          <Link href={`/chapitre/${c.id}`} className="flex gap-2 text-sm text-mist-300 hover:text-white">
+                          <Link href={`/chapitre/${c.id}`} className="flex gap-2 text-sm text-mist-300 hover:text-mist-100">
                             <span className="w-4 shrink-0 text-right font-bold text-mist-500">{i + 1}</span>
                             <span className="line-clamp-1">{c.title}</span>
                           </Link>

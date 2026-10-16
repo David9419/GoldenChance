@@ -27,7 +27,7 @@ function DialogContent({
         {children}
         <DialogPrimitive.Close
           aria-label="Fermer"
-          className="absolute top-4 right-4 cursor-pointer rounded-lg p-1.5 text-mist-500 transition-colors hover:bg-white/10 hover:text-mist-100"
+          className="absolute top-4 right-4 cursor-pointer rounded-lg p-1.5 text-mist-500 transition-colors hover:bg-fg/10 hover:text-mist-100"
         >
           <X className="size-4" />
         </DialogPrimitive.Close>

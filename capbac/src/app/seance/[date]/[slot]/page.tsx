@@ -62,7 +62,7 @@ export default function SessionPage() {
       </Button>
 
       {/* En-tête de la séance */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}30, rgba(17,20,39,0.85) 60%)` }}>
+      <div className="relative overflow-hidden rounded-3xl border border-fg/10 p-6 sm:p-8" style={{ background: `linear-gradient(135deg, ${meta.color}30, var(--surface) 60%)` }}>
         <div className="pointer-events-none absolute -top-20 -right-10 size-64 rounded-full blur-3xl" style={{ background: meta.color, opacity: 0.22 }} />
         <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-4">
@@ -85,7 +85,7 @@ export default function SessionPage() {
           <CheckInButton session={session} data={data} now={now} />
         </div>
         {ref && (
-          <div className="relative mt-6 rounded-2xl border border-white/10 bg-ink-950/40 p-4">
+          <div className="relative mt-6 rounded-2xl border border-fg/10 bg-ink-950/40 p-4">
             <p className="text-xs font-bold tracking-[0.14em] text-mist-500 uppercase">
               Chapitre {ref.index + 1} · séance {session.chapterSessionIndex + 1}/{session.chapterSessions}
             </p>

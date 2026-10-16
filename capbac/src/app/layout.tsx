@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import { AppShell } from "@/components/app/app-shell";
 import { Toaster } from "@/components/app/toast";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { THEME_SCRIPT } from "@/lib/theme-script";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
@@ -23,7 +24,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${jakarta.variable} ${sora.variable}`}>
+    <html lang="fr" className={`${jakarta.variable} ${sora.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body>
         <div className="app-aurora" aria-hidden />
         <TooltipProvider delayDuration={200}>

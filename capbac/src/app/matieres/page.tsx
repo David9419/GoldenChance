@@ -45,13 +45,13 @@ export default function SubjectsPage() {
         {SUBJECT_IDS.map((id, i) => {
           const meta = SUBJECTS[id];
           const chapters = PROGRAMS[current][id];
-          const done = chapters.filter((c) => chapterResults(data, c.id, "test").count > 0).length;
+          const done = chapters.filter((c) => chapterResults(data, c.id, "exercise").count > 0).length;
           return (
             <motion.div key={`${current}-${id}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06, duration: 0.45 }}>
               <Link
                 href={`/matieres/${id}?niveau=${current}`}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)]"
-                style={{ background: `linear-gradient(150deg, ${meta.color}2e, rgba(17,20,39,0.9) 60%)` }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-fg/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)]"
+                style={{ background: `linear-gradient(150deg, ${meta.color}2e, var(--surface) 60%)` }}
               >
                 <SubjectIcon
                   subject={id}
@@ -62,7 +62,7 @@ export default function SubjectsPage() {
                   <span className="flex size-12 items-center justify-center rounded-2xl text-white shadow-lg" style={{ background: meta.gradient }}>
                     <SubjectIcon subject={id} className="size-6" />
                   </span>
-                  <ArrowUpRight className="size-5 text-mist-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+                  <ArrowUpRight className="size-5 text-mist-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-mist-100" />
                 </div>
                 <h2 className="mt-5 font-display text-xl font-bold">{meta.name}</h2>
                 <p className="text-sm text-mist-500">{meta.official[current]}</p>

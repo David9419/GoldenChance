@@ -11,7 +11,9 @@ import { useParentMode } from "@/lib/parent-mode";
 import { useData } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { Logo, LogoMark } from "./logo";
+import { CheckInBanner } from "./checkin-banner";
 import { Onboarding } from "./onboarding";
+import { ThemeToggle } from "./theme-toggle";
 import { UserAvatar } from "./user-avatar";
 
 export const NAV = [
@@ -42,9 +44,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-dvh">
       {/* Barre latérale (ordinateur) */}
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[264px] flex-col border-r border-border bg-ink-900/70 px-4 py-6 backdrop-blur-xl lg:flex">
-        <Link href="/" className="px-2">
-          <Logo />
-        </Link>
+        <div className="flex items-center justify-between px-2">
+          <Link href="/">
+            <Logo />
+          </Link>
+          <ThemeToggle />
+        </div>
         <nav className="mt-9 flex flex-col gap-1" aria-label="Navigation principale">
           {NAV.map((item) => {
             const active = isActive(pathname, item.href);
@@ -54,7 +59,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 href={item.href}
                 className={cn(
                   "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors",
-                  active ? "text-white" : "text-mist-500 hover:bg-white/[0.04] hover:text-mist-100",
+                  active ? "text-mist-100" : "text-mist-500 hover:bg-fg/[0.04] hover:text-mist-100",
                 )}
               >
                 {active && (
@@ -80,7 +85,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <Link
             href="/profil"
             className={cn(
-              "flex items-center gap-3 rounded-2xl border border-border bg-white/[0.03] p-3 transition-colors hover:bg-white/[0.06]",
+              "flex items-center gap-3 rounded-2xl border border-border bg-fg/[0.03] p-3 transition-colors hover:bg-fg/[0.06]",
               pathname.startsWith("/profil") && "border-brand-400/30",
             )}
           >
@@ -104,10 +109,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             Cap<span className="text-gradient">Bac</span>
           </span>
         </Link>
-        <Link href="/profil" aria-label="Mon profil" className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           {parent && <ShieldCheck className="size-4 text-amber-300" />}
-          <UserAvatar profile={data.profile} className="size-9" />
-        </Link>
+          <ThemeToggle />
+          <Link href="/profil" aria-label="Mon profil">
+            <UserAvatar profile={data.profile} className="size-9" />
+          </Link>
+        </div>
       </header>
 
       <main className="lg:pl-[264px]">
@@ -118,6 +126,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}
             className="mx-auto w-full max-w-[1180px] px-4 pt-6 pb-28 sm:px-6 lg:px-10 lg:pt-10 lg:pb-16"
           >
+            <CheckInBanner data={data} />
             {children}
         </motion.div>
       </main>
@@ -135,7 +144,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               href={item.href}
               className={cn(
                 "relative flex flex-1 flex-col items-center gap-1 rounded-xl py-2 text-[0.64rem] font-semibold transition-colors",
-                active ? "text-white" : "text-mist-500",
+                active ? "text-mist-100" : "text-mist-500",
               )}
             >
               {active && (

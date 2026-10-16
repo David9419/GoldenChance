@@ -108,8 +108,8 @@ export default function AttendancePage() {
                   disabled={!parent}
                   onClick={() => setEditing({ session: p.session, status: p.status, justified: p.justified, reason: p.reason })}
                   className={cn(
-                    "flex items-center gap-3 rounded-xl border border-border bg-white/[0.02] p-3 text-left",
-                    parent && "cursor-pointer transition-colors hover:bg-white/[0.06]",
+                    "flex items-center gap-3 rounded-xl border border-border bg-fg/[0.02] p-3 text-left",
+                    parent && "cursor-pointer transition-colors hover:bg-fg/[0.06]",
                   )}
                 >
                   <SubjectBadge subject={p.session.subject} size="sm" />
