@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Application CapBac (projet séparé, déployé à part).
+    "capbac/**",
   ]),
 ]);
 

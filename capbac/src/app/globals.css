@@ -1,0 +1,177 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* -------------------------------------------------------------------------- */
+/*  Design tokens CapBac                                                      */
+/* -------------------------------------------------------------------------- */
+
+@theme {
+  --color-ink-950: #07080f;
+  --color-ink-900: #0c0e1a;
+  --color-ink-850: #111427;
+  --color-ink-800: #161a31;
+  --color-ink-700: #22284a;
+  --color-ink-600: #2f3763;
+  --color-mist-500: #7d84a8;
+  --color-mist-300: #b4b9d4;
+  --color-mist-100: #eceefb;
+
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-accent-400: #f0abfc;
+
+  /* Couleurs des matières */
+  --color-maths: #4f8cff;
+  --color-francais: #f472b6;
+  --color-physique: #a78bfa;
+  --color-svt: #34d399;
+  --color-histoire-geo: #fbbf24;
+  --color-anglais: #22d3ee;
+
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --animate-accordion-down: accordion-down 0.3s var(--ease-soft);
+  --animate-accordion-up: accordion-up 0.3s var(--ease-soft);
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-jakarta), ui-sans-serif, sans-serif;
+
+  --color-background: var(--color-ink-950);
+  --color-foreground: var(--color-mist-100);
+  --color-primary: var(--color-brand-500);
+  --color-primary-foreground: #ffffff;
+  --color-muted: var(--color-ink-800);
+  --color-muted-foreground: var(--color-mist-300);
+  --color-border: rgba(180, 185, 212, 0.12);
+  --color-ring: var(--color-brand-400);
+}
+
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+html {
+  color-scheme: dark;
+  background: var(--color-ink-950);
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-ink-950);
+  color: var(--color-mist-100);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+::selection {
+  background: var(--color-brand-500);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-300);
+  outline-offset: 3px;
+}
+
+/* Fond d'ambiance : halos colorés lents. */
+.app-aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60vw 50vh at 12% -10%, rgba(99, 102, 241, 0.22), transparent 70%),
+    radial-gradient(50vw 45vh at 100% 10%, rgba(240, 171, 252, 0.12), transparent 70%),
+    radial-gradient(60vw 50vh at 60% 110%, rgba(34, 211, 238, 0.09), transparent 70%),
+    var(--color-ink-950);
+}
+.app-aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(180, 185, 212, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 185, 212, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 20%, transparent 75%);
+}
+
+/* Panneau vitré */
+.glass {
+  background: linear-gradient(180deg, rgba(22, 26, 49, 0.72), rgba(17, 20, 39, 0.62));
+  border: 1px solid rgba(180, 185, 212, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #c7d2fe 0%, #a5b4fc 35%, #f0abfc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Cours : rendu du texte long */
+.prose-course p {
+  line-height: 1.8;
+  color: var(--color-mist-300);
+}
+.prose-course strong {
+  color: var(--color-mist-100);
+  font-weight: 700;
+}
+
+/* Barre de défilement discrète */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-600) transparent;
+}
+
+/* Brillance animée sur les boutons principaux */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.8s var(--ease-soft);
+}
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  100% { box-shadow: 0 0 0 12px rgba(52, 211, 153, 0); }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+@media print {
+  .app-aurora, nav, aside, .no-print { display: none !important; }
+  body { background: white; color: black; }
+}
