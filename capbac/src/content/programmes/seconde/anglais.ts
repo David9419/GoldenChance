@@ -45,6 +45,55 @@ export const chapters: Chapter[] = [
             "Water boils at 100°C. → L’eau bout à 100 °C (vérité générale).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Le present simple aux trois formes (verbe play)",
+          caption: "À la 3e personne du singulier, le -s passe sur l’auxiliaire does à la négative et à l’interrogative.",
+          headers: ["Sujet", "Affirmatif", "Négatif", "Interrogatif"],
+          rows: [
+            ["I", "I play", "I don’t play", "Do I play?"],
+            ["You", "You play", "You don’t play", "Do you play?"],
+            ["He / She / It", "She plays", "She doesn’t play", "Does she play?"],
+            ["We", "We play", "We don’t play", "Do we play?"],
+            ["They", "They play", "They don’t play", "Do they play?"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-01-s1-p1",
+            prompt: "Complète : « My brother ___ TV every evening. »",
+            choices: ["watch", "watchs", "watches", "watching"],
+            answer: 2,
+            explanation:
+              "Le sujet est à la 3e personne du singulier (my brother = he), donc on ajoute un -s. Comme watch se termine par -ch, on ajoute **-es** : **watches**.",
+          },
+          {
+            id: "2nde-anglais-01-s1-p2",
+            prompt: "Quelle phrase négative est correcte ?",
+            choices: [
+              "She doesn’t likes chocolate.",
+              "She doesn’t like chocolate.",
+              "She don’t like chocolate.",
+              "She not likes chocolate.",
+            ],
+            answer: 1,
+            explanation:
+              "À la 3e personne du singulier, la négation se fait avec **doesn’t**, et le verbe revient à la **base verbale** sans -s. Le -s est porté par l’auxiliaire, jamais par les deux.",
+          },
+          {
+            id: "2nde-anglais-01-s1-p3",
+            prompt: "Où placer l’adverbe ? « She is late. » + always",
+            choices: [
+              "She always is late.",
+              "Always she is late.",
+              "She is late always.",
+              "She is always late.",
+            ],
+            answer: 3,
+            explanation:
+              "L’adverbe de fréquence se place **après le verbe be** : « She is always late ». Avec les autres verbes, il se place avant le verbe (She always arrives late).",
+          },
+        ],
       },
       {
         title: "Le present continuous : l’action en cours",
@@ -74,6 +123,47 @@ export const chapters: Chapter[] = [
             "→ … parce qu’il pleut (action en cours au moment où l’on parle).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Choisir entre present simple et present continuous",
+          steps: [
+            { label: "Lire le contexte", detail: "Repérer les marqueurs : every day, usually… ou now, at the moment, Look!" },
+            { label: "Est-ce un verbe d’état ?", detail: "know, like, want, belong… → present simple dans tous les cas." },
+            { label: "Habitude ou vérité générale ?", detail: "Oui → present simple (She works in a bank)." },
+            { label: "Action en cours ou temporaire ?", detail: "Oui → be + V-ing (She’s working from home this week)." },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-01-s2-p1",
+            prompt: "Complète : « Be quiet! The baby ___. »",
+            choices: ["sleeps", "is sleeping", "sleep", "are sleeping"],
+            answer: 1,
+            explanation:
+              "« Be quiet! » montre que l’action se déroule **au moment où l’on parle** : on utilise le present continuous. Le sujet the baby = it, donc **is sleeping**.",
+          },
+          {
+            id: "2nde-anglais-01-s2-p2",
+            prompt: "Quelle est l’orthographe correcte de « swim » + -ing ?",
+            choices: ["swiming", "swimeing", "swimming"],
+            answer: 2,
+            explanation:
+              "Swim se termine par une consonne précédée d’une voyelle courte accentuée : la consonne finale **double**. On écrit donc **swimming**, comme running ou sitting.",
+          },
+          {
+            id: "2nde-anglais-01-s2-p3",
+            prompt: "Quelle est la forme interrogative correcte ?",
+            choices: [
+              "Are you listening to me?",
+              "Do you listening to me?",
+              "You are listening to me?",
+              "Are you listen to me?",
+            ],
+            answer: 0,
+            explanation:
+              "Au present continuous, la question se forme en **inversant be et le sujet**, et le verbe garde sa forme en -ing : **Are you listening…?** On n’utilise pas do avec le present continuous.",
+          },
+        ],
       },
       {
         title: "Les verbes d’état (stative verbs)",
@@ -101,6 +191,53 @@ export const chapters: Chapter[] = [
             "✓ I think holidays are too short. (Je trouve que les vacances sont trop courtes : opinion → present simple.)",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Verbes d’état : sens et traduction",
+          headers: ["Catégorie", "Verbes anglais", "Traduction"],
+          rows: [
+            ["Goût, sentiment", "like, love, hate, prefer, want, need", "aimer, adorer, détester, préférer, vouloir, avoir besoin"],
+            ["Pensée", "know, believe, understand, remember", "savoir, croire, comprendre, se souvenir"],
+            ["Perception", "see, hear, smell, taste", "voir, entendre, sentir, avoir le goût de"],
+            ["Possession", "have, own, belong to", "avoir, posséder, appartenir à"],
+            ["Apparence", "seem, look", "sembler, avoir l’air"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-01-s3-p1",
+            prompt: "Complète : « I ___ what you mean. »",
+            choices: ["am understanding", "understanding", "understands", "understand"],
+            answer: 3,
+            explanation:
+              "**Understand** est un verbe d’état (pensée) : il reste au **present simple**, même pour parler de maintenant. Avec I, pas de -s : **I understand**.",
+          },
+          {
+            id: "2nde-anglais-01-s3-p2",
+            prompt: "Quelle phrase est correcte ?",
+            choices: [
+              "This phone is belonging to me.",
+              "This phone belongs to me.",
+              "This phone belong to me.",
+            ],
+            answer: 1,
+            explanation:
+              "**Belong to** exprime la possession : c’est un verbe d’état, donc present simple. Le sujet this phone = it, d’où le -s : **belongs**.",
+          },
+          {
+            id: "2nde-anglais-01-s3-p3",
+            prompt: "Dans quelle phrase la forme en -ing est-elle correcte ?",
+            choices: [
+              "I’m having lunch with my cousins.",
+              "I’m having two sisters.",
+              "I’m knowing the answer.",
+              "I’m wanting a new bike.",
+            ],
+            answer: 0,
+            explanation:
+              "**Have lunch** (déjeuner) est une action, donc la forme en -ing est possible. En revanche, have au sens de posséder, know et want sont des verbes d’état qui restent au present simple.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -254,6 +391,45 @@ export const chapters: Chapter[] = [
           "Habitude (usually) → present simple, adverbe **avant le verbe** : « He usually works ». Situation temporaire (at the moment) → present continuous : « he’s working ». Les autres propositions inversent les temps ou placent mal l’adverbe.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-anglais-01-hw-1",
+        prompt: "Complète : « Water ___ at 0°C. »",
+        choices: ["freezes", "is freezing", "freeze", "freezing"],
+        answer: 0,
+        explanation:
+          "C’est une **vérité générale** (un fait scientifique toujours vrai) : on utilise le present simple. Le sujet water = it, donc on ajoute -es après -z : **freezes**.",
+      },
+      {
+        id: "2nde-anglais-01-hw-2",
+        prompt: "Complète : « Look! Those children ___ in the rain. »",
+        choices: ["dance", "dances", "are dancing", "is dancing"],
+        answer: 2,
+        explanation:
+          "« Look! » indique une action **en cours** au moment où l’on parle → present continuous. Le sujet est pluriel (those children = they), donc **are dancing**.",
+      },
+      {
+        id: "2nde-anglais-01-hw-3",
+        prompt: "Choisis la phrase correcte :",
+        choices: [
+          "Does your father works on Saturdays?",
+          "Is your father work on Saturdays?",
+          "Do your father work on Saturdays?",
+          "Does your father work on Saturdays?",
+        ],
+        answer: 3,
+        explanation:
+          "Question au present simple avec un sujet à la 3e personne du singulier : **Does** + sujet + **base verbale**. Le -s est porté par does, donc work reste sans -s.",
+      },
+      {
+        id: "2nde-anglais-01-hw-4",
+        prompt: "Complète : « What ___ about? – My exam tomorrow. »",
+        choices: ["do you think", "are you thinking", "you think"],
+        answer: 1,
+        explanation:
+          "**Think about** signifie ici « réfléchir à, penser à » : c’est une activité mentale en cours, donc le present continuous est correct. « What do you think? » demanderait plutôt une opinion.",
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -299,6 +475,52 @@ export const chapters: Chapter[] = [
             "Did you watch it too? → Tu l’as vu aussi ?",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Verbes irréguliers essentiels",
+          caption: "Base verbale – preterit – participe passé : à apprendre par cœur.",
+          headers: ["Base verbale", "Preterit", "Participe passé", "Traduction"],
+          rows: [
+            ["be", "was / were", "been", "être"],
+            ["go", "went", "gone", "aller"],
+            ["see", "saw", "seen", "voir"],
+            ["buy", "bought", "bought", "acheter"],
+            ["take", "took", "taken", "prendre"],
+            ["write", "wrote", "written", "écrire"],
+            ["make", "made", "made", "faire, fabriquer"],
+            ["have", "had", "had", "avoir"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-02-s1-p1",
+            prompt: "Complète : « Last summer, we ___ to Scotland. »",
+            choices: ["go", "goed", "have gone", "went"],
+            answer: 3,
+            explanation:
+              "« Last summer » est un repère passé daté : on utilise le **preterit**. Go est irrégulier : go – **went** – gone. « goed » n’existe pas.",
+          },
+          {
+            id: "2nde-anglais-02-s1-p2",
+            prompt: "Quelle phrase négative est correcte ?",
+            choices: [
+              "I didn’t saw the match.",
+              "I didn’t see the match.",
+              "I don’t saw the match.",
+            ],
+            answer: 1,
+            explanation:
+              "Au preterit, la négation se forme avec **didn’t + base verbale**. Did porte déjà la marque du passé, donc le verbe ne se met pas au preterit : **didn’t see**.",
+          },
+          {
+            id: "2nde-anglais-02-s1-p3",
+            prompt: "Traduis « il y a deux ans » :",
+            choices: ["since two years", "ago two years", "two years ago", "there are two years"],
+            answer: 2,
+            explanation:
+              "« Il y a » suivi d’une durée dans le passé se traduit par la durée suivie de **ago** : **two years ago**. Ago se place toujours après la durée.",
+          },
+        ],
       },
       {
         title: "Le past continuous : décor et action interrompue",
@@ -327,6 +549,32 @@ export const chapters: Chapter[] = [
             "While my father was looking for candles, I called my friend. → Pendant que mon père cherchait des bougies, j’ai appelé mon ami.",
           ],
         },
+        practice: [
+          {
+            id: "2nde-anglais-02-s2-p1",
+            prompt: "Complète : « At 9 pm last night, they ___ a film. »",
+            choices: ["were watching", "was watching", "watched", "are watching"],
+            answer: 0,
+            explanation:
+              "On décrit une action **en cours à un moment précis du passé** (at 9 pm last night) : past continuous. Le sujet est they, donc **were** + V-ing.",
+          },
+          {
+            id: "2nde-anglais-02-s2-p2",
+            prompt: "Complète : « I was cooking when the phone ___. »",
+            choices: ["was ringing", "rings", "rang", "has rung"],
+            answer: 2,
+            explanation:
+              "L’action longue (was cooking) est **interrompue** par une action brève introduite par when : on utilise le **preterit**. Ring est irrégulier : ring – **rang** – rung.",
+          },
+          {
+            id: "2nde-anglais-02-s2-p3",
+            prompt: "Quel mot convient ? « ___ I was studying, my sister was listening to music. »",
+            choices: ["When", "While", "Ago", "Since"],
+            answer: 1,
+            explanation:
+              "Les deux actions sont **longues et simultanées** : on les relie avec **while** (pendant que). When introduit plutôt l’action brève qui interrompt.",
+          },
+        ],
       },
       {
         title: "Le present perfect : le lien entre passé et présent",
@@ -358,6 +606,46 @@ export const chapters: Chapter[] = [
             "« Depuis combien de temps apprends-tu l’anglais ? » → How long have you been learning English?",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Preterit ou present perfect ?",
+          steps: [
+            { label: "Y a-t-il un repère daté et terminé ?", detail: "yesterday, last year, in 2019, ago → preterit." },
+            { label: "Bilan ou expérience ?", detail: "ever, never, already, just, yet → present perfect." },
+            { label: "Action qui dure encore ?", detail: "« depuis » → present perfect + for (durée) / since (point de départ)." },
+            { label: "Conjuguer", detail: "have / has + participe passé (I have lived here since 2020)." },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-02-s3-p1",
+            prompt: "Complète : « I ___ in this town since 2018. »",
+            choices: ["live", "have lived", "lived", "am living"],
+            answer: 1,
+            explanation:
+              "L’action a commencé en 2018 et **dure encore** : l’anglais utilise le **present perfect** là où le français dit « j’habite ici depuis ». Since introduit le point de départ.",
+          },
+          {
+            id: "2nde-anglais-02-s3-p2",
+            prompt: "Complète : « She has been my friend ___ ten years. »",
+            choices: ["since", "ago", "during", "for"],
+            answer: 3,
+            explanation:
+              "« Ten years » est une **durée** : on utilise **for**. Since s’emploie avec un point de départ (since 2016, since primary school).",
+          },
+          {
+            id: "2nde-anglais-02-s3-p3",
+            prompt: "Quelle phrase est correcte ?",
+            choices: [
+              "I have seen Tom yesterday.",
+              "I saw Tom yesterday.",
+              "I have see Tom yesterday.",
+            ],
+            answer: 1,
+            explanation:
+              "Yesterday est un **repère daté** : le present perfect est impossible. On utilise le **preterit** : I **saw** Tom yesterday.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -511,6 +799,45 @@ export const chapters: Chapter[] = [
           "**write – wrote – written** est correct. Les autres : go – went – **gone** ; take – took – **taken** ; see – **saw** – **seen** (preterit et participe inversés).",
       },
     ],
+    homework: [
+      {
+        id: "2nde-anglais-02-hw-1",
+        prompt: "Complète : « Have you ever ___ to New York? »",
+        choices: ["went", "go", "been", "be"],
+        answer: 2,
+        explanation:
+          "Avec **ever**, on fait un bilan d’expérience : present perfect = have + **participe passé**. Pour « être allé quelque part », on utilise **been** (have you ever been to…?).",
+      },
+      {
+        id: "2nde-anglais-02-hw-2",
+        prompt: "Complète : « When I arrived, my friends ___ dinner. »",
+        choices: ["were having", "have had", "has", "are having"],
+        answer: 0,
+        explanation:
+          "Le repas était **en cours** au moment où je suis arrivé (action brève au preterit) : on utilise le **past continuous**. Le sujet est pluriel, donc **were having**.",
+      },
+      {
+        id: "2nde-anglais-02-hw-3",
+        prompt: "Traduis : « J’attends le bus depuis vingt minutes. »",
+        choices: [
+          "I wait for the bus since twenty minutes.",
+          "I am waiting for the bus for twenty minutes.",
+          "I waited for the bus twenty minutes ago.",
+          "I have been waiting for the bus for twenty minutes.",
+        ],
+        answer: 3,
+        explanation:
+          "« Depuis » + action qui dure encore → **present perfect**, ici à la forme continue pour insister sur l’activité. Vingt minutes est une durée, donc **for**.",
+      },
+      {
+        id: "2nde-anglais-02-hw-4",
+        prompt: "Complète : « Has she finished her essay ___? »",
+        choices: ["ago", "yet", "since", "last week"],
+        answer: 1,
+        explanation:
+          "Dans une question au present perfect, **yet** se place en fin de phrase et signifie « déjà / encore ». « Last week » est un repère daté, incompatible avec le present perfect.",
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -557,6 +884,46 @@ export const chapters: Chapter[] = [
             "I’ll text you as soon as I get home. → Je t’enverrai un message dès que je serai rentré (présent après as soon as).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Comment choisir la forme du futur",
+          steps: [
+            { label: "Rendez-vous fixé, billets achetés ?", detail: "Oui → present continuous (We’re flying to Rome on Friday)." },
+            { label: "Intention déjà décidée ou indice visible ?", detail: "Oui → be going to (Look at the clouds! It’s going to rain)." },
+            { label: "Décision sur le moment, promesse, prédiction ?", detail: "Oui → will (I’ll help you)." },
+            { label: "Après when / as soon as ?", detail: "Toujours le présent : I’ll call you when I arrive." },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-03-s1-p1",
+            prompt: "« The doorbell is ringing. » – « OK, I ___ it! »",
+            choices: ["am going to open", "open", "will open", "am opening"],
+            answer: 2,
+            explanation:
+              "La décision est **prise sur le moment**, en réaction à la situation : on utilise **will** (souvent contracté : I’ll open it). Be going to supposerait une intention décidée avant.",
+          },
+          {
+            id: "2nde-anglais-03-s1-p2",
+            prompt: "Complète : « I’ll phone you when I ___ in London. »",
+            choices: ["will arrive", "arrive", "arrived", "am going to arrive"],
+            answer: 1,
+            explanation:
+              "Après **when** à valeur de futur, l’anglais utilise le **présent**, pas will. On dit donc « when I **arrive** », contrairement au français « quand j’arriverai ».",
+          },
+          {
+            id: "2nde-anglais-03-s1-p3",
+            prompt: "Quelle phrase exprime un rendez-vous déjà organisé ?",
+            choices: [
+              "I’m seeing the dentist at 4 tomorrow.",
+              "I’ll probably see the dentist one day.",
+              "I see the dentist every day.",
+            ],
+            answer: 0,
+            explanation:
+              "Le **present continuous** avec un repère futur précis (at 4 tomorrow) exprime un **projet organisé**, comme un rendez-vous. Will probably exprime une simple prédiction.",
+          },
+        ],
       },
       {
         title: "Capacité, permission et obligation",
@@ -586,6 +953,45 @@ export const chapters: Chapter[] = [
             "You can eat in the cafeteria. → Vous pouvez manger à la cantine (permission).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les modaux de capacité, permission et obligation",
+          headers: ["Modal", "Sens", "Exemple", "Traduction"],
+          rows: [
+            ["can / could", "capacité, permission", "I can swim. / Can I go out?", "Je sais nager. / Je peux sortir ?"],
+            ["be able to", "capacité (autres temps)", "I will be able to drive.", "Je pourrai conduire."],
+            ["must", "obligation personnelle, règle", "You must wear a seatbelt.", "Tu dois mettre ta ceinture."],
+            ["have to", "obligation extérieure", "I have to wear a uniform.", "Je dois porter un uniforme."],
+            ["mustn’t", "interdiction", "You mustn’t smoke here.", "Il est interdit de fumer ici."],
+            ["don’t have to", "absence d’obligation", "You don’t have to come.", "Tu n’es pas obligé de venir."],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-03-s2-p1",
+            prompt: "Quelle phrase est correcte ?",
+            choices: ["She cans speak Italian.", "She can to speak Italian.", "She can speaks Italian.", "She can speak Italian."],
+            answer: 3,
+            explanation:
+              "Les modaux sont **invariables** (pas de -s) et suivis de la **base verbale sans to**. La seule phrase correcte est donc « She can speak Italian ».",
+          },
+          {
+            id: "2nde-anglais-03-s2-p2",
+            prompt: "« Tu n’es pas obligé de m’aider. » se traduit par :",
+            choices: ["You mustn’t help me.", "You don’t have to help me.", "You can’t help me."],
+            answer: 1,
+            explanation:
+              "**Don’t have to** exprime l’**absence d’obligation**. **Mustn’t** exprimerait une interdiction (« tu ne dois pas m’aider »), ce qui change complètement le sens.",
+          },
+          {
+            id: "2nde-anglais-03-s2-p3",
+            prompt: "Complète : « When I was six, I ___ ride a bike. »",
+            choices: ["could", "can", "must", "will be able to"],
+            answer: 0,
+            explanation:
+              "Pour exprimer une **capacité dans le passé**, on utilise **could**, le passé de can. When I was six situe clairement l’action dans le passé.",
+          },
+        ],
       },
       {
         title: "Conseil et probabilité : should, may, might, must, can’t",
@@ -614,6 +1020,32 @@ export const chapters: Chapter[] = [
             "You should call him later. → Tu devrais l’appeler plus tard (conseil).",
           ],
         },
+        practice: [
+          {
+            id: "2nde-anglais-03-s3-p1",
+            prompt: "« I’ve got a terrible headache. » – « You ___ take an aspirin. »",
+            choices: ["mustn’t", "should", "can’t", "might"],
+            answer: 1,
+            explanation:
+              "On donne un **conseil** : on utilise **should** (tu devrais). Mustn’t exprimerait une interdiction et can’t une impossibilité, ce qui n’a pas de sens ici.",
+          },
+          {
+            id: "2nde-anglais-03-s3-p2",
+            prompt: "« She has run 20 km. She ___ be exhausted. » (déduction presque certaine)",
+            choices: ["might", "can’t", "must", "should have"],
+            answer: 2,
+            explanation:
+              "La situation permet une **déduction logique presque certaine** : on utilise **must** (elle doit être épuisée). Might exprimerait une simple possibilité.",
+          },
+          {
+            id: "2nde-anglais-03-s3-p3",
+            prompt: "Quel est le contraire de « He must be at home » (déduction) ?",
+            choices: ["He mustn’t be at home.", "He doesn’t have to be at home.", "He can’t be at home."],
+            answer: 2,
+            explanation:
+              "En déduction, le contraire de **must** (sûrement) est **can’t** (sûrement pas, impossible). Mustn’t exprime une interdiction et non une probabilité.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -757,6 +1189,40 @@ export const chapters: Chapter[] = [
           "**Could you…, please?** est la formule la plus polie : could adoucit la demande par rapport à can. L’impératif et must sont perçus comme des ordres.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-anglais-03-hw-1",
+        prompt: "Complète : « I’ve already decided: I ___ study law at university. »",
+        choices: ["am going to", "will", "would", "must"],
+        answer: 0,
+        explanation:
+          "« I’ve already decided » montre une **intention décidée à l’avance** : on utilise **be going to**. Will s’emploie plutôt pour une décision prise sur le moment.",
+      },
+      {
+        id: "2nde-anglais-03-hw-2",
+        prompt: "Quel panneau signifie « interdit de nager » ?",
+        choices: ["You don’t have to swim here.", "You needn’t swim here.", "You mustn’t swim here.", "You might not swim here."],
+        answer: 2,
+        explanation:
+          "**Mustn’t** exprime l’**interdiction**. Don’t have to et needn’t signifient « pas obligé », et might not exprime une simple possibilité.",
+      },
+      {
+        id: "2nde-anglais-03-hw-3",
+        prompt: "Complète : « Next year, I ___ vote in the elections. »",
+        choices: ["can", "will can", "will be able to", "could"],
+        answer: 2,
+        explanation:
+          "Can n’a pas de forme de futur : on ne peut pas dire *will can*. Pour exprimer une **capacité future**, on utilise **will be able to**.",
+      },
+      {
+        id: "2nde-anglais-03-hw-4",
+        prompt: "« Tu aurais dû me prévenir ! » se traduit par :",
+        choices: ["You should warn me!", "You should have warned me!", "You must warn me!", "You had warned me!"],
+        answer: 1,
+        explanation:
+          "Pour un **reproche sur le passé**, on utilise **should have + participe passé**. « You should warn me » est un conseil au présent, sans idée de reproche.",
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -804,6 +1270,51 @@ export const chapters: Chapter[] = [
             "The more you travel, the more you learn. → Plus on voyage, plus on apprend.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Comparatifs et superlatifs",
+          headers: ["Adjectif", "Comparatif", "Superlatif", "Règle"],
+          rows: [
+            ["tall", "taller than", "the tallest", "court : -er / -est"],
+            ["big", "bigger than", "the biggest", "consonne doublée"],
+            ["happy", "happier than", "the happiest", "-y → -ier / -iest"],
+            ["expensive", "more expensive than", "the most expensive", "long : more / the most"],
+            ["good", "better than", "the best", "irrégulier"],
+            ["bad", "worse than", "the worst", "irrégulier"],
+            ["far", "farther / further than", "the farthest / the furthest", "irrégulier"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-04-s1-p1",
+            prompt: "Complète : « My bag is ___ than yours. » (heavy)",
+            choices: ["more heavy", "heavyer", "heavier", "more heavier"],
+            answer: 2,
+            explanation:
+              "Heavy a deux syllabes et se termine par -y : il se comporte comme un adjectif court. Le **y devient i** devant -er : **heavier than**. On ne combine jamais more et -er.",
+          },
+          {
+            id: "2nde-anglais-04-s1-p2",
+            prompt: "Complète : « This book is ___ than the film. » (good)",
+            choices: ["better", "gooder", "more good"],
+            answer: 0,
+            explanation:
+              "Good est **irrégulier** : good → **better** → the best. Les formes *gooder* et *more good* n’existent pas en anglais correct.",
+          },
+          {
+            id: "2nde-anglais-04-s1-p3",
+            prompt: "« Paul est aussi grand que son père. » se traduit par :",
+            choices: [
+              "Paul is as tall than his father.",
+              "Paul is so tall than his father.",
+              "Paul is taller as his father.",
+              "Paul is as tall as his father.",
+            ],
+            answer: 3,
+            explanation:
+              "Le comparatif d’**égalité** se construit avec **as + adjectif + as**. « Than » s’emploie uniquement avec les comparatifs de supériorité ou d’infériorité.",
+          },
+        ],
       },
       {
         title: "Le superlatif",
@@ -832,6 +1343,37 @@ export const chapters: Chapter[] = [
             "She’s the funniest person I have ever met. → La personne la plus drôle que j’aie jamais rencontrée.",
           ],
         },
+        practice: [
+          {
+            id: "2nde-anglais-04-s2-p1",
+            prompt: "Complète : « It’s ___ building in the city. » (modern)",
+            choices: ["the modernest", "the most modern", "most modern", "the more modern"],
+            answer: 1,
+            explanation:
+              "Modern a deux syllabes et ne se termine pas par -y : c’est un adjectif long. Superlatif : **the most + adjectif**, toujours avec **the**.",
+          },
+          {
+            id: "2nde-anglais-04-s2-p2",
+            prompt: "Complète : « She is the best player ___ the team. »",
+            choices: ["of", "than", "in"],
+            answer: 2,
+            explanation:
+              "Après un superlatif, on utilise **in** devant un lieu ou un groupe (the team, the class, the world). Of s’emploie plutôt devant une période ou un ensemble chiffré.",
+          },
+          {
+            id: "2nde-anglais-04-s2-p3",
+            prompt: "« C’est le pire film que j’aie jamais vu. » se traduit par :",
+            choices: [
+              "It’s the worst film I have ever seen.",
+              "It’s the baddest film I have ever seen.",
+              "It’s the worse film I ever saw.",
+              "It’s the most bad film I have never seen.",
+            ],
+            answer: 0,
+            explanation:
+              "Bad est irrégulier : bad → worse → **the worst**. La structure « que j’aie jamais vu » se traduit par **I have ever + participe passé**.",
+          },
+        ],
       },
       {
         title: "Les quantifieurs : much, many, a lot of, a few, a little",
@@ -862,6 +1404,48 @@ export const chapters: Chapter[] = [
             "There were too many people in the shop. → Il y avait trop de monde dans le magasin.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Quantifieurs : dénombrables et indénombrables",
+          headers: ["Sens", "Dénombrable (friends)", "Indénombrable (money)"],
+          rows: [
+            ["beaucoup", "many / a lot of friends", "much / a lot of money"],
+            ["quelques / un peu", "a few friends", "a little money"],
+            ["peu (pas assez)", "few friends", "little money"],
+            ["combien ?", "How many friends?", "How much money?"],
+            ["trop", "too many friends", "too much money"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-04-s3-p1",
+            prompt: "Complète : « How ___ brothers and sisters have you got? »",
+            choices: ["much", "many", "lot", "little"],
+            answer: 1,
+            explanation:
+              "Brothers and sisters est un nom **dénombrable** au pluriel : on utilise **How many**. How much s’emploie avec les indénombrables (money, time).",
+          },
+          {
+            id: "2nde-anglais-04-s3-p2",
+            prompt: "Quelle phrase est correcte ?",
+            choices: [
+              "Can you give me an advice?",
+              "Can you give me some advices?",
+              "Can you give me a piece of advice?",
+            ],
+            answer: 2,
+            explanation:
+              "**Advice** est **indénombrable** en anglais : pas de pluriel et pas de a / an. Pour parler d’un seul conseil, on dit **a piece of advice**.",
+          },
+          {
+            id: "2nde-anglais-04-s3-p3",
+            prompt: "Complète : « There’s ___ milk left. Let’s make pancakes! » (un peu, suffisamment)",
+            choices: ["a few", "few", "many", "a little"],
+            answer: 3,
+            explanation:
+              "Milk est **indénombrable** et le sens est positif (il en reste un peu, assez pour faire des crêpes) : **a little**. A few s’emploie avec les dénombrables.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1000,6 +1584,45 @@ export const chapters: Chapter[] = [
           "« Happy » a deux syllabes et finit par -y : il se comporte comme un adjectif court. Le **y devient i** devant -est : **the happiest**. « the happyest » est une faute d’orthographe.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-anglais-04-hw-1",
+        prompt: "Complète : « Trains are much ___ than planes. » (slow)",
+        choices: ["slower", "more slow", "slowest", "the slower"],
+        answer: 0,
+        explanation:
+          "Slow est un adjectif court d’une syllabe : comparatif en **-er + than**. **Much** devant le comparatif sert à le renforcer (beaucoup plus lents).",
+      },
+      {
+        id: "2nde-anglais-04-hw-2",
+        prompt: "Complète : « ___ you practise, ___ you get. »",
+        choices: ["More… better", "The more… the better", "The most… the best", "As more… as better"],
+        answer: 1,
+        explanation:
+          "« Plus…, plus… » se traduit par **the + comparatif…, the + comparatif** : « The more you practise, the better you get ». Le superlatif n’est pas possible dans cette structure.",
+      },
+      {
+        id: "2nde-anglais-04-hw-3",
+        prompt: "Complète : « Hurry up! We haven’t got ___ time. »",
+        choices: ["many", "a few", "much"],
+        answer: 2,
+        explanation:
+          "Time est **indénombrable** et la phrase est **négative** : on utilise **much**. Many et a few s’emploient avec des noms dénombrables au pluriel.",
+      },
+      {
+        id: "2nde-anglais-04-hw-4",
+        prompt: "« C’est le moins cher des trois. » se traduit par :",
+        choices: [
+          "It’s the less expensive of the three.",
+          "It’s the cheaper in the three.",
+          "It’s the least expensive in the three.",
+          "It’s the least expensive of the three.",
+        ],
+        answer: 3,
+        explanation:
+          "Le superlatif d’infériorité se forme avec **the least**. Devant un ensemble chiffré (the three), on utilise **of** : the least expensive **of** the three.",
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -1046,6 +1669,43 @@ export const chapters: Chapter[] = [
             "It’s cold today, isn’t it? → Il fait froid aujourd’hui, n’est-ce pas ?",
           ],
         },
+        figure: {
+          type: "table",
+          title: "De l’affirmation à la question",
+          headers: ["Affirmation", "Question", "Réponse courte", "Question tag"],
+          rows: [
+            ["You are tired.", "Are you tired?", "Yes, I am.", "You’re tired, aren’t you?"],
+            ["She can swim.", "Can she swim?", "No, she can’t.", "She can swim, can’t she?"],
+            ["He likes pizza.", "Does he like pizza?", "Yes, he does.", "He likes pizza, doesn’t he?"],
+            ["They left early.", "Did they leave early?", "No, they didn’t.", "They left early, didn’t they?"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-05-s1-p1",
+            prompt: "Transforme en question : « Emma speaks German. »",
+            choices: ["Speaks Emma German?", "Does Emma speak German?", "Does Emma speaks German?", "Do Emma speak German?"],
+            answer: 1,
+            explanation:
+              "La phrase n’a pas d’auxiliaire : on utilise **does** (3e personne du singulier) et le verbe revient à la **base verbale** : Does Emma **speak** German? On n’inverse jamais un verbe ordinaire.",
+          },
+          {
+            id: "2nde-anglais-05-s1-p2",
+            prompt: "« Have you finished? » – Réponse courte affirmative :",
+            choices: ["Yes, I do.", "Yes, I finished.", "Yes, I have."],
+            answer: 2,
+            explanation:
+              "La réponse courte **reprend l’auxiliaire de la question**. La question utilise have (present perfect), donc on répond **Yes, I have**.",
+          },
+          {
+            id: "2nde-anglais-05-s1-p3",
+            prompt: "Complète : « She doesn’t eat meat, ___? »",
+            choices: ["does she", "doesn’t she", "is she", "isn’t it"],
+            answer: 0,
+            explanation:
+              "Le question tag reprend l’auxiliaire avec la **polarité inverse** : la phrase est négative (doesn’t), donc le tag est affirmatif : **does she?**",
+          },
+        ],
       },
       {
         title: "Les questions ouvertes (Wh- questions)",
@@ -1076,6 +1736,48 @@ export const chapters: Chapter[] = [
             "What’s your city like? – It’s big and cold. → Comment est ta ville ?",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Mots interrogatifs : anglais ↔ français",
+          headers: ["Mot interrogatif", "Traduction", "Exemple"],
+          rows: [
+            ["what", "que, quoi, quel", "What do you want?"],
+            ["who", "qui", "Who did you call?"],
+            ["where", "où", "Where are you from?"],
+            ["when", "quand", "When does the film start?"],
+            ["why", "pourquoi", "Why are you laughing?"],
+            ["which", "lequel, quel (choix limité)", "Which colour do you prefer?"],
+            ["whose", "à qui", "Whose bag is this?"],
+            ["how often", "à quelle fréquence", "How often do you swim?"],
+            ["how long", "combien de temps, depuis quand", "How long have you lived here?"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-05-s2-p1",
+            prompt: "Complète : « ___ do you go to the cinema? – Once a month. »",
+            choices: ["How long", "How much", "How far", "How often"],
+            answer: 3,
+            explanation:
+              "La réponse « once a month » indique une **fréquence** : on demande donc **How often** (à quelle fréquence). How long porte sur une durée, how far sur une distance.",
+          },
+          {
+            id: "2nde-anglais-05-s2-p2",
+            prompt: "« Qui a cassé la fenêtre ? » se traduit par :",
+            choices: ["Who did break the window?", "Who broke the window?", "Who did broke the window?"],
+            answer: 1,
+            explanation:
+              "Ici **who est sujet** du verbe : on n’utilise **pas d’auxiliaire do** et le verbe se conjugue directement au preterit : **Who broke the window?**",
+          },
+          {
+            id: "2nde-anglais-05-s2-p3",
+            prompt: "« À qui parles-tu ? » se traduit par :",
+            choices: ["To who you are talking?", "Who are you talking to?", "Who you talk to?", "To whom you are talking?"],
+            answer: 1,
+            explanation:
+              "En anglais courant, la **préposition est rejetée en fin de question** : Who are you talking **to**? La structure reste Wh- + auxiliaire + sujet + verbe.",
+          },
+        ],
       },
       {
         title: "Le discours indirect (reported speech)",
@@ -1109,6 +1811,46 @@ export const chapters: Chapter[] = [
             "→ The teacher told us not to be late. (ordre négatif : not to + base)",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Concordance des temps au discours indirect",
+          headers: ["Discours direct", "Discours indirect", "Exemple rapporté"],
+          rows: [
+            ["present simple (am)", "preterit (was)", "She said she was tired."],
+            ["present continuous (am going)", "past continuous (was going)", "He said he was going to London."],
+            ["preterit (lost)", "past perfect (had lost)", "He said he had lost his keys."],
+            ["present perfect (have finished)", "past perfect (had finished)", "She said she had finished."],
+            ["will", "would", "They said they would come."],
+            ["can", "could", "Mia asked if I could help her."],
+            ["tomorrow / here", "the next day / there", "He said he would be there the next day."],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-05-s3-p1",
+            prompt: "Complète : « She ___ me that she was busy. »",
+            choices: ["said", "told", "asked to", "talked"],
+            answer: 1,
+            explanation:
+              "**Tell** est toujours suivi d’un **complément de personne** (told me). Say ne prend pas de complément direct de personne : on dirait « She said that she was busy ».",
+          },
+          {
+            id: "2nde-anglais-05-s3-p2",
+            prompt: "« Where do you live? » he asked me. → He asked me…",
+            choices: ["where do I live.", "where did I live.", "where I lived.", "where I do live."],
+            answer: 2,
+            explanation:
+              "Dans une question rapportée, on **supprime l’inversion et l’auxiliaire do** : on garde l’ordre sujet + verbe. Le présent recule au preterit : **where I lived**.",
+          },
+          {
+            id: "2nde-anglais-05-s3-p3",
+            prompt: "« Don’t touch it! » the guide told us. → The guide told us…",
+            choices: ["to not touching it.", "don’t touch it.", "not to touch it."],
+            answer: 2,
+            explanation:
+              "Un **ordre négatif** rapporté se construit avec **tell + personne + not to + base verbale** : The guide told us **not to touch** it.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1267,6 +2009,40 @@ export const chapters: Chapter[] = [
           "Le **present perfect devient past perfect** (have finished → **had finished**) ; I → she ; my → **her**. « told » exigerait un complément de personne.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-anglais-05-hw-1",
+        prompt: "Complète : « ___ did you buy? – The blue one. »",
+        choices: ["Which one", "Whose", "Who", "How"],
+        answer: 0,
+        explanation:
+          "La réponse « the blue one » indique un **choix parmi un nombre limité** d’objets : on utilise **which** (lequel). Whose demande le possesseur.",
+      },
+      {
+        id: "2nde-anglais-05-hw-2",
+        prompt: "Complète : « You’ve met him before, ___? »",
+        choices: ["have you", "didn’t you", "haven’t you", "don’t you"],
+        answer: 2,
+        explanation:
+          "La phrase est affirmative au present perfect (you’ve = you have) : le tag reprend **have** à la forme **négative** : **haven’t you?**",
+      },
+      {
+        id: "2nde-anglais-05-hw-3",
+        prompt: "« I will call you, » Tom said. → Tom said that…",
+        choices: ["he will call me.", "he would call me.", "I would call you.", "he called me."],
+        answer: 1,
+        explanation:
+          "Le verbe introducteur est au passé : **will devient would**. Les pronoms changent aussi selon le point de vue : I → **he**, you → **me**.",
+      },
+      {
+        id: "2nde-anglais-05-hw-4",
+        prompt: "« Are you hungry? » my mum asked. → My mum asked…",
+        choices: ["if I was hungry.", "was I hungry.", "that I was hungry?", "if was I hungry."],
+        answer: 0,
+        explanation:
+          "Une question fermée rapportée s’introduit par **if / whether**, avec l’ordre **sujet + verbe** et sans point d’interrogation. Le présent recule : are → **was**.",
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -1314,6 +2090,45 @@ export const chapters: Chapter[] = [
             "→ Cette tradition rappelle aux jeunes générations que la paix est fragile.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères de mémoire dans le monde anglophone",
+          events: [
+            { date: "1621", label: "Premier repas de Thanksgiving à Plymouth (colons et Wampanoag)" },
+            { date: "1863", label: "Lincoln fait de Thanksgiving une fête nationale" },
+            { date: "1886", label: "Inauguration de la Statue of Liberty à New York" },
+            { date: "1892", label: "Ouverture d’Ellis Island, porte d’entrée des immigrants" },
+            { date: "1895", label: "Création du National Trust britannique" },
+            { date: "11 nov. 1918", label: "Armistice : origine du Remembrance Day" },
+            { date: "1921", label: "Le poppy devient le symbole du souvenir au Royaume-Uni" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-06-s1-p1",
+            prompt: "Complète : « This old photo ___ me of my grandfather. »",
+            choices: ["remembers", "reminds", "recalls to", "memories"],
+            answer: 1,
+            explanation:
+              "**Remind somebody of something** signifie « rappeler quelque chose à quelqu’un ». **Remember** signifie « se souvenir de » et ne se construit pas avec of.",
+          },
+          {
+            id: "2nde-anglais-06-s1-p2",
+            prompt: "Quel symbole porte-t-on au Royaume-Uni pour le Remembrance Day ?",
+            choices: ["a red poppy", "a white rose", "a shamrock", "a maple leaf"],
+            answer: 0,
+            explanation:
+              "Le **poppy** (coquelicot rouge) rappelle les champs de bataille de la Première Guerre mondiale. On le porte autour du **11 novembre** pour honorer les soldats morts au combat.",
+          },
+          {
+            id: "2nde-anglais-06-s1-p3",
+            prompt: "Que signifie « landmark » ?",
+            choices: ["un héritage", "un ancêtre", "un monument emblématique, un lieu repère", "une commémoration"],
+            answer: 2,
+            explanation:
+              "Un **landmark** est un monument ou un lieu emblématique qui sert de repère (Big Ben, the Statue of Liberty). Héritage se dit legacy ou heritage, ancêtre se dit ancestor.",
+          },
+        ],
       },
       {
         title: "Vivre entre générations : famille et transmission",
@@ -1343,6 +2158,48 @@ export const chapters: Chapter[] = [
             "She has handed down her recipes to my mother and me. → Elle nous a transmis ses recettes, à ma mère et à moi.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Vocabulaire de la famille et des relations",
+          headers: ["Anglais", "Français"],
+          rows: [
+            ["relatives", "membres de la famille"],
+            ["siblings", "frères et sœurs"],
+            ["an only child", "un enfant unique"],
+            ["a blended family", "une famille recomposée"],
+            ["to bring up / to raise", "élever (un enfant)"],
+            ["to get on (well) with", "bien s’entendre avec"],
+            ["to look up to", "admirer"],
+            ["to hand down / to pass down", "transmettre"],
+            ["the generation gap", "le fossé des générations"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-06-s2-p1",
+            prompt: "Que signifie « relatives » ?",
+            choices: ["des relations, des connaissances", "des membres de la famille", "des voisins"],
+            answer: 1,
+            explanation:
+              "**Relatives** est un faux ami : il désigne les **membres de la famille** (oncles, cousins…). Pour parler de relations ou de connaissances, on dit acquaintances.",
+          },
+          {
+            id: "2nde-anglais-06-s2-p2",
+            prompt: "Complète : « I really ___ my older sister: she’s so brave. »",
+            choices: ["look after", "look for", "look up to", "look down on"],
+            answer: 2,
+            explanation:
+              "**Look up to** signifie **admirer** quelqu’un, ce qui correspond à « she’s so brave ». Look after = s’occuper de, look for = chercher, look down on = mépriser.",
+          },
+          {
+            id: "2nde-anglais-06-s2-p3",
+            prompt: "Comment dit-on « le fossé des générations » ?",
+            choices: ["the generation gap", "the digital divide", "the age difference", "the family tree"],
+            answer: 0,
+            explanation:
+              "**The generation gap** désigne l’incompréhension entre générations. The digital divide est la fracture numérique et the family tree l’arbre généalogique.",
+          },
+        ],
       },
       {
         title: "Parler des habitudes passées et comparer hier et aujourd’hui : used to",
@@ -1373,6 +2230,37 @@ export const chapters: Chapter[] = [
             "I’m used to doing my homework online. → J’ai l’habitude de faire mes devoirs en ligne (be used to + V-ing).",
           ],
         },
+        practice: [
+          {
+            id: "2nde-anglais-06-s3-p1",
+            prompt: "Complète : « When my dad was young, he ___ play football in the street. »",
+            choices: ["was used to", "used to", "uses to", "is used to"],
+            answer: 1,
+            explanation:
+              "Pour une **habitude passée révolue**, on utilise **used to + base verbale** : he used to play. Be used to signifie « être habitué à » et serait suivi de V-ing.",
+          },
+          {
+            id: "2nde-anglais-06-s3-p2",
+            prompt: "Quelle phrase négative est correcte ?",
+            choices: [
+              "We didn’t used to have a car.",
+              "We usedn’t to having a car.",
+              "We don’t used to have a car.",
+              "We didn’t use to have a car.",
+            ],
+            answer: 3,
+            explanation:
+              "À la négative, l’auxiliaire **didn’t** porte la marque du passé : on écrit donc **use to**, sans -d. La forme correcte est « We didn’t use to have a car ».",
+          },
+          {
+            id: "2nde-anglais-06-s3-p3",
+            prompt: "« J’ai l’habitude de me coucher tard. » se traduit par :",
+            choices: ["I’m used to going to bed late.", "I used to go to bed late.", "I’m used to go to bed late."],
+            answer: 0,
+            explanation:
+              "« Avoir l’habitude de, être habitué à » se traduit par **be used to + V-ing**. « I used to go to bed late » voudrait dire qu’on se couchait tard autrefois, mais plus maintenant.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1521,6 +2409,40 @@ export const chapters: Chapter[] = [
           "**Historic** = qui a marqué l’histoire (a historic event, a historic victory). **Historical** = qui se rapporte à l’histoire ou se situe dans le passé (a historical novel = un roman historique).",
       },
     ],
+    homework: [
+      {
+        id: "2nde-anglais-06-hw-1",
+        prompt: "Complète : « The castle is part of our national ___ and must be preserved. »",
+        choices: ["heritage", "ancestor", "reminder", "relative"],
+        answer: 0,
+        explanation:
+          "**Heritage** signifie le **patrimoine** (monuments, traditions transmis par l’histoire). Ancestor désigne un ancêtre et relative un membre de la famille.",
+      },
+      {
+        id: "2nde-anglais-06-hw-2",
+        prompt: "Complète : « My grandparents ___ me when my parents were working abroad. »",
+        choices: ["looked up to", "handed down", "brought up", "got on"],
+        answer: 2,
+        explanation:
+          "**Bring up** (brought up au preterit) signifie **élever** un enfant, ce qui correspond au contexte. Look up to = admirer, hand down = transmettre.",
+      },
+      {
+        id: "2nde-anglais-06-hw-3",
+        prompt: "Complète : « In the past, people used to write letters, ___ nowadays they send texts. »",
+        choices: ["because", "whereas", "so", "unless"],
+        answer: 1,
+        explanation:
+          "On met en **opposition** le passé et le présent : on utilise **whereas** (alors que). Because exprime la cause et so la conséquence.",
+      },
+      {
+        id: "2nde-anglais-06-hw-4",
+        prompt: "Quelle fête américaine est célébrée le 4e jeudi de novembre ?",
+        choices: ["Memorial Day", "Independence Day", "Remembrance Day", "Thanksgiving"],
+        answer: 3,
+        explanation:
+          "**Thanksgiving** est célébré aux États-Unis le **quatrième jeudi de novembre**. Memorial Day a lieu fin mai, et Remembrance Day est la commémoration britannique du 11 novembre.",
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -1569,6 +2491,47 @@ export const chapters: Chapter[] = [
             "→ Les réseaux sociaux peuvent nuire à leur estime de soi.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Identité et réseaux sociaux : anglais ↔ français",
+          headers: ["Anglais", "Français"],
+          rows: [
+            ["self-esteem", "l’estime de soi"],
+            ["peer pressure", "la pression des pairs"],
+            ["to fit in", "s’intégrer"],
+            ["to stand out", "se démarquer"],
+            ["a role model", "un modèle"],
+            ["cyberbullying", "le cyberharcèlement"],
+            ["to show off", "frimer"],
+            ["sensitive / sensible", "sensible / raisonnable"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-07-s1-p1",
+            prompt: "Complète : « At a new school, most teenagers just want to ___. »",
+            choices: ["show off", "fit in", "post", "follow"],
+            answer: 1,
+            explanation:
+              "**To fit in** signifie **s’intégrer**, trouver sa place dans un groupe, ce qui correspond à l’arrivée dans un nouveau lycée. To show off signifie frimer.",
+          },
+          {
+            id: "2nde-anglais-07-s1-p2",
+            prompt: "Comment traduire « Elle est très sensible » ?",
+            choices: ["She is very sensible.", "She is very sensitive.", "She is very moody."],
+            answer: 1,
+            explanation:
+              "**Sensible** est un faux ami : en anglais, il signifie **raisonnable**. « Sensible » au sens français se dit **sensitive**. Moody signifie lunatique.",
+          },
+          {
+            id: "2nde-anglais-07-s1-p3",
+            prompt: "Que signifie « cyberbullying » ?",
+            choices: ["la cybercriminalité", "l’addiction aux écrans", "les fausses informations", "le cyberharcèlement"],
+            answer: 3,
+            explanation:
+              "**Cyberbullying** désigne le **harcèlement en ligne** (to bully = harceler, brutaliser). Les fausses informations se disent fake news.",
+          },
+        ],
       },
       {
         title: "Sauver la planète : environnement et changement climatique",
@@ -1598,6 +2561,43 @@ export const chapters: Chapter[] = [
             "It is high time we took action. → Il est grand temps que nous agissions (preterit après it is high time).",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères de la prise de conscience écologique",
+          events: [
+            { date: "1962", label: "Rachel Carson publie Silent Spring aux États-Unis" },
+            { date: "22 avril 1970", label: "Premier Earth Day aux États-Unis" },
+            { date: "1997", label: "Adoption du protocole de Kyoto" },
+            { date: "2015", label: "Accord de Paris sur le climat (COP21)" },
+            { date: "Août 2018", label: "Greta Thunberg commence sa grève pour le climat" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-07-s2-p1",
+            prompt: "Que signifie « renewable energy » ?",
+            choices: ["les énergies renouvelables", "les énergies fossiles", "les économies d’énergie"],
+            answer: 0,
+            explanation:
+              "**Renewable energy** désigne les **énergies renouvelables**, comme le solaire (solar power) ou l’éolien (wind power). Les énergies fossiles se disent fossil fuels.",
+          },
+          {
+            id: "2nde-anglais-07-s2-p2",
+            prompt: "Complète : « We should ___ on plastic packaging. »",
+            choices: ["take action", "cut down", "raise awareness", "throw"],
+            answer: 1,
+            explanation:
+              "**To cut down on** signifie **réduire sa consommation** de quelque chose. La préposition on de la phrase confirme ce choix : on dit « cut down on plastic ».",
+          },
+          {
+            id: "2nde-anglais-07-s2-p3",
+            prompt: "Complète : « It is high time we ___ action. »",
+            choices: ["take", "will take", "took", "taking"],
+            answer: 2,
+            explanation:
+              "Après **it is high time**, on utilise le **preterit** même si l’on parle du présent : « It is high time we **took** action ». Cela exprime l’urgence.",
+          },
+        ],
       },
       {
         title: "Formuler des hypothèses : les phrases avec if",
@@ -1626,6 +2626,47 @@ export const chapters: Chapter[] = [
             "Unless we act quickly, many species will disappear. → À moins d’agir vite, de nombreuses espèces disparaîtront.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les phrases conditionnelles avec if",
+          headers: ["Type", "Proposition en if", "Proposition principale", "Exemple"],
+          rows: [
+            ["Type 1 (probable)", "If + present simple", "will + base verbale", "If it rains, we will stay at home."],
+            ["Type 2 (imaginaire)", "If + preterit", "would + base verbale", "If I had wings, I would fly."],
+            ["Conseil", "If I were you", "I would + base verbale", "If I were you, I would apologise."],
+            ["Unless (= if… not)", "Unless + présent", "will + base verbale", "Unless we act, species will disappear."],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-07-s3-p1",
+            prompt: "Complète : « If we ___ more trees, the air will be cleaner. »",
+            choices: ["will plant", "plant", "would plant", "planted"],
+            answer: 1,
+            explanation:
+              "C’est un conditionnel de **type 1** (hypothèse probable) : **If + présent, will + base verbale**. On ne met jamais will après if.",
+          },
+          {
+            id: "2nde-anglais-07-s3-p2",
+            prompt: "Complète : « If I ___ rich, I would travel around the world. »",
+            choices: ["am", "will be", "would be", "were"],
+            answer: 3,
+            explanation:
+              "Hypothèse **imaginaire** (type 2) : **If + preterit, would + base verbale**. Avec be, on emploie **were** pour toutes les personnes : If I **were** rich.",
+          },
+          {
+            id: "2nde-anglais-07-s3-p3",
+            prompt: "« Unless you hurry, you’ll miss the bus. » signifie :",
+            choices: [
+              "Si tu te dépêches, tu rateras le bus.",
+              "Si tu ne te dépêches pas, tu rateras le bus.",
+              "Bien que tu te dépêches, tu rateras le bus.",
+            ],
+            answer: 1,
+            explanation:
+              "**Unless** équivaut à **if… not** (à moins que, si… ne… pas). La phrase signifie donc « Si tu ne te dépêches pas, tu rateras le bus ».",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1774,6 +2815,45 @@ export const chapters: Chapter[] = [
           "**Renewable energy, public transport, recycling** sont trois solutions. Les autres listes mélangent des solutions avec des causes (deforestation, greenhouse gases, carbon emissions) ou des conséquences (wildfires, droughts, floods).",
       },
     ],
+    homework: [
+      {
+        id: "2nde-anglais-07-hw-1",
+        prompt: "Complète : « Influencers often feel ___ to look perfect online. »",
+        choices: ["pressure", "pressured of", "a pressure for", "pressing"],
+        answer: 0,
+        explanation:
+          "On dit **feel pressure to + base verbale** : ressentir une pression pour faire quelque chose. C’est la structure vue dans le cours (feel pressure to look perfect).",
+      },
+      {
+        id: "2nde-anglais-07-hw-2",
+        prompt: "Complète : « If I ___ you, I would spend less time on my phone. »",
+        choices: ["am", "was being", "were", "will be"],
+        answer: 2,
+        explanation:
+          "« À ta place » se dit **If I were you**, suivi de would + base verbale. C’est un conditionnel de type 2, avec were pour toutes les personnes.",
+      },
+      {
+        id: "2nde-anglais-07-hw-3",
+        prompt: "Que désigne « a dystopia » ?",
+        choices: [
+          "un avenir idéal et harmonieux",
+          "une espèce menacée",
+          "une énergie propre",
+          "un monde futur cauchemardesque",
+        ],
+        answer: 3,
+        explanation:
+          "Une **dystopia** imagine un **futur cauchemardesque** (1984, The Hunger Games). Son contraire, l’**utopia**, décrit une société idéale.",
+      },
+      {
+        id: "2nde-anglais-07-hw-4",
+        prompt: "Complète : « If sea levels keep rising, many coastal cities ___ underwater. »",
+        choices: ["would be", "will be", "are being", "were"],
+        answer: 1,
+        explanation:
+          "La proposition en if est au **présent** (keep rising) : c’est un conditionnel de **type 1**, donc la principale est au futur avec **will + base verbale**.",
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -1820,6 +2900,43 @@ export const chapters: Chapter[] = [
             "→ Il traite de l’addiction des adolescents à leur smartphone.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Méthode de compréhension écrite",
+          steps: [
+            { label: "Observer", detail: "Titre, source, date, image, type de document → hypothèses." },
+            { label: "Skimming", detail: "Lecture globale : Who? What? Where? When? Why?" },
+            { label: "Scanning", detail: "Lecture ciblée : chiffres, noms, dates, opinions." },
+            { label: "Mots inconnus", detail: "Mots transparents, familles de mots, contexte ; attention aux faux amis." },
+            { label: "Point de vue", detail: "Repérer mots de liaison et marqueurs d’opinion." },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-08-s1-p1",
+            prompt: "Lire rapidement un texte pour en saisir le sens général s’appelle :",
+            choices: ["scanning", "skimming", "spelling", "summing up"],
+            answer: 1,
+            explanation:
+              "Le **skimming** est une lecture globale, rapide, pour comprendre le thème. Le **scanning** consiste à rechercher des informations précises comme des chiffres ou des noms.",
+          },
+          {
+            id: "2nde-anglais-08-s1-p2",
+            prompt: "Que signifie « Eventually, she found a job » ?",
+            choices: ["Éventuellement, elle a trouvé un travail.", "Heureusement, elle a trouvé un travail.", "Finalement, elle a trouvé un travail."],
+            answer: 2,
+            explanation:
+              "**Eventually** est un faux ami : il signifie **finalement, au bout du compte**. « Éventuellement » se traduit plutôt par possibly ou perhaps.",
+          },
+          {
+            id: "2nde-anglais-08-s1-p3",
+            prompt: "Que signifie « unhappiness », d’après sa formation ?",
+            choices: ["le malheur", "malheureux", "heureusement", "le bonheur"],
+            answer: 0,
+            explanation:
+              "On décompose : **un-** (contraire) + **happy** (heureux) + **-ness** (suffixe qui forme un nom). Unhappiness est donc un nom qui signifie **le malheur**.",
+          },
+        ],
       },
       {
         title: "Comprendre un document oral",
@@ -1849,6 +2966,42 @@ export const chapters: Chapter[] = [
             "Compte rendu : Plus de 15 000 élèves ont participé vendredi dernier à une grève pour le climat à Londres.",
           ],
         },
+        practice: [
+          {
+            id: "2nde-anglais-08-s2-p1",
+            prompt: "Que faut-il faire en priorité lors de la première écoute ?",
+            choices: [
+              "Noter chaque mot entendu",
+              "Repérer le sens global : type de document, locuteurs, ton, thème",
+              "Traduire le document phrase par phrase",
+              "Relever uniquement les chiffres",
+            ],
+            answer: 1,
+            explanation:
+              "La première écoute sert à saisir le **sens global** : qui parle, de quel type de document il s’agit, sur quel ton et de quoi. Les détails (chiffres, noms) se notent lors des écoutes suivantes.",
+          },
+          {
+            id: "2nde-anglais-08-s2-p2",
+            prompt: "Dans « fifteen », où tombe l’accent ?",
+            choices: ["sur la première syllabe (FIF-teen)", "sur la dernière syllabe (fif-TEEN)", "il n’y a pas d’accent"],
+            answer: 1,
+            explanation:
+              "Dans les nombres en **-teen**, l’accent tombe sur la **fin** (fif-TEEN), alors que dans les nombres en **-ty**, il tombe au **début** (FIF-ty). C’est l’indice pour distinguer 15 et 50.",
+          },
+          {
+            id: "2nde-anglais-08-s2-p3",
+            prompt: "Comment faut-il prendre des notes pendant l’écoute ?",
+            choices: [
+              "En phrases complètes et en anglais uniquement",
+              "En recopiant tout ce que l’on entend",
+              "Sans rien noter, pour mieux écouter",
+              "En mots-clés, en anglais ou en français",
+            ],
+            answer: 3,
+            explanation:
+              "On note en **mots-clés**, dans la langue qui va le plus vite, pour ne pas perdre le fil de l’écoute. Les phrases complètes prennent trop de temps et font manquer la suite.",
+          },
+        ],
       },
       {
         title: "Expression écrite : structurer son texte avec les mots de liaison",
@@ -1882,6 +3035,50 @@ export const chapters: Chapter[] = [
             "To conclude, I believe social networks are good for teenagers if they use them in moderation.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les mots de liaison par fonction",
+          headers: ["Fonction", "Mots de liaison", "Traduction"],
+          rows: [
+            ["Ordonner", "first of all, then, finally", "tout d’abord, ensuite, enfin"],
+            ["Ajouter", "moreover, furthermore, what is more", "de plus, en outre"],
+            ["Opposer", "however, whereas, although", "cependant, alors que, bien que"],
+            ["Cause", "because, because of, since, as", "parce que, à cause de, puisque, comme"],
+            ["Conséquence", "so, therefore, as a result", "donc, par conséquent, en conséquence"],
+            ["Exemple", "for example, for instance, such as", "par exemple, tel(le)s que"],
+            ["Conclure", "to conclude, all in all, to sum up", "pour conclure, dans l’ensemble, en résumé"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-anglais-08-s3-p1",
+            prompt: "Complète : « ___ the rain, we went for a walk. »",
+            choices: ["Although", "Despite", "However", "Because"],
+            answer: 1,
+            explanation:
+              "« The rain » est un **nom** : on utilise **despite** (malgré). Although doit être suivi d’une proposition complète (although it was raining).",
+          },
+          {
+            id: "2nde-anglais-08-s3-p2",
+            prompt: "Quel mot de liaison exprime une conséquence ?",
+            choices: ["moreover", "whereas", "therefore", "for instance"],
+            answer: 2,
+            explanation:
+              "**Therefore** signifie **par conséquent** et introduit une conséquence. Moreover ajoute une idée, whereas oppose, for instance donne un exemple.",
+          },
+          {
+            id: "2nde-anglais-08-s3-p3",
+            prompt: "Quelle phrase est correcte ?",
+            choices: [
+              "We stayed at home because of the storm.",
+              "We stayed at home because the storm.",
+              "We stayed at home because of it was stormy.",
+            ],
+            answer: 0,
+            explanation:
+              "**Because of** est suivi d’un **nom** (the storm), tandis que **because** est suivi d’une proposition (because it was stormy). Seule la première phrase respecte cette règle.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -2018,6 +3215,49 @@ export const chapters: Chapter[] = [
         answer: 0,
         explanation:
           "On met en **contraste** deux groupes → **whereas** (alors que, tandis que). Despite et because of doivent être suivis d’un nom ; therefore exprime une conséquence.",
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-anglais-08-hw-1",
+        prompt: "Quelle phrase présente correctement un document ?",
+        choices: [
+          "This document is an article taken from The Times, published in 2023.",
+          "This document is an article took from The Times, published on 2023.",
+          "This document talks an article from The Times in 2023.",
+          "This document is about an article publishing in 2023.",
+        ],
+        answer: 0,
+        explanation:
+          "La formule correcte est **taken from** (participe passé de take) + source, puis **published in** + année. On dit « in 2023 » pour une année, et non « on 2023 ».",
+      },
+      {
+        id: "2nde-anglais-08-hw-2",
+        prompt: "Que signifie « Actually, I don’t agree » ?",
+        choices: ["Actuellement, je ne suis pas d’accord.", "En fait, je ne suis pas d’accord.", "Finalement, je suis d’accord."],
+        answer: 1,
+        explanation:
+          "**Actually** est un faux ami : il signifie **en fait, en réalité**. « Actuellement » se traduit par currently ou nowadays.",
+      },
+      {
+        id: "2nde-anglais-08-hw-3",
+        prompt: "Complète : « Some students love online classes; ___, others find them boring. »",
+        choices: ["moreover", "for instance", "as a result", "however"],
+        answer: 3,
+        explanation:
+          "Les deux idées s’**opposent** (love / find them boring) : on utilise **however** (cependant). Moreover ajoute une idée et as a result introduit une conséquence.",
+      },
+      {
+        id: "2nde-anglais-08-hw-4",
+        prompt: "Quel est l’ordre logique d’un texte argumenté ?",
+        choices: [
+          "Conclusion, exemples, introduction",
+          "Exemples, introduction, conclusion",
+          "Introduction, paragraphes (une idée + un exemple chacun), conclusion",
+        ],
+        answer: 2,
+        explanation:
+          "Un texte argumenté commence par une **introduction** qui présente le sujet, puis développe **une idée par paragraphe** avec un exemple, et se termine par une **conclusion** qui résume la position.",
       },
     ],
   },

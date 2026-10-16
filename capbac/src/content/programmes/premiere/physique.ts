@@ -11,6 +11,36 @@ export const chapters: Chapter[] = [
       "Je sais calculer une concentration en masse et une concentration en quantité de matière.",
       "Je sais déterminer le volume de solution mère à prélever pour une dilution.",
     ],
+    homework: [
+      {
+        id: "1re-physique-01-hw-1",
+        prompt: "On dissout **6,84 g** de saccharose C₁₂H₂₂O₁₁ (M(H) = 1,0 ; M(C) = 12,0 ; M(O) = 16,0 g·mol⁻¹) dans une fiole jaugée de **200,0 mL**. Quelle est la concentration en quantité de matière ?",
+        choices: ["0,0200 mol·L⁻¹", "0,100 mol·L⁻¹", "34,2 mol·L⁻¹", "1,00 mol·L⁻¹"],
+        answer: 1,
+        explanation: "Masse molaire : M = 12 × 12,0 + 22 × 1,0 + 11 × 16,0 = 144 + 22 + 176 = 342 g·mol⁻¹. Quantité de matière : n = 6,84 / 342 = 0,0200 mol. Concentration : C = n / V = 0,0200 / 0,2000 = **0,100 mol·L⁻¹** (0,0200 est la quantité de matière, pas la concentration).",
+      },
+      {
+        id: "1re-physique-01-hw-2",
+        prompt: "Combien de molécules contient un volume de **2,4 L** de dioxyde de carbone à 20 °C (Vₘ = 24,0 L·mol⁻¹ ; Nₐ = 6,02 × 10²³ mol⁻¹) ?",
+        choices: ["1,4 × 10²⁴", "2,5 × 10²³", "6,0 × 10²¹", "6,0 × 10²²"],
+        answer: 3,
+        explanation: "On calcule d’abord la quantité de matière : n = V / Vₘ = 2,4 / 24,0 = 0,10 mol. Puis le nombre d’entités : N = n × Nₐ = 0,10 × 6,02 × 10²³ ≈ **6,0 × 10²² molécules**.",
+      },
+      {
+        id: "1re-physique-01-hw-3",
+        prompt: "On dissout du sulfate de sodium Na₂SO₄ pour obtenir une solution de concentration apportée **C = 0,15 mol·L⁻¹**. Quelle est la concentration des ions sodium ?",
+        choices: ["0,075 mol·L⁻¹", "0,15 mol·L⁻¹", "0,30 mol·L⁻¹", "0,45 mol·L⁻¹"],
+        answer: 2,
+        explanation: "Équation de dissolution : Na₂SO₄(s) → 2 Na⁺(aq) + SO₄²⁻(aq). Chaque unité dissoute libère deux ions Na⁺, donc [Na⁺] = 2 × C = 2 × 0,15 = **0,30 mol·L⁻¹**, tandis que [SO₄²⁻] = 0,15 mol·L⁻¹.",
+      },
+      {
+        id: "1re-physique-01-hw-4",
+        prompt: "On souhaite préparer **200,0 mL** de solution à 0,050 mol·L⁻¹ à partir d’une solution mère à 1,0 mol·L⁻¹. Quel volume de solution mère faut-il prélever à la pipette jaugée ?",
+        choices: ["10,0 mL", "4,0 mL", "100 mL", "20,0 mL"],
+        answer: 0,
+        explanation: "Conservation de la quantité de soluté : C₀ × V₀ = C₁ × V₁. V₀ = C₁ × V₁ / C₀ = 0,050 × 200,0 / 1,0 = **10,0 mL**. Le facteur de dilution est F = 1,0 / 0,050 = 20, cohérent avec 200,0 / 10,0 = 20.",
+      },
+    ],
     sections: [
       {
         title: "La mole, la quantité de matière et la masse molaire",
@@ -40,6 +70,52 @@ export const chapters: Chapter[] = [
             "Conclusion : 9,0 g d’eau contiennent environ 3,0 × 10²³ molécules.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Constantes et masses molaires à connaître",
+          caption: "Valeurs utilisées dans les calculs de quantité de matière.",
+          items: [
+            {
+              value: "6,02 × 10²³ mol⁻¹",
+              label: "Constante d’Avogadro Nₐ",
+            },
+            {
+              value: "1,0 g·mol⁻¹",
+              label: "M(H)",
+            },
+            {
+              value: "12,0 g·mol⁻¹",
+              label: "M(C)",
+            },
+            {
+              value: "16,0 g·mol⁻¹",
+              label: "M(O)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-01-s1-p1",
+            prompt: "Quelle est la masse molaire de l’éthanol **C₂H₆O** ? (M(H) = 1,0 ; M(C) = 12,0 ; M(O) = 16,0 g·mol⁻¹)",
+            choices: ["30,0 g·mol⁻¹", "46,0 g·mol⁻¹", "45,0 g·mol⁻¹", "58,0 g·mol⁻¹"],
+            answer: 1,
+            explanation: "On additionne les masses molaires atomiques de tous les atomes de la formule : 2 atomes de carbone, 6 atomes d’hydrogène et 1 atome d’oxygène. M = 2 × 12,0 + 6 × 1,0 + 16,0 = 24,0 + 6,0 + 16,0 = **46,0 g·mol⁻¹**.",
+          },
+          {
+            id: "1re-physique-01-s1-p2",
+            prompt: "Quelle quantité de matière de glucose (M = 180 g·mol⁻¹) contient un morceau de **3,6 g** ?",
+            choices: ["0,020 mol", "0,050 mol", "2,0 mol", "648 mol"],
+            answer: 0,
+            explanation: "On utilise n = m / M avec m en g et M en g·mol⁻¹. n = 3,6 / 180 = **0,020 mol**. La valeur 648 correspond à la multiplication m × M, qui n’a pas de sens physique ici.",
+          },
+          {
+            id: "1re-physique-01-s1-p3",
+            prompt: "On prélève **10,0 mL** d’éthanol liquide (ρ = 0,79 g·mL⁻¹ ; M = 46,0 g·mol⁻¹). Quelle quantité de matière a-t-on prélevée ?",
+            choices: ["7,9 mol", "0,22 mol", "0,58 mol", "0,17 mol"],
+            answer: 3,
+            explanation: "On calcule d’abord la masse grâce à la masse volumique : m = ρ × V = 0,79 × 10,0 = 7,9 g. Puis n = m / M = 7,9 / 46,0 ≈ **0,17 mol**. Il ne faut pas confondre la masse (7,9 g) et la quantité de matière.",
+          },
+        ],
       },
       {
         title: "Le volume molaire des gaz",
@@ -66,6 +142,51 @@ export const chapters: Chapter[] = [
             "Conclusion : 1,2 L de CO₂ à 20 °C pèsent environ 2,2 g.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Quantité de matière d’un gaz en fonction de son volume (20 °C, 1,013 bar)",
+          caption: "n = V / Vₘ avec Vₘ = 24,0 L·mol⁻¹ : n est proportionnelle à V.",
+          xMin: 0,
+          xMax: 48,
+          yMin: 0,
+          yMax: 2,
+          curves: [
+            {
+              expr: "x / 24",
+              label: "n (mol) en fonction de V (L)",
+            },
+          ],
+          points: [
+            {
+              x: 24,
+              y: 1,
+              label: "24,0 L → 1,0 mol",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-01-s2-p1",
+            prompt: "Quelle quantité de matière de dioxygène contient un ballon de **6,0 L** à 20 °C (Vₘ = 24,0 L·mol⁻¹) ?",
+            choices: ["4,0 mol", "144 mol", "0,25 mol", "0,50 mol"],
+            answer: 2,
+            explanation: "Pour un gaz, n = V / Vₘ avec V en L et Vₘ en L·mol⁻¹. n = 6,0 / 24,0 = **0,25 mol**. La valeur 4,0 mol correspond au calcul inversé Vₘ / V.",
+          },
+          {
+            id: "1re-physique-01-s2-p2",
+            prompt: "Quel volume occupent **0,40 mol** de diazote à 20 °C (Vₘ = 24,0 L·mol⁻¹) ?",
+            choices: ["60 L", "9,6 L", "0,017 L"],
+            answer: 1,
+            explanation: "On isole V dans n = V / Vₘ : V = n × Vₘ. V = 0,40 × 24,0 = **9,6 L**. On vérifie l’ordre de grandeur : moins d’une demi-mole occupe moins de la moitié de 24 L.",
+          },
+          {
+            id: "1re-physique-01-s2-p3",
+            prompt: "Quelle est la masse de **500 mL** de méthane CH₄ (M = 16,0 g·mol⁻¹) à 20 °C (Vₘ = 24,0 L·mol⁻¹) ?",
+            choices: ["333 g", "1,5 g", "8,0 g", "0,33 g"],
+            answer: 3,
+            explanation: "On convertit d’abord le volume : V = 500 mL = 0,500 L, puis n = V / Vₘ = 0,500 / 24,0 ≈ 2,08 × 10⁻² mol. La masse vaut m = n × M = 2,08 × 10⁻² × 16,0 ≈ **0,33 g**. Oublier la conversion des mL en L donne la réponse absurde de 333 g.",
+          },
+        ],
       },
       {
         title: "Concentrations et dilution",
@@ -97,6 +218,56 @@ export const chapters: Chapter[] = [
             "On prélève 10,0 mL à la pipette jaugée, on les verse dans une fiole de 100,0 mL et on complète à l’eau distillée (F = 10).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Protocole d’une dilution",
+          caption: "La quantité de soluté prélevée se retrouve entièrement dans la solution fille.",
+          steps: [
+            {
+              label: "Calculer V₀",
+              detail: "V₀ = C₁ × V₁ / C₀",
+            },
+            {
+              label: "Prélever V₀",
+              detail: "pipette jaugée munie d’une propipette, dans un bécher de solution mère",
+            },
+            {
+              label: "Verser dans la fiole jaugée",
+              detail: "fiole de volume V₁",
+            },
+            {
+              label: "Compléter à l’eau distillée",
+              detail: "jusqu’au trait de jauge",
+            },
+            {
+              label: "Homogénéiser",
+              detail: "boucher et retourner plusieurs fois la fiole",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-01-s3-p1",
+            prompt: "On dissout **2,0 g** de glucose dans de l’eau pour obtenir **250 mL** de solution. Quelle est la concentration en masse ?",
+            choices: ["0,50 g·L⁻¹", "8,0 g·L⁻¹", "500 g·L⁻¹", "125 g·L⁻¹"],
+            answer: 1,
+            explanation: "La concentration en masse est Cₘ = m / V avec V en litres : V = 250 mL = 0,250 L. Cₘ = 2,0 / 0,250 = **8,0 g·L⁻¹**. La valeur 0,50 correspond au calcul inversé V / m.",
+          },
+          {
+            id: "1re-physique-01-s3-p2",
+            prompt: "Une solution de chlorure de sodium (M = 58,5 g·mol⁻¹) a une concentration **C = 0,050 mol·L⁻¹**. Quelle est sa concentration en masse ?",
+            choices: ["1,2 × 10³ g·L⁻¹", "8,5 × 10⁻⁴ g·L⁻¹", "2,9 g·L⁻¹"],
+            answer: 2,
+            explanation: "Les deux concentrations sont reliées par Cₘ = C × M. Cₘ = 0,050 × 58,5 ≈ **2,9 g·L⁻¹**. Les unités confirment : (mol·L⁻¹) × (g·mol⁻¹) = g·L⁻¹.",
+          },
+          {
+            id: "1re-physique-01-s3-p3",
+            prompt: "On veut préparer **50,0 mL** de solution à C₁ = 0,020 mol·L⁻¹ à partir d’une solution mère à C₀ = 0,50 mol·L⁻¹. Quel volume V₀ faut-il prélever ?",
+            choices: ["2,0 mL", "20 mL", "1 250 mL", "12,5 mL"],
+            answer: 0,
+            explanation: "La quantité de soluté se conserve : C₀ × V₀ = C₁ × V₁, donc V₀ = C₁ × V₁ / C₀ = 0,020 × 50,0 / 0,50 = **2,0 mL**. Le facteur de dilution vaut F = C₀ / C₁ = 25, et on vérifie bien V₁ / V₀ = 50,0 / 2,0 = 25.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -212,6 +383,36 @@ export const chapters: Chapter[] = [
       "Je sais reconnaître un mélange stœchiométrique.",
       "Je sais écrire une demi-équation électronique et l’équation d’une réaction d’oxydo-réduction.",
     ],
+    homework: [
+      {
+        id: "1re-physique-02-hw-1",
+        prompt: "On réalise la combustion C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O avec **0,10 mol** de propane et **0,40 mol** de dioxygène. Quelle quantité d’eau obtient-on à l’état final ?",
+        choices: ["0,40 mol", "0,32 mol", "0,08 mol", "0,24 mol"],
+        answer: 1,
+        explanation: "Hypothèses : propane épuisé pour x = 0,10 mol ; dioxygène épuisé pour x = 0,40 / 5 = 0,080 mol. On retient x_max = 0,080 mol (O₂ limitant). n(H₂O) = 4 × x_max = 4 × 0,080 = **0,32 mol** (0,24 mol est la quantité de CO₂).",
+      },
+      {
+        id: "1re-physique-02-hw-2",
+        prompt: "On plonge **0,635 g** de cuivre (M = 63,5 g·mol⁻¹) dans **50,0 mL** de nitrate d’argent à 0,300 mol·L⁻¹ : Cu + 2 Ag⁺ → Cu²⁺ + 2 Ag. Quelle masse d’argent (M = 107,9 g·mol⁻¹) se forme ?",
+        choices: ["1,62 g", "0,81 g", "2,16 g", "1,08 g"],
+        answer: 0,
+        explanation: "n(Cu) = 0,635 / 63,5 = 1,00 × 10⁻² mol ; n(Ag⁺) = 0,300 × 0,0500 = 1,50 × 10⁻² mol. Hypothèses : x = 1,00 × 10⁻² mol (Cu) et x = 1,50 × 10⁻² / 2 = 7,50 × 10⁻³ mol (Ag⁺) : Ag⁺ est limitant. n(Ag) = 2 × 7,50 × 10⁻³ = 1,50 × 10⁻² mol, soit m = 1,50 × 10⁻² × 107,9 ≈ **1,62 g**.",
+      },
+      {
+        id: "1re-physique-02-hw-3",
+        prompt: "Pour 2 Mg + O₂ → 2 MgO, quel volume de dioxygène (Vₘ = 24,0 L·mol⁻¹) faut-il pour brûler exactement **0,50 mol** de magnésium ?",
+        choices: ["12 L", "3,0 L", "6,0 L", "24 L"],
+        answer: 2,
+        explanation: "Proportions stœchiométriques : n(O₂) = n(Mg) / 2 = 0,50 / 2 = 0,25 mol. Volume : V = n × Vₘ = 0,25 × 24,0 = **6,0 L**. La réponse 12 L oublie de diviser par le coefficient 2.",
+      },
+      {
+        id: "1re-physique-02-hw-4",
+        prompt: "Couples Al³⁺/Al et Cu²⁺/Cu. Quelle est l’équation de la réaction entre l’aluminium métallique et les ions cuivre(II) ?",
+        choices: ["Al + Cu²⁺ → Al³⁺ + Cu", "3 Al + 2 Cu²⁺ → 3 Al³⁺ + 2 Cu", "2 Al + 3 Cu → 2 Al³⁺ + 3 Cu²⁺", "2 Al + 3 Cu²⁺ → 2 Al³⁺ + 3 Cu"],
+        answer: 3,
+        explanation: "Demi-équations : Al = Al³⁺ + 3 e⁻ et Cu²⁺ + 2 e⁻ = Cu. Pour échanger le même nombre d’électrons (6), on multiplie la première par 2 et la seconde par 3. On obtient **2 Al + 3 Cu²⁺ → 2 Al³⁺ + 3 Cu**, avec des charges égales (+6) de chaque côté.",
+      },
+    ],
     sections: [
       {
         title: "L’avancement et le tableau d’avancement",
@@ -238,6 +439,40 @@ export const chapters: Chapter[] = [
             "État final : n(CH₄) = 0,05 mol ; n(O₂) = 0 ; n(CO₂) = 0,25 mol ; n(H₂O) = 0,50 mol.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Tableau d’avancement : CH₄ + 2 O₂ → CO₂ + 2 H₂O",
+          caption: "Quantités de matière en mol ; le dioxygène est le réactif limitant.",
+          headers: ["État", "Avancement (mol)", "n(CH₄)", "n(O₂)", "n(CO₂)", "n(H₂O)"],
+          rows: [
+            ["Initial", "x = 0", "0,30", "0,50", "0", "0"],
+            ["Intermédiaire", "x", "0,30 − x", "0,50 − 2x", "x", "2x"],
+            ["Final", "x_max = 0,25", "0,05", "0", "0,25", "0,50"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-02-s1-p1",
+            prompt: "Pour la réaction N₂ + 3 H₂ → 2 NH₃, avec n(H₂)₀ = **0,90 mol**, quelle expression donne n(H₂) à l’avancement x ?",
+            choices: ["0,90 − x", "0,90 − 3x", "0,90 + 3x", "3 × (0,90 − x)"],
+            answer: 1,
+            explanation: "Un réactif est consommé proportionnellement à son coefficient stœchiométrique : il disparaît 3x mol de H₂ quand l’avancement vaut x. On écrit donc n(H₂) = **0,90 − 3x** (en mol).",
+          },
+          {
+            id: "1re-physique-02-s1-p2",
+            prompt: "Pour la même réaction N₂ + 3 H₂ → 2 NH₃, quelle quantité d’ammoniac s’est formée lorsque **x = 0,20 mol** ?",
+            choices: ["0,20 mol", "0,60 mol", "0,40 mol", "0,10 mol"],
+            answer: 2,
+            explanation: "Le produit NH₃ a pour coefficient 2 : il s’en forme 2x mol. n(NH₃) = 2 × 0,20 = **0,40 mol**. La valeur 0,60 mol correspond à la quantité de H₂ consommée (3x).",
+          },
+          {
+            id: "1re-physique-02-s1-p3",
+            prompt: "Pour 2 H₂ + O₂ → 2 H₂O, on part de 1,0 mol de H₂ et 1,0 mol de O₂. Quelle quantité de dihydrogène reste-t-il lorsque **x = 0,30 mol** ?",
+            choices: ["0,70 mol", "0,10 mol", "0,60 mol", "0,40 mol"],
+            answer: 3,
+            explanation: "Le dihydrogène a pour coefficient 2 : n(H₂) = 1,0 − 2x = 1,0 − 2 × 0,30 = **0,40 mol**. La valeur 0,70 mol est la quantité de dioxygène restante (1,0 − x).",
+          },
+        ],
       },
       {
         title: "Réactif limitant et mélange stœchiométrique",
@@ -265,6 +500,59 @@ export const chapters: Chapter[] = [
             "Il se forme n(FeS) = 0,10 mol, soit m = 0,10 × 88,0 = 8,8 g de sulfure de fer.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Quantités de matière en fonction de l’avancement (Fe + S → FeS)",
+          caption: "Le fer s’épuise le premier pour x = 0,10 mol : c’est le réactif limitant.",
+          xMin: 0,
+          xMax: 0.1,
+          yMin: 0,
+          yMax: 0.14,
+          curves: [
+            {
+              expr: "0.10 - x",
+              label: "n(Fe) = 0,10 − x",
+            },
+            {
+              expr: "0.125 - x",
+              label: "n(S) = 0,125 − x",
+            },
+            {
+              expr: "x",
+              label: "n(FeS) = x",
+            },
+          ],
+          points: [
+            {
+              x: 0.1,
+              y: 0.025,
+              label: "S restant : 0,025 mol",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-02-s2-p1",
+            prompt: "Pour la réaction 2 Al + 3 S → Al₂S₃, on mélange **0,40 mol** d’aluminium et **0,45 mol** de soufre. Quel est le réactif limitant ?",
+            choices: ["Al, x_max = 0,20 mol", "S, x_max = 0,15 mol", "S, x_max = 0,45 mol", "Al, x_max = 0,40 mol"],
+            answer: 1,
+            explanation: "On divise chaque quantité initiale par son coefficient : Al : 0,40 / 2 = 0,20 mol ; S : 0,45 / 3 = 0,15 mol. On retient la plus petite valeur : x_max = **0,15 mol**, le **soufre** est limitant.",
+          },
+          {
+            id: "1re-physique-02-s2-p2",
+            prompt: "Pour 2 H₂ + O₂ → 2 H₂O, quelle quantité de dioxygène faut-il ajouter à **0,60 mol** de dihydrogène pour obtenir un mélange stœchiométrique ?",
+            choices: ["0,60 mol", "1,2 mol", "0,30 mol"],
+            answer: 2,
+            explanation: "Un mélange est stœchiométrique si n(H₂)₀ / 2 = n(O₂)₀ / 1. On en déduit n(O₂)₀ = 0,60 / 2 = **0,30 mol**. Les deux réactifs seront alors épuisés en même temps.",
+          },
+          {
+            id: "1re-physique-02-s2-p3",
+            prompt: "On fait brûler **3,2 g** de méthane (M = 16,0 g·mol⁻¹) avec **0,30 mol** de dioxygène : CH₄ + 2 O₂ → CO₂ + 2 H₂O. Quelle masse de CO₂ (M = 44,0 g·mol⁻¹) se forme ?",
+            choices: ["6,6 g", "8,8 g", "13,2 g", "4,4 g"],
+            answer: 0,
+            explanation: "n(CH₄) = 3,2 / 16,0 = 0,20 mol ; hypothèses : 0,20 / 1 = 0,20 mol et 0,30 / 2 = 0,15 mol, donc x_max = 0,15 mol (O₂ limitant). Il se forme n(CO₂) = x_max = 0,15 mol, soit m = 0,15 × 44,0 = **6,6 g**. La réponse 8,8 g suppose à tort que le méthane est limitant.",
+          },
+        ],
       },
       {
         title: "Les réactions d’oxydo-réduction",
@@ -294,6 +582,44 @@ export const chapters: Chapter[] = [
             "Vérification : 1 Mn, 5 Fe, 4 O, 8 H de chaque côté ; charges : −1 + 8 + 10 = +17 à gauche, +2 + 15 = +17 à droite.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Quelques couples oxydant/réducteur",
+          caption: "Demi-équations écrites dans le sens Ox + n e⁻ = Red.",
+          headers: ["Couple", "Oxydant", "Réducteur", "Demi-équation"],
+          rows: [
+            ["Cu²⁺/Cu", "Cu²⁺", "Cu", "Cu²⁺ + 2 e⁻ = Cu"],
+            ["Zn²⁺/Zn", "Zn²⁺", "Zn", "Zn²⁺ + 2 e⁻ = Zn"],
+            ["Fe³⁺/Fe²⁺", "Fe³⁺", "Fe²⁺", "Fe³⁺ + e⁻ = Fe²⁺"],
+            ["H⁺/H₂", "H⁺", "H₂", "2 H⁺ + 2 e⁻ = H₂"],
+            ["I₂/I⁻", "I₂", "I⁻", "I₂ + 2 e⁻ = 2 I⁻"],
+            ["S₄O₆²⁻/S₂O₃²⁻", "S₄O₆²⁻", "S₂O₃²⁻", "S₄O₆²⁻ + 2 e⁻ = 2 S₂O₃²⁻"],
+            ["MnO₄⁻/Mn²⁺", "MnO₄⁻", "Mn²⁺", "MnO₄⁻ + 8 H⁺ + 5 e⁻ = Mn²⁺ + 4 H₂O"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-02-s3-p1",
+            prompt: "Dans la réaction Zn + Cu²⁺ → Zn²⁺ + Cu, quelle espèce est **oxydée** ?",
+            choices: ["Cu²⁺", "Zn", "Cu", "Zn²⁺"],
+            answer: 1,
+            explanation: "Une oxydation est une perte d’électrons. Le zinc métallique cède 2 électrons selon Zn = Zn²⁺ + 2 e⁻ : c’est le réducteur, et il est **oxydé**. Les ions Cu²⁺ captent ces électrons : ils sont réduits.",
+          },
+          {
+            id: "1re-physique-02-s3-p2",
+            prompt: "Combien d’électrons figurent dans la demi-équation ajustée du couple **Cr₂O₇²⁻/Cr³⁺** en milieu acide ?",
+            choices: ["14", "3", "6", "7"],
+            answer: 2,
+            explanation: "On ajuste Cr (2 Cr³⁺), puis O avec 7 H₂O, puis H avec 14 H⁺ : Cr₂O₇²⁻ + 14 H⁺ + n e⁻ = 2 Cr³⁺ + 7 H₂O. Charges : à gauche −2 + 14 − n, à droite +6, donc n = **6 électrons**.",
+          },
+          {
+            id: "1re-physique-02-s3-p3",
+            prompt: "On plonge **1,31 g** de zinc (M = 65,4 g·mol⁻¹) dans un excès d’ions Cu²⁺ : Zn + Cu²⁺ → Zn²⁺ + Cu. Quelle masse de cuivre (M = 63,5 g·mol⁻¹) se dépose ?",
+            choices: ["1,31 g", "0,64 g", "2,54 g", "1,27 g"],
+            answer: 3,
+            explanation: "Le zinc est limitant : n(Zn) = 1,31 / 65,4 ≈ 2,00 × 10⁻² mol, donc x_max = 2,00 × 10⁻² mol. Il se forme autant de cuivre (coefficients 1 et 1) : m(Cu) = 2,00 × 10⁻² × 63,5 ≈ **1,27 g**.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -409,6 +735,36 @@ export const chapters: Chapter[] = [
       "Je sais définir et repérer l’équivalence d’un titrage.",
       "Je sais calculer une concentration inconnue à partir du volume équivalent.",
     ],
+    homework: [
+      {
+        id: "1re-physique-03-hw-1",
+        prompt: "Un vinaigre est dilué 10 fois. On titre **10,0 mL** de la solution diluée par de la soude à **0,100 mol·L⁻¹** (CH₃COOH + HO⁻ → CH₃COO⁻ + H₂O) ; V_E = 14,0 mL. Quelle est la concentration en acide du vinaigre ?",
+        choices: ["0,140 mol·L⁻¹", "14,0 mol·L⁻¹", "1,40 mol·L⁻¹", "0,0140 mol·L⁻¹"],
+        answer: 2,
+        explanation: "Solution diluée : C = C_B × V_E / V = 0,100 × 14,0 / 10,0 = 0,140 mol·L⁻¹. Le vinaigre étant 10 fois plus concentré : C₀ = 10 × 0,140 = **1,40 mol·L⁻¹**. La valeur 0,140 oublie le facteur de dilution.",
+      },
+      {
+        id: "1re-physique-03-hw-2",
+        prompt: "Un comprimé de fer est dissous dans **100,0 mL** d’eau acidifiée. On titre **10,0 mL** de cette solution par du permanganate à **2,00 × 10⁻³ mol·L⁻¹** ; V_E = 9,0 mL. Quelle masse de fer (M = 55,8 g·mol⁻¹) contient le comprimé ?",
+        choices: ["50 mg", "5,0 mg", "10 mg", "250 mg"],
+        answer: 0,
+        explanation: "n(MnO₄⁻) = 2,00 × 10⁻³ × 9,0 × 10⁻³ = 1,8 × 10⁻⁵ mol, donc n(Fe²⁺) = 5 × 1,8 × 10⁻⁵ = 9,0 × 10⁻⁵ mol dans 10,0 mL. Dans les 100,0 mL : 9,0 × 10⁻⁴ mol, soit m = 9,0 × 10⁻⁴ × 55,8 ≈ 5,0 × 10⁻² g = **50 mg**. La réponse 5,0 mg oublie que seul un dixième de la solution a été titré.",
+      },
+      {
+        id: "1re-physique-03-hw-3",
+        prompt: "Une solution a une absorbance trop grande ; diluée **4 fois**, elle donne A = 0,45. La droite d’étalonnage a pour coefficient k = 300 L·mol⁻¹. Quelle est la concentration de la solution de départ ?",
+        choices: ["1,5 × 10⁻³ mol·L⁻¹", "6,0 × 10⁻² mol·L⁻¹", "3,8 × 10⁻⁴ mol·L⁻¹", "6,0 × 10⁻³ mol·L⁻¹"],
+        answer: 3,
+        explanation: "Solution diluée : c = A / k = 0,45 / 300 = 1,5 × 10⁻³ mol·L⁻¹. On multiplie par le facteur de dilution : c₀ = 4 × 1,5 × 10⁻³ = **6,0 × 10⁻³ mol·L⁻¹**. Diviser par 4 au lieu de multiplier donne 3,8 × 10⁻⁴ mol·L⁻¹.",
+      },
+      {
+        id: "1re-physique-03-hw-4",
+        prompt: "Lors du titrage des ions Fe²⁺ par les ions permanganate, comment repère-t-on l’équivalence ?",
+        choices: ["La solution devient incolore", "Une teinte rose-violette persiste", "La solution devient bleue", "Un précipité jaune apparaît"],
+        answer: 1,
+        explanation: "Les ions MnO₄⁻ sont la seule espèce fortement colorée (violette). Avant l’équivalence, ils sont consommés par Fe²⁺ et la solution reste quasi incolore ; dès la première goutte en excès, une **teinte rose-violette persiste** : le titrage est autoindicateur.",
+      },
+    ],
     sections: [
       {
         title: "Dosage par étalonnage : spectrophotométrie et conductimétrie",
@@ -438,6 +794,51 @@ export const chapters: Chapter[] = [
             "Concentration du sirop : c₀ = 10 × 1,6 × 10⁻³ = 1,6 × 10⁻² mol·L⁻¹.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Droite d’étalonnage A = k × c",
+          caption: "Concentration en mmol·L⁻¹ ; k = 250 L·mol⁻¹, soit 0,25 par mmol·L⁻¹.",
+          xMin: 0,
+          xMax: 2,
+          yMin: 0,
+          yMax: 0.6,
+          curves: [
+            {
+              expr: "0.25 * x",
+              label: "A = 0,25 × c (c en mmol·L⁻¹)",
+            },
+          ],
+          points: [
+            {
+              x: 1.6,
+              y: 0.4,
+              label: "Sirop dilué : A = 0,40 → c = 1,6 mmol·L⁻¹",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-03-s1-p1",
+            prompt: "La droite d’étalonnage d’une espèce colorée a pour équation A = k × c avec **k = 250 L·mol⁻¹**. Une solution a une absorbance **A = 0,60**. Quelle est sa concentration ?",
+            choices: ["150 mol·L⁻¹", "2,4 × 10⁻³ mol·L⁻¹", "4,2 × 10² mol·L⁻¹", "1,5 × 10⁻² mol·L⁻¹"],
+            answer: 1,
+            explanation: "On isole c dans A = k × c : c = A / k. c = 0,60 / 250 = **2,4 × 10⁻³ mol·L⁻¹**. La valeur 150 correspond au produit A × k, qui est une erreur.",
+          },
+          {
+            id: "1re-physique-03-s1-p2",
+            prompt: "Une solution de concentration **c = 5,0 × 10⁻⁵ mol·L⁻¹** est placée dans une cuve de **ℓ = 1,0 cm** ; ε = 1,2 × 10⁴ L·mol⁻¹·cm⁻¹. Quelle est son absorbance ?",
+            choices: ["6,0", "0,24", "2,4 × 10⁸", "0,60"],
+            answer: 3,
+            explanation: "Loi de Beer-Lambert : A = ε × ℓ × c = 1,2 × 10⁴ × 1,0 × 5,0 × 10⁻⁵ = **0,60**. L’absorbance est sans unité : les unités L·mol⁻¹·cm⁻¹ × cm × mol·L⁻¹ se simplifient.",
+          },
+          {
+            id: "1re-physique-03-s1-p3",
+            prompt: "Un échantillon trop concentré est **dilué 5 fois** ; la solution diluée a une absorbance A = 0,32 et la droite d’étalonnage donne k = 400 L·mol⁻¹. Quelle est la concentration de l’échantillon initial ?",
+            choices: ["8,0 × 10⁻⁴ mol·L⁻¹", "1,6 × 10⁻⁴ mol·L⁻¹", "4,0 × 10⁻³ mol·L⁻¹", "6,4 × 10² mol·L⁻¹"],
+            answer: 2,
+            explanation: "Concentration de la solution diluée : c = A / k = 0,32 / 400 = 8,0 × 10⁻⁴ mol·L⁻¹. L’échantillon initial est 5 fois plus concentré : c₀ = 5 × 8,0 × 10⁻⁴ = **4,0 × 10⁻³ mol·L⁻¹**. Oublier le facteur de dilution est l’erreur la plus fréquente.",
+          },
+        ],
       },
       {
         title: "Principe du titrage et notion d’équivalence",
@@ -464,6 +865,56 @@ export const chapters: Chapter[] = [
             "C_A = C_B × V_E / V_A = 0,100 × 12,4 / 20,0 = 6,20 × 10⁻² mol·L⁻¹.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Protocole d’un titrage",
+          caption: "Le volume équivalent V_E permet de remonter à la quantité de réactif titré.",
+          steps: [
+            {
+              label: "Remplir la burette",
+              detail: "réactif titrant de concentration connue, ajuster le zéro",
+            },
+            {
+              label: "Prélever le réactif titré",
+              detail: "volume précis à la pipette jaugée, dans un bécher",
+            },
+            {
+              label: "Verser le titrant",
+              detail: "sous agitation, puis goutte à goutte près de l’équivalence",
+            },
+            {
+              label: "Repérer l’équivalence",
+              detail: "changement de couleur, saut de pH ou de conductivité",
+            },
+            {
+              label: "Exploiter V_E",
+              detail: "relation à l’équivalence → concentration inconnue",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-03-s2-p1",
+            prompt: "On titre **V_A = 10,0 mL** d’acide chlorhydrique par de la soude à **C_B = 0,050 mol·L⁻¹** (H₃O⁺ + HO⁻ → 2 H₂O). On trouve **V_E = 16,0 mL**. Quelle est la concentration de l’acide ?",
+            choices: ["0,031 mol·L⁻¹", "0,080 mol·L⁻¹", "0,80 mol·L⁻¹", "8,0 mol·L⁻¹"],
+            answer: 1,
+            explanation: "À l’équivalence, les coefficients valant 1 : C_A × V_A = C_B × V_E. C_A = C_B × V_E / V_A = 0,050 × 16,0 / 10,0 = **0,080 mol·L⁻¹**. Les volumes étant dans la même unité (mL), il n’est pas nécessaire de les convertir.",
+          },
+          {
+            id: "1re-physique-03-s2-p2",
+            prompt: "Lors d’un titrage, avant l’équivalence, quel réactif est limitant ?",
+            choices: ["Le réactif titré", "Aucun des deux", "Le réactif titrant"],
+            answer: 2,
+            explanation: "Avant l’équivalence, chaque goutte de titrant versée est entièrement consommée par le réactif titré encore présent : le **réactif titrant** est limitant. Après l’équivalence, c’est l’inverse : le titré a disparu et le titrant s’accumule.",
+          },
+          {
+            id: "1re-physique-03-s2-p3",
+            prompt: "On verse de la soude à **C_B = 0,100 mol·L⁻¹** ; l’équivalence est atteinte pour **V_E = 12,5 mL**. Quelle quantité d’ions HO⁻ a été versée à l’équivalence ?",
+            choices: ["1,25 × 10⁻³ mol", "1,25 mol", "8,0 × 10⁻³ mol", "1,25 × 10⁻² mol"],
+            answer: 0,
+            explanation: "On convertit le volume en litres : V_E = 12,5 mL = 12,5 × 10⁻³ L. Puis n = C_B × V_E = 0,100 × 12,5 × 10⁻³ = **1,25 × 10⁻³ mol**. Garder V_E en mL donnerait 1,25 mol, valeur mille fois trop grande.",
+          },
+        ],
       },
       {
         title: "Exploiter un titrage d’oxydo-réduction",
@@ -491,6 +942,39 @@ export const chapters: Chapter[] = [
             "Concentration : C₁ = n / V₁ = 8,0 × 10⁻⁴ / 10,0 × 10⁻³ = 8,0 × 10⁻² mol·L⁻¹.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Titrages d’oxydo-réduction et acido-basiques courants",
+          headers: ["Titrage", "Réaction support", "Relation à l’équivalence", "Repérage"],
+          rows: [
+            ["Fe²⁺ par MnO₄⁻", "MnO₄⁻ + 8 H⁺ + 5 Fe²⁺ → Mn²⁺ + 5 Fe³⁺ + 4 H₂O", "n(Fe²⁺) = 5 × C(MnO₄⁻) × V_E", "Teinte rose persistante"],
+            ["I₂ par S₂O₃²⁻", "I₂ + 2 S₂O₃²⁻ → 2 I⁻ + S₄O₆²⁻", "n(I₂) = C(S₂O₃²⁻) × V_E / 2", "Décoloration (empois d’amidon)"],
+            ["H₃O⁺ par HO⁻", "H₃O⁺ + HO⁻ → 2 H₂O", "n(H₃O⁺) = C(HO⁻) × V_E", "Indicateur coloré ou saut de pH"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-03-s3-p1",
+            prompt: "On titre **20,0 mL** de diiode par des ions thiosulfate à **0,100 mol·L⁻¹** (I₂ + 2 S₂O₃²⁻ → 2 I⁻ + S₄O₆²⁻) ; **V_E = 15,0 mL**. Quelle est la concentration en diiode ?",
+            choices: ["7,5 × 10⁻² mol·L⁻¹", "1,5 × 10⁻¹ mol·L⁻¹", "1,9 × 10⁻² mol·L⁻¹", "3,75 × 10⁻² mol·L⁻¹"],
+            answer: 3,
+            explanation: "À l’équivalence, n(I₂) / 1 = n(S₂O₃²⁻) / 2. n(S₂O₃²⁻) = 0,100 × 15,0 × 10⁻³ = 1,50 × 10⁻³ mol, donc n(I₂) = 7,50 × 10⁻⁴ mol. C(I₂) = 7,50 × 10⁻⁴ / 20,0 × 10⁻³ = **3,75 × 10⁻² mol·L⁻¹** ; oublier le coefficient 2 donne le double.",
+          },
+          {
+            id: "1re-physique-03-s3-p2",
+            prompt: "On titre **20,0 mL** d’une solution d’ions Fe²⁺ par du permanganate à **1,00 × 10⁻² mol·L⁻¹** ; **V_E = 12,0 mL**. Quelle est la concentration en ions Fe²⁺ ?",
+            choices: ["6,0 × 10⁻³ mol·L⁻¹", "3,0 × 10⁻² mol·L⁻¹", "1,2 × 10⁻³ mol·L⁻¹", "6,0 × 10⁻² mol·L⁻¹"],
+            answer: 1,
+            explanation: "n(MnO₄⁻) = 1,00 × 10⁻² × 12,0 × 10⁻³ = 1,20 × 10⁻⁴ mol. À l’équivalence, n(Fe²⁺) = 5 × n(MnO₄⁻) = 6,0 × 10⁻⁴ mol. C = 6,0 × 10⁻⁴ / 20,0 × 10⁻³ = **3,0 × 10⁻² mol·L⁻¹**.",
+          },
+          {
+            id: "1re-physique-03-s3-p3",
+            prompt: "Pour une réaction de titrage **2 A + 3 B → produits** (A titré, B titrant), quelle relation est vérifiée à l’équivalence ?",
+            choices: ["C_A × V_A / 2 = C_B × V_E / 3", "2 C_A × V_A = 3 C_B × V_E", "C_A × V_A = C_B × V_E", "C_A × V_A / 3 = C_B × V_E / 2"],
+            answer: 0,
+            explanation: "À l’équivalence, les réactifs sont dans les proportions stœchiométriques : n_A / a = n_B / b. Avec a = 2 et b = 3, on obtient **C_A × V_A / 2 = C_B × V_E / 3**. Il faut toujours diviser chaque quantité par son propre coefficient.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -606,6 +1090,36 @@ export const chapters: Chapter[] = [
       "Je sais déterminer si une liaison et une molécule sont polaires.",
       "Je sais expliquer la cohésion d’un solide et la solubilité d’une espèce dans un solvant.",
     ],
+    homework: [
+      {
+        id: "1re-physique-04-hw-1",
+        prompt: "Combien de doublets **non liants** porte le schéma de Lewis du méthanal **H₂CO** (C central, double liaison C=O) ?",
+        choices: ["0", "2", "4", "6"],
+        answer: 1,
+        explanation: "Électrons de valence : 4 (C) + 2 × 1 (H) + 6 (O) = 12, soit 6 doublets. Les liaisons utilisent 4 doublets (2 C–H et 2 pour C=O) ; il reste **2 doublets non liants**, placés sur l’oxygène qui complète ainsi son octet.",
+      },
+      {
+        id: "1re-physique-04-hw-2",
+        prompt: "Laquelle de ces molécules est **polaire** ?",
+        choices: ["CO₂", "CH₄", "H₂O", "Cl₂"],
+        answer: 2,
+        explanation: "Cl₂ n’a pas de liaison polarisée (deux atomes identiques). CO₂ (linéaire) et CH₄ (tétraédrique, liaisons C–H peu polarisées) sont symétriques : les effets se compensent. **H₂O**, coudée avec deux liaisons O–H polarisées (Δχ = 1,2), est polaire.",
+      },
+      {
+        id: "1re-physique-04-hw-3",
+        prompt: "Quelle est la formule statistique du sulfate d’aluminium, formé d’ions **Al³⁺** et **SO₄²⁻** ?",
+        choices: ["AlSO₄", "Al₃(SO₄)₂", "Al(SO₄)₃", "Al₂(SO₄)₃"],
+        answer: 3,
+        explanation: "Pour l’électroneutralité, on cherche le plus petit multiple commun des charges : 6. Il faut 2 Al³⁺ (+6) et 3 SO₄²⁻ (−6). La formule est **Al₂(SO₄)₃**.",
+      },
+      {
+        id: "1re-physique-04-hw-4",
+        prompt: "La solubilité du diiode dans l’eau vaut **0,30 g·L⁻¹**. Quelle masse maximale de diiode peut-on dissoudre dans **200 mL** d’eau ?",
+        choices: ["0,060 g", "1,5 g", "0,0015 g", "60 g"],
+        answer: 0,
+        explanation: "m_max = s × V = 0,30 × 0,200 = **0,060 g**. Cette faible valeur s’explique par la règle « qui se ressemble s’assemble » : le diiode, apolaire, se dissout mal dans l’eau, polaire, et bien mieux dans le cyclohexane.",
+      },
+    ],
     sections: [
       {
         title: "Le schéma de Lewis",
@@ -633,6 +1147,42 @@ export const chapters: Chapter[] = [
             "Vérification : chaque H a son duet ; O est entouré de 2 liants + 2 non liants = 8 électrons (octet).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Électrons de valence et liaisons usuelles",
+          caption: "Les atomes complètent leur duet (H) ou leur octet (C, N, O, Cl).",
+          headers: ["Atome", "Électrons de valence", "Liaisons covalentes", "Doublets non liants"],
+          rows: [
+            ["H", "1", "1", "0"],
+            ["C", "4", "4", "0"],
+            ["N", "5", "3", "1"],
+            ["O", "6", "2", "2"],
+            ["Cl", "7", "1", "3"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-04-s1-p1",
+            prompt: "Combien de doublets (liants et non liants) comporte le schéma de Lewis de l’ammoniac **NH₃** ?",
+            choices: ["4", "3", "8", "5"],
+            answer: 0,
+            explanation: "Électrons de valence : 5 (N) + 3 × 1 (H) = 8 électrons, soit 8 / 2 = **4 doublets**. Il y a 3 doublets liants N–H et 1 doublet non liant sur l’azote.",
+          },
+          {
+            id: "1re-physique-04-s1-p2",
+            prompt: "Combien de doublets **non liants** comporte la molécule de dioxyde de carbone **CO₂** (O=C=O) ?",
+            choices: ["2", "4", "6", "8"],
+            answer: 1,
+            explanation: "Électrons de valence : 4 + 2 × 6 = 16, soit 8 doublets. Les deux doubles liaisons utilisent 4 doublets liants ; il reste 8 − 4 = **4 doublets non liants**, deux sur chaque oxygène, qui complètent ainsi leur octet.",
+          },
+          {
+            id: "1re-physique-04-s1-p3",
+            prompt: "Combien de doublets comporte l’ion oxonium **H₃O⁺** ?",
+            choices: ["3", "5", "4", "10"],
+            answer: 2,
+            explanation: "Pour un ion, on retranche la charge : 3 × 1 + 6 − 1 = 8 électrons, soit **4 doublets**. Il y a 3 doublets liants O–H et 1 doublet non liant sur l’oxygène, qui porte la charge +.",
+          },
+        ],
       },
       {
         title: "Géométrie, électronégativité et polarité",
@@ -660,6 +1210,66 @@ export const chapters: Chapter[] = [
             "La molécule n’a qu’une liaison : les centres des charges ne coïncident pas, HCl est polaire.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Électronégativité de quelques éléments (échelle de Pauling)",
+          caption: "Le fluor est l’élément le plus électronégatif.",
+          unit: "χ",
+          data: [
+            {
+              label: "H",
+              value: 2.2,
+            },
+            {
+              label: "C",
+              value: 2.6,
+            },
+            {
+              label: "N",
+              value: 3,
+            },
+            {
+              label: "Cl",
+              value: 3.2,
+            },
+            {
+              label: "O",
+              value: 3.4,
+            },
+            {
+              label: "F",
+              value: 4,
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-04-s2-p1",
+            prompt: "χ(O) = 3,4 et χ(H) = 2,2. Que peut-on dire de la liaison O–H ?",
+            choices: [
+              "Δχ = 0,4 : non polarisée",
+              "Δχ = 1,2 : polarisée, δ− sur H",
+              "Δχ = 1,2 : polarisée, δ− sur O",
+              "Δχ = 5,6 : polarisée, δ− sur O",
+            ],
+            answer: 2,
+            explanation: "On calcule l’écart : Δχ = 3,4 − 2,2 = 1,2, nettement supérieur à 0,4, donc la liaison est polarisée. L’oxygène, plus électronégatif, attire le doublet : il porte **δ−** et H porte δ+.",
+          },
+          {
+            id: "1re-physique-04-s2-p2",
+            prompt: "χ(C) = 2,6 et χ(H) = 2,2. Comment considère-t-on la liaison C–H ?",
+            choices: ["Δχ = 0,4 : considérée comme non polarisée", "Δχ = 4,8 : très polarisée", "Δχ = 1,2 : polarisée"],
+            answer: 0,
+            explanation: "L’écart vaut Δχ = 2,6 − 2,2 = 0,4, ce qui est à la limite du seuil. Par convention, la liaison C–H est **considérée comme non polarisée**, ce qui explique que les alcanes soient apolaires.",
+          },
+          {
+            id: "1re-physique-04-s2-p3",
+            prompt: "Quelle est la géométrie de la molécule **NH₃** et est-elle polaire ?",
+            choices: ["Plane, apolaire", "Tétraédrique, apolaire", "Linéaire, apolaire", "Pyramidale, polaire"],
+            answer: 3,
+            explanation: "L’azote est entouré de 3 doublets liants et 1 doublet non liant : ils pointent vers les sommets d’un tétraèdre, la molécule est **pyramidale**. Les liaisons N–H sont polarisées (Δχ = 3,0 − 2,2 = 0,8) et la géométrie n’est pas symétrique : la molécule est **polaire**.",
+          },
+        ],
       },
       {
         title: "Cohésion de la matière, dissolution et solubilité",
@@ -688,6 +1298,47 @@ export const chapters: Chapter[] = [
             "Il restera environ 50 − 36 = 14 g de sel non dissous au fond du récipient.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Les trois étapes de la dissolution d’un solide ionique",
+          steps: [
+            {
+              label: "Dissociation",
+              detail: "les molécules d’eau polaires séparent les ions du cristal",
+            },
+            {
+              label: "Solvatation",
+              detail: "chaque ion s’entoure de molécules d’eau orientées",
+            },
+            {
+              label: "Dispersion",
+              detail: "les ions solvatés se répartissent dans toute la solution",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-04-s3-p1",
+            prompt: "La solubilité d’un solide dans l’eau est **s = 34 g·L⁻¹**. Quelle masse maximale peut-on dissoudre dans **250 mL** d’eau ?",
+            choices: ["8,5 g", "136 g", "0,85 g", "34 g"],
+            answer: 0,
+            explanation: "On applique m_max = s × V avec V en litres : V = 250 mL = 0,250 L. m_max = 34 × 0,250 = **8,5 g**. Au-delà, la solution est saturée et le solide en excès ne se dissout plus.",
+          },
+          {
+            id: "1re-physique-04-s3-p2",
+            prompt: "Quelle est la formule statistique du solide ionique formé d’ions **Mg²⁺** et **Cl⁻** ?",
+            choices: ["MgCl", "Mg₂Cl", "Mg₂Cl₃", "MgCl₂"],
+            answer: 3,
+            explanation: "Le solide est électriquement neutre : il faut 2 ions Cl⁻ (charge totale −2) pour compenser un ion Mg²⁺ (+2). La formule est donc **MgCl₂**.",
+          },
+          {
+            id: "1re-physique-04-s3-p3",
+            prompt: "On dissout **11,1 g** de chlorure de calcium CaCl₂ (M = 111 g·mol⁻¹) pour obtenir **500 mL** de solution. Quelle est la concentration des ions chlorure ?",
+            choices: ["0,200 mol·L⁻¹", "0,100 mol·L⁻¹", "0,400 mol·L⁻¹", "0,0400 mol·L⁻¹"],
+            answer: 2,
+            explanation: "n(CaCl₂) = 11,1 / 111 = 0,100 mol, donc C = 0,100 / 0,500 = 0,200 mol·L⁻¹. La dissolution CaCl₂ → Ca²⁺ + 2 Cl⁻ libère deux ions chlorure par unité : [Cl⁻] = 2 × 0,200 = **0,400 mol·L⁻¹**.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -803,6 +1454,36 @@ export const chapters: Chapter[] = [
       "Je sais reconnaître une famille fonctionnelle, y compris sur un spectre infrarouge.",
       "Je sais écrire et exploiter l’équation d’une combustion complète.",
     ],
+    homework: [
+      {
+        id: "1re-physique-05-hw-1",
+        prompt: "Quel volume de dioxygène (Vₘ = 24,0 L·mol⁻¹) faut-il pour brûler complètement **2,2 g** de propane (M = 44,0 g·mol⁻¹) : C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O ?",
+        choices: ["6,0 L", "1,2 L", "0,25 L", "30 L"],
+        answer: 0,
+        explanation: "n(C₃H₈) = 2,2 / 44,0 = 0,050 mol. Il faut 5 fois plus de dioxygène : n(O₂) = 0,25 mol. Volume : V = n × Vₘ = 0,25 × 24,0 = **6,0 L**.",
+      },
+      {
+        id: "1re-physique-05-hw-2",
+        prompt: "Quelle est la formule brute du **propan-2-ol** CH₃–CH(OH)–CH₃ ?",
+        choices: ["C₃H₆O", "C₃H₈O", "C₃H₈O₂", "C₂H₆O"],
+        answer: 1,
+        explanation: "On compte 3 carbones, 7 hydrogènes liés aux carbones (3 + 1 + 3) et 1 hydrogène dans le groupe –OH, soit 8 H, et 1 oxygène. La formule brute est **C₃H₈O**, la même que celle du propan-1-ol : ce sont des isomères.",
+      },
+      {
+        id: "1re-physique-05-hw-3",
+        prompt: "L’énergie molaire de combustion du méthane vaut **890 kJ·mol⁻¹** (M = 16,0 g·mol⁻¹). Quel est son pouvoir calorifique ?",
+        choices: ["1,4 × 10⁴ kJ·kg⁻¹", "5,6 × 10¹ kJ·kg⁻¹", "5,6 × 10⁴ kJ·kg⁻¹", "1,8 × 10⁻² kJ·kg⁻¹"],
+        answer: 2,
+        explanation: "Un kilogramme de méthane contient n = 1 000 / 16,0 = 62,5 mol. Énergie libérée : 62,5 × 890 ≈ 5,6 × 10⁴ kJ, d’où un pouvoir calorifique de **5,6 × 10⁴ kJ·kg⁻¹**. La valeur 5,6 × 10¹ oublie la conversion des grammes en kilogrammes.",
+      },
+      {
+        id: "1re-physique-05-hw-4",
+        prompt: "Combien d’isomères possède la formule brute **C₅H₁₂** ?",
+        choices: ["2", "5", "4", "3"],
+        answer: 3,
+        explanation: "C₅H₁₂ est un alcane (2 × 5 + 2 = 12). Ses isomères sont le pentane (chaîne linéaire), le 2-méthylbutane et le 2,2-diméthylpropane, soit **3 isomères**. Un « 3-méthylbutane » serait en réalité le 2-méthylbutane numéroté dans le mauvais sens.",
+      },
+    ],
     sections: [
       {
         title: "Squelettes carbonés et alcanes",
@@ -830,6 +1511,43 @@ export const chapters: Chapter[] = [
             "Nom : 3-méthylpentane ; formule brute C₆H₁₄ (on vérifie : 2 × 6 + 2 = 14).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les six premiers alcanes linéaires",
+          caption: "Formule brute CₙH₂ₙ₊₂ ; M(C) = 12,0 et M(H) = 1,0 g·mol⁻¹.",
+          headers: ["Carbones", "Nom", "Formule brute", "M (g·mol⁻¹)"],
+          rows: [
+            ["1", "méthane", "CH₄", "16,0"],
+            ["2", "éthane", "C₂H₆", "30,0"],
+            ["3", "propane", "C₃H₈", "44,0"],
+            ["4", "butane", "C₄H₁₀", "58,0"],
+            ["5", "pentane", "C₅H₁₂", "72,0"],
+            ["6", "hexane", "C₆H₁₄", "86,0"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-05-s1-p1",
+            prompt: "Quelle est la formule brute de l’alcane à **8 atomes de carbone** (l’octane) ?",
+            choices: ["C₈H₁₆", "C₈H₁₈", "C₈H₂₀", "C₈H₁₄"],
+            answer: 1,
+            explanation: "Un alcane a pour formule CₙH₂ₙ₊₂. Avec n = 8 : 2 × 8 + 2 = 18 atomes d’hydrogène, d’où **C₈H₁₈**. C₈H₁₆ correspondrait à une molécule insaturée ou cyclique.",
+          },
+          {
+            id: "1re-physique-05-s1-p2",
+            prompt: "Quel est le nom de **CH₃–CH(CH₃)–CH(CH₃)–CH₃** ?",
+            choices: ["2,3-diméthylbutane", "hexane", "2-éthylbutane", "1,2-diméthylbutane"],
+            answer: 0,
+            explanation: "La chaîne la plus longue compte 4 carbones (butane) ; elle porte deux groupes méthyl sur les carbones 2 et 3, quel que soit le sens de numérotation. Le nom est **2,3-diméthylbutane** ; c’est un isomère de l’hexane (C₆H₁₄).",
+          },
+          {
+            id: "1re-physique-05-s1-p3",
+            prompt: "Quelle est la masse molaire de l’heptane **C₇H₁₆** ? (M(C) = 12,0 ; M(H) = 1,0 g·mol⁻¹)",
+            choices: ["98,0 g·mol⁻¹", "114,0 g·mol⁻¹", "100,0 g·mol⁻¹", "84,0 g·mol⁻¹"],
+            answer: 2,
+            explanation: "On additionne les masses atomiques : M = 7 × 12,0 + 16 × 1,0 = 84,0 + 16,0 = **100,0 g·mol⁻¹**. La valeur 84,0 oublie les hydrogènes.",
+          },
+        ],
       },
       {
         title: "Groupes caractéristiques, familles et nomenclature",
@@ -856,6 +1574,45 @@ export const chapters: Chapter[] = [
             "Un test complémentaire (liqueur de Fehling ou réactif de Tollens, positif pour les aldéhydes) permet de trancher entre propanal et propanone.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Groupes caractéristiques et bandes infrarouge",
+          headers: ["Famille", "Groupe", "Exemple", "Bande IR caractéristique"],
+          rows: [
+            ["Alcool", "–OH (hydroxyle)", "propan-1-ol", "O–H : 3200–3400 cm⁻¹, large"],
+            ["Aldéhyde", "–CHO (carbonyle en bout)", "propanal", "C=O : 1650–1750 cm⁻¹, intense"],
+            ["Cétone", "C=O dans la chaîne", "propanone", "C=O : 1650–1750 cm⁻¹, intense"],
+            ["Acide carboxylique", "–COOH (carboxyle)", "acide propanoïque", "O–H : 2500–3200 cm⁻¹ et C=O"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-05-s2-p1",
+            prompt: "Quel est le nom de **CH₃–CH₂–CH₂–CHO** ?",
+            choices: ["butan-1-ol", "butanone", "butanal", "acide butanoïque"],
+            answer: 2,
+            explanation: "La chaîne compte 4 carbones et se termine par le groupe –CHO : c’est un aldéhyde, suffixe -al. Le nom est **butanal** (le carbone fonctionnel est le carbone 1, on n’écrit pas de numéro).",
+          },
+          {
+            id: "1re-physique-05-s2-p2",
+            prompt: "À quelle famille appartient **CH₃–CO–CH₂–CH₃** ?",
+            choices: ["Aldéhyde", "Cétone", "Alcool", "Acide carboxylique"],
+            answer: 1,
+            explanation: "Le groupe carbonyle C=O est situé à l’intérieur de la chaîne (sur le carbone 2), et non en bout de chaîne. La molécule est donc une **cétone** : la butanone.",
+          },
+          {
+            id: "1re-physique-05-s2-p3",
+            prompt: "Un spectre IR présente une bande fine et intense de longueur d’onde **λ = 5,8 µm**. Le nombre d’onde vaut σ = 1 / λ. Quelle liaison est mise en évidence ?",
+            choices: [
+              "σ ≈ 3,3 × 10³ cm⁻¹ : liaison O–H",
+              "σ ≈ 1,7 × 10³ cm⁻¹ : liaison O–H",
+              "σ ≈ 5,8 cm⁻¹ : liaison C–H",
+              "σ ≈ 1,7 × 10³ cm⁻¹ : liaison C=O",
+            ],
+            answer: 3,
+            explanation: "On convertit en centimètres : λ = 5,8 µm = 5,8 × 10⁻⁴ cm, donc σ = 1 / 5,8 × 10⁻⁴ ≈ 1,7 × 10³ cm⁻¹. Une bande fine et intense entre 1650 et 1750 cm⁻¹ signale une **liaison C=O**.",
+          },
+        ],
       },
       {
         title: "Les combustions",
@@ -883,6 +1640,53 @@ export const chapters: Chapter[] = [
             "CO₂ formé : n(CO₂) = 3 × 2,0 = 6,0 mol, soit m = 6,0 × 44,0 = 264 g.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Énergies molaires de combustion",
+          caption: "Énergie libérée par la combustion complète d’une mole de combustible.",
+          unit: "kJ·mol⁻¹",
+          data: [
+            {
+              label: "Méthane CH₄",
+              value: 890,
+            },
+            {
+              label: "Éthanol C₂H₆O",
+              value: 1367,
+            },
+            {
+              label: "Propane C₃H₈",
+              value: 2220,
+            },
+            {
+              label: "Butane C₄H₁₀",
+              value: 2877,
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-05-s3-p1",
+            prompt: "Dans l’équation ajustée **2 C₄H₁₀ + a O₂ → 8 CO₂ + 10 H₂O**, que vaut a ?",
+            choices: ["9", "13", "8", "10"],
+            answer: 1,
+            explanation: "Côté produits, on compte 8 × 2 + 10 × 1 = 16 + 10 = 26 atomes d’oxygène. Il faut donc 26 / 2 = **13** molécules de O₂, ce qui correspond bien à (3n + 1)/2 = 6,5 par molécule de butane.",
+          },
+          {
+            id: "1re-physique-05-s3-p2",
+            prompt: "Quelle énergie libère la combustion complète de **32 g** de méthane (M = 16,0 g·mol⁻¹ ; E_comb = 890 kJ·mol⁻¹) ?",
+            choices: ["2,85 × 10⁴ kJ", "445 kJ", "1,78 × 10³ kJ", "890 kJ"],
+            answer: 2,
+            explanation: "Quantité de méthane : n = 32 / 16,0 = 2,0 mol. Énergie libérée : E = n × E_comb = 2,0 × 890 = **1,78 × 10³ kJ**. La valeur 2,85 × 10⁴ kJ provient de l’erreur m × E_comb.",
+          },
+          {
+            id: "1re-physique-05-s3-p3",
+            prompt: "Quelle masse de CO₂ (M = 44,0 g·mol⁻¹) libère la combustion complète de **23 g** d’éthanol (M = 46,0 g·mol⁻¹) : C₂H₆O + 3 O₂ → 2 CO₂ + 3 H₂O ?",
+            choices: ["22 g", "88 g", "23 g", "44 g"],
+            answer: 3,
+            explanation: "n(éthanol) = 23 / 46,0 = 0,50 mol. D’après l’équation, il se forme 2 CO₂ par éthanol : n(CO₂) = 2 × 0,50 = 1,0 mol. Masse : m = 1,0 × 44,0 = **44 g**.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -998,6 +1802,36 @@ export const chapters: Chapter[] = [
       "Je sais construire un vecteur variation de vitesse Δv.",
       "Je sais utiliser la relation approchée ΣF = m × Δv / Δt.",
     ],
+    homework: [
+      {
+        id: "1re-physique-06-hw-1",
+        prompt: "Dans l’atome d’hydrogène, l’électron et le proton (charges ±1,6 × 10⁻¹⁹ C) sont distants de **5,3 × 10⁻¹¹ m**. Quelle est la valeur de la force électrostatique ? (k = 9,0 × 10⁹ N·m²·C⁻²)",
+        choices: ["4,3 × 10⁻¹⁸ N", "8,2 × 10⁻⁸ N", "8,2 × 10⁸ N", "2,3 × 10⁻²⁸ N"],
+        answer: 1,
+        explanation: "F = k × e² / d² = 9,0 × 10⁹ × (1,6 × 10⁻¹⁹)² / (5,3 × 10⁻¹¹)². Numérateur : 9,0 × 10⁹ × 2,56 × 10⁻³⁸ ≈ 2,3 × 10⁻²⁸ ; dénominateur ≈ 2,81 × 10⁻²¹. F ≈ **8,2 × 10⁻⁸ N**, force attractive (charges opposées).",
+      },
+      {
+        id: "1re-physique-06-hw-2",
+        prompt: "Quel est le poids d’un astronaute de **80 kg** sur la Lune, où g_L = 1,6 N·kg⁻¹ ?",
+        choices: ["1,3 × 10² N", "7,8 × 10² N", "50 N", "80 N"],
+        answer: 0,
+        explanation: "Le poids vaut P = m × g_L = 80 × 1,6 = **1,3 × 10² N** (128 N). Sa masse reste 80 kg ; seul son poids change. La valeur 7,8 × 10² N correspond à son poids sur Terre (80 × 9,8).",
+      },
+      {
+        id: "1re-physique-06-hw-3",
+        prompt: "Le champ de pesanteur vaut 9,8 N·kg⁻¹ à la surface de la Terre. Que vaut-il à une distance du centre de la Terre égale à **2 R_T** ?",
+        choices: ["4,9 N·kg⁻¹", "1,2 N·kg⁻¹", "2,5 N·kg⁻¹", "9,8 N·kg⁻¹"],
+        answer: 2,
+        explanation: "g = G × M_T / d² est proportionnel à 1/d². Si d double, g est divisé par 2² = 4 : g = 9,8 / 4 ≈ **2,5 N·kg⁻¹**. Diviser seulement par 2 (4,9) est une erreur classique.",
+      },
+      {
+        id: "1re-physique-06-hw-4",
+        prompt: "Un électron (m = 9,1 × 10⁻³¹ kg ; |q| = 1,6 × 10⁻¹⁹ C) est soumis à un champ **E = 1,0 × 10⁴ V·m⁻¹** pendant **Δt = 1,0 ns**. En négligeant son poids, quelle est la valeur de la variation de sa vitesse ?",
+        choices: ["1,8 × 10⁻⁶ m·s⁻¹", "1,6 × 10⁻²⁴ m·s⁻¹", "5,7 × 10⁵ m·s⁻¹", "1,8 × 10⁶ m·s⁻¹"],
+        answer: 3,
+        explanation: "Force : F = |q| × E = 1,6 × 10⁻¹⁹ × 1,0 × 10⁴ = 1,6 × 10⁻¹⁵ N. Deuxième loi de Newton : Δv ≈ F × Δt / m = 1,6 × 10⁻¹⁵ × 1,0 × 10⁻⁹ / 9,1 × 10⁻³¹ ≈ **1,8 × 10⁶ m·s⁻¹**. La masse très faible de l’électron explique cette énorme variation.",
+      },
+    ],
     sections: [
       {
         title: "Interactions gravitationnelle et électrostatique",
@@ -1025,6 +1859,56 @@ export const chapters: Chapter[] = [
             "F = 2,93 × 10³⁷ / 1,47 × 10¹⁷ ≈ 1,98 × 10²⁰ N, force attractive dirigée vers le centre de la Terre.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Une force en 1/d²",
+          caption: "Valeur de la force rapportée à sa valeur F₀ à la distance d₀ = 1 : si la distance double, la force est divisée par 4.",
+          xMin: 0.5,
+          xMax: 4,
+          yMin: 0,
+          yMax: 4,
+          curves: [
+            {
+              expr: "1 / (x * x)",
+              label: "F / F₀ = 1 / (d / d₀)²",
+            },
+          ],
+          points: [
+            {
+              x: 1,
+              y: 1,
+              label: "d₀ : F₀",
+            },
+            {
+              x: 2,
+              y: 0.25,
+              label: "2 d₀ : F₀ / 4",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-06-s1-p1",
+            prompt: "La distance entre deux corps est **multipliée par 3**. Comment varie la force gravitationnelle entre eux ?",
+            choices: ["Elle est divisée par 3", "Elle est divisée par 9", "Elle est multipliée par 9", "Elle est divisée par 6"],
+            answer: 1,
+            explanation: "La force est proportionnelle à 1/d². Si d devient 3d, d² devient 9d² : la force est **divisée par 9**. C’est la même règle pour la loi de Coulomb.",
+          },
+          {
+            id: "1re-physique-06-s1-p2",
+            prompt: "Deux charges ponctuelles **q = +2,0 × 10⁻⁶ C** chacune sont séparées de **0,30 m** (k = 9,0 × 10⁹ N·m²·C⁻²). Quelle est la force électrostatique ?",
+            choices: ["0,40 N, répulsive", "0,40 N, attractive", "0,12 N, répulsive", "1,2 × 10⁻¹ N, attractive"],
+            answer: 0,
+            explanation: "F = k × |q_A × q_B| / d² = 9,0 × 10⁹ × (2,0 × 10⁻⁶)² / 0,30² = 9,0 × 10⁹ × 4,0 × 10⁻¹² / 0,090 = 0,036 / 0,090 = **0,40 N**. Les charges sont de même signe : la force est **répulsive**.",
+          },
+          {
+            id: "1re-physique-06-s1-p3",
+            prompt: "Quelle est la force gravitationnelle exercée par la Terre (M_T = 5,97 × 10²⁴ kg ; R_T = 6,37 × 10⁶ m) sur une personne de **70 kg** à sa surface ? (G = 6,67 × 10⁻¹¹ N·m²·kg⁻²)",
+            choices: ["4,4 × 10⁹ N", "70 N", "6,9 × 10² N", "1,1 × 10⁻⁴ N"],
+            answer: 2,
+            explanation: "F = G × M_T × m / R_T² = 6,67 × 10⁻¹¹ × 5,97 × 10²⁴ × 70 / (6,37 × 10⁶)². Numérateur ≈ 2,79 × 10¹⁶ ; dénominateur ≈ 4,06 × 10¹³ ; F ≈ **6,9 × 10² N**, ce qui correspond bien au poids m × g = 70 × 9,8 ≈ 686 N. La valeur 4,4 × 10⁹ N oublie de mettre la distance au carré.",
+          },
+        ],
       },
       {
         title: "La notion de champ",
@@ -1053,6 +1937,56 @@ export const chapters: Chapter[] = [
             "q < 0 : la force est de sens opposé à E, donc dirigée vers l’armature positive.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Constantes des interactions et des champs",
+          items: [
+            {
+              value: "6,67 × 10⁻¹¹ N·m²·kg⁻²",
+              label: "Constante de gravitation G",
+            },
+            {
+              value: "9,0 × 10⁹ N·m²·C⁻²",
+              label: "Constante de Coulomb k",
+            },
+            {
+              value: "1,6 × 10⁻¹⁹ C",
+              label: "Charge élémentaire e",
+            },
+            {
+              value: "9,8 N·kg⁻¹",
+              label: "Champ de pesanteur terrestre g",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-06-s2-p1",
+            prompt: "Un condensateur plan est soumis à une tension **U = 500 V** ; ses armatures sont distantes de **d = 5,0 mm**. Quelle est la valeur du champ électrique ?",
+            choices: ["100 V·m⁻¹", "1,0 × 10⁵ V·m⁻¹", "2,5 × 10³ V·m⁻¹", "1,0 × 10³ V·m⁻¹"],
+            answer: 1,
+            explanation: "On convertit d’abord la distance : d = 5,0 mm = 5,0 × 10⁻³ m. E = U / d = 500 / 5,0 × 10⁻³ = **1,0 × 10⁵ V·m⁻¹**. Garder d en mm donnerait 100, valeur mille fois trop faible.",
+          },
+          {
+            id: "1re-physique-06-s2-p2",
+            prompt: "Quelle est la valeur du champ de pesanteur à la surface de la Lune (M_L = 7,35 × 10²² kg ; R_L = 1,74 × 10⁶ m ; G = 6,67 × 10⁻¹¹ N·m²·kg⁻²) ?",
+            choices: ["9,8 N·kg⁻¹", "2,8 × 10⁶ N·kg⁻¹", "0,16 N·kg⁻¹", "1,6 N·kg⁻¹"],
+            answer: 3,
+            explanation: "g_L = G × M_L / R_L² = 6,67 × 10⁻¹¹ × 7,35 × 10²² / (1,74 × 10⁶)². Numérateur ≈ 4,90 × 10¹² ; dénominateur ≈ 3,03 × 10¹² ; g_L ≈ **1,6 N·kg⁻¹**, environ six fois moins que sur Terre.",
+          },
+          {
+            id: "1re-physique-06-s2-p3",
+            prompt: "Un proton (q = +1,6 × 10⁻¹⁹ C) est placé dans un champ électrique uniforme **E = 2,0 × 10⁴ V·m⁻¹**. Quelle force subit-il ?",
+            choices: [
+              "3,2 × 10⁻¹⁵ N, de sens opposé à E",
+              "1,25 × 10²³ N, de même sens que E",
+              "3,2 × 10⁻¹⁵ N, de même sens que E",
+              "8,0 × 10⁻²⁴ N, de même sens que E",
+            ],
+            answer: 2,
+            explanation: "F = q × E = 1,6 × 10⁻¹⁹ × 2,0 × 10⁴ = **3,2 × 10⁻¹⁵ N**. La charge du proton est positive : la force a **le même sens** que le champ E.",
+          },
+        ],
       },
       {
         title: "Vecteur variation de vitesse et deuxième loi de Newton",
@@ -1080,6 +2014,56 @@ export const chapters: Chapter[] = [
             "ΣF est orientée dans le sens du mouvement, comme Δv.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Vitesse d’un objet en chute libre lâché sans vitesse initiale",
+          caption: "Δv / Δt = g : la vitesse augmente de 9,8 m·s⁻¹ chaque seconde.",
+          xMin: 0,
+          xMax: 3,
+          yMin: 0,
+          yMax: 30,
+          curves: [
+            {
+              expr: "9.8 * x",
+              label: "v (m·s⁻¹) en fonction de t (s)",
+            },
+          ],
+          points: [
+            {
+              x: 1,
+              y: 9.8,
+              label: "t = 1 s : 9,8 m·s⁻¹",
+            },
+            {
+              x: 2,
+              y: 19.6,
+              label: "t = 2 s : 19,6 m·s⁻¹",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-06-s3-p1",
+            prompt: "Une voiture de **1 200 kg** passe en ligne droite de 0 à **27 m·s⁻¹** en **9,0 s**. Quelle est la valeur approchée de la somme des forces ?",
+            choices: ["3,2 × 10⁴ N", "3,6 × 10³ N", "1,3 × 10² N", "3,6 × 10⁴ N"],
+            answer: 1,
+            explanation: "Δv = 27 − 0 = 27 m·s⁻¹, donc Δv / Δt = 27 / 9,0 = 3,0 m·s⁻². ΣF ≈ m × Δv / Δt = 1 200 × 3,0 = **3,6 × 10³ N**, dans le sens du mouvement. La réponse 3,2 × 10⁴ N oublie de diviser par Δt.",
+          },
+          {
+            id: "1re-physique-06-s3-p2",
+            prompt: "Un objet est en chute libre (g = 9,8 N·kg⁻¹). Quel est son vecteur variation de vitesse sur un intervalle **Δt = 0,50 s** ?",
+            choices: ["4,9 m·s⁻¹, vers le bas", "19,6 m·s⁻¹, vers le bas", "4,9 m·s⁻¹, vers le haut", "9,8 m·s⁻¹, vers le bas"],
+            answer: 0,
+            explanation: "En chute libre, seul le poids agit : Δv / Δt = g, vertical et vers le bas. Δv = g × Δt = 9,8 × 0,50 = **4,9 m·s⁻¹, dirigé vers le bas**, comme le poids.",
+          },
+          {
+            id: "1re-physique-06-s3-p3",
+            prompt: "Sur une chronophotographie, deux positions successives M₂ et M₃ sont distantes de **3,0 cm** ; l’intervalle entre deux images est **Δt = 40 ms**. Quelle est la vitesse au point M₂ ?",
+            choices: ["1,3 m·s⁻¹", "75 m·s⁻¹", "0,75 m·s⁻¹", "1,2 × 10⁻³ m·s⁻¹"],
+            answer: 2,
+            explanation: "On convertit : M₂M₃ = 3,0 × 10⁻² m et Δt = 40 × 10⁻³ s. v₂ ≈ M₂M₃ / Δt = 0,030 / 0,040 = **0,75 m·s⁻¹**. Ne pas convertir les ms en s donnerait une vitesse mille fois trop faible.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1195,6 +2179,36 @@ export const chapters: Chapter[] = [
       "Je sais appliquer le théorème de l’énergie cinétique.",
       "Je sais exploiter la conservation ou la non-conservation de l’énergie mécanique.",
     ],
+    homework: [
+      {
+        id: "1re-physique-07-hw-1",
+        prompt: "Une voiture passe de **50 km·h⁻¹** à **100 km·h⁻¹**. Par combien son énergie cinétique est-elle multipliée ?",
+        choices: ["2", "4", "8", "√2"],
+        answer: 1,
+        explanation: "Ec = ½ m v² est proportionnelle au carré de la vitesse. Si v est multipliée par 2, Ec est multipliée par 2² = **4**. C’est pourquoi la distance de freinage augmente beaucoup avec la vitesse.",
+      },
+      {
+        id: "1re-physique-07-hw-2",
+        prompt: "Une voiture de **1 200 kg** roule à **72 km·h⁻¹** ; elle freine avec une force constante de **6 000 N** sur route horizontale. Quelle est sa distance de freinage ?",
+        choices: ["4,0 m", "518 m", "40 m", "20 m"],
+        answer: 2,
+        explanation: "v = 72 / 3,6 = 20 m·s⁻¹, donc Ec = ½ × 1 200 × 20² = 2,4 × 10⁵ J. Théorème de l’énergie cinétique : 0 − 2,4 × 10⁵ = −6 000 × d, d’où d = **40 m**. Garder 72 km·h⁻¹ conduirait à 518 m.",
+      },
+      {
+        id: "1re-physique-07-hw-3",
+        prompt: "Un pendule est lâché sans vitesse d’une hauteur de **0,45 m** au-dessus de sa position la plus basse. Sans frottements (g = 9,8 N·kg⁻¹), quelle est sa vitesse au point le plus bas ?",
+        choices: ["8,8 m·s⁻¹", "3,0 m·s⁻¹", "2,1 m·s⁻¹", "9,0 m·s⁻¹"],
+        answer: 1,
+        explanation: "L’énergie mécanique se conserve : la perte d’Epp (m g h) se transforme en Ec. v = √(2 g h) = √(2 × 9,8 × 0,45) = √8,82 ≈ **3,0 m·s⁻¹**. La tension du fil, perpendiculaire au mouvement, ne travaille pas.",
+      },
+      {
+        id: "1re-physique-07-hw-4",
+        prompt: "On tire un traîneau avec une force **F = 100 N** faisant un angle **α = 60°** avec le déplacement, sur **20 m**. Quel est le travail de cette force ?",
+        choices: ["2,0 × 10³ J", "1,7 × 10³ J", "0 J", "1,0 × 10³ J"],
+        answer: 3,
+        explanation: "W = F × AB × cos α = 100 × 20 × cos 60° = 2 000 × 0,50 = **1,0 × 10³ J**. Le travail est moteur ; 1,7 × 10³ J correspondrait à l’utilisation erronée de sin 60°.",
+      },
+    ],
     sections: [
       {
         title: "Énergie cinétique et travail d’une force",
@@ -1224,6 +2238,56 @@ export const chapters: Chapter[] = [
             "W = 50 × 10 × cos 30° = 500 × 0,866 ≈ 433 J : travail moteur.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Énergie cinétique d’une voiture de 1 000 kg en fonction de sa vitesse",
+          caption: "Ec = ½ m v² : diviser la vitesse par 2 divise l’énergie cinétique par 4.",
+          xMin: 0,
+          xMax: 40,
+          yMin: 0,
+          yMax: 800,
+          curves: [
+            {
+              expr: "0.5 * 1000 * x * x / 1000",
+              label: "Ec (kJ) en fonction de v (m·s⁻¹)",
+            },
+          ],
+          points: [
+            {
+              x: 25,
+              y: 312.5,
+              label: "25 m·s⁻¹ (90 km·h⁻¹) : 312,5 kJ",
+            },
+            {
+              x: 12.5,
+              y: 78.125,
+              label: "12,5 m·s⁻¹ : 78 kJ",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-07-s1-p1",
+            prompt: "Quelle est l’énergie cinétique d’un cycliste et de son vélo (**70 kg** au total) roulant à **36 km·h⁻¹** ?",
+            choices: ["4,5 × 10⁴ J", "3,5 × 10³ J", "1,3 × 10³ J", "7,0 × 10² J"],
+            answer: 1,
+            explanation: "On convertit la vitesse : v = 36 / 3,6 = 10 m·s⁻¹. Ec = ½ × m × v² = 0,5 × 70 × 10² = **3,5 × 10³ J**. Garder la vitesse en km·h⁻¹ donnerait 4,5 × 10⁴ J, résultat faux.",
+          },
+          {
+            id: "1re-physique-07-s1-p2",
+            prompt: "Un objet de **2,0 kg** descend de l’altitude z_A = 10 m à z_B = 4,0 m (g = 9,8 N·kg⁻¹). Quel est le travail de son poids ?",
+            choices: ["1,2 × 10² J, moteur", "−1,2 × 10² J, résistant", "12 J, moteur", "2,0 × 10² J, moteur"],
+            answer: 0,
+            explanation: "W_AB(P) = m × g × (z_A − z_B) = 2,0 × 9,8 × (10 − 4,0) = 2,0 × 9,8 × 6,0 ≈ **1,2 × 10² J**. Le travail est positif car l’objet descend : il est **moteur**.",
+          },
+          {
+            id: "1re-physique-07-s1-p3",
+            prompt: "Une force de frottement de valeur constante **f = 20 N** s’oppose au déplacement d’une caisse sur **15 m**. Quel est son travail ?",
+            choices: ["300 J", "−1,3 J", "−300 J", "0 J"],
+            answer: 2,
+            explanation: "La force est opposée au déplacement (α = 180°, cos α = −1) : W = −f × AB = −20 × 15 = **−300 J**. Le travail est résistant, il diminue l’énergie de la caisse.",
+          },
+        ],
       },
       {
         title: "Le théorème de l’énergie cinétique",
@@ -1249,6 +2313,55 @@ export const chapters: Chapter[] = [
             "d = 3,125 × 10⁵ / 5 000 ≈ 63 m (62,5 m).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Méthode : appliquer le théorème de l’énergie cinétique",
+          steps: [
+            {
+              label: "Système et référentiel",
+              detail: "préciser l’objet étudié et un référentiel galiléen",
+            },
+            {
+              label: "Bilan des forces",
+              detail: "poids, réaction, frottements, traction…",
+            },
+            {
+              label: "Travail de chaque force",
+              detail: "W = F × AB × cos α ; nul si la force est perpendiculaire",
+            },
+            {
+              label: "Écrire ΔEc = ΣW",
+              detail: "½ m v_B² − ½ m v_A² = somme des travaux",
+            },
+            {
+              label: "Résoudre",
+              detail: "isoler la vitesse, la distance ou la force cherchée",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-07-s2-p1",
+            prompt: "Un objet de **0,50 kg**, initialement immobile, reçoit un travail total de **25 J**. Quelle est sa vitesse finale ?",
+            choices: ["100 m·s⁻¹", "10 m·s⁻¹", "7,1 m·s⁻¹", "50 m·s⁻¹"],
+            answer: 1,
+            explanation: "Théorème de l’énergie cinétique : ½ × m × v² − 0 = 25 J, soit 0,25 × v² = 25 et v² = 100. Donc v = **10 m·s⁻¹**. La valeur 7,1 m·s⁻¹ (√50) oublie le facteur ½.",
+          },
+          {
+            id: "1re-physique-07-s2-p2",
+            prompt: "Une voiture de **800 kg** roulant à **20 m·s⁻¹** s’arrête sur **40 m** sur route horizontale. Quelle est la valeur de la force de freinage supposée constante ?",
+            choices: ["8,0 × 10³ N", "4,0 × 10² N", "1,6 × 10⁵ N", "4,0 × 10³ N"],
+            answer: 3,
+            explanation: "Ec initiale = ½ × 800 × 20² = 1,6 × 10⁵ J ; Ec finale = 0. Le poids et la réaction ont un travail nul, donc 0 − 1,6 × 10⁵ = −f × 40, soit f = 1,6 × 10⁵ / 40 = **4,0 × 10³ N**.",
+          },
+          {
+            id: "1re-physique-07-s2-p3",
+            prompt: "Un skieur part sans vitesse du haut d’une piste de dénivelé **h = 20 m**. En négligeant les frottements (g = 9,8 N·kg⁻¹), quelle est sa vitesse en bas ?",
+            choices: ["14 m·s⁻¹", "392 m·s⁻¹", "20 m·s⁻¹", "6,3 m·s⁻¹"],
+            answer: 2,
+            explanation: "Seul le poids travaille (la réaction est perpendiculaire à la piste) : ½ m v² = m g h, donc v = √(2 g h) = √(2 × 9,8 × 20) = √392 ≈ **20 m·s⁻¹**. La masse se simplifie ; 392 est v², pas v.",
+          },
+        ],
       },
       {
         title: "Énergie potentielle de pesanteur et énergie mécanique",
@@ -1278,6 +2391,52 @@ export const chapters: Chapter[] = [
             "½ × 0,50 × v² = 24,5 donne v² = 98, soit v = √98 ≈ 9,9 m·s⁻¹.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Énergies d’une balle de 0,50 kg lâchée de 5,0 m (sans frottements)",
+          caption: "En abscisse, l’altitude z (m) ; Epp diminue pendant que Ec augmente, Em reste constante.",
+          xMin: 0,
+          xMax: 5,
+          yMin: 0,
+          yMax: 30,
+          curves: [
+            {
+              expr: "0.5 * 9.8 * x",
+              label: "Epp = m g z (J)",
+            },
+            {
+              expr: "24.5 - 0.5 * 9.8 * x",
+              label: "Ec (J)",
+            },
+            {
+              expr: "24.5 + 0 * x",
+              label: "Em = 24,5 J",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-07-s3-p1",
+            prompt: "Quelle est l’énergie potentielle de pesanteur d’un randonneur de **60 kg** à **15 m** au-dessus du sol (origine au sol, g = 9,8 N·kg⁻¹) ?",
+            choices: ["9,0 × 10² J", "8,8 × 10³ J", "8,8 × 10² J", "1,5 × 10⁵ J"],
+            answer: 1,
+            explanation: "Epp = m × g × z = 60 × 9,8 × 15 = 8 820 J ≈ **8,8 × 10³ J**. Cette valeur dépend de l’origine choisie (ici le sol).",
+          },
+          {
+            id: "1re-physique-07-s3-p2",
+            prompt: "On lance une balle de **0,20 kg** verticalement vers le haut à **10 m·s⁻¹** depuis le sol. Sans frottements (g = 9,8 N·kg⁻¹), quelle hauteur maximale atteint-elle ?",
+            choices: ["5,1 m", "10 m", "0,51 m", "2,6 m"],
+            answer: 0,
+            explanation: "Conservation de l’énergie mécanique : ½ m v² = m g h_max, donc h_max = v² / (2 g) = 100 / 19,6 ≈ **5,1 m**. La masse se simplifie ; elle n’influence pas la hauteur atteinte.",
+          },
+          {
+            id: "1re-physique-07-s3-p3",
+            prompt: "Une balle de **0,50 kg** lâchée sans vitesse de **5,0 m** arrive au sol à **9,0 m·s⁻¹** (g = 9,8 N·kg⁻¹). Quelle est la variation de son énergie mécanique ?",
+            choices: ["+4,3 J", "−20 J", "0 J", "−4,3 J"],
+            answer: 3,
+            explanation: "En haut : Em = Epp = 0,50 × 9,8 × 5,0 = 24,5 J. Au sol : Em = Ec = ½ × 0,50 × 9,0² ≈ 20,3 J. ΔEm = 20,3 − 24,5 ≈ **−4,3 J** : c’est le travail des frottements de l’air, transféré à l’environnement.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1393,6 +2552,36 @@ export const chapters: Chapter[] = [
       "Je sais expliquer la couleur perçue d’un objet par synthèse additive et soustractive.",
       "Je sais calculer l’énergie d’un photon avec E = h × ν = h × c / λ.",
     ],
+    homework: [
+      {
+        id: "1re-physique-08-hw-1",
+        prompt: "Un sonar émet une onde ultrasonore dans l’eau (v = 1 500 m·s⁻¹) ; l’écho revient **0,40 s** après l’émission. Quelle est la profondeur du fond ?",
+        choices: ["600 m", "300 m", "3 750 m", "150 m"],
+        answer: 1,
+        explanation: "Pendant 0,40 s, l’onde fait l’aller et le retour : elle parcourt 2d = v × Δt = 1 500 × 0,40 = 600 m. La profondeur vaut donc d = 600 / 2 = **300 m**.",
+      },
+      {
+        id: "1re-physique-08-hw-2",
+        prompt: "Un objet est placé à **15 cm** avant une lentille de distance focale **f′ = 10 cm** (OA = −15 cm). Quelles sont la position de l’image et le grandissement ?",
+        choices: ["OA′ = 30 cm ; γ = −2,0", "OA′ = 6,0 cm ; γ = −0,40", "OA′ = −30 cm ; γ = 2,0", "OA′ = 30 cm ; γ = 2,0"],
+        answer: 0,
+        explanation: "1/OA′ = 1/f′ + 1/OA = 1/10 − 1/15 = 3/30 − 2/30 = 1/30, donc OA′ = 30 cm. γ = OA′ / OA = 30 / (−15) = **−2,0** : l’image est réelle, renversée et deux fois plus grande que l’objet.",
+      },
+      {
+        id: "1re-physique-08-hw-3",
+        prompt: "Quelle est la longueur d’onde d’un photon d’énergie **E = 2,0 eV** ? (1 eV = 1,60 × 10⁻¹⁹ J ; h × c = 1,99 × 10⁻²⁵ J·m)",
+        choices: ["311 nm", "6,22 nm", "1,24 × 10³ nm", "622 nm"],
+        answer: 3,
+        explanation: "On convertit : E = 2,0 × 1,60 × 10⁻¹⁹ = 3,2 × 10⁻¹⁹ J. λ = h × c / E = 1,99 × 10⁻²⁵ / 3,2 × 10⁻¹⁹ ≈ 6,22 × 10⁻⁷ m = **622 nm**, une lumière orangée.",
+      },
+      {
+        id: "1re-physique-08-hw-4",
+        prompt: "Un objet **jaune** (il diffuse le rouge et le vert) est éclairé uniquement en **lumière bleue**. De quelle couleur apparaît-il ?",
+        choices: ["Jaune", "Bleu", "Noir", "Vert"],
+        answer: 2,
+        explanation: "La couleur perçue correspond à la lumière diffusée par l’objet. Il ne diffuse que le rouge et le vert, absents de la lumière bleue qui l’éclaire : il absorbe tout et apparaît **noir**.",
+      },
+    ],
     sections: [
       {
         title: "Ondes mécaniques progressives et ondes périodiques",
@@ -1422,6 +2611,56 @@ export const chapters: Chapter[] = [
             "Longueur d’onde : λ = v / f = 15 / 50 = 0,30 m.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Aspect d’une corde parcourue par une onde périodique",
+          caption: "Élongation en fonction de la position (m) à un instant donné : deux crêtes successives sont séparées d’une longueur d’onde λ = 0,30 m.",
+          xMin: 0,
+          xMax: 0.9,
+          yMin: -1.5,
+          yMax: 1.5,
+          curves: [
+            {
+              expr: "Math.sin(2 * Math.PI * x / 0.3)",
+              label: "Élongation (onde de λ = 0,30 m)",
+            },
+          ],
+          points: [
+            {
+              x: 0.075,
+              y: 1,
+              label: "crête",
+            },
+            {
+              x: 0.375,
+              y: 1,
+              label: "crête suivante, λ plus loin",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-08-s1-p1",
+            prompt: "Un diapason émet un son de fréquence **f = 440 Hz** dans l’air (v = 340 m·s⁻¹). Quelle est la longueur d’onde ?",
+            choices: ["1,5 × 10⁵ m", "0,77 m", "1,3 m", "2,3 × 10⁻³ m"],
+            answer: 1,
+            explanation: "On utilise λ = v / f = 340 / 440 ≈ **0,77 m**. La valeur 1,5 × 10⁵ m correspond au produit v × f, et 1,3 m au rapport inversé f / v.",
+          },
+          {
+            id: "1re-physique-08-s1-p2",
+            prompt: "On voit un éclair puis on entend le tonnerre **3,0 s** plus tard (v_son = 340 m·s⁻¹, lumière quasi instantanée). À quelle distance est tombée la foudre ?",
+            choices: ["1,0 km", "113 m", "3,4 km", "340 m"],
+            answer: 0,
+            explanation: "Le retard du son vaut τ = d / v, donc d = v × τ = 340 × 3,0 = 1 020 m ≈ **1,0 km**. On néglige la durée de propagation de la lumière (3,00 × 10⁸ m·s⁻¹).",
+          },
+          {
+            id: "1re-physique-08-s1-p3",
+            prompt: "À la surface de l’eau, **5 longueurs d’onde** occupent **12,0 cm** ; la fréquence de la source est **25 Hz**. Quelle est la célérité de l’onde ?",
+            choices: ["3,0 m·s⁻¹", "60 m·s⁻¹", "9,6 × 10⁻⁴ m·s⁻¹", "0,60 m·s⁻¹"],
+            answer: 3,
+            explanation: "λ = 12,0 / 5 = 2,4 cm = 0,024 m. Puis v = λ × f = 0,024 × 25 = **0,60 m·s⁻¹**. Oublier de diviser par 5 conduirait à 3,0 m·s⁻¹.",
+          },
+        ],
       },
       {
         title: "Lentilles minces convergentes et formation des images",
@@ -1451,6 +2690,61 @@ export const chapters: Chapter[] = [
             "Conclusion : image réelle, renversée, trois fois plus petite que l’objet, située 6,7 cm après la lentille.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Position de l’image selon la distance de l’objet (f′ = 5,0 cm)",
+          caption: "En abscisse, la distance objet–lentille |OA| (cm) ; en ordonnée, OA′ (cm). Plus l’objet s’éloigne, plus l’image se rapproche du foyer F′.",
+          xMin: 6,
+          xMax: 40,
+          yMin: 0,
+          yMax: 30,
+          curves: [
+            {
+              expr: "5 * x / (x - 5)",
+              label: "OA′ = 5 |OA| / (|OA| − 5)",
+            },
+          ],
+          points: [
+            {
+              x: 10,
+              y: 10,
+              label: "objet à 2f′ : image à 2f′",
+            },
+            {
+              x: 20,
+              y: 6.67,
+              label: "OA = −20 cm : OA′ ≈ 6,7 cm",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-08-s2-p1",
+            prompt: "Quelle est la vergence d’une lentille convergente de distance focale **f′ = 25 cm** ?",
+            choices: ["0,040 δ", "4,0 δ", "25 δ", "40 δ"],
+            answer: 1,
+            explanation: "La vergence vaut C = 1 / f′ avec f′ en mètres : f′ = 0,25 m. C = 1 / 0,25 = **4,0 δ**. Utiliser f′ en cm donnerait 0,040, ce qui est faux.",
+          },
+          {
+            id: "1re-physique-08-s2-p2",
+            prompt: "Un objet est placé à **30 cm** avant une lentille de distance focale **f′ = 10 cm** (OA = −30 cm). Où se forme l’image ?",
+            choices: ["OA′ = 7,5 cm", "OA′ = −15 cm", "OA′ = 15 cm", "OA′ = 20 cm"],
+            answer: 2,
+            explanation: "Relation de conjugaison : 1/OA′ = 1/f′ + 1/OA = 1/10 + 1/(−30) = 3/30 − 1/30 = 2/30. Donc OA′ = **15 cm** : l’image est réelle, après la lentille. Oublier le signe de OA donne 7,5 cm.",
+          },
+          {
+            id: "1re-physique-08-s2-p3",
+            prompt: "Pour un objet AB = **2,0 cm** avec OA = −30 cm et OA′ = 15 cm, que vaut le grandissement et comment est l’image ?",
+            choices: [
+              "γ = −0,50 : image renversée, deux fois plus petite",
+              "γ = 2,0 : image droite, agrandie",
+              "γ = 0,50 : image droite, réduite",
+              "γ = −2,0 : image renversée, agrandie",
+            ],
+            answer: 0,
+            explanation: "γ = OA′ / OA = 15 / (−30) = **−0,50**. γ < 0 : l’image est renversée ; |γ| < 1 : elle est réduite. Sa taille algébrique vaut A′B′ = γ × AB = −0,50 × 2,0 = −1,0 cm.",
+          },
+        ],
       },
       {
         title: "Couleur et modèle du photon",
@@ -1481,6 +2775,51 @@ export const chapters: Chapter[] = [
             "En électronvolts : E = 3,32 × 10⁻¹⁹ / 1,60 × 10⁻¹⁹ ≈ 2,07 eV.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Constantes du modèle du photon",
+          items: [
+            {
+              value: "6,63 × 10⁻³⁴ J·s",
+              label: "Constante de Planck h",
+            },
+            {
+              value: "3,00 × 10⁸ m·s⁻¹",
+              label: "Célérité de la lumière dans le vide c",
+            },
+            {
+              value: "1,60 × 10⁻¹⁹ J",
+              label: "1 électronvolt (eV)",
+            },
+            {
+              value: "400 – 800 nm",
+              label: "Domaine du visible",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-physique-08-s3-p1",
+            prompt: "Quelle est l’énergie d’un photon violet de longueur d’onde **λ = 400 nm** ? (h = 6,63 × 10⁻³⁴ J·s ; c = 3,00 × 10⁸ m·s⁻¹)",
+            choices: ["2,65 × 10⁻⁴⁰ J", "4,97 × 10⁻¹⁹ J", "4,97 × 10⁻²⁸ J", "3,11 J"],
+            answer: 1,
+            explanation: "On convertit : λ = 400 nm = 4,00 × 10⁻⁷ m. E = h × c / λ = 6,63 × 10⁻³⁴ × 3,00 × 10⁸ / 4,00 × 10⁻⁷ = 1,99 × 10⁻²⁵ / 4,00 × 10⁻⁷ ≈ **4,97 × 10⁻¹⁹ J**, soit environ 3,11 eV (et non 3,11 J).",
+          },
+          {
+            id: "1re-physique-08-s3-p2",
+            prompt: "Un atome passe d’un niveau à un autre en émettant un photon d’énergie **ΔE = 1,89 eV**. Quelle est la longueur d’onde de la lumière émise ? (1 eV = 1,60 × 10⁻¹⁹ J ; h × c = 1,99 × 10⁻²⁵ J·m)",
+            choices: ["379 nm", "6,58 nm", "658 nm", "1,52 × 10³ nm"],
+            answer: 2,
+            explanation: "On convertit l’énergie : ΔE = 1,89 × 1,60 × 10⁻¹⁹ ≈ 3,02 × 10⁻¹⁹ J. λ = h × c / ΔE = 1,99 × 10⁻²⁵ / 3,02 × 10⁻¹⁹ ≈ 6,58 × 10⁻⁷ m = **658 nm** : c’est la raie rouge de l’hydrogène.",
+          },
+          {
+            id: "1re-physique-08-s3-p3",
+            prompt: "Quelle est la fréquence d’une radiation de longueur d’onde **λ = 500 nm** (c = 3,00 × 10⁸ m·s⁻¹) ?",
+            choices: ["1,5 × 10² Hz", "1,7 × 10⁻¹⁵ Hz", "6,0 × 10⁵ Hz", "6,0 × 10¹⁴ Hz"],
+            answer: 3,
+            explanation: "ν = c / λ avec λ en mètres : λ = 5,00 × 10⁻⁷ m. ν = 3,00 × 10⁸ / 5,00 × 10⁻⁷ = **6,0 × 10¹⁴ Hz**. Laisser λ en nm donnerait 6,0 × 10⁵ Hz, résultat faux.",
+          },
+        ],
       },
     ],
     exercise: [

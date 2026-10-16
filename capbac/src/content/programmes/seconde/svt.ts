@@ -41,6 +41,42 @@ export const chapters: Chapter[] = [
             "Conclusion : la cellule mesure environ 75 µm, une taille typique de cellule végétale.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Comparer cellules procaryotes et eucaryotes",
+          caption: "Les bactéries n’ont pas de noyau ; seules les cellules végétales possèdent chloroplastes et paroi en cellulose.",
+          headers: ["Caractéristique", "Procaryote (bactérie)", "Eucaryote animale", "Eucaryote végétale"],
+          rows: [
+            ["Noyau", "Absent (ADN libre dans le cytoplasme)", "Présent", "Présent"],
+            ["Taille habituelle", "1 à 5 µm", "10 à 100 µm", "10 à 100 µm"],
+            ["Mitochondries", "Absentes", "Présentes", "Présentes"],
+            ["Chloroplastes", "Absents", "Absents", "Présents"],
+            ["Paroi", "Présente (non cellulosique)", "Absente", "Présente, en cellulose"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-01-s1-p1",
+            prompt: "Quel organite est le lieu de la **respiration cellulaire** ?",
+            choices: ["Le chloroplaste", "La mitochondrie", "Le noyau", "La vacuole"],
+            answer: 1,
+            explanation: "La respiration cellulaire se déroule dans les **mitochondries**, présentes chez les cellules animales comme végétales. Le chloroplaste est l’organite de la photosynthèse et le noyau contient l’ADN.",
+          },
+          {
+            id: "2nde-svt-01-s1-p2",
+            prompt: "Sur une photographie au grossissement ×500, une cellule mesure 20 mm. Quelle est sa taille réelle ?",
+            choices: ["4 µm", "400 µm", "40 µm", "10 000 µm"],
+            answer: 2,
+            explanation: "Taille réelle = taille mesurée ÷ grossissement = 20 mm ÷ 500 = 0,04 mm. Comme 1 mm = 1 000 µm, on obtient 0,04 × 1 000 = **40 µm**.",
+          },
+          {
+            id: "2nde-svt-01-s1-p3",
+            prompt: "Quelle caractéristique distingue une bactérie d’une cellule eucaryote ?",
+            choices: ["L’absence de noyau", "La présence d’une membrane plasmique", "La présence d’ADN"],
+            answer: 0,
+            explanation: "Une bactérie est une cellule **procaryote** : son ADN est libre dans le cytoplasme, sans noyau. Toutes les cellules, procaryotes ou eucaryotes, possèdent une membrane plasmique et de l’ADN.",
+          },
+        ],
       },
       {
         title: "Des cellules spécialisées organisées en tissus et en organes",
@@ -65,6 +101,69 @@ export const chapters: Chapter[] = [
             "Conclusion : chaque niveau est adapté à la fonction de l’organe.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Les niveaux d’organisation d’un organisme pluricellulaire",
+          caption: "Chaque niveau est formé par l’assemblage d’éléments du niveau précédent.",
+          steps: [
+            {
+              label: "Molécules",
+              detail: "ADN, protéines, lipides, glucides",
+            },
+            {
+              label: "Organites",
+              detail: "Noyau, mitochondries, chloroplastes",
+            },
+            {
+              label: "Cellules",
+              detail: "Plus de 200 types chez l’être humain",
+            },
+            {
+              label: "Tissus",
+              detail: "Cellules semblables, même fonction",
+            },
+            {
+              label: "Organes",
+              detail: "Plusieurs tissus coopérant (cœur, feuille)",
+            },
+            {
+              label: "Organisme",
+              detail: "Ensemble d’appareils coordonnés",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-01-s2-p1",
+            prompt: "Qu’est-ce qu’un **tissu** ?",
+            choices: [
+              "Un ensemble d’organes",
+              "Un ensemble de cellules semblables assurant une même fonction",
+              "Une cellule très spécialisée",
+              "Un organite de grande taille",
+            ],
+            answer: 1,
+            explanation: "Un tissu regroupe des cellules semblables qui assurent une même fonction, comme le tissu musculaire ou l’épiderme. Plusieurs tissus associés forment un organe.",
+          },
+          {
+            id: "2nde-svt-01-s2-p2",
+            prompt: "Un neurone et un globule rouge d’une même personne sont très différents. Pourquoi ?",
+            choices: [
+              "Ils proviennent de deux cellules-œufs différentes",
+              "Ils ont des chromosomes différents",
+              "Ils n’expriment pas les mêmes gènes",
+            ],
+            answer: 2,
+            explanation: "Toutes les cellules d’un individu proviennent de la même cellule-œuf par mitoses et possèdent donc le même ADN. Elles se différencient parce que chaque type cellulaire n’**exprime** qu’une partie de ses gènes.",
+          },
+          {
+            id: "2nde-svt-01-s2-p3",
+            prompt: "Quel classement va du niveau le plus petit au plus grand ?",
+            choices: ["Organe < tissu < cellule", "Cellule < tissu < organe", "Tissu < cellule < organe", "Cellule < organe < tissu"],
+            answer: 1,
+            explanation: "Des cellules semblables forment un tissu, et plusieurs tissus forment un organe. L’ordre croissant est donc **cellule < tissu < organe**.",
+          },
+        ],
       },
       {
         title: "Échanges et cohésion : membrane, matrice et communication",
@@ -90,6 +189,43 @@ export const chapters: Chapter[] = [
             "Conclusion : la membrane plasmique contrôle les échanges entre la cellule et son milieu.",
           ],
         },
+        practice: [
+          {
+            id: "2nde-svt-01-s3-p1",
+            prompt: "De quoi est constituée la **membrane plasmique** ?",
+            choices: [
+              "D’une paroi de cellulose",
+              "D’une couche de collagène",
+              "D’une bicouche de phospholipides dans laquelle sont insérées des protéines",
+            ],
+            answer: 2,
+            explanation: "La membrane plasmique est une double couche de lipides (phospholipides) contenant des protéines, dont certaines assurent le transport de molécules. La cellulose forme la paroi des végétaux et le collagène fait partie de la matrice extracellulaire animale.",
+          },
+          {
+            id: "2nde-svt-01-s3-p2",
+            prompt: "On place des cellules d’oignon rouge dans de l’eau très salée. Que se passe-t-il ?",
+            choices: [
+              "L’eau sort des cellules et la vacuole rétrécit",
+              "L’eau entre dans les cellules qui éclatent",
+              "Rien, la membrane est imperméable à l’eau",
+              "La paroi se dissout",
+            ],
+            answer: 0,
+            explanation: "L’eau traverse la membrane vers le milieu le plus concentré : elle sort de la cellule, la vacuole rétrécit et la membrane se décolle de la paroi (**plasmolyse**). Ce phénomène est réversible si l’on remet les cellules dans l’eau pure.",
+          },
+          {
+            id: "2nde-svt-01-s3-p3",
+            prompt: "Pourquoi une hormone n’agit-elle que sur certaines cellules, dites cellules cibles ?",
+            choices: [
+              "Parce qu’elles sont les seules irriguées par le sang",
+              "Parce qu’elles possèdent un récepteur spécifique de cette hormone",
+              "Parce qu’elles fabriquent cette hormone",
+              "Parce qu’elles n’ont pas de membrane",
+            ],
+            answer: 1,
+            explanation: "L’hormone circule dans le sang et atteint toutes les cellules, mais seules celles qui possèdent un **récepteur** spécifique y répondent. C’est ce qui assure la précision de la communication hormonale.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -261,6 +397,36 @@ export const chapters: Chapter[] = [
           "La bicouche lipidique seule est imperméable au glucose. Dans la membrane réelle, des protéines de transport insérées dans la bicouche permettent son passage : la membrane contrôle ainsi sélectivement les échanges.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-svt-01-hw-1",
+        prompt: "Un microscope est équipé d’un objectif ×40 et d’un oculaire ×10. Quel est le grossissement total ?",
+        choices: ["×50", "×400", "×4", "×4 000"],
+        answer: 1,
+        explanation: "Le grossissement total est le **produit** des grossissements de l’objectif et de l’oculaire : 40 × 10 = 400. On ne les additionne pas.",
+      },
+      {
+        id: "2nde-svt-01-hw-2",
+        prompt: "Parmi ces éléments, lequel est un **organe** ?",
+        choices: ["L’épiderme", "Un neurone", "Le cœur", "Un chloroplaste"],
+        answer: 2,
+        explanation: "Le cœur associe plusieurs tissus (musculaire, nerveux, conjonctif) pour assurer une fonction : c’est un organe. L’épiderme est un tissu, le neurone une cellule et le chloroplaste un organite.",
+      },
+      {
+        id: "2nde-svt-01-hw-3",
+        prompt: "Quel élément n’est présent que dans la cellule végétale ?",
+        choices: ["La mitochondrie", "Le noyau", "La membrane plasmique", "Le chloroplaste"],
+        answer: 3,
+        explanation: "Le chloroplaste, lieu de la photosynthèse, est propre aux cellules végétales chlorophylliennes. Mitochondries, noyau et membrane plasmique existent aussi dans les cellules animales.",
+      },
+      {
+        id: "2nde-svt-01-hw-4",
+        prompt: "Quel est le rôle principal de la **matrice extracellulaire** ?",
+        choices: ["Assurer la cohésion et la solidité des tissus", "Produire l’énergie de la cellule", "Porter l’information génétique"],
+        answer: 0,
+        explanation: "La matrice extracellulaire est un réseau de molécules (collagène chez l’animal, cellulose chez les végétaux) qui maintient les cellules ensemble. Elle donne au tissu sa cohésion et sa solidité, comme dans l’os où elle est minéralisée.",
+      },
+    ],
   },
   {
     id: "2nde-svt-02",
@@ -299,6 +465,46 @@ export const chapters: Chapter[] = [
             "Vérification : chaque paire de bases face à face est bien A–T ou G–C.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les quatre bases de l’ADN et leur complémentarité",
+          caption: "A s’associe toujours avec T, et G toujours avec C.",
+          headers: ["Base azotée", "Abréviation", "S’associe avec"],
+          rows: [
+            ["Adénine", "A", "Thymine (T)"],
+            ["Thymine", "T", "Adénine (A)"],
+            ["Guanine", "G", "Cytosine (C)"],
+            ["Cytosine", "C", "Guanine (G)"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-02-s1-p1",
+            prompt: "Quel est le brin complémentaire de la séquence **AGCT** ?",
+            choices: ["AGCT", "TCGA", "GATC", "CTAG"],
+            answer: 1,
+            explanation: "On applique la complémentarité base par base : A → T, G → C, C → G, T → A. Le brin complémentaire est donc **TCGA**.",
+          },
+          {
+            id: "2nde-svt-02-s1-p2",
+            prompt: "Un ADN double brin contient 30 % d’adénine. Quel est son pourcentage de guanine ?",
+            choices: ["30 %", "40 %", "20 %", "70 %"],
+            answer: 2,
+            explanation: "Comme A = T, on a 30 % de T, soit 60 % pour A + T. Il reste 40 % pour G + C, et puisque G = C, il y a **20 %** de guanine.",
+          },
+          {
+            id: "2nde-svt-02-s1-p3",
+            prompt: "De quoi est formé un **nucléotide** ?",
+            choices: [
+              "D’un sucre, d’un groupement phosphate et d’une base azotée",
+              "D’un acide aminé et d’un sucre",
+              "De deux bases complémentaires",
+              "D’une protéine et d’ADN",
+            ],
+            answer: 0,
+            explanation: "Un nucléotide associe un sucre (le désoxyribose), un phosphate et une base azotée (A, T, G ou C). L’ADN est une longue chaîne de nucléotides.",
+          },
+        ],
       },
       {
         title: "Gènes, allèles et mutations",
@@ -323,6 +529,61 @@ export const chapters: Chapter[] = [
             "C’est une **substitution**, qui peut modifier un acide aminé de la protéine (c’est le cas de l’anémie falciforme).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "De la mutation au nouvel allèle",
+          caption: "Les mutations surviennent au hasard ; seules celles des cellules reproductrices sont héréditaires.",
+          steps: [
+            {
+              label: "Copie de l’ADN",
+              detail: "Avant chaque division cellulaire",
+            },
+            {
+              label: "Erreur accidentelle",
+              detail: "Substitution, ajout ou perte d’un nucléotide ; plus fréquente avec les agents mutagènes (UV, rayons X, tabac)",
+            },
+            {
+              label: "Nouvelle séquence",
+              detail: "Un nouvel allèle du gène apparaît",
+            },
+            {
+              label: "Effet",
+              detail: "Neutre, défavorable ou parfois favorable",
+            },
+            {
+              label: "Transmission",
+              detail: "Seulement si la mutation touche une cellule reproductrice",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-02-s2-p1",
+            prompt: "Qu’est-ce qu’un **allèle** ?",
+            choices: ["Un chromosome entier", "Une version d’un gène", "Une protéine fabriquée par la cellule"],
+            answer: 1,
+            explanation: "Un même gène peut exister sous plusieurs versions qui diffèrent par quelques nucléotides : ce sont les allèles. Par exemple, le gène du groupe sanguin possède les allèles A, B et O.",
+          },
+          {
+            id: "2nde-svt-02-s2-p2",
+            prompt: "Allèle de référence : ATG CAT. Allèle muté : ATG CGT. De quel type de mutation s’agit-il ?",
+            choices: ["Un ajout de nucléotide", "Une perte de nucléotide", "Une substitution", "Il n’y a aucune mutation"],
+            answer: 2,
+            explanation: "Les deux séquences ont la même longueur, mais le 5ᵉ nucléotide A a été remplacé par G. Le remplacement d’un nucléotide par un autre est une **substitution**.",
+          },
+          {
+            id: "2nde-svt-02-s2-p3",
+            prompt: "Dans quel cas une mutation peut-elle être transmise aux enfants ?",
+            choices: [
+              "Si elle touche une cellule de la peau exposée aux UV",
+              "Si elle touche un neurone",
+              "Si elle touche un globule rouge",
+              "Si elle touche une cellule reproductrice (gamète) ou ses cellules souches",
+            ],
+            answer: 3,
+            explanation: "Seules les mutations des cellules germinales passent dans les gamètes et donc dans la cellule-œuf. Une mutation d’une cellule de la peau ne concerne que l’individu lui-même.",
+          },
+        ],
       },
       {
         title: "Une molécule universelle",
@@ -345,6 +606,60 @@ export const chapters: Chapter[] = [
             "Conclusion : la cellule de tabac lit le gène de luciole comme le sien, preuve de l’universalité de l’ADN.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "L’ADN en chiffres",
+          items: [
+            {
+              value: "46",
+              label: "chromosomes (23 paires) dans une cellule humaine",
+            },
+            {
+              value: "≈ 2 m",
+              label: "d’ADN déroulé dans une seule cellule humaine",
+            },
+            {
+              value: "4",
+              label: "nucléotides (A, T, G, C) communs à tous les êtres vivants",
+            },
+            {
+              value: "1953",
+              label: "découverte de la double hélice (Watson, Crick, d’après les clichés de Franklin)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-02-s3-p1",
+            prompt: "Que suggère l’**universalité** de l’ADN ?",
+            choices: [
+              "Que les espèces sont apparues indépendamment",
+              "Que l’ADN est identique chez tous les individus",
+              "Que seuls les animaux ont de l’ADN",
+              "Que tous les êtres vivants ont une origine commune",
+            ],
+            answer: 3,
+            explanation: "Tous les êtres vivants utilisent la même molécule, les mêmes nucléotides et le même code. Cette ressemblance s’explique le mieux par une **parenté** : tous descendent d’un ancêtre commun.",
+          },
+          {
+            id: "2nde-svt-02-s3-p2",
+            prompt: "Comment appelle-t-on le transfert du gène de l’insuline humaine dans une bactérie ?",
+            choices: ["Une transgenèse", "Une mutation", "Une fermentation"],
+            answer: 0,
+            explanation: "La **transgenèse** consiste à insérer un gène d’une espèce dans le génome d’une autre. La bactérie, qui lit ce gène comme le sien, produit de l’insuline humaine : c’est un OGM.",
+          },
+          {
+            id: "2nde-svt-02-s3-p3",
+            prompt: "Pourquoi les chromosomes deviennent-ils visibles au microscope avant une division ?",
+            choices: [
+              "Parce que le noyau grossit mille fois",
+              "Parce que l’ADN se condense fortement",
+              "Parce que l’ADN se colore naturellement en bleu",
+            ],
+            answer: 1,
+            explanation: "L’ADN d’une cellule humaine mesure environ 2 m déroulé. Avant chaque division, il se condense fortement autour de protéines, ce qui forme des chromosomes compacts et visibles.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -513,6 +828,36 @@ export const chapters: Chapter[] = [
           "Des séquences très semblables chez des espèces éloignées s’expliquent par l’héritage d’un gène ancestral commun, modifié par peu de mutations. C’est un argument de parenté entre êtres vivants.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-svt-02-hw-1",
+        prompt: "Quel est le brin complémentaire de **GGA TTC** ?",
+        choices: ["GGA TTC", "AAG CCT", "CCT AAG", "CCU AAG"],
+        answer: 2,
+        explanation: "On remplace G par C, A par T, T par A et C par G : GGA TTC devient **CCT AAG**. L’ADN ne contient pas d’uracile (U), base propre à l’ARN.",
+      },
+      {
+        id: "2nde-svt-02-hw-2",
+        prompt: "Comment appelle-t-on l’emplacement précis d’un gène sur un chromosome ?",
+        choices: ["Un allèle", "Un locus", "Un nucléotide", "Un brin"],
+        answer: 1,
+        explanation: "Le **locus** est la position d’un gène sur un chromosome. Les différents allèles d’un gène occupent le même locus sur les chromosomes homologues.",
+      },
+      {
+        id: "2nde-svt-02-hw-3",
+        prompt: "Parmi ces facteurs, lequel est un **agent mutagène** ?",
+        choices: ["L’eau pure", "Le glucose", "Les rayons UV"],
+        answer: 2,
+        explanation: "Les rayons UV, les rayons X et certaines substances chimiques (fumée de tabac) endommagent l’ADN et augmentent la fréquence des mutations. L’eau et le glucose n’ont pas cet effet.",
+      },
+      {
+        id: "2nde-svt-02-hw-4",
+        prompt: "Qui a réalisé les clichés de diffraction aux rayons X ayant permis d’établir la structure de l’ADN ?",
+        choices: ["Charles Darwin", "Rosalind Franklin", "Louis Pasteur", "Gregor Mendel"],
+        answer: 1,
+        explanation: "Rosalind Franklin a obtenu des clichés de diffraction aux rayons X de l’ADN. Watson et Crick s’en sont notamment servis pour proposer en 1953 le modèle de la double hélice.",
+      },
+    ],
   },
   {
     id: "2nde-svt-03",
@@ -553,6 +898,61 @@ export const chapters: Chapter[] = [
             "Conclusion : l’amidon, issu du glucose de la photosynthèse, n’est produit que là où il y a de la chlorophylle.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "La photosynthèse dans une feuille",
+          caption: "6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂, grâce à l’énergie lumineuse captée par la chlorophylle.",
+          steps: [
+            {
+              label: "Entrées minérales",
+              detail: "CO₂ de l’air, eau et sels minéraux du sol",
+            },
+            {
+              label: "Chloroplaste",
+              detail: "La chlorophylle capte l’énergie lumineuse",
+            },
+            {
+              label: "Production de glucose",
+              detail: "C₆H₁₂O₆, matière organique",
+            },
+            {
+              label: "Devenir du glucose",
+              detail: "Stocké en amidon ou transporté en saccharose (sève élaborée)",
+            },
+            {
+              label: "Rejet de dioxygène",
+              detail: "O₂ libéré dans l’atmosphère",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-03-s1-p1",
+            prompt: "Un organisme **autotrophe** est un organisme qui…",
+            choices: [
+              "consomme d’autres êtres vivants",
+              "fabrique sa matière organique à partir de matière minérale",
+              "vit sans lumière ni eau",
+              "ne respire jamais",
+            ],
+            answer: 1,
+            explanation: "Les végétaux chlorophylliens sont autotrophes : ils produisent leur matière organique à partir de CO₂, d’eau et de sels minéraux grâce à la lumière. Les animaux, au contraire, sont hétérotrophes.",
+          },
+          {
+            id: "2nde-svt-03-s1-p2",
+            prompt: "L’eau iodée colore en bleu-noir les zones d’une feuille qui contiennent…",
+            choices: ["du glucose", "de l’amidon", "du dioxygène", "de la chlorophylle"],
+            answer: 1,
+            explanation: "L’eau iodée est le réactif de l’**amidon**, forme de stockage du glucose produit par la photosynthèse. Dans une feuille panachée, seules les zones vertes deviennent bleu-noir.",
+          },
+          {
+            id: "2nde-svt-03-s1-p3",
+            prompt: "Dans une enceinte éclairée contenant des algues, un capteur ExAO enregistre…",
+            choices: ["une baisse de O₂ et une hausse de CO₂", "une hausse simultanée de O₂ et de CO₂", "une hausse de O₂ et une baisse de CO₂"],
+            answer: 2,
+            explanation: "À la lumière, la photosynthèse consomme du CO₂ et libère du O₂, plus intensément que la respiration. On mesure donc une augmentation du dioxygène et une diminution du dioxyde de carbone.",
+          },
+        ],
       },
       {
         title: "Respiration et fermentation : produire de l’énergie",
@@ -582,6 +982,45 @@ export const chapters: Chapter[] = [
             "Conclusion : le type de métabolisme dépend des conditions du milieu (présence ou non d’O₂).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Respiration et fermentation",
+          headers: ["Critère", "Respiration", "Fermentation"],
+          rows: [
+            ["Dioxygène", "Nécessaire", "Non nécessaire"],
+            ["Lieu", "Mitochondries", "Cytoplasme"],
+            ["Dégradation du glucose", "Complète (CO₂ + H₂O)", "Incomplète (éthanol + CO₂, ou acide lactique)"],
+            ["Énergie produite", "Importante (près de 18 fois plus)", "Faible"],
+            ["Exemples", "Presque toutes les cellules", "Levures, bactéries lactiques, muscle en effort intense"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-03-s2-p1",
+            prompt: "Quelle molécule stocke l’énergie utilisable par toutes les cellules ?",
+            choices: ["Le glucose", "L’ATP", "L’amidon", "L’ADN"],
+            answer: 1,
+            explanation: "L’énergie libérée par la dégradation du glucose est stockée dans l’**ATP**, molécule universelle. La cellule utilise ensuite l’ATP pour ses activités (synthèses, mouvements, transports).",
+          },
+          {
+            id: "2nde-svt-03-s2-p2",
+            prompt: "Quels sont les produits de la **fermentation alcoolique** des levures ?",
+            choices: ["L’éthanol et le CO₂", "L’acide lactique seul", "Le CO₂ et l’eau", "Le dioxygène et le glucose"],
+            answer: 0,
+            explanation: "En absence de O₂, les levures dégradent incomplètement le glucose en éthanol et CO₂ : C₆H₁₂O₆ → 2 C₂H₅OH + 2 CO₂. C’est ce CO₂ qui fait lever la pâte à pain.",
+          },
+          {
+            id: "2nde-svt-03-s2-p3",
+            prompt: "Une plante respire-t-elle ?",
+            choices: [
+              "Uniquement la nuit",
+              "Jamais, elle fait seulement la photosynthèse",
+              "Jour et nuit, mais le jour sa respiration est masquée par la photosynthèse",
+            ],
+            answer: 2,
+            explanation: "Les cellules végétales respirent en permanence dans leurs mitochondries. Le jour, la photosynthèse est plus intense que la respiration : les échanges gazeux mesurés traduisent donc surtout la photosynthèse.",
+          },
+        ],
       },
       {
         title: "Les enzymes, catalyseurs du vivant",
@@ -608,6 +1047,61 @@ export const chapters: Chapter[] = [
             "Le tube chauffé à 70 °C reste bleu même ramené à 37 °C : l’enzyme a été dénaturée.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le fonctionnement d’une enzyme",
+          caption: "L’enzyme est retrouvée intacte et peut catalyser de nombreuses réactions.",
+          steps: [
+            {
+              label: "Enzyme + substrat",
+              detail: "Le substrat a une forme complémentaire du site actif",
+            },
+            {
+              label: "Complexe enzyme-substrat",
+              detail: "Le substrat se fixe dans le site actif",
+            },
+            {
+              label: "Réaction catalysée",
+              detail: "Le substrat est transformé",
+            },
+            {
+              label: "Libération des produits",
+              detail: "L’enzyme, non consommée, est de nouveau disponible",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-03-s3-p1",
+            prompt: "Qu’est-ce qu’une **enzyme** ?",
+            choices: [
+              "Un glucide consommé par la réaction",
+              "Un lipide de la membrane",
+              "Une protéine qui accélère une réaction sans être consommée",
+            ],
+            answer: 2,
+            explanation: "Une enzyme est une protéine qui **catalyse** une réaction chimique. Elle est retrouvée intacte à la fin et peut donc agir de nombreuses fois.",
+          },
+          {
+            id: "2nde-svt-03-s3-p2",
+            prompt: "De l’amylase est chauffée à 70 °C puis ramenée à 37 °C. Que devient son activité ?",
+            choices: ["Elle redevient normale", "Elle reste nulle, car l’enzyme est dénaturée", "Elle devient plus forte qu’avant"],
+            answer: 1,
+            explanation: "Au-delà de 50–60 °C, la forme de la protéine est détruite de façon **irréversible** : c’est la dénaturation. Contrairement au froid, qui ralentit seulement l’enzyme, la chaleur forte la rend définitivement inactive.",
+          },
+          {
+            id: "2nde-svt-03-s3-p3",
+            prompt: "Comment s’explique la **spécificité** d’une enzyme pour son substrat ?",
+            choices: [
+              "Par la taille de la cellule",
+              "Par la couleur de l’enzyme",
+              "Par la quantité d’enzyme présente",
+              "Par la forme du site actif, complémentaire de celle du substrat",
+            ],
+            answer: 3,
+            explanation: "Le substrat se fixe dans le site actif, dont la forme lui est complémentaire, comme une clé dans une serrure. Une molécule de forme différente ne peut pas s’y fixer et n’est donc pas transformée.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -794,6 +1288,36 @@ export const chapters: Chapter[] = [
           "Le métabolisme dépend des enzymes dont dispose la cellule, elles-mêmes codées par ses gènes. Une souche dépourvue de l’enzyme adaptée (et donc du gène) ne peut pas utiliser le lactose.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-svt-03-hw-1",
+        prompt: "Quelle est l’équation équilibrée de la photosynthèse ?",
+        choices: ["C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O", "6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂", "CO₂ + H₂O → C₆H₁₂O₆ + O₂", "6 O₂ + 6 H₂O → C₆H₁₂O₆ + 6 CO₂"],
+        answer: 1,
+        explanation: "La photosynthèse transforme 6 CO₂ et 6 H₂O en une molécule de glucose et 6 O₂. L’équation inverse correspond à la respiration, et la troisième proposition n’est pas équilibrée.",
+      },
+      {
+        id: "2nde-svt-03-hw-2",
+        prompt: "Quel est le pH optimal de la **pepsine**, enzyme de l’estomac ?",
+        choices: ["Environ 2", "Environ 7", "Environ 12"],
+        answer: 0,
+        explanation: "La pepsine agit dans l’estomac, milieu très acide : son pH optimal est d’environ 2. L’amylase salivaire, elle, fonctionne au mieux vers pH 7.",
+      },
+      {
+        id: "2nde-svt-03-hw-3",
+        prompt: "Des levures placées dans un milieu sans dioxygène réalisent…",
+        choices: ["la photosynthèse", "la respiration", "la fermentation alcoolique", "la fermentation lactique"],
+        answer: 2,
+        explanation: "Sans O₂, la respiration est impossible : les levures dégradent le glucose par **fermentation alcoolique**, produisant éthanol et CO₂. La fermentation lactique est réalisée par certaines bactéries et par le muscle.",
+      },
+      {
+        id: "2nde-svt-03-hw-4",
+        prompt: "Quelle est l’origine du dioxygène de l’atmosphère ?",
+        choices: ["La respiration des animaux", "La fermentation", "Les volcans", "La photosynthèse"],
+        answer: 3,
+        explanation: "La photosynthèse libère du O₂ en décomposant l’eau ; c’est elle qui a enrichi l’atmosphère en dioxygène. La respiration et la fermentation, au contraire, ne produisent pas de O₂.",
+      },
+    ],
   },
   {
     id: "2nde-svt-04",
@@ -835,6 +1359,56 @@ export const chapters: Chapter[] = [
             "N = (60 × 80) ÷ 12 = 400 criquets environ.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "La biodiversité en chiffres",
+          items: [
+            {
+              value: "≈ 2 millions",
+              label: "d’espèces décrites",
+            },
+            {
+              value: "8 à 10 millions",
+              label: "d’espèces estimées sur Terre",
+            },
+            {
+              value: "≈ 99 %",
+              label: "des espèces ayant existé ont disparu",
+            },
+            {
+              value: "5",
+              label: "crises biologiques majeures (dont la fin du Crétacé, il y a 66 Ma)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-04-s1-p1",
+            prompt: "Un **écosystème** est formé…",
+            choices: [
+              "d’une seule espèce et de son habitat",
+              "du biotope, de la biocénose et de leurs interactions",
+              "uniquement des êtres vivants d’un milieu",
+              "uniquement du sol et du climat",
+            ],
+            answer: 1,
+            explanation: "Un écosystème associe un milieu de vie (le biotope : sol, climat, eau), les êtres vivants qui l’habitent (la biocénose) et toutes leurs interactions. Forêt et mare sont deux écosystèmes différents.",
+          },
+          {
+            id: "2nde-svt-04-s1-p2",
+            prompt: "Capture-marquage-recapture : 50 individus marqués ; 2ᵉ capture de 40 individus dont 10 marqués. Quel est l’effectif estimé ?",
+            choices: ["80", "500", "200", "2 000"],
+            answer: 2,
+            explanation: "On applique N ≈ (M × C) ÷ R = (50 × 40) ÷ 10 = 200. On suppose que la proportion d’individus marqués est la même dans l’échantillon et dans toute la population.",
+          },
+          {
+            id: "2nde-svt-04-s1-p3",
+            prompt: "Les escargots *Cepaea* d’une même espèce ont des coquilles de couleurs différentes. Cela illustre la diversité…",
+            choices: ["des écosystèmes", "spécifique", "génétique"],
+            answer: 2,
+            explanation: "Il s’agit d’individus d’une même espèce qui diffèrent par leurs **allèles** : c’est la diversité génétique. La diversité spécifique concerne le nombre d’espèces différentes.",
+          },
+        ],
       },
       {
         title: "La sélection naturelle",
@@ -860,6 +1434,69 @@ export const chapters: Chapter[] = [
             "Conclusion : la population a évolué par sélection naturelle.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le mécanisme de la sélection naturelle",
+          caption: "Exemple : les phalènes du bouleau dans l’Angleterre industrielle.",
+          steps: [
+            {
+              label: "Variation",
+              detail: "Les individus diffèrent par leurs allèles (mutations aléatoires)",
+            },
+            {
+              label: "Pression du milieu",
+              detail: "Prédateurs, climat, antibiotique, insecticide…",
+            },
+            {
+              label: "Survie différentielle",
+              detail: "Les porteurs d’un caractère avantageux survivent mieux",
+            },
+            {
+              label: "Reproduction",
+              detail: "Ils ont plus de descendants et transmettent leurs allèles",
+            },
+            {
+              label: "Évolution",
+              detail: "La fréquence de l’allèle avantageux augmente au fil des générations",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-04-s2-p1",
+            prompt: "Selon la théorie de la sélection naturelle, les mutations…",
+            choices: [
+              "apparaissent pour répondre aux besoins de l’individu",
+              "apparaissent au hasard, puis le milieu trie les individus",
+              "sont toujours favorables",
+            ],
+            answer: 1,
+            explanation: "Les mutations surviennent de façon aléatoire, indépendamment de leur utilité. C’est ensuite l’environnement qui favorise la survie et la reproduction des porteurs de caractères avantageux.",
+          },
+          {
+            id: "2nde-svt-04-s2-p2",
+            prompt: "Pourquoi les phalènes sombres sont-elles devenues majoritaires quand les troncs ont été noircis par la suie ?",
+            choices: [
+              "La suie a noirci les ailes des papillons",
+              "Les papillons ont choisi de devenir sombres",
+              "Elles étaient moins repérées par les oiseaux prédateurs",
+              "Les phalènes claires ont migré",
+            ],
+            answer: 2,
+            explanation: "Sur des troncs sombres, les phalènes sombres sont mieux camouflées et sont moins mangées. Elles survivent et se reproduisent davantage, si bien que l’allèle « sombre » devient majoritaire.",
+          },
+          {
+            id: "2nde-svt-04-s2-p3",
+            prompt: "Comment expliquer l’apparition d’insectes résistants à un insecticide ?",
+            choices: [
+              "L’insecticide sélectionne des insectes résistants qui existaient déjà par mutation",
+              "L’insecticide provoque chez chaque insecte la mutation de résistance",
+              "Les insectes apprennent à éviter l’insecticide",
+            ],
+            answer: 0,
+            explanation: "Des mutants résistants existent par hasard avant le traitement. L’insecticide tue les sensibles et laisse les résistants se multiplier : c’est un cas de sélection naturelle.",
+          },
+        ],
       },
       {
         title: "La dérive génétique et la préservation de la biodiversité",
@@ -884,6 +1521,45 @@ export const chapters: Chapter[] = [
             "Conclusion : le hasard modifie fortement les petites populations, d’où l’importance de préserver de grands effectifs.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Sélection naturelle et dérive génétique",
+          headers: ["Critère", "Sélection naturelle", "Dérive génétique"],
+          rows: [
+            ["Cause", "Avantage dans un milieu donné", "Hasard de la reproduction"],
+            ["Direction", "Favorise les allèles avantageux", "Aléatoire, sans lien avec un avantage"],
+            ["Populations concernées", "Toutes", "Effet surtout fort dans les petites populations"],
+            ["Conséquence", "Adaptation au milieu", "Perte ou fixation d’allèles, baisse de diversité"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-04-s3-p1",
+            prompt: "Dans quel cas la **dérive génétique** a-t-elle l’effet le plus fort ?",
+            choices: ["Dans une très grande population", "Dans une petite population", "Seulement chez les bactéries"],
+            answer: 1,
+            explanation: "Comme pour des lancers de pièce, le hasard pèse beaucoup sur un petit nombre de reproductions. Dans une petite population, un allèle peut ainsi disparaître ou se fixer en quelques générations.",
+          },
+          {
+            id: "2nde-svt-04-s3-p2",
+            prompt: "Quelle condition favorise la formation d’une nouvelle espèce (**spéciation**) ?",
+            choices: [
+              "Le brassage permanent de toutes les populations",
+              "L’isolement de deux populations",
+              "L’absence totale de mutations",
+              "Une population très nombreuse et unique",
+            ],
+            answer: 1,
+            explanation: "Lorsque deux populations sont isolées, mutations, sélection et dérive les font diverger indépendamment. À terme, elles ne peuvent plus se reproduire entre elles : une nouvelle espèce est née.",
+          },
+          {
+            id: "2nde-svt-04-s3-p3",
+            prompt: "Quel aménagement aide à préserver la biodiversité en évitant l’isolement des populations ?",
+            choices: ["Un corridor écologique", "Une autoroute", "Le drainage des zones humides", "L’introduction d’espèces exotiques"],
+            answer: 0,
+            explanation: "Un corridor écologique relie des habitats et permet aux individus de circuler. Les populations restent connectées et conservent de grands effectifs, ce qui limite la dérive et la perte de diversité génétique.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1074,6 +1750,40 @@ export const chapters: Chapter[] = [
           "La fragmentation crée des populations plus petites et isolées, où la dérive est plus forte et où les échanges d’allèles cessent. C’est pourquoi on construit des passages à faune (écoducs).",
       },
     ],
+    homework: [
+      {
+        id: "2nde-svt-04-hw-1",
+        prompt: "Un âne et une jument donnent un mulet, toujours stérile. Que peut-on en conclure ?",
+        choices: [
+          "L’âne et le cheval appartiennent à la même espèce",
+          "Le mulet est une nouvelle espèce",
+          "L’âne et le cheval sont deux espèces différentes",
+        ],
+        answer: 2,
+        explanation: "Une espèce regroupe des individus pouvant donner une descendance **fertile**. Le mulet étant stérile, l’âne et le cheval appartiennent à deux espèces distinctes.",
+      },
+      {
+        id: "2nde-svt-04-hw-2",
+        prompt: "On marque 100 poissons ; plus tard, sur 50 poissons capturés, 5 sont marqués. Quelle est la taille estimée de la population ?",
+        choices: ["250", "500", "1 000", "5 000"],
+        answer: 2,
+        explanation: "N ≈ (M × C) ÷ R = (100 × 50) ÷ 5 = 1 000. La proportion de marqués (5 sur 50, soit 10 %) est supposée la même que dans la population entière (100 sur 1 000).",
+      },
+      {
+        id: "2nde-svt-04-hw-3",
+        prompt: "À quand remonte la crise biologique de la fin du Crétacé ?",
+        choices: ["66 millions d’années", "6,6 millions d’années", "660 millions d’années", "6 600 ans"],
+        answer: 0,
+        explanation: "La crise Crétacé–Paléogène date d’environ **66 millions d’années**. Elle a notamment fait disparaître les dinosaures non aviens et de nombreuses espèces marines.",
+      },
+      {
+        id: "2nde-svt-04-hw-4",
+        prompt: "Quelle est la conséquence principale d’un « goulot d’étranglement » sur une population ?",
+        choices: ["Une augmentation de sa diversité génétique", "Une perte de diversité génétique", "L’apparition immédiate d’une nouvelle espèce"],
+        answer: 1,
+        explanation: "Après une forte réduction d’effectif, seuls quelques individus transmettent leurs allèles et la dérive agit fortement. La population perd ainsi une grande partie de sa diversité génétique.",
+      },
+    ],
   },
   {
     id: "2nde-svt-05",
@@ -1111,6 +1821,39 @@ export const chapters: Chapter[] = [
             "Le ruissellement emporte l’arène : il reste un amas de grosses boules de granite.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Devenir des minéraux du granite lors de l’altération",
+          headers: ["Minéral", "Comportement face à l’eau", "Produit de l’altération"],
+          rows: [
+            ["Quartz", "Très résistant", "Grains de sable"],
+            ["Feldspaths", "Transformés chimiquement", "Argiles (et ions dissous)"],
+            ["Micas", "Transformés chimiquement", "Argiles"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-05-s1-p1",
+            prompt: "L’eau qui gèle dans les fissures fait éclater la roche. De quel processus s’agit-il ?",
+            choices: ["D’une altération chimique", "D’une altération physique", "D’une sédimentation", "D’une diagenèse"],
+            answer: 1,
+            explanation: "En gelant, l’eau augmente de volume d’environ 9 % et fragmente la roche sans modifier ses minéraux : c’est une altération **physique**. L’altération chimique, elle, transforme les minéraux.",
+          },
+          {
+            id: "2nde-svt-05-s1-p2",
+            prompt: "Quel minéral du granite résiste le mieux à l’altération ?",
+            choices: ["Le feldspath", "Le mica", "Le quartz"],
+            answer: 2,
+            explanation: "Le quartz est très résistant : il est libéré intact sous forme de grains de sable. Les feldspaths et les micas, eux, sont transformés en argiles.",
+          },
+          {
+            id: "2nde-svt-05-s1-p3",
+            prompt: "Quel facteur limite fortement l’érosion d’un sol ?",
+            choices: ["Une pente forte", "Un couvert végétal dense", "Des pluies violentes", "Un sol nu après labour"],
+            answer: 1,
+            explanation: "Les racines des plantes retiennent les particules du sol et la végétation amortit l’impact des pluies. Pente forte, pluies violentes et sol nu favorisent au contraire l’érosion.",
+          },
+        ],
       },
       {
         title: "Transport et sédimentation",
@@ -1135,6 +1878,50 @@ export const chapters: Chapter[] = [
             "Conclusion : à vitesse égale, le courant trie les particules selon leur taille.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Taille des particules et comportement lors du ralentissement du courant",
+          caption: "Les plus grosses particules se déposent en premier ; les plus fines restent longtemps en suspension.",
+          headers: ["Particule", "Taille", "Dépôt"],
+          rows: [
+            ["Galets et graviers", "> 2 mm", "En premier, dès que le courant ralentit"],
+            ["Sables", "50 µm à 2 mm", "Courant modéré"],
+            ["Limons", "2 à 50 µm", "Courant faible"],
+            ["Argiles", "< 2 µm", "Seulement en eau très calme (lac, fond marin)"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-05-s2-p1",
+            prompt: "Quand la vitesse d’une rivière diminue, quelles particules se déposent en premier ?",
+            choices: ["Les argiles", "Les limons", "Les plus grosses (galets, graviers)"],
+            answer: 2,
+            explanation: "La capacité de transport dépend de la vitesse du courant. Quand le courant ralentit, il ne peut plus porter les particules les plus lourdes, qui se déposent les premières ; les argiles restent en suspension.",
+          },
+          {
+            id: "2nde-svt-05-s2-p2",
+            prompt: "Un galet bien arrondi trouvé dans une rivière indique…",
+            choices: [
+              "qu’il vient d’être arraché à la roche",
+              "qu’il a subi un long transport",
+              "qu’il s’est formé sur place",
+              "qu’il a été chauffé",
+            ],
+            answer: 1,
+            explanation: "Pendant le transport, les particules s’entrechoquent et s’usent : leurs angles s’arrondissent. Un bloc anguleux est proche de sa source, un galet arrondi a parcouru une longue distance.",
+          },
+          {
+            id: "2nde-svt-05-s2-p3",
+            prompt: "Selon le **principe de superposition**, une strate…",
+            choices: [
+              "est plus récente que celle qu’elle recouvre",
+              "est plus ancienne que celle qu’elle recouvre",
+              "a toujours le même âge que les autres",
+            ],
+            answer: 0,
+            explanation: "Les sédiments se déposent en couches successives : chaque couche se dépose sur les précédentes. La strate du dessus est donc la plus récente, sauf si les couches ont été retournées par la tectonique.",
+          },
+        ],
       },
       {
         title: "Des sédiments aux roches, et le rôle de l’être humain",
@@ -1159,6 +1946,65 @@ export const chapters: Chapter[] = [
             "Conclusion : la région était autrefois une plage ou un fond marin peu profond, alimenté par l’érosion d’un massif granitique.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le cycle des roches",
+          caption: "Il fonctionne sur des millions d’années, entre tectonique (création de reliefs) et érosion (destruction).",
+          steps: [
+            {
+              label: "Altération",
+              detail: "Fragmentation et transformation des roches",
+            },
+            {
+              label: "Érosion et transport",
+              detail: "Eau, vent, glace ; usure et tri des particules",
+            },
+            {
+              label: "Sédimentation",
+              detail: "Dépôt en strates dans les bassins",
+            },
+            {
+              label: "Diagenèse",
+              detail: "Compaction puis cimentation : sable → grès",
+            },
+            {
+              label: "Soulèvement",
+              detail: "La tectonique forme de nouveaux reliefs, à nouveau altérés",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-05-s3-p1",
+            prompt: "La **diagenèse** correspond à…",
+            choices: [
+              "la fonte d’une roche en profondeur",
+              "la transformation d’un sédiment en roche par compaction et cimentation",
+              "l’érosion d’un relief par le vent",
+            ],
+            answer: 1,
+            explanation: "Enfoui sous d’autres couches, le sédiment est compacté (l’eau est expulsée) puis cimenté par des minéraux qui précipitent entre les grains. Il devient alors une roche sédimentaire dure.",
+          },
+          {
+            id: "2nde-svt-05-s3-p2",
+            prompt: "Quelle roche obtient-on par cimentation d’un sable ?",
+            choices: ["Le granite", "Le conglomérat", "Le grès", "La craie"],
+            answer: 2,
+            explanation: "Un sable cimenté donne un **grès**. Des galets cimentés forment un conglomérat, et la craie provient de l’accumulation de coccolithes.",
+          },
+          {
+            id: "2nde-svt-05-s3-p3",
+            prompt: "Quel est l’effet des barrages sur les littoraux ?",
+            choices: [
+              "Ils apportent davantage de sable aux plages",
+              "Ils retiennent les sédiments et favorisent le recul des plages",
+              "Ils n’ont aucun effet sur les sédiments",
+              "Ils transforment le sable en grès",
+            ],
+            answer: 1,
+            explanation: "Les sédiments s’accumulent dans la retenue en amont du barrage au lieu d’atteindre la mer. Privées de cet apport, les plages ne sont plus alimentées et reculent sous l’effet des vagues.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1345,6 +2191,49 @@ export const chapters: Chapter[] = [
           "Des galets cimentés forment un conglomérat. Les galets arrondis témoignent d’un transport ; leur grande taille indique un courant fort (torrent, rivière en crue) au moment du dépôt.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-svt-05-hw-1",
+        prompt: "De quoi la **craie** est-elle principalement formée ?",
+        choices: [
+          "De grains de quartz",
+          "De minuscules plaques calcaires d’algues, les coccolithes",
+          "D’argiles compactées",
+          "De cristaux de feldspath",
+        ],
+        answer: 1,
+        explanation: "La craie est une roche calcaire d’origine biologique, formée par l’accumulation de coccolithes, plaques produites par des algues microscopiques. C’est un exemple de roche sédimentaire d’origine biologique.",
+      },
+      {
+        id: "2nde-svt-05-hw-2",
+        prompt: "Que représente le **diagramme de Hjulström** ?",
+        choices: [
+          "L’évolution de la température au cours du temps",
+          "La composition chimique du granite",
+          "La relation entre vitesse du courant, taille des particules et érosion, transport ou dépôt",
+        ],
+        answer: 2,
+        explanation: "Le diagramme de Hjulström indique, pour une taille de particule et une vitesse du courant données, si la particule est érodée, transportée ou déposée. Il permet d’expliquer le tri des sédiments.",
+      },
+      {
+        id: "2nde-svt-05-hw-3",
+        prompt: "Un calcaire contenant des coraux fossiles indique un ancien milieu…",
+        choices: ["marin chaud et peu profond", "glaciaire", "désertique", "de haute montagne"],
+        answer: 0,
+        explanation: "Les coraux constructeurs de récifs vivent aujourd’hui dans des mers chaudes et peu profondes. En appliquant ce principe d’actualisme, on reconstitue le paysage ancien.",
+      },
+      {
+        id: "2nde-svt-05-hw-4",
+        prompt: "Quelle est la différence entre **altération** et **érosion** ?",
+        choices: [
+          "Ce sont deux synonymes",
+          "L’altération transforme la roche sur place, l’érosion enlève les produits de l’altération",
+          "L’érosion transforme la roche sur place, l’altération transporte les particules",
+        ],
+        answer: 1,
+        explanation: "L’altération désigne la transformation physique ou chimique de la roche à l’endroit où elle se trouve. L’érosion correspond à l’enlèvement et au départ des particules produites.",
+      },
+    ],
   },
   {
     id: "2nde-svt-06",
@@ -1383,6 +2272,44 @@ export const chapters: Chapter[] = [
             "Conclusion : une alimentation riche en produits végétaux mobilise moins de surface agricole.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Écosystème naturel et agrosystème",
+          headers: ["Critère", "Écosystème naturel", "Agrosystème"],
+          rows: [
+            ["Biodiversité", "Élevée", "Faible (souvent une seule espèce cultivée)"],
+            ["Devenir de la biomasse", "Recyclée sur place par les décomposeurs", "En grande partie exportée (récolte)"],
+            ["Apports extérieurs", "Aucun", "Intrants : engrais, eau, pesticides, énergie"],
+            ["Fonctionnement", "Autonome", "Géré et contrôlé par l’être humain"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-06-s1-p1",
+            prompt: "Lequel de ces éléments est un **intrant** agricole ?",
+            choices: ["La récolte de blé", "Un engrais", "La photosynthèse", "Les décomposeurs du sol"],
+            answer: 1,
+            explanation: "Un intrant est un apport extérieur à l’agrosystème : engrais, eau d’irrigation, pesticides, carburant. La récolte est au contraire une exportation de biomasse.",
+          },
+          {
+            id: "2nde-svt-06-s1-p2",
+            prompt: "Un animal consomme 5 kg de végétaux pour produire 0,5 kg de chair. Quel est le rendement de ce transfert ?",
+            choices: ["50 %", "5 %", "10 %", "1 %"],
+            answer: 2,
+            explanation: "Rendement = (0,5 ÷ 5) × 100 = 10 %. Les 90 % restants sont utilisés pour la respiration, rejetés dans les excréments ou non consommés.",
+          },
+          {
+            id: "2nde-svt-06-s1-p3",
+            prompt: "Quel est le rôle des **décomposeurs** dans un écosystème ?",
+            choices: [
+              "Transformer la matière organique morte en matière minérale",
+              "Produire de la matière organique par photosynthèse",
+              "Consommer uniquement des herbivores",
+            ],
+            answer: 0,
+            explanation: "Bactéries, champignons et petits animaux du sol dégradent cadavres et déchets en matière minérale. Celle-ci est réutilisée par les végétaux, ce qui ferme le cycle de la matière.",
+          },
+        ],
       },
       {
         title: "Le sol, un milieu vivant et fragile",
@@ -1409,6 +2336,53 @@ export const chapters: Chapter[] = [
             "Conclusion : le complexe argilo-humique retient les ions positifs, pas les nitrates.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Composition volumique d’un sol cultivé en bon état",
+          caption: "Valeurs indicatives classiques ; elles varient selon le type de sol et son humidité.",
+          unit: "%",
+          data: [
+            {
+              label: "Matière minérale",
+              value: 45,
+            },
+            {
+              label: "Eau",
+              value: 25,
+            },
+            {
+              label: "Air",
+              value: 25,
+            },
+            {
+              label: "Matière organique",
+              value: 5,
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-06-s2-p1",
+            prompt: "Lequel de ces ions est retenu par le **complexe argilo-humique** ?",
+            choices: ["Le nitrate NO₃⁻", "Le potassium K⁺", "Aucun ion n’est retenu"],
+            answer: 1,
+            explanation: "Le complexe argilo-humique est chargé négativement : il retient les ions **positifs** comme K⁺, Ca²⁺ ou NH₄⁺. Les ions négatifs, comme les nitrates, ne sont pas retenus et sont lessivés.",
+          },
+          {
+            id: "2nde-svt-06-s2-p2",
+            prompt: "Combien de temps faut-il environ pour former un mètre de sol ?",
+            choices: ["Quelques mois", "Une dizaine d’années", "De l’ordre de 1 000 à 10 000 ans", "Plusieurs milliards d’années"],
+            answer: 2,
+            explanation: "La pédogenèse, qui associe altération de la roche mère et incorporation de matière organique, est très lente. C’est pourquoi le sol est une ressource non renouvelable à l’échelle humaine.",
+          },
+          {
+            id: "2nde-svt-06-s2-p3",
+            prompt: "Quel est l’un des rôles des vers de terre dans le sol ?",
+            choices: ["Ils aèrent le sol et favorisent l’infiltration de l’eau", "Ils réalisent la photosynthèse", "Ils détruisent l’humus"],
+            answer: 0,
+            explanation: "En creusant leurs galeries, les vers de terre aèrent le sol et facilitent la circulation de l’eau. Ils participent aussi à la fragmentation et au mélange de la matière organique.",
+          },
+        ],
       },
       {
         title: "Vers une agriculture durable",
@@ -1434,6 +2408,65 @@ export const chapters: Chapter[] = [
             "Conclusion : la rotation réduit les engrais, donc les coûts et les risques de pollution aux nitrates.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "De l’excès d’engrais à l’eutrophisation",
+          steps: [
+            {
+              label: "Excès d’engrais azotés",
+              detail: "Non absorbés par les cultures",
+            },
+            {
+              label: "Lessivage des nitrates",
+              detail: "Vers les rivières et les nappes",
+            },
+            {
+              label: "Prolifération d’algues",
+              detail: "Marées vertes, eaux troubles",
+            },
+            {
+              label: "Décomposition des algues",
+              detail: "Les bactéries consomment le O₂ de l’eau",
+            },
+            {
+              label: "Manque de dioxygène",
+              detail: "Mort des poissons, perte de biodiversité",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-06-s3-p1",
+            prompt: "Pourquoi les **légumineuses** enrichissent-elles le sol en azote ?",
+            choices: [
+              "Elles absorbent les nitrates des nappes",
+              "Des bactéries de leurs racines fixent l’azote de l’air",
+              "Elles produisent des engrais de synthèse",
+              "Elles retiennent l’azote du complexe argilo-humique",
+            ],
+            answer: 1,
+            explanation: "Les légumineuses (pois, luzerne, trèfle) vivent en symbiose avec des bactéries de leurs racines qui fixent le diazote atmosphérique. Cet azote enrichit ensuite le sol, ce qui réduit le besoin d’engrais.",
+          },
+          {
+            id: "2nde-svt-06-s3-p2",
+            prompt: "Quelle est la cause principale de l’**eutrophisation** des eaux en zone agricole ?",
+            choices: ["Un excès de nitrates provenant des engrais", "Un manque de pluie", "La présence de haies"],
+            answer: 0,
+            explanation: "Les nitrates en excès, lessivés vers les cours d’eau, provoquent la prolifération d’algues. Leur décomposition consomme le dioxygène de l’eau et entraîne la mort des poissons.",
+          },
+          {
+            id: "2nde-svt-06-s3-p3",
+            prompt: "Lequel de ces exemples relève de la **lutte biologique** ?",
+            choices: [
+              "Pulvériser un insecticide de synthèse",
+              "Labourer profondément",
+              "Utiliser des coccinelles contre les pucerons",
+              "Augmenter les doses d’engrais",
+            ],
+            answer: 2,
+            explanation: "La lutte biologique utilise des êtres vivants, comme les coccinelles prédatrices des pucerons, pour limiter les ravageurs. Elle réduit l’usage de pesticides chimiques.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1625,6 +2658,40 @@ export const chapters: Chapter[] = [
           "La matière organique s’accumule en surface (humus, couleur sombre). En profondeur, on passe progressivement à la roche mère altérée, d’où les fragments de roche : le sol se forme à partir du haut (matière organique) et du bas (altération).",
       },
     ],
+    homework: [
+      {
+        id: "2nde-svt-06-hw-1",
+        prompt: "Comment s’appellent les couches successives d’un sol, parallèles à la surface ?",
+        choices: ["Des strates", "Des horizons", "Des diaclases", "Des litières"],
+        answer: 1,
+        explanation: "Un sol est organisé en **horizons** : litière, horizon riche en humus, horizon d’altération, puis roche mère à la base. Le terme « strates » désigne les couches de roches sédimentaires.",
+      },
+      {
+        id: "2nde-svt-06-hw-2",
+        prompt: "Pourquoi les nitrates sont-ils facilement entraînés vers les nappes phréatiques ?",
+        choices: [
+          "Car ce sont des ions négatifs non retenus par le complexe argilo-humique",
+          "Car ils sont insolubles dans l’eau",
+          "Car ils sont dégradés par les vers de terre",
+        ],
+        answer: 0,
+        explanation: "Le complexe argilo-humique, chargé négativement, ne retient que les ions positifs. Les nitrates (NO₃⁻), chargés négativement, restent dans l’eau du sol et sont lessivés.",
+      },
+      {
+        id: "2nde-svt-06-hw-3",
+        prompt: "Le développement durable concilie trois dimensions. Lesquelles ?",
+        choices: ["Environnementale, économique et sociale", "Agricole, industrielle et urbaine", "Locale, nationale et mondiale"],
+        answer: 0,
+        explanation: "Le développement durable cherche à répondre aux besoins actuels sans compromettre ceux des générations futures. Il associe des enjeux environnementaux, économiques et sociaux.",
+      },
+      {
+        id: "2nde-svt-06-hw-4",
+        prompt: "Quelle part de la nourriture produite dans le monde est perdue ou gaspillée ?",
+        choices: ["Environ 1 %", "Environ 10 %", "Environ un tiers", "Plus de 90 %"],
+        answer: 2,
+        explanation: "On estime qu’environ un tiers de la nourriture produite est perdue ou gaspillée. Réduire ce gaspillage diminue la surface agricole nécessaire et la pression sur les sols.",
+      },
+    ],
   },
   {
     id: "2nde-svt-07",
@@ -1662,6 +2729,45 @@ export const chapters: Chapter[] = [
             "Conclusion : le développement féminin est la voie « par défaut » ; la masculinisation nécessite les hormones testiculaires.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "La différenciation de l’appareil génital chez l’embryon",
+          headers: ["Étape", "Embryon XX", "Embryon XY"],
+          rows: [
+            ["Gène SRY", "Absent", "Présent sur le chromosome Y"],
+            ["Gonades", "Deviennent des ovaires", "Deviennent des testicules (vers la 7ᵉ semaine)"],
+            ["Canaux de Wolff", "Régressent", "Se développent sous l’effet de la testostérone"],
+            ["Canaux de Müller", "Forment trompes, utérus et haut du vagin", "Régressent sous l’effet de l’AMH"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-07-s1-p1",
+            prompt: "Sur quel chromosome se trouve le gène **SRY** ?",
+            choices: ["Le chromosome X", "Le chromosome Y", "Le chromosome 21"],
+            answer: 1,
+            explanation: "Le gène SRY est porté par le chromosome Y. Chez l’embryon XY, il oriente la transformation des gonades indifférenciées en testicules.",
+          },
+          {
+            id: "2nde-svt-07-s1-p2",
+            prompt: "Dans l’expérience de Jost, que deviennent des embryons de lapin privés de leurs gonades indifférenciées ?",
+            choices: [
+              "Tous développent un appareil génital masculin",
+              "Ils ne développent aucun appareil génital",
+              "Tous développent un appareil génital féminin",
+              "Cela dépend de leurs chromosomes",
+            ],
+            answer: 2,
+            explanation: "Sans gonades, et donc sans testostérone, tous les embryons, XX comme XY, développent un appareil génital féminin. Le développement féminin est la voie « par défaut » ; la masculinisation nécessite les hormones testiculaires.",
+          },
+          {
+            id: "2nde-svt-07-s1-p3",
+            prompt: "Quelles hormones de l’hypophyse stimulent les gonades à la puberté ?",
+            choices: ["L’insuline et le glucagon", "La testostérone et la progestérone", "La FSH et la LH", "L’adrénaline et la noradrénaline"],
+            answer: 2,
+            explanation: "À la puberté, l’hypothalamus stimule l’hypophyse qui sécrète davantage de **FSH** et de **LH**. Ces hormones activent les gonades, qui produisent alors gamètes et hormones sexuelles.",
+          },
+        ],
       },
       {
         title: "La régulation hormonale de la reproduction",
@@ -1690,6 +2796,60 @@ export const chapters: Chapter[] = [
             "Jours 26–28 : chute de la progestérone et des œstrogènes → règles au jour 1 du cycle suivant.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le cycle féminin (environ 28 jours)",
+          steps: [
+            {
+              label: "Jours 1 à 5 : règles",
+              detail: "Élimination de la muqueuse utérine",
+            },
+            {
+              label: "Phase folliculaire",
+              detail: "Sous l’effet de la FSH, un follicule grossit et sécrète des œstrogènes",
+            },
+            {
+              label: "Vers le jour 14 : pic de LH",
+              detail: "Ovulation : l’ovocyte est libéré dans la trompe",
+            },
+            {
+              label: "Phase lutéale",
+              detail: "Le corps jaune sécrète progestérone et œstrogènes ; l’endomètre s’épaissit",
+            },
+            {
+              label: "Sans fécondation",
+              detail: "Le corps jaune dégénère, la progestérone chute : nouvelles règles",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-07-s2-p1",
+            prompt: "Quel événement hormonal déclenche l’**ovulation** ?",
+            choices: ["Un pic de LH", "Une chute des œstrogènes", "Un pic de testostérone"],
+            answer: 0,
+            explanation: "Vers le 14ᵉ jour du cycle, l’hypophyse libère brutalement une grande quantité de LH. Ce pic de LH provoque la rupture du follicule et la libération de l’ovocyte.",
+          },
+          {
+            id: "2nde-svt-07-s2-p2",
+            prompt: "Quelle structure sécrète la **progestérone** après l’ovulation ?",
+            choices: ["L’hypophyse", "L’utérus", "Le corps jaune", "La trompe"],
+            answer: 2,
+            explanation: "Après l’ovulation, le follicule vide se transforme en corps jaune, qui sécrète progestérone et œstrogènes. Ces hormones maintiennent la muqueuse utérine épaisse et vascularisée.",
+          },
+          {
+            id: "2nde-svt-07-s2-p3",
+            prompt: "Chez l’homme, que se passe-t-il quand le taux de testostérone augmente ?",
+            choices: [
+              "La sécrétion de LH et de FSH augmente aussi",
+              "La sécrétion de LH et de FSH diminue",
+              "La production de spermatozoïdes s’arrête définitivement",
+              "L’hypophyse sécrète de la progestérone",
+            ],
+            answer: 1,
+            explanation: "La testostérone exerce un **rétrocontrôle négatif** sur l’hypothalamus et l’hypophyse : elle freine la sécrétion de LH et de FSH. Ce mécanisme maintient un taux de testostérone stable.",
+          },
+        ],
       },
       {
         title: "Maîtriser la procréation et se protéger des IST",
@@ -1715,6 +2875,56 @@ export const chapters: Chapter[] = [
             "Sans pic de LH, il n’y a pas d’ovulation, donc pas de fécondation possible.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Repères pour la santé sexuelle",
+          items: [
+            {
+              value: "≈ 24 h",
+              label: "durée de vie de l’ovocyte après l’ovulation",
+            },
+            {
+              value: "3 à 5 jours",
+              label: "survie des spermatozoïdes dans les voies génitales féminines",
+            },
+            {
+              value: "3 à 5 jours",
+              label: "délai maximal de la contraception d’urgence, selon la molécule",
+            },
+            {
+              value: "11 ans",
+              label: "âge à partir duquel la vaccination HPV est recommandée (filles et garçons)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-07-s3-p1",
+            prompt: "Comment la **pilule** contraceptive empêche-t-elle l’ovulation ?",
+            choices: [
+              "Elle détruit les ovocytes",
+              "Ses hormones de synthèse bloquent le pic de LH par rétrocontrôle négatif",
+              "Elle tue les spermatozoïdes dans l’utérus",
+              "Elle augmente fortement la sécrétion de FSH",
+            ],
+            answer: 1,
+            explanation: "Les hormones de synthèse de la pilule freinent l’hypothalamus et l’hypophyse. Sans pic de LH, il n’y a pas d’ovulation ; la glaire cervicale épaissie bloque aussi les spermatozoïdes.",
+          },
+          {
+            id: "2nde-svt-07-s3-p2",
+            prompt: "Quel est le seul moyen contraceptif qui protège aussi des **IST** ?",
+            choices: ["La pilule", "Le stérilet", "Le préservatif", "L’implant"],
+            answer: 2,
+            explanation: "Le préservatif (masculin ou féminin) forme une barrière qui empêche le contact avec les sécrétions et les muqueuses du partenaire. Les méthodes hormonales et le stérilet ne protègent pas des infections.",
+          },
+          {
+            id: "2nde-svt-07-s3-p3",
+            prompt: "Contre quelle IST existe-t-il un vaccin recommandé dès 11 ans ?",
+            choices: ["Le papillomavirus (HPV)", "La chlamydia", "La syphilis"],
+            answer: 0,
+            explanation: "Le vaccin contre le HPV, recommandé aux filles et aux garçons dès 11 ans, prévient des infections responsables notamment de cancers du col de l’utérus. Il n’existe pas de vaccin contre la chlamydia ni la syphilis.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1886,6 +3096,41 @@ export const chapters: Chapter[] = [
           "La contraception d’urgence est d’autant plus efficace qu’elle est prise tôt. Un rapport non protégé expose aussi aux IST : un dépistage (et parfois un traitement préventif du VIH dans les 48 h) doit être envisagé avec un professionnel de santé.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-svt-07-hw-1",
+        prompt: "Où a lieu la **fécondation** chez la femme ?",
+        choices: ["Dans l’ovaire", "Dans la trompe", "Dans l’utérus", "Dans le vagin"],
+        answer: 1,
+        explanation: "L’ovocyte libéré lors de l’ovulation est capté par la trompe, où il peut rencontrer un spermatozoïde. La cellule-œuf migre ensuite vers l’utérus pour s’y implanter.",
+      },
+      {
+        id: "2nde-svt-07-hw-2",
+        prompt: "Quelle hormone est détectée par les tests de grossesse ?",
+        choices: ["La LH", "La testostérone", "La hCG"],
+        answer: 2,
+        explanation: "En cas de grossesse, l’embryon sécrète de la **hCG**, qui maintient le corps jaune et donc la sécrétion de progestérone. Sa présence dans l’urine est détectée par les tests de grossesse.",
+      },
+      {
+        id: "2nde-svt-07-hw-3",
+        prompt: "Combien de chromosomes possède la cellule-œuf humaine ?",
+        choices: ["23", "46", "92", "44"],
+        answer: 1,
+        explanation: "Le spermatozoïde et l’ovocyte apportent chacun 23 chromosomes. Leur union à la fécondation donne une cellule-œuf à 46 chromosomes, soit 23 paires.",
+      },
+      {
+        id: "2nde-svt-07-hw-4",
+        prompt: "Quelle est la cause des règles en fin de cycle ?",
+        choices: [
+          "Un pic de LH",
+          "La chute de la progestérone due à la dégénérescence du corps jaune",
+          "Une augmentation de la FSH",
+          "La sécrétion de hCG",
+        ],
+        answer: 1,
+        explanation: "Sans fécondation, le corps jaune dégénère et la progestérone chute. La muqueuse utérine n’est plus maintenue et se détache : ce sont les règles.",
+      },
+    ],
   },
   {
     id: "2nde-svt-08",
@@ -1923,6 +3168,45 @@ export const chapters: Chapter[] = [
             "Conclusion : le microbiote contribue à la maturation de l’immunité et à la protection contre les pathogènes.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les principaux microorganismes",
+          headers: ["Microorganisme", "Organisation", "Taille", "Exemple"],
+          rows: [
+            ["Bactérie", "Cellule procaryote", "1 à 5 µm", "Escherichia coli (intestin)"],
+            ["Levure", "Champignon unicellulaire eucaryote", "Quelques µm", "Levure de boulanger"],
+            ["Protozoaire", "Eucaryote unicellulaire", "Quelques µm à plus de 100 µm", "Plasmodium (paludisme)"],
+            ["Virus", "Non cellulaire, parasite obligatoire", "20 à 300 nm", "Virus de la grippe"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-08-s1-p1",
+            prompt: "Quelle affirmation sur les **virus** est exacte ?",
+            choices: [
+              "Ce sont des bactéries de petite taille",
+              "Ce ne sont pas des cellules et ils ne se multiplient qu’à l’intérieur d’une cellule",
+              "Ils possèdent des mitochondries",
+              "Ils sont sensibles aux antibiotiques",
+            ],
+            answer: 1,
+            explanation: "Un virus est formé d’un matériel génétique entouré d’une enveloppe protéique : ce n’est pas une cellule. Il détourne la machinerie d’une cellule hôte pour se multiplier.",
+          },
+          {
+            id: "2nde-svt-08-s1-p2",
+            prompt: "Lequel de ces rôles est assuré par le **microbiote intestinal** ?",
+            choices: ["Produire de l’insuline", "Fabriquer les globules rouges", "Produire certaines vitamines comme K et B12"],
+            answer: 2,
+            explanation: "Le microbiote intestinal produit des vitamines (K, B12), digère des fibres que nos enzymes ne dégradent pas et protège contre les pathogènes. Il participe aussi à la maturation du système immunitaire.",
+          },
+          {
+            id: "2nde-svt-08-s1-p3",
+            prompt: "Quelle est une cause fréquente de **dysbiose** ?",
+            choices: ["Un traitement antibiotique", "Une alimentation riche en fibres", "La pratique d’un sport", "Le sommeil"],
+            answer: 0,
+            explanation: "Un antibiotique détruit aussi une partie des bactéries utiles du microbiote, ce qui le déséquilibre. Une alimentation pauvre en fibres peut également provoquer une dysbiose.",
+          },
+        ],
       },
       {
         title: "Agents pathogènes, transmission et prévention",
@@ -1947,6 +3231,55 @@ export const chapters: Chapter[] = [
             "Conclusion : le maintien d’une couverture vaccinale élevée est indispensable pour bloquer la circulation du virus.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Quelques étapes de l’histoire de la vaccination",
+          events: [
+            {
+              date: "1796",
+              label: "Edward Jenner protège contre la variole grâce à la vaccine",
+            },
+            {
+              date: "1885",
+              label: "Louis Pasteur administre le premier vaccin contre la rage",
+            },
+            {
+              date: "1980",
+              label: "L’OMS déclare la variole éradiquée",
+            },
+            {
+              date: "2020",
+              label: "Premiers vaccins à ARN messager autorisés contre la COVID-19",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-08-s2-p1",
+            prompt: "Comment le **paludisme** est-il transmis ?",
+            choices: ["Par l’eau du robinet", "Par la piqûre d’un moustique vecteur, l’anophèle", "Par les poignées de main", "Par l’air"],
+            answer: 1,
+            explanation: "Le parasite du paludisme (Plasmodium) est transmis par la piqûre de moustiques anophèles, qui jouent le rôle de **vecteurs**. Les moustiquaires et la lutte contre les moustiques limitent donc la transmission.",
+          },
+          {
+            id: "2nde-svt-08-s2-p2",
+            prompt: "Qu’est-ce qu’une **pandémie** ?",
+            choices: ["Une maladie non contagieuse", "Une épidémie limitée à une ville", "Une épidémie à l’échelle mondiale"],
+            answer: 2,
+            explanation: "Une épidémie est la propagation rapide d’une maladie dans une population. Lorsqu’elle s’étend à l’échelle de la planète, comme la COVID-19, on parle de pandémie.",
+          },
+          {
+            id: "2nde-svt-08-s2-p3",
+            prompt: "Que permet l’**immunité collective** ?",
+            choices: [
+              "De protéger aussi les personnes non vaccinées",
+              "De rendre les antibiotiques plus efficaces",
+              "D’éviter toute mutation des virus",
+            ],
+            answer: 0,
+            explanation: "Lorsqu’une forte proportion de la population est vaccinée, le pathogène circule difficilement. Les personnes qui ne peuvent pas être vaccinées, comme les nourrissons, sont ainsi protégées indirectement.",
+          },
+        ],
       },
       {
         title: "Les antibiotiques et la résistance bactérienne",
@@ -1972,6 +3305,64 @@ export const chapters: Chapter[] = [
             "Conclusion : le médecin prescrira l’antibiotique B.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "La sélection de bactéries résistantes",
+          steps: [
+            {
+              label: "Population initiale",
+              detail: "Surtout des bactéries sensibles, quelques mutantes résistantes",
+            },
+            {
+              label: "Traitement antibiotique",
+              detail: "Les bactéries sensibles sont tuées",
+            },
+            {
+              label: "Survie des résistantes",
+              detail: "Elles ne subissent plus la concurrence",
+            },
+            {
+              label: "Multiplication",
+              detail: "La population devient majoritairement résistante",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-svt-08-s3-p1",
+            prompt: "Pourquoi un antibiotique est-il inutile contre la grippe ?",
+            choices: [
+              "Parce que la grippe est due à un virus",
+              "Parce que la grippe est due à un champignon",
+              "Parce que la grippe guérit toujours seule en une heure",
+            ],
+            answer: 0,
+            explanation: "Les antibiotiques agissent sur des cibles propres aux bactéries, comme la paroi ou les ribosomes bactériens. Les virus n’en possèdent pas : l’antibiotique n’a aucun effet sur eux et perturbe inutilement le microbiote.",
+          },
+          {
+            id: "2nde-svt-08-s3-p2",
+            prompt: "Sur un antibiogramme, aucune zone claire n’apparaît autour d’une pastille. Que conclure ?",
+            choices: [
+              "La bactérie est très sensible à cet antibiotique",
+              "La bactérie est résistante à cet antibiotique",
+              "L’antibiotique a tué toutes les bactéries de la boîte",
+              "Le test est forcément raté",
+            ],
+            answer: 1,
+            explanation: "La zone claire (zone d’inhibition) correspond à l’absence de croissance bactérienne. Si les bactéries poussent jusqu’au contact de la pastille, cet antibiotique ne les empêche pas de se multiplier : elles sont résistantes.",
+          },
+          {
+            id: "2nde-svt-08-s3-p3",
+            prompt: "Comment des bactéries résistantes deviennent-elles majoritaires ?",
+            choices: [
+              "L’antibiotique transforme chaque bactérie en bactérie résistante",
+              "Les bactéries s’habituent volontairement à l’antibiotique",
+              "Des mutantes résistantes préexistantes sont sélectionnées par l’antibiotique",
+            ],
+            answer: 2,
+            explanation: "La résistance apparaît au hasard par mutation ou par transfert de gènes. L’antibiotique élimine les sensibles et laisse se multiplier les résistantes : c’est une **sélection naturelle**.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -2156,6 +3547,45 @@ export const chapters: Chapter[] = [
         answer: 2,
         explanation:
           "Le paludisme est dû à un parasite transmis par un vecteur, le moustique. Les moustiquaires empêchent les piqûres, donc la transmission. Le lavage des mains et le masque visent d’autres modes de transmission.",
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-svt-08-hw-1",
+        prompt: "Qui a découvert la pénicilline, et en quelle année ?",
+        choices: ["Louis Pasteur, en 1885", "Alexander Fleming, en 1928", "Edward Jenner, en 1796", "Charles Darwin, en 1859"],
+        answer: 1,
+        explanation: "Alexander Fleming a remarqué en 1928 qu’une moisissure, *Penicillium*, empêchait la croissance des bactéries autour d’elle. La pénicilline a été le premier antibiotique.",
+      },
+      {
+        id: "2nde-svt-08-hw-2",
+        prompt: "En quelle année la variole a-t-elle été déclarée éradiquée ?",
+        choices: ["1928", "1950", "1980", "2001"],
+        answer: 2,
+        explanation: "Grâce à une vaccination massive à l’échelle mondiale, l’OMS a déclaré la variole éradiquée en 1980. C’est la seule maladie humaine éradiquée à ce jour.",
+      },
+      {
+        id: "2nde-svt-08-hw-3",
+        prompt: "Combien de bactéries le corps humain héberge-t-il environ ?",
+        choices: [
+          "Quelques milliers",
+          "Environ 30 000 milliards, autant que de cellules humaines",
+          "Environ 10 fois moins que de cellules humaines",
+        ],
+        answer: 1,
+        explanation: "On estime que le corps humain héberge de l’ordre de 30 000 milliards de bactéries, soit à peu près autant que de cellules humaines. La majorité se trouve dans l’intestin.",
+      },
+      {
+        id: "2nde-svt-08-hw-4",
+        prompt: "Que contient un vaccin ?",
+        choices: [
+          "Un antibiotique puissant",
+          "Des globules blancs d’un donneur",
+          "Un agent pathogène inactivé ou atténué, une partie de celui-ci, ou un ARN codant une de ses protéines",
+          "Un pathogène vivant à pleine virulence",
+        ],
+        answer: 2,
+        explanation: "Un vaccin présente au système immunitaire un élément du pathogène sans provoquer la maladie. L’organisme développe alors une **mémoire immunitaire** qui permettra une réaction rapide en cas de contact réel.",
       },
     ],
   },

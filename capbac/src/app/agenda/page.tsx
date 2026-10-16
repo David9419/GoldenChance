@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { SUBJECTS } from "@/content/subjects";
 import { agendaItems } from "@/lib/agenda";
+import { useRole } from "@/lib/auth";
 import { holidayOn } from "@/lib/calendar";
 import { addDays, formatLong, formatShort, formatWeekday, fromISO, mondayOf, toISO } from "@/lib/dates";
 import { useData } from "@/lib/store";
@@ -19,6 +20,7 @@ const SPAN = 14;
 
 export default function AgendaPage() {
   const data = useData();
+  const role = useRole();
   const now = useNow();
   const today = toISO(now);
   const [start, setStart] = useState(() => (fromISO(today).getDay() === 0 ? addDays(today, 1) : mondayOf(today)));
@@ -26,7 +28,7 @@ export default function AgendaPage() {
   if (!data) return null;
 
   const end = addDays(start, SPAN - 1);
-  const items = agendaItems(data, start, end, now);
+  const items = agendaItems(data, start, end, now, role !== "eleve");
   const days = Array.from({ length: SPAN }, (_, i) => addDays(start, i));
   const visibleDays = (selected ? [selected] : days).filter((d) => d >= start);
   const weekEnd = addDays(start, 6);
@@ -44,7 +46,7 @@ export default function AgendaPage() {
       <PageHeader
         eyebrow="Agenda"
         title="Ce qui t’attend"
-        description="Contrôles, exercices notés et devoirs du professeur, jour par jour, pour t’organiser à l’avance."
+        description="Tes contrôles (annoncés au moins 3 jours avant), tes devoirs du soir et tes exercices en classe, jour par jour."
         actions={
           <div className="flex items-center gap-1.5">
             <Button variant="secondary" size="icon" aria-label="Période précédente" onClick={() => (setStart(addDays(start, -7)), setSelected(null))}>
@@ -60,7 +62,7 @@ export default function AgendaPage() {
       <div className="grid grid-cols-3 gap-3 sm:gap-4">
         {[
           { label: "Contrôles", sub: "cette semaine", value: counts.controle, icon: Trophy, cls: "bg-amber-500/15 text-amber-300" },
-          { label: "Exercices notés", sub: "cette semaine", value: counts.exercice, icon: ClipboardList, cls: "bg-brand-500/15 text-brand-300" },
+          { label: "Exercices en classe", sub: "cette semaine", value: counts.exercice, icon: ClipboardList, cls: "bg-brand-500/15 text-brand-300" },
           { label: "Devoirs", sub: "cette semaine", value: counts.devoir, icon: PenLine, cls: "bg-emerald-500/15 text-emerald-300" },
         ].map((c, i) => (
           <motion.div key={c.label} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }}>

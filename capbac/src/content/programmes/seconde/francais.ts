@@ -45,6 +45,76 @@ export const chapters: Chapter[] = [
             "Rédiger : « Par la métaphore filée de la “faucille d’or” dans le “champ des étoiles”, Hugo transforme le ciel en paysage rural et donne à la nuit une dimension sacrée et paisible. »",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Figures d’analogie et de substitution",
+          headers: ["Figure", "Définition", "Exemple"],
+          rows: [
+            [
+              "Comparaison",
+              "Rapprochement de deux réalités avec un outil de comparaison",
+              "« Le Poète est semblable au prince des nuées » (Baudelaire)",
+            ],
+            [
+              "Métaphore",
+              "Rapprochement sans outil de comparaison",
+              "« Cette faucille d’or dans le champ des étoiles » (Hugo)",
+            ],
+            [
+              "Personnification",
+              "Une chose ou une idée reçoit des traits humains",
+              "« La Nature est un temple où de vivants piliers… » (Baudelaire)",
+            ],
+            [
+              "Métonymie",
+              "Un mot remplacé par un autre qui lui est logiquement lié",
+              "« boire un verre », « lire un Zola »",
+            ],
+            [
+              "Synecdoque",
+              "La partie pour le tout",
+              "« une voile à l’horizon » pour un bateau",
+            ],
+            [
+              "Périphrase",
+              "Une expression qui désigne indirectement un être ou une chose",
+              "« la Ville lumière » pour Paris",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-01-s1-p1",
+            prompt: "« Ses yeux brillaient comme deux étoiles. » Quelle figure de style est employée ?",
+            choices: [
+              "Une métaphore",
+              "Une comparaison",
+              "Une personnification",
+              "Une périphrase",
+            ],
+            answer: 1,
+            explanation: "Le rapprochement entre les yeux (comparé) et les étoiles (comparant) se fait grâce à l’outil « comme » : c’est donc une **comparaison**. Sans « comme » (« ses yeux étaient deux étoiles »), on aurait une métaphore.",
+          },
+          {
+            id: "2nde-francais-01-s1-p2",
+            prompt: "Désigner le soleil par l’expression « l’astre du jour », c’est employer :",
+            choices: ["une métonymie", "une comparaison", "une périphrase"],
+            answer: 2,
+            explanation: "Une **périphrase** remplace un mot par une expression plus longue qui le définit indirectement. « L’astre du jour » désigne le soleil sans le nommer, comme « la Ville lumière » désigne Paris.",
+          },
+          {
+            id: "2nde-francais-01-s1-p3",
+            prompt: "« Toute la salle applaudit » : le mot « salle » désigne en réalité les spectateurs. Quelle est cette figure ?",
+            choices: [
+              "Une métonymie (le lieu pour les personnes qui s’y trouvent)",
+              "Une personnification",
+              "Une métaphore filée",
+              "Un oxymore",
+            ],
+            answer: 0,
+            explanation: "La **métonymie** désigne une réalité par une autre qui lui est logiquement liée : ici le lieu (la salle) pour ceux qui l’occupent. Ce n’est pas une personnification, car la salle ne reçoit pas de qualités humaines : c’est un simple glissement de sens par contiguïté.",
+          },
+        ],
       },
       {
         title: "Les figures d’opposition, d’insistance et d’atténuation",
@@ -75,6 +145,68 @@ export const chapters: Chapter[] = [
             "Interpréter : la litote traduit le conflit entre la passion et l’honneur, au cœur de la tragi-comédie cornélienne.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Opposition, insistance, atténuation : les figures essentielles",
+          headers: ["Famille", "Figure", "Exemple"],
+          rows: [
+            [
+              "Opposition",
+              "Antithèse",
+              "« Ver de terre amoureux d’une étoile » (Hugo)",
+            ],
+            [
+              "Opposition",
+              "Oxymore",
+              "« Cette obscure clarté qui tombe des étoiles » (Corneille)",
+            ],
+            [
+              "Opposition",
+              "Chiasme (A-B / B-A)",
+              "« Il faut manger pour vivre et non pas vivre pour manger » (Molière)",
+            ],
+            [
+              "Insistance",
+              "Gradation",
+              "« C’est un roc !… c’est un pic !… c’est un cap ! » (Rostand)",
+            ],
+            ["Insistance", "Hyperbole", "« mourir de rire »"],
+            ["Atténuation", "Litote", "« Va, je ne te hais point » (Corneille)"],
+            [
+              "Atténuation",
+              "Euphémisme",
+              "« il nous a quittés » pour « il est mort »",
+            ],
+            [
+              "Sonorité",
+              "Allitération / assonance",
+              "Répétition d’une consonne / d’une voyelle",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-01-s2-p1",
+            prompt: "« Cette obscure clarté qui tombe des étoiles » (Corneille) contient :",
+            choices: ["une antithèse", "un oxymore", "un chiasme", "une litote"],
+            answer: 1,
+            explanation: "« Obscure » et « clarté » sont deux termes contradictoires réunis **dans un même groupe de mots** : c’est un **oxymore**. L’antithèse oppose aussi deux idées, mais elles sont simplement rapprochées dans un passage, pas accolées.",
+          },
+          {
+            id: "2nde-francais-01-s2-p2",
+            prompt: "Dire « il nous a quittés » pour « il est mort », c’est employer :",
+            choices: ["une litote", "une hyperbole", "un euphémisme"],
+            answer: 2,
+            explanation: "L’**euphémisme** adoucit une réalité pénible ou brutale, ici la mort. La litote, elle, dit moins pour faire entendre **plus** (« je ne te hais point » = je t’aime), ce qui n’est pas le cas ici.",
+          },
+          {
+            id: "2nde-francais-01-s2-p3",
+            prompt: "Dans « Pour qui sont ces serpents qui sifflent sur vos têtes ? » (Racine), la répétition du son [s] est :",
+            choices: ["une assonance", "une allitération", "une anaphore", "un parallélisme"],
+            answer: 1,
+            explanation: "La répétition d’une **consonne** s’appelle une **allitération** ; l’assonance concerne les voyelles. Ici, le son [s] imite le sifflement des serpents : la figure de sonorité renforce le sens.",
+          },
+        ],
       },
       {
         title: "Les registres littéraires",
@@ -100,6 +232,115 @@ export const chapters: Chapter[] = [
             "Conclure : expression d’un sentiment personnel de nostalgie → **registre lyrique**, teinté d’élégie (plainte).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les principaux registres",
+          headers: ["Registre", "Effet visé", "Indices fréquents"],
+          rows: [
+            [
+              "Lyrique",
+              "Exprimer des sentiments personnels",
+              "1re personne, exclamations, musicalité",
+            ],
+            [
+              "Pathétique",
+              "Susciter la pitié",
+              "Lexique de la souffrance, larmes, plaintes",
+            ],
+            [
+              "Tragique",
+              "Montrer un personnage écrasé par le destin",
+              "Fatalité, mort, issue inévitable",
+            ],
+            [
+              "Épique",
+              "Amplifier les exploits héroïques",
+              "Hyperboles, pluriels, énumérations",
+            ],
+            [
+              "Fantastique",
+              "Faire hésiter entre réel et surnaturel",
+              "Modalisateurs, peur, doute",
+            ],
+            ["Comique", "Faire rire", "Comique de mots, de gestes, de situation"],
+            [
+              "Satirique / polémique",
+              "Critiquer, attaquer",
+              "Moquerie, vocabulaire péjoratif, interpellations",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-01-s3-p1",
+            prompt: "Un texte qui cherche à susciter la pitié devant la souffrance d’un personnage relève du registre :",
+            choices: ["tragique", "épique", "pathétique", "comique"],
+            answer: 2,
+            explanation: "Le **registre pathétique** vise à émouvoir le lecteur et à provoquer sa pitié. Le registre tragique, lui, insiste sur la fatalité qui écrase le personnage : les deux se mêlent souvent, mais ne se confondent pas.",
+          },
+          {
+            id: "2nde-francais-01-s3-p2",
+            prompt: "Le registre fantastique se caractérise par :",
+            choices: [
+              "l’hésitation entre une explication rationnelle et une explication surnaturelle",
+              "l’amplification des exploits héroïques",
+              "la moquerie des travers d’une société",
+            ],
+            answer: 0,
+            explanation: "Le **fantastique** naît du doute : le lecteur (et souvent le personnage) hésite entre une explication naturelle et une explication surnaturelle. L’amplification héroïque relève de l’épique et la moquerie critique du satirique.",
+          },
+          {
+            id: "2nde-francais-01-s3-p3",
+            prompt: "Pour justifier l’identification d’un registre dans une analyse, il faut avant tout :",
+            choices: [
+              "donner son impression générale",
+              "résumer le texte",
+              "relever des indices précis (lexique, ponctuation, figures)",
+              "citer le nom de l’auteur",
+            ],
+            answer: 2,
+            explanation: "Un registre ne se décrète pas : il s’identifie grâce à des **indices** précis (champs lexicaux, ponctuation, types de phrases, figures dominantes). On justifie ensuite par des citations et on explique l’effet visé sur le lecteur.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-01-hw-1",
+        prompt: "« Il faut manger pour vivre et non pas vivre pour manger » (Molière, L’Avare) repose principalement sur :",
+        choices: ["un chiasme", "une gradation", "une litote", "un oxymore"],
+        answer: 0,
+        explanation: "Les termes sont repris dans un ordre inversé : manger / vivre puis vivre / manger, soit une structure croisée A-B / B-A. C’est la définition du **chiasme**, qui souligne ici l’opposition entre deux conceptions de la vie.",
+      },
+      {
+        id: "2nde-francais-01-hw-2",
+        prompt: "Dans « Va, je ne te hais point » (Corneille, Le Cid), Chimène veut faire entendre :",
+        choices: [
+          "qu’elle est indifférente à Rodrigue",
+          "qu’elle aime Rodrigue",
+          "qu’elle le déteste",
+        ],
+        answer: 1,
+        explanation: "C’est une **litote** : la négation d’un terme fort (« haïr ») suggère beaucoup plus que ce qui est dit, ici l’amour. La bienséance et la situation (Rodrigue a tué son père) empêchent Chimène de l’avouer directement.",
+      },
+      {
+        id: "2nde-francais-01-hw-3",
+        prompt: "Un personnage écrasé par un destin auquel il ne peut pas échapper relève du registre :",
+        choices: ["lyrique", "satirique", "tragique", "didactique"],
+        answer: 2,
+        explanation: "Le **registre tragique** montre un personnage pris dans une fatalité (destin, dieux, passion) qui rend sa perte inévitable. Le lyrique exprime des sentiments personnels, le satirique critique, le didactique enseigne.",
+      },
+      {
+        id: "2nde-francais-01-hw-4",
+        prompt: "Quelle phrase d’analyse est la plus réussie ?",
+        choices: [
+          "« Il y a une métaphore. »",
+          "« Le texte est très imagé et beau. »",
+          "« Le poète utilise des figures de style. »",
+          "« Par la métaphore filée de la “faucille d’or” dans le “champ des étoiles”, Hugo fait du ciel un paysage de moisson paisible. »",
+        ],
+        answer: 3,
+        explanation: "Une bonne analyse respecte le trio **procédé → citation → effet** : elle nomme la figure, cite précisément et interprète. Les autres propositions se contentent d’un repérage ou d’un jugement vague, sans dire ce que le procédé apporte au sens.",
       },
     ],
     exercise: [
@@ -290,6 +531,55 @@ export const chapters: Chapter[] = [
             "Conclure : 12 syllabes, c’est un **alexandrin**. La phrase se poursuit au vers suivant par le bref « Je partirai » : ce **rejet** met en relief la décision du poète.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Les mètres à connaître",
+          items: [
+            {
+              value: "12",
+              label: "syllabes : l’alexandrin",
+            },
+            {
+              value: "10",
+              label: "syllabes : le décasyllabe",
+            },
+            {
+              value: "8",
+              label: "syllabes : l’octosyllabe",
+            },
+            {
+              value: "6 // 6",
+              label: "la césure partage l’alexandrin en deux hémistiches",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-02-s1-p1",
+            prompt: "Un vers de 8 syllabes s’appelle :",
+            choices: ["un alexandrin", "un décasyllabe", "un octosyllabe"],
+            answer: 2,
+            explanation: "L’**octosyllabe** compte 8 syllabes (préfixe « octo- », huit). L’alexandrin en compte 12 et le décasyllabe 10.",
+          },
+          {
+            id: "2nde-francais-02-s1-p2",
+            prompt: "En versification, le e muet placé à la fin d’un vers (« vue », « rose ») :",
+            choices: [
+              "compte toujours pour une syllabe",
+              "ne compte jamais",
+              "compte seulement si le vers suivant commence par une consonne",
+            ],
+            answer: 1,
+            explanation: "Le **e muet en fin de vers ne compte jamais**. À l’intérieur du vers, il compte devant une consonne et s’élide devant une voyelle ou un h muet : c’est la règle la plus importante du décompte des syllabes.",
+          },
+          {
+            id: "2nde-francais-02-s1-p3",
+            prompt: "Prononcer « vi-o-lon » en trois syllabes pour obtenir un alexandrin, c’est faire :",
+            choices: ["une synérèse", "une élision", "une diérèse", "une césure"],
+            answer: 2,
+            explanation: "La **diérèse** dédouble deux voyelles qui se suivent dans un mot (« vi-o-lon »), alors que la synérèse les fond en une seule syllabe. Chez Baudelaire, la diérèse étire le mot comme la note de l’instrument.",
+          },
+        ],
       },
       {
         title: "Rimes et strophes",
@@ -318,6 +608,51 @@ export const chapters: Chapter[] = [
             "Interpréter : la rime « fleurs / pleurs » associe la beauté et la souffrance, au cœur du lyrisme amoureux.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Caractériser une rime",
+          headers: ["Critère", "Catégories", "Exemples"],
+          rows: [
+            [
+              "Disposition",
+              "Plates (AABB), croisées (ABAB), embrassées (ABBA)",
+              "Embrassées dans les quatrains du sonnet",
+            ],
+            [
+              "Richesse",
+              "Pauvre (1 son), suffisante (2), riche (3 et plus)",
+              "ami / joli ; rose / chose ; charmant / dormant",
+            ],
+            [
+              "Genre",
+              "Féminine (e muet final) ou masculine",
+              "rose, campagne (féminines) ; amour, jour (masculines)",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-02-s2-p1",
+            prompt: "Des rimes disposées selon le schéma ABBA sont :",
+            choices: ["embrassées", "plates", "croisées"],
+            answer: 0,
+            explanation: "Dans le schéma **ABBA**, les rimes B sont « embrassées » par les rimes A : on parle de **rimes embrassées**. Les rimes plates suivent le schéma AABB et les rimes croisées ABAB.",
+          },
+          {
+            id: "2nde-francais-02-s2-p2",
+            prompt: "« rose / chose » ont deux sons communs ([o] et [z]). Cette rime est :",
+            choices: ["pauvre", "suffisante", "riche"],
+            answer: 1,
+            explanation: "La richesse se mesure au nombre de sons communs à partir de la dernière voyelle prononcée : 1 son = pauvre, 2 sons = **suffisante**, 3 sons ou plus = riche. Avec [o] + [z], « rose / chose » est donc suffisante.",
+          },
+          {
+            id: "2nde-francais-02-s2-p3",
+            prompt: "Une strophe de trois vers s’appelle :",
+            choices: ["un distique", "un quatrain", "un tercet", "un quintil"],
+            answer: 2,
+            explanation: "Le **tercet** compte trois vers ; il est caractéristique de la fin du sonnet. Le distique en compte deux, le quatrain quatre et le quintil cinq.",
+          },
+        ],
       },
       {
         title: "Formes fixes et grandes époques de la poésie",
@@ -347,6 +682,108 @@ export const chapters: Chapter[] = [
             "Conclure : c’est un **sonnet**, forme fixe héritée de Pétrarque et acclimatée en France par la Pléiade.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : la poésie du Moyen Âge au XVIIIe siècle",
+          events: [
+            {
+              date: "XVe s.",
+              label: "Villon, « Ballade des pendus » ; Charles d’Orléans, rondeaux",
+            },
+            {
+              date: "1549",
+              label: "Du Bellay, Défense et illustration de la langue française (Pléiade)",
+            },
+            {
+              date: "1558",
+              label: "Du Bellay, Les Regrets",
+            },
+            {
+              date: "1578",
+              label: "Ronsard, Sonnets pour Hélène",
+            },
+            {
+              date: "1668",
+              label: "La Fontaine, premier recueil des Fables",
+            },
+            {
+              date: "1674",
+              label: "Boileau, L’Art poétique (idéal classique)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-02-s3-p1",
+            prompt: "Un sonnet compte :",
+            choices: [
+              "14 vers : deux quatrains et deux tercets",
+              "12 vers : trois quatrains",
+              "14 vers : quatre tercets et un distique",
+              "trois strophes et un envoi",
+            ],
+            answer: 0,
+            explanation: "Le **sonnet**, importé d’Italie au XVIe siècle, compte **14 vers** répartis en deux quatrains et deux tercets. Trois strophes suivies d’un envoi caractérisent la ballade, une autre forme fixe.",
+          },
+          {
+            id: "2nde-francais-02-s3-p2",
+            prompt: "La ballade médiévale se reconnaît à :",
+            choices: [
+              "sa chute finale de 14 vers",
+              "ses trois strophes, son envoi et son refrain",
+              "ses rimes toutes plates",
+            ],
+            answer: 1,
+            explanation: "La **ballade** compte généralement trois strophes et un **envoi** (strophe plus courte adressée à un destinataire), chaque strophe se terminant par le même **refrain**. Villon l’illustre avec la « Ballade des pendus ».",
+          },
+          {
+            id: "2nde-francais-02-s3-p3",
+            prompt: "Le thème du carpe diem, cher à Ronsard, invite à :",
+            choices: [
+              "imiter les Anciens",
+              "mépriser la nature",
+              "profiter du moment présent",
+              "fuir l’amour",
+            ],
+            answer: 2,
+            explanation: "**Carpe diem** signifie « cueille le jour » : il faut profiter du présent car la jeunesse et la beauté passent vite. Ronsard l’exprime notamment dans « Mignonne, allons voir si la rose… ».",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-02-hw-1",
+        prompt: "Combien de syllabes compte le vers « Je le vis, je rougis, je pâlis à sa vue » (Racine) ?",
+        choices: ["11", "12", "13"],
+        answer: 1,
+        explanation: "On compte : Je / le / vis / je / rou / gis / je / pâ / lis / à / sa / vue, soit **12 syllabes** : c’est un alexandrin. Le e final de « vue » ne compte pas, puisqu’il est en fin de vers.",
+      },
+      {
+        id: "2nde-francais-02-hw-2",
+        prompt: "Dans l’alexandrin classique, la césure partage le vers en :",
+        choices: [
+          "deux hémistiches de 6 syllabes",
+          "trois groupes de 4 syllabes",
+          "un vers et un rejet",
+          "deux quatrains",
+        ],
+        answer: 0,
+        explanation: "La **césure** est la pause principale de l’alexandrin classique : elle le divise en deux **hémistiches** de 6 syllabes (6 // 6). Les coupes, pauses secondaires, dessinent ensuite le rythme à l’intérieur de chaque hémistiche.",
+      },
+      {
+        id: "2nde-francais-02-hw-3",
+        prompt: "Une rime « féminine » est une rime :",
+        choices: ["riche", "embrassée", "qui évoque une femme", "terminée par un e muet"],
+        answer: 3,
+        explanation: "Le genre de la rime ne dépend pas du sens mais de la terminaison : une rime est **féminine** si le vers se termine par un e muet (rose, campagne), masculine sinon. La poésie classique fait alterner les deux.",
+      },
+      {
+        id: "2nde-francais-02-hw-4",
+        prompt: "Quel mouvement du XVIIe siècle recherche l’ordre, la clarté et la mesure ?",
+        choices: ["La Pléiade", "Le classicisme", "Le romantisme", "Les Lumières"],
+        answer: 1,
+        explanation: "Le **classicisme** (XVIIe siècle) prône la clarté, l’ordre et la mesure : Boileau le résume par « Ce que l’on conçoit bien s’énonce clairement ». La Pléiade appartient au XVIe siècle, les Lumières au XVIIIe et le romantisme au XIXe.",
       },
     ],
     exercise: [
@@ -537,6 +974,51 @@ export const chapters: Chapter[] = [
             "Conclusion : **focalisation interne**, qui fait partager au lecteur la gêne du personnage.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les trois focalisations",
+          headers: ["Focalisation", "Ce que montre le narrateur", "Effet sur le lecteur"],
+          rows: [
+            [
+              "Zéro (omnisciente)",
+              "Tout : pensées de tous les personnages, passé, avenir",
+              "Vision d’ensemble, maîtrise du récit",
+            ],
+            [
+              "Interne",
+              "Ce que perçoit et pense un seul personnage",
+              "Identification au personnage",
+            ],
+            [
+              "Externe",
+              "Gestes et paroles vus de l’extérieur, sans les pensées",
+              "Mystère ou impression d’objectivité",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-03-s1-p1",
+            prompt: "Dans un roman à la première personne qui n’est pas une autobiographie, le « je » désigne :",
+            choices: ["l’auteur", "le narrateur personnage", "le lecteur"],
+            answer: 1,
+            explanation: "L’auteur est la personne réelle ; le « je » d’un roman est le **narrateur personnage**, une instance fictive. Auteur, narrateur et personnage ne se confondent que dans l’autobiographie.",
+          },
+          {
+            id: "2nde-francais-03-s1-p2",
+            prompt: "Un narrateur qui connaît les pensées de tous les personnages adopte une focalisation :",
+            choices: ["interne", "externe", "zéro"],
+            answer: 2,
+            explanation: "En **focalisation zéro** (point de vue omniscient), le narrateur sait tout, y compris les pensées de tous les personnages. C’est un choix fréquent du roman réaliste du XIXe siècle, chez Balzac par exemple.",
+          },
+          {
+            id: "2nde-francais-03-s1-p3",
+            prompt: "Le narrateur décrit seulement les gestes et les paroles d’un personnage, comme une caméra, sans accès à ses pensées. C’est une focalisation :",
+            choices: ["externe", "interne", "zéro", "omnisciente"],
+            answer: 0,
+            explanation: "La **focalisation externe** présente les personnages de l’extérieur, sans révéler leurs pensées. Elle crée du mystère, comme au début de Germinal où l’homme qui marche n’est pas encore nommé.",
+          },
+        ],
       },
       {
         title: "Le temps du récit et les paroles rapportées",
@@ -566,6 +1048,55 @@ export const chapters: Chapter[] = [
             "Conclure : le passage oppose un cadre paisible (imparfait) à un événement brutal (passé simple), ce qui crée un effet de surprise.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les paroles rapportées",
+          headers: ["Discours", "Marques", "Exemple"],
+          rows: [
+            [
+              "Direct",
+              "Guillemets ou tirets, verbe de parole, paroles telles quelles",
+              "Il dit : « Je partirai demain. »",
+            ],
+            [
+              "Indirect",
+              "Subordonnée, pronoms et temps modifiés",
+              "Il dit qu’il partirait le lendemain.",
+            ],
+            [
+              "Indirect libre",
+              "Ni guillemets ni subordination, expressivité conservée",
+              "Il partirait demain, c’était décidé !",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-03-s2-p1",
+            prompt: "Dans « Il ouvrit la porte, entra, s’assit », le passé simple exprime :",
+            choices: [
+              "l’arrière-plan descriptif",
+              "des actions de premier plan qui font avancer l’histoire",
+              "une habitude répétée",
+            ],
+            answer: 1,
+            explanation: "Le **passé simple** exprime les actions ponctuelles et successives du **premier plan**. L’arrière-plan (descriptions, habitudes, actions en cours) est pris en charge par l’imparfait.",
+          },
+          {
+            id: "2nde-francais-03-s2-p2",
+            prompt: "« Deux ans plus tard, il revint au village. » Le récit passe sous silence deux années : c’est :",
+            choices: ["une analepse", "une pause", "une ellipse", "une scène"],
+            answer: 2,
+            explanation: "Une **ellipse** est une période de l’histoire que le récit passe sous silence. L’analepse est un retour en arrière, la pause arrête l’histoire pour décrire ou commenter, et la scène fait coïncider à peu près temps du texte et temps de l’histoire.",
+          },
+          {
+            id: "2nde-francais-03-s2-p3",
+            prompt: "« Il partirait demain, c’était décidé ! » est au discours :",
+            choices: ["indirect libre", "direct", "indirect"],
+            answer: 0,
+            explanation: "Il n’y a ni guillemets (discours direct) ni subordonnée introduite par un verbe de parole (discours indirect), mais l’exclamation garde l’expressivité du personnage : c’est le **discours indirect libre**. Flaubert l’utilise beaucoup pour mêler la voix du narrateur et celle du personnage.",
+          },
+        ],
       },
       {
         title: "Les grands courants du roman",
@@ -592,6 +1123,119 @@ export const chapters: Chapter[] = [
             "Conclure : l’incipit installe un univers hostile et l’errance d’un homme pauvre, annonçant le thème de la misère ouvrière.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : le roman du XVIIIe au XXe siècle",
+          events: [
+            {
+              date: "1721",
+              label: "Montesquieu, Lettres persanes (roman épistolaire)",
+            },
+            {
+              date: "1759",
+              label: "Voltaire, Candide (conte philosophique)",
+            },
+            {
+              date: "1782",
+              label: "Laclos, Les Liaisons dangereuses",
+            },
+            {
+              date: "1830",
+              label: "Stendhal, Le Rouge et le Noir (réalisme)",
+            },
+            {
+              date: "1857",
+              label: "Flaubert, Madame Bovary",
+            },
+            {
+              date: "1885",
+              label: "Zola, Germinal (naturalisme)",
+            },
+            {
+              date: "1913",
+              label: "Proust, Du côté de chez Swann",
+            },
+            {
+              date: "Années 1950",
+              label: "Le Nouveau Roman (Robbe-Grillet, Sarraute)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-03-s3-p1",
+            prompt: "Le conte philosophique Candide (1759) est l’œuvre de :",
+            choices: ["Diderot", "Voltaire", "Montesquieu", "Laclos"],
+            answer: 1,
+            explanation: "**Candide** est un conte philosophique de **Voltaire** : un récit plaisant et ironique qui critique la société et l’optimisme naïf. Montesquieu et Laclos sont associés au roman épistolaire, Diderot à Jacques le fataliste.",
+          },
+          {
+            id: "2nde-francais-03-s3-p2",
+            prompt: "Le naturalisme de Zola s’intéresse surtout à :",
+            choices: [
+              "l’influence de l’hérédité et du milieu sur les personnages",
+              "la remise en cause du personnage traditionnel",
+              "les passions de l’individu romantique",
+            ],
+            answer: 0,
+            explanation: "Le **naturalisme** s’inspire des sciences : le romancier observe comment l’**hérédité** et le **milieu** déterminent les personnages, à partir d’une documentation précise. La remise en cause du personnage relève du Nouveau Roman, la passion individuelle du romantisme.",
+          },
+          {
+            id: "2nde-francais-03-s3-p3",
+            prompt: "Le Nouveau Roman des années 1950 (Robbe-Grillet, Sarraute) :",
+            choices: [
+              "se compose uniquement de lettres",
+              "peint toute la société comme Balzac",
+              "remet en cause le personnage traditionnel et l’intrigue linéaire",
+            ],
+            answer: 2,
+            explanation: "Le **Nouveau Roman** rompt avec les conventions du roman balzacien : personnage aux contours flous, intrigue non linéaire. Le roman fait de lettres est le roman épistolaire, surtout pratiqué au XVIIIe siècle.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-03-hw-1",
+        prompt: "« Longtemps, je me suis couché de bonne heure » (Proust) : le narrateur est :",
+        choices: [
+          "extérieur à l’histoire",
+          "un narrateur personnage",
+          "omniscient en focalisation zéro",
+        ],
+        answer: 1,
+        explanation: "Le pronom « je » et le fait que le narrateur raconte sa propre expérience montrent qu’il participe à l’histoire : c’est un **narrateur personnage**. Il ne faut pas pour autant le confondre avec l’auteur, Marcel Proust.",
+      },
+      {
+        id: "2nde-francais-03-hw-2",
+        prompt: "Dans un récit au passé, l’imparfait sert surtout à :",
+        choices: [
+          "raconter les actions principales",
+          "marquer l’anticipation",
+          "exprimer l’arrière-plan : descriptions, habitudes, actions en cours",
+          "rapporter des paroles au discours direct",
+        ],
+        answer: 2,
+        explanation: "L’**imparfait** est le temps de l’**arrière-plan** : il décrit le décor, les habitudes, les actions en cours. Les actions principales, au premier plan, sont au passé simple.",
+      },
+      {
+        id: "2nde-francais-03-hw-3",
+        prompt: "Quelle association œuvre / mouvement est correcte ?",
+        choices: [
+          "Madame Bovary / réalisme",
+          "Germinal / romantisme",
+          "Candide / naturalisme",
+          "Les Liaisons dangereuses / Nouveau Roman",
+        ],
+        answer: 0,
+        explanation: "**Madame Bovary** de Flaubert est un grand roman **réaliste**. Germinal relève du naturalisme, Candide du conte philosophique des Lumières, et Les Liaisons dangereuses du roman épistolaire du XVIIIe siècle.",
+      },
+      {
+        id: "2nde-francais-03-hw-4",
+        prompt: "Un retour en arrière dans le récit s’appelle :",
+        choices: ["une prolepse", "une ellipse", "un sommaire", "une analepse"],
+        answer: 3,
+        explanation: "L’**analepse** est un retour en arrière, la prolepse une anticipation. L’ellipse passe une période sous silence et le sommaire résume une longue durée en quelques lignes.",
       },
     ],
     exercise: [
@@ -794,6 +1438,55 @@ export const chapters: Chapter[] = [
             "Conclusion : le comique naît du décalage entre l’apparence vertueuse et la réalité du personnage, ce qui sert la satire de l’hypocrisie religieuse.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Le vocabulaire du texte théâtral",
+          headers: ["Notion", "Définition"],
+          rows: [
+            ["Réplique", "Prise de parole d’un personnage"],
+            [
+              "Didascalie",
+              "Indication scénique : décor, gestes, ton, entrées et sorties",
+            ],
+            [
+              "Double énonciation",
+              "Le personnage parle à un personnage, l’auteur parle au public",
+            ],
+            ["Ironie dramatique", "Le public en sait plus que le personnage"],
+            [
+              "Acte / scène",
+              "Grandes parties de la pièce / nouvelle scène à chaque entrée ou sortie",
+            ],
+            ["Hors-scène", "Espace invisible évoqué par les personnages"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-04-s1-p1",
+            prompt: "Les indications en italique qui précisent le décor, les gestes ou le ton s’appellent :",
+            choices: ["des répliques", "des didascalies", "des apartés", "des tirades"],
+            answer: 1,
+            explanation: "Les **didascalies** sont les indications scéniques, souvent en italique : décor, gestes, ton, entrées et sorties. Les répliques sont au contraire les paroles prononcées par les personnages.",
+          },
+          {
+            id: "2nde-francais-04-s1-p2",
+            prompt: "La double énonciation signifie que :",
+            choices: [
+              "deux personnages parlent en même temps",
+              "l’auteur écrit deux versions de la pièce",
+              "chaque réplique s’adresse à la fois à un personnage et au public",
+            ],
+            answer: 2,
+            explanation: "Au théâtre, toute réplique a **deux destinataires** : le personnage à qui elle est adressée et le public, auquel l’auteur s’adresse à travers elle. C’est ce qui rend possible l’ironie dramatique.",
+          },
+          {
+            id: "2nde-francais-04-s1-p3",
+            prompt: "Dans la tragédie classique, les morts violentes se déroulent hors-scène par souci de :",
+            choices: ["bienséance", "vraisemblance", "unité de temps", "catharsis"],
+            answer: 0,
+            explanation: "La **bienséance** interdit de choquer le public : on ne montre ni la mort ni la violence sur scène. Ces événements sont donc placés hors-scène et racontés par un personnage.",
+          },
+        ],
       },
       {
         title: "Les formes de la parole et la construction de l’action",
@@ -823,6 +1516,60 @@ export const chapters: Chapter[] = [
             "Interpréter : chacune de ces formes sert un effet (complicité avec le public, argumentation, introspection, tension).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "La construction de l’action dramatique",
+          steps: [
+            {
+              label: "Exposition",
+              detail: "Présenter personnages, situation et enjeux",
+            },
+            {
+              label: "Nœud",
+              detail: "Le conflit principal s’installe",
+            },
+            {
+              label: "Péripéties",
+              detail: "Des événements relancent l’action",
+            },
+            {
+              label: "Coup de théâtre",
+              detail: "Retournement brusque et inattendu",
+            },
+            {
+              label: "Dénouement",
+              detail: "Résolution : heureuse (comédie) ou funeste (tragédie)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-04-s2-p1",
+            prompt: "Un personnage seul sur scène qui exprime ses pensées prononce :",
+            choices: ["une tirade", "un aparté", "un monologue", "une stichomythie"],
+            answer: 2,
+            explanation: "Le **monologue** est prononcé par un personnage seul en scène (ou qui se croit seul). La tirade est une longue réplique adressée à d’autres personnages, l’aparté une réplique que les autres personnages présents sont censés ne pas entendre.",
+          },
+          {
+            id: "2nde-francais-04-s2-p2",
+            prompt: "Un échange rapide de répliques très courtes, souvent d’un vers chacune, s’appelle :",
+            choices: ["une stichomythie", "un quiproquo", "une tirade"],
+            answer: 0,
+            explanation: "La **stichomythie** traduit un affrontement ou une forte tension par des répliques brèves qui s’enchaînent vivement. Le quiproquo est un malentendu, la tirade une longue réplique.",
+          },
+          {
+            id: "2nde-francais-04-s2-p3",
+            prompt: "Selon la règle classique des trois unités, l’action doit se dérouler :",
+            choices: [
+              "en plusieurs lieux, sur plusieurs années",
+              "en un seul lieu, en une journée, autour d’une seule action",
+              "en un seul lieu, mais sans limite de temps",
+              "obligatoirement en cinq actes et en prose",
+            ],
+            answer: 1,
+            explanation: "La règle des **trois unités** impose l’unité de lieu, de temps (une journée) et d’action, comme le résume Boileau : « Qu’en un lieu, qu’en un jour, un seul fait accompli / Tienne jusqu’à la fin le théâtre rempli ». Elle s’ajoute aux exigences de vraisemblance et de bienséance.",
+          },
+        ],
       },
       {
         title: "Les genres théâtraux",
@@ -849,6 +1596,113 @@ export const chapters: Chapter[] = [
             "Conclure en combinant les indices, en nuançant si nécessaire (tragi-comédie, comédie grinçante).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les grands genres théâtraux",
+          headers: ["Genre", "Caractéristiques", "Auteurs et œuvres"],
+          rows: [
+            [
+              "Tragédie",
+              "Personnages nobles, fatalité, mort, catharsis",
+              "Corneille (Horace), Racine (Phèdre)",
+            ],
+            [
+              "Tragi-comédie",
+              "Sujet grave, dénouement non funeste",
+              "Corneille (Le Cid)",
+            ],
+            [
+              "Comédie",
+              "Vie quotidienne, fin heureuse, critique des mœurs",
+              "Molière, Marivaux, Beaumarchais",
+            ],
+            [
+              "Drame romantique",
+              "Mélange du sublime et du grotesque, refus des règles",
+              "Hugo (Hernani, Ruy Blas), Musset (Lorenzaccio)",
+            ],
+            [
+              "Théâtre de l’absurde",
+              "Langage qui tourne à vide, action quasi absente",
+              "Ionesco, Beckett",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-04-s3-p1",
+            prompt: "Selon Aristote, la catharsis est :",
+            choices: [
+              "le retournement final de l’action",
+              "la purgation des passions du spectateur par la terreur et la pitié",
+              "le mélange du sublime et du grotesque",
+            ],
+            answer: 1,
+            explanation: "La **catharsis** est la purgation des passions que la tragédie provoque chez le spectateur, par la terreur et la pitié. Le mélange du sublime et du grotesque caractérise au contraire le drame romantique selon Hugo.",
+          },
+          {
+            id: "2nde-francais-04-s3-p2",
+            prompt: "Pourquoi Le Cid de Corneille est-il d’abord qualifié de tragi-comédie ?",
+            choices: [
+              "Parce qu’il est écrit en prose",
+              "Parce qu’il ne comporte aucun personnage noble",
+              "Parce qu’il ne respecte aucune règle",
+              "Parce que le sujet est grave mais le dénouement n’est pas funeste",
+            ],
+            answer: 3,
+            explanation: "La **tragi-comédie** traite un conflit grave avec des personnages de haut rang, mais sans dénouement funeste. C’est le cas du Cid, où les héros ne meurent pas à la fin.",
+          },
+          {
+            id: "2nde-francais-04-s3-p3",
+            prompt: "Le théâtre de l’absurde (Ionesco, Beckett) :",
+            choices: [
+              "exprime l’absurdité de la condition humaine par un langage qui tourne à vide",
+              "cherche à corriger les mœurs en divertissant",
+              "respecte strictement la règle des trois unités",
+            ],
+            answer: 0,
+            explanation: "Le **théâtre de l’absurde**, dans les années 1950, montre des personnages sans repères, une action quasi absente et un langage vidé de sens pour dire l’absurdité de l’existence. Corriger les mœurs en divertissant est la visée de la comédie classique.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-04-hw-1",
+        prompt: "« Couvrez ce sein que je ne saurais voir » fait rire le public de Tartuffe parce que :",
+        choices: [
+          "le public sait que Tartuffe est un hypocrite (ironie dramatique)",
+          "Tartuffe est seul sur scène",
+          "la réplique est une didascalie",
+        ],
+        answer: 0,
+        explanation: "Le spectateur connaît la vraie nature de Tartuffe et perçoit le décalage entre sa fausse pudeur et ses désirs : c’est l’**ironie dramatique**, rendue possible par la double énonciation. Le comique naît de ce que le public sait et que certains personnages ignorent.",
+      },
+      {
+        id: "2nde-francais-04-hw-2",
+        prompt: "Dans une pièce classique, une nouvelle scène commence :",
+        choices: [
+          "uniquement quand le décor change",
+          "à chaque entrée ou sortie d’un personnage",
+          "à chaque tirade",
+          "tous les cent vers",
+        ],
+        answer: 1,
+        explanation: "Dans le théâtre classique, la **scène** change à chaque entrée ou sortie d’un personnage. Les actes, plus longs, regroupent plusieurs scènes (souvent cinq actes pour la tragédie).",
+      },
+      {
+        id: "2nde-francais-04-hw-3",
+        prompt: "Quel auteur est associé au drame romantique ?",
+        choices: ["Racine", "Molière", "Victor Hugo", "Beckett"],
+        answer: 2,
+        explanation: "**Victor Hugo** (Hernani, Ruy Blas) théorise et illustre le drame romantique, notamment dans la préface de Cromwell. Racine est un auteur tragique classique, Molière un auteur comique et Beckett un auteur du théâtre de l’absurde.",
+      },
+      {
+        id: "2nde-francais-04-hw-4",
+        prompt: "Un retournement brusque et inattendu de la situation s’appelle :",
+        choices: ["un dénouement", "une exposition", "un quiproquo", "un coup de théâtre"],
+        answer: 3,
+        explanation: "Le **coup de théâtre** renverse soudainement la situation. L’exposition ouvre la pièce, le dénouement la clôt, et le quiproquo est un malentendu entre personnages.",
       },
     ],
     exercise: [
@@ -1049,6 +1903,57 @@ export const chapters: Chapter[] = [
             "Exemple : les études sur les notifications illustrent et appuient l’argument.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les principaux types d’arguments",
+          headers: ["Type d’argument", "Principe"],
+          rows: [
+            [
+              "D’autorité",
+              "S’appuyer sur une personne reconnue ou une institution",
+            ],
+            [
+              "Logique (cause / conséquence)",
+              "Montrer un enchaînement de causes et d’effets",
+            ],
+            [
+              "Par analogie",
+              "Comparer la situation à une autre pour éclairer le raisonnement",
+            ],
+            [
+              "Ad hominem",
+              "Attaquer la personne de l’adversaire plutôt que ses idées",
+            ],
+            [
+              "Par l’absurde",
+              "Montrer que la thèse adverse mène à une conclusion intenable",
+            ],
+            ["Pragmatique", "S’appuyer sur les effets concrets"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-05-s1-p1",
+            prompt: "Dans la phrase « La peine de mort doit être abolie », on trouve :",
+            choices: ["le thème seulement", "une thèse", "un exemple"],
+            answer: 1,
+            explanation: "La phrase exprime une **opinion** sur un sujet : c’est une **thèse**. Le thème serait simplement « la peine de mort », sans prise de position.",
+          },
+          {
+            id: "2nde-francais-05-s1-p2",
+            prompt: "S’appuyer sur l’avis d’un prix Nobel pour défendre son idée, c’est utiliser un argument :",
+            choices: ["par analogie", "ad hominem", "d’autorité", "par l’absurde"],
+            answer: 2,
+            explanation: "L’**argument d’autorité** s’appuie sur une personne reconnue ou une institution pour donner du poids à la thèse. L’argument ad hominem, à l’inverse, attaque la personne de l’adversaire.",
+          },
+          {
+            id: "2nde-francais-05-s1-p3",
+            prompt: "« Certes, les écrans facilitent l’accès à l’information, mais ils fragilisent l’attention. » Ce mouvement est :",
+            choices: ["une concession", "une question rhétorique", "un exemple illustratif"],
+            answer: 0,
+            explanation: "Avec « Certes… mais… », l’auteur accorde une part de vérité à l’adversaire pour mieux affirmer sa propre position : c’est une **concession**. Cette stratégie rend l’argumentation plus nuancée et donc plus crédible.",
+          },
+        ],
       },
       {
         title: "Convaincre, persuader, délibérer",
@@ -1074,6 +1979,60 @@ export const chapters: Chapter[] = [
             "Conclusion : un texte efficace combine souvent les deux stratégies.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Trois manières d’argumenter",
+          headers: ["Démarche", "S’adresse à", "Moyens privilégiés"],
+          rows: [
+            [
+              "Convaincre",
+              "La raison",
+              "Arguments logiques, preuves, exemples vérifiables",
+            ],
+            [
+              "Persuader",
+              "Les émotions",
+              "Apostrophes, questions rhétoriques, hyperboles, images",
+            ],
+            [
+              "Délibérer",
+              "La réflexion sur un choix",
+              "Examen du pour et du contre",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-05-s2-p1",
+            prompt: "Persuader, c’est s’adresser avant tout :",
+            choices: [
+              "aux émotions du destinataire",
+              "à la raison du destinataire",
+              "à la mémoire du destinataire",
+            ],
+            answer: 0,
+            explanation: "**Persuader**, c’est toucher les **émotions** (indignation, pitié, peur, admiration), alors que **convaincre** s’adresse à la raison. Les deux démarches se combinent souvent dans un même texte.",
+          },
+          {
+            id: "2nde-francais-05-s2-p2",
+            prompt: "« Peut-on accepter qu’un enfant meure de faim ? » est :",
+            choices: [
+              "une concession",
+              "un modalisateur",
+              "une question rhétorique",
+              "une véritable demande d’information",
+            ],
+            answer: 2,
+            explanation: "Une **question rhétorique** n’attend pas de réponse, car elle la contient déjà (ici : non). C’est un procédé de persuasion qui implique le lecteur et le pousse à partager l’indignation de l’auteur.",
+          },
+          {
+            id: "2nde-francais-05-s2-p3",
+            prompt: "Une fable de La Fontaine qui défend une idée à travers un récit relève de l’argumentation :",
+            choices: ["directe", "indirecte", "délibérative"],
+            answer: 1,
+            explanation: "Quand la thèse passe par un récit ou une fiction (fable, conte philosophique, apologue), on parle d’**argumentation indirecte**. Le lecteur doit dégager lui-même la leçon, ce qui rend l’argumentation plus plaisante.",
+          },
+        ],
       },
       {
         title: "Les genres de l’argumentation et de la presse",
@@ -1100,6 +2059,99 @@ export const chapters: Chapter[] = [
             "Conclure en justifiant par ces indices, puis analyser la thèse et les stratégies argumentatives.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : littérature d’idées et presse",
+          events: [
+            {
+              date: "1580",
+              label: "Montaigne, Essais : naissance du genre de l’essai",
+            },
+            {
+              date: "1849",
+              label: "Victor Hugo, discours sur la misère à l’Assemblée",
+            },
+            {
+              date: "1881",
+              label: "Loi sur la liberté de la presse",
+            },
+            {
+              date: "13 janvier 1898",
+              label: "Zola, « J’accuse… ! » dans L’Aurore",
+            },
+            {
+              date: "XXIe siècle",
+              label: "Blogs, podcasts, réseaux sociaux",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-05-s3-p1",
+            prompt: "« J’accuse… ! » d’Émile Zola (1898) est :",
+            choices: [
+              "un éditorial non signé",
+              "une lettre ouverte publiée dans L’Aurore",
+              "un roman-feuilleton",
+              "un reportage de terrain",
+            ],
+            answer: 1,
+            explanation: "« J’accuse… ! » est une **lettre ouverte** au président de la République Félix Faure, publiée en une de **L’Aurore** le 13 janvier 1898. Adressée à un destinataire mais publiée pour tous, elle défend le capitaine Dreyfus.",
+          },
+          {
+            id: "2nde-francais-05-s3-p2",
+            prompt: "Un texte d’opinion signé par une personnalité extérieure au journal est :",
+            choices: ["un éditorial", "un reportage", "une tribune", "une chronique"],
+            answer: 2,
+            explanation: "La **tribune** donne la parole à une personnalité extérieure à la rédaction. L’éditorial exprime la position de la rédaction ou de son directeur, et la chronique est une rubrique régulière d’un auteur du journal.",
+          },
+          {
+            id: "2nde-francais-05-s3-p3",
+            prompt: "Le nom du genre de l’« essai » vient de l’œuvre de :",
+            choices: ["Zola", "Voltaire", "Montaigne"],
+            answer: 2,
+            explanation: "Le mot vient des **Essais** de **Montaigne** (XVIe siècle), où l’auteur développe librement sa réflexion personnelle. L’essai est depuis un texte en prose de réflexion personnelle sur un sujet.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-05-hw-1",
+        prompt: "Un fait précis (un chiffre, une affaire judiciaire) qui appuie un argument est :",
+        choices: ["une thèse", "un connecteur", "une concession", "un exemple"],
+        answer: 3,
+        explanation: "L’**exemple** est un fait précis, concret et vérifiable qui illustre ou prouve un argument. L’argument, lui, est une raison générale, et la thèse l’opinion défendue.",
+      },
+      {
+        id: "2nde-francais-05-hw-2",
+        prompt: "Dans « Il est évidemment nécessaire d’agir », le mot « évidemment » est :",
+        choices: [
+          "un modalisateur exprimant la certitude",
+          "un connecteur de cause",
+          "un exemple",
+        ],
+        answer: 0,
+        explanation: "Un **modalisateur** marque le jugement de l’énonciateur ou son degré de certitude. « Évidemment » montre que l’auteur présente son idée comme indiscutable, ce qui révèle son implication.",
+      },
+      {
+        id: "2nde-francais-05-hw-3",
+        prompt: "Quel connecteur logique exprime la conséquence ?",
+        choices: ["car", "cependant", "donc", "de plus"],
+        answer: 2,
+        explanation: "**Donc** introduit une conséquence. « Car » exprime la cause, « cependant » l’opposition et « de plus » l’addition : repérer les connecteurs permet de reconstituer la structure du raisonnement.",
+      },
+      {
+        id: "2nde-francais-05-hw-4",
+        prompt: "Laquelle de ces phrases énonce un fait et non une opinion ?",
+        choices: [
+          "Les journaux d’aujourd’hui sont moins bons qu’autrefois.",
+          "La loi sur la liberté de la presse date de 1881.",
+          "Il faudrait interdire les réseaux sociaux.",
+          "Zola est le plus grand écrivain français.",
+        ],
+        answer: 1,
+        explanation: "Un **fait** est vérifiable : la date de la loi sur la liberté de la presse (1881) peut être contrôlée. Les autres phrases expriment des jugements personnels (« moins bons », « il faudrait », « le plus grand ») : ce sont des opinions.",
       },
     ],
     exercise: [
@@ -1300,6 +2352,58 @@ export const chapters: Chapter[] = [
             "« port » : nom commun.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les classes de mots",
+          headers: ["Classe", "Variable ?", "Exemples"],
+          rows: [
+            ["Nom", "Oui", "chat, Paris, liberté"],
+            ["Déterminant", "Oui", "le, une, du, mon, ce, quel"],
+            ["Adjectif", "Oui", "beau, sombre, long"],
+            ["Pronom", "Oui", "il, le mien, celui-ci, qui, personne"],
+            ["Verbe", "Oui", "marcher, être, prendre"],
+            ["Adverbe", "Non", "très, souvent, heureusement"],
+            ["Préposition", "Non", "à, de, par, pour, sans, avec"],
+            [
+              "Conjonction de coordination",
+              "Non",
+              "mais, ou, et, donc, or, ni, car",
+            ],
+            [
+              "Conjonction de subordination",
+              "Non",
+              "que, quand, si, lorsque, puisque",
+            ],
+            ["Interjection", "Non", "ah, hélas, ô"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-06-s1-p1",
+            prompt: "Dans « Elle marche rapidement », quelle est la classe du mot « rapidement » ?",
+            choices: ["Adjectif", "Adverbe", "Préposition", "Verbe"],
+            answer: 1,
+            explanation: "« Rapidement » est un **adverbe** : il est invariable et modifie le sens du verbe « marche ». De nombreux adverbes de manière se terminent en -ment.",
+          },
+          {
+            id: "2nde-francais-06-s1-p2",
+            prompt: "Parmi ces mots, lequel est une conjonction de coordination ?",
+            choices: ["car", "lorsque", "avec", "très"],
+            answer: 0,
+            explanation: "Les conjonctions de coordination sont **mais, ou, et, donc, or, ni, car**. « Lorsque » est une conjonction de subordination, « avec » une préposition et « très » un adverbe.",
+          },
+          {
+            id: "2nde-francais-06-s1-p3",
+            prompt: "Dans « Je pense que tu as raison », le mot « que » est :",
+            choices: [
+              "un pronom relatif",
+              "un adverbe exclamatif",
+              "une conjonction de subordination",
+            ],
+            answer: 2,
+            explanation: "Ici, « que » n’a pas d’antécédent : il introduit simplement la proposition « tu as raison », complément du verbe « pense ». C’est donc une **conjonction de subordination**, alors que le pronom relatif reprend toujours un antécédent (« le livre que je lis »).",
+          },
+        ],
       },
       {
         title: "Les fonctions dans la phrase et dans le groupe nominal",
@@ -1331,6 +2435,62 @@ export const chapters: Chapter[] = [
             "Dans le groupe nominal, « jeune » est un **adjectif épithète** du nom « femme ».",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Repérer les fonctions",
+          headers: ["Fonction", "Repérage", "Exemple"],
+          rows: [
+            [
+              "Sujet",
+              "« c’est… qui » ; commande l’accord du verbe",
+              "Le vent souffle.",
+            ],
+            ["COD", "Complète le verbe sans préposition", "Elle lit un roman."],
+            [
+              "COI",
+              "Complète le verbe avec une préposition",
+              "Il pense à son avenir.",
+            ],
+            [
+              "Attribut du sujet",
+              "Après un verbe attributif (être, sembler…)",
+              "Le ciel paraît sombre.",
+            ],
+            [
+              "Complément circonstanciel",
+              "Déplaçable et supprimable",
+              "Chaque soir, il écrivait.",
+            ],
+            [
+              "Apposition",
+              "Détachée par une virgule",
+              "Zola, romancier naturaliste, …",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-06-s2-p1",
+            prompt: "Dans « Il pense à son avenir », le groupe « à son avenir » est :",
+            choices: ["COD", "attribut du sujet", "complément circonstanciel", "COI"],
+            answer: 3,
+            explanation: "Le groupe complète le verbe « penser » et il est introduit par la préposition « à » : c’est un **complément d’objet indirect (COI)**. Il n’est pas supprimable sans changer le sens, ce qui le distingue d’un complément circonstanciel.",
+          },
+          {
+            id: "2nde-francais-06-s2-p2",
+            prompt: "Dans « Le ciel paraît sombre », l’adjectif « sombre » est :",
+            choices: ["épithète", "attribut du sujet", "COD"],
+            answer: 1,
+            explanation: "« Sombre » qualifie le sujet « le ciel » par l’intermédiaire du **verbe attributif** « paraître » : c’est un **attribut du sujet**. Une épithète serait placée directement à côté du nom (« un ciel sombre »).",
+          },
+          {
+            id: "2nde-francais-06-s2-p3",
+            prompt: "Dans « Zola, romancier naturaliste, défendit Dreyfus », le groupe « romancier naturaliste » est :",
+            choices: ["une apposition", "un complément du nom", "un COD"],
+            answer: 0,
+            explanation: "Séparé par des virgules et détachable, ce groupe apporte une précision sur « Zola » : c’est une **apposition**. Le complément du nom est en général introduit par une préposition (« la maison de mon père »).",
+          },
+        ],
       },
       {
         title: "Phrase simple, phrase complexe et propositions subordonnées",
@@ -1361,6 +2521,106 @@ export const chapters: Chapter[] = [
             "« qu’il attendait » : subordonnée **relative** ; « qu’ » est un pronom relatif, antécédent « l’homme ».",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les propositions subordonnées",
+          headers: ["Subordonnée", "Introduite par", "Exemple"],
+          rows: [
+            [
+              "Relative",
+              "Pronom relatif (qui, que, dont, où…)",
+              "Le livre que tu m’as prêté est passionnant.",
+            ],
+            ["Complétive", "Conjonction « que »", "Je crois que tu as raison."],
+            [
+              "Interrogative indirecte",
+              "si, qui, quand, où, pourquoi…",
+              "Il se demande si elle viendra.",
+            ],
+            [
+              "Circonstancielle",
+              "quand, parce que, pour que, bien que…",
+              "Je reste parce qu’il pleut.",
+            ],
+            [
+              "Infinitive",
+              "Aucun mot subordonnant",
+              "J’entends les oiseaux chanter.",
+            ],
+            [
+              "Participiale",
+              "Aucun mot subordonnant",
+              "La nuit tombée, ils rentrèrent.",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-06-s3-p1",
+            prompt: "« Il pleut, donc je reste » : les deux propositions sont reliées par :",
+            choices: ["subordination", "juxtaposition", "coordination"],
+            answer: 2,
+            explanation: "Le mot « donc » relie deux propositions de même niveau : c’est une **coordination**. Avec une simple virgule (« Il pleut, je reste »), on aurait une juxtaposition ; avec « parce que », une subordination.",
+          },
+          {
+            id: "2nde-francais-06-s3-p2",
+            prompt: "Dans « Le livre que tu m’as prêté est passionnant », la proposition « que tu m’as prêté » est une subordonnée :",
+            choices: ["relative", "complétive", "interrogative indirecte", "circonstancielle"],
+            answer: 0,
+            explanation: "Elle est introduite par le pronom relatif « que », qui reprend l’**antécédent** « livre » : c’est une **subordonnée relative**. Elle complète le nom, comme le ferait un adjectif.",
+          },
+          {
+            id: "2nde-francais-06-s3-p3",
+            prompt: "« Il se demande si elle viendra » contient une subordonnée :",
+            choices: [
+              "relative",
+              "interrogative indirecte",
+              "circonstancielle de condition",
+              "infinitive",
+            ],
+            answer: 1,
+            explanation: "Après le verbe « se demander », « si » introduit une question rapportée : c’est une **interrogative indirecte**. La question directe serait : « Viendra-t-elle ? ». Le « si » de condition, lui, se trouve dans une phrase comme « S’il pleut, je reste ».",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-06-hw-1",
+        prompt: "Laquelle de ces phrases est une phrase complexe ?",
+        choices: [
+          "Le vent souffle sur la plaine.",
+          "Chaque soir, il écrivait dans sa chambre.",
+          "Je reste parce qu’il pleut.",
+          "Quelle belle journée !",
+        ],
+        answer: 2,
+        explanation: "Une phrase complexe contient **plusieurs verbes conjugués**, donc plusieurs propositions : « reste » et « pleut ». Les autres phrases n’ont qu’un verbe conjugué (ou aucun) : ce sont des phrases simples ou non verbales.",
+      },
+      {
+        id: "2nde-francais-06-hw-2",
+        prompt: "La locution « bien que » est suivie :",
+        choices: ["de l’indicatif", "du subjonctif", "du conditionnel", "de l’infinitif"],
+        answer: 1,
+        explanation: "« Bien que » introduit une subordonnée circonstancielle de concession et impose le **subjonctif** (« bien qu’il pleuve »). C’est aussi le cas de « pour que », « afin que » et « avant que ».",
+      },
+      {
+        id: "2nde-francais-06-hw-3",
+        prompt: "Dans « Chaque soir, il écrivait dans sa chambre », le groupe « chaque soir » est :",
+        choices: ["sujet", "complément circonstanciel de temps", "COD"],
+        answer: 1,
+        explanation: "Le groupe indique **quand** l’action a lieu et il est déplaçable et supprimable : c’est un **complément circonstanciel de temps**. Le sujet de la phrase est « il ».",
+      },
+      {
+        id: "2nde-francais-06-hw-4",
+        prompt: "Quelle affirmation sur la classe et la fonction d’un mot est exacte ?",
+        choices: [
+          "La classe est l’identité du mot ; la fonction est son rôle dans une phrase donnée.",
+          "La fonction d’un mot ne change jamais, quelle que soit la phrase.",
+          "Classe et fonction sont deux noms de la même notion.",
+        ],
+        answer: 0,
+        explanation: "La **classe** (ou nature) appartient au mot indépendamment de la phrase : « chat » est toujours un nom. La **fonction** dépend de son rôle dans une phrase précise : « chat » peut être sujet, COD, complément du nom…",
       },
     ],
     exercise: [
@@ -1554,6 +2814,64 @@ export const chapters: Chapter[] = [
             "Pistes d’axes : 1. un voyage énigmatique ; 2. un poème de deuil et de fidélité.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Le tableau de brouillon : un exemple",
+          headers: ["Citation", "Procédé", "Interprétation"],
+          rows: [
+            [
+              "« Cette faucille d’or dans le champ des étoiles » (Hugo)",
+              "Métaphore filée",
+              "Le ciel devient un champ de moisson : une nuit paisible et sacrée",
+            ],
+            [
+              "« Je le vis, je rougis, je pâlis à sa vue » (Racine)",
+              "Rythme 3/3//3/3, parallélisme",
+              "Les étapes rapides et implacables du coup de foudre",
+            ],
+            [
+              "« Pour qui sont ces serpents qui sifflent sur vos têtes ? » (Racine)",
+              "Allitération en [s]",
+              "Le son imite le sifflement : la folie devient audible",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-07-s1-p1",
+            prompt: "Commenter un texte, c’est :",
+            choices: [
+              "le résumer",
+              "le paraphraser",
+              "interpréter comment sa forme produit du sens",
+              "donner son avis sur l’auteur",
+            ],
+            answer: 2,
+            explanation: "Le commentaire est une **interprétation argumentée** : il montre **comment** le texte produit du sens et des effets, à partir de l’analyse de sa forme. Résumer ou paraphraser (redire le texte autrement) sont justement les défauts à éviter.",
+          },
+          {
+            id: "2nde-francais-07-s1-p2",
+            prompt: "Le paratexte d’un extrait comprend :",
+            choices: [
+              "les figures de style du texte",
+              "l’auteur, le titre, la date, le chapeau introductif",
+              "les citations utilisées dans le développement",
+            ],
+            answer: 1,
+            explanation: "Le **paratexte** regroupe tout ce qui entoure le texte : auteur, titre, date, œuvre, chapeau introductif. Il donne de précieux indices sur le genre, le contexte et la situation de l’extrait.",
+          },
+          {
+            id: "2nde-francais-07-s1-p3",
+            prompt: "Dans le tableau de brouillon à trois colonnes, on note :",
+            choices: [
+              "citation / procédé / interprétation",
+              "auteur / date / genre",
+              "introduction / développement / conclusion",
+            ],
+            answer: 0,
+            explanation: "Le tableau **citation / procédé / interprétation** oblige à associer chaque repérage à un sens. On regroupe ensuite les interprétations proches pour construire les axes du plan.",
+          },
+        ],
       },
       {
         title: "Problématique et plan",
@@ -1580,6 +2898,68 @@ export const chapters: Chapter[] = [
             "Vérifier : chaque axe répond à la problématique et progresse vers l’interprétation la plus profonde.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Du repérage au plan",
+          steps: [
+            {
+              label: "Lire et repérer",
+              detail: "Champs lexicaux, figures, énonciation, rythme",
+            },
+            {
+              label: "Interpréter",
+              detail: "Associer un sens à chaque procédé",
+            },
+            {
+              label: "Regrouper",
+              detail: "Rassembler les interprétations proches",
+            },
+            {
+              label: "Problématiser",
+              detail: "Formuler une question ouverte : « Comment… ? », « En quoi… ? »",
+            },
+            {
+              label: "Construire le plan",
+              detail: "2 ou 3 axes, du plus évident au plus subtil",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-07-s2-p1",
+            prompt: "Quelle problématique est la mieux formulée ?",
+            choices: [
+              "Comment l’auteur écrit-il ?",
+              "Pourquoi y a-t-il une métaphore au vers 3 ?",
+              "Le texte est-il beau ?",
+              "Comment Zola fait-il d’un décor un personnage menaçant ?",
+            ],
+            answer: 3,
+            explanation: "Une bonne problématique est une **question ouverte** qui porte sur la singularité du texte et le lien entre forme et sens. Les autres sont trop vagues, trop étroites ou fermées (réponse oui / non).",
+          },
+          {
+            id: "2nde-francais-07-s2-p2",
+            prompt: "Quel type de plan faut-il éviter dans un commentaire ?",
+            choices: [
+              "Un plan en deux axes interprétatifs",
+              "Un plan « I. Le fond, II. La forme »",
+              "Un plan qui va du plus évident au plus subtil",
+            ],
+            answer: 1,
+            explanation: "Le plan **fond / forme** est à proscrire, car l’analyse doit toujours relier la forme et le sens. Il faut aussi éviter le plan linéaire, qui relève de l’explication linéaire de l’oral.",
+          },
+          {
+            id: "2nde-francais-07-s2-p3",
+            prompt: "Dans la copie rédigée, les titres des axes et des sous-parties :",
+            choices: [
+              "ne figurent pas : on rédige en paragraphes reliés par des transitions",
+              "doivent apparaître en gras",
+              "sont numérotés I, II, III au début de chaque partie",
+            ],
+            answer: 0,
+            explanation: "Les titres servent uniquement à organiser le **brouillon**. Dans la copie, on rédige des paragraphes argumentés, reliés par des **transitions** qui font apparaître la progression du raisonnement.",
+          },
+        ],
       },
       {
         title: "Rédiger : introduction, développement, conclusion",
@@ -1610,6 +2990,108 @@ export const chapters: Chapter[] = [
             "Bilan : « Ainsi, dès le premier quatrain, le lecteur perçoit un rendez-vous essentiel, dont la nature reste encore mystérieuse. »",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Les quatre étapes de l’introduction",
+          steps: [
+            {
+              label: "Amorce",
+              detail: "Situer le texte dans son contexte, sans banalité",
+            },
+            {
+              label: "Présentation",
+              detail: "Auteur, œuvre, date, situation, genre, thème",
+            },
+            {
+              label: "Problématique",
+              detail: "La question à laquelle répond le commentaire",
+            },
+            {
+              label: "Annonce du plan",
+              detail: "« Nous verrons d’abord… puis… enfin… »",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-07-s3-p1",
+            prompt: "Dans quel ordre se succèdent les étapes de l’introduction ?",
+            choices: [
+              "Problématique, amorce, annonce du plan, présentation",
+              "Présentation, annonce du plan, amorce, problématique",
+              "Amorce, présentation, problématique, annonce du plan",
+            ],
+            answer: 2,
+            explanation: "L’introduction suit l’ordre **amorce → présentation → problématique → annonce du plan**, rédigé en un seul paragraphe. On part du contexte général pour arriver au projet précis du commentaire.",
+          },
+          {
+            id: "2nde-francais-07-s3-p2",
+            prompt: "La conclusion d’un commentaire comprend :",
+            choices: [
+              "un résumé du texte étudié",
+              "un bilan qui répond à la problématique et une ouverture pertinente",
+              "de nouvelles analyses de détail",
+            ],
+            answer: 1,
+            explanation: "La conclusion fait le **bilan** du raisonnement en répondant clairement à la problématique, puis propose une **ouverture** précise vers une autre œuvre, un autre texte ou un mouvement. Elle n’apporte pas d’analyses nouvelles.",
+          },
+          {
+            id: "2nde-francais-07-s3-p3",
+            prompt: "Quelle règle de rédaction est correcte ?",
+            choices: [
+              "Écrire au passé simple",
+              "Employer « je » pour donner son avis",
+              "Écrire au présent et distinguer l’auteur du narrateur",
+              "Citer de longs passages sans les analyser",
+            ],
+            answer: 2,
+            explanation: "On rédige le commentaire au **présent d’analyse**, sans « je », et on distingue toujours l’auteur du narrateur ou du personnage. Les citations doivent être courtes, précises et intégrées à la phrase, puis analysées.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-07-hw-1",
+        prompt: "Le principal défaut à éviter dans un commentaire de texte est :",
+        choices: [
+          "la paraphrase",
+          "l’emploi de citations",
+          "la formulation d’une problématique",
+          "l’usage de transitions",
+        ],
+        answer: 0,
+        explanation: "La **paraphrase** consiste à redire le texte avec d’autres mots, sans l’interpréter : c’est le défaut principal du commentaire. Citations, problématique et transitions sont au contraire indispensables.",
+      },
+      {
+        id: "2nde-francais-07-hw-2",
+        prompt: "Combien d’axes comporte en général le plan d’un commentaire ?",
+        choices: ["Un seul", "Deux ou trois", "Cinq ou six"],
+        answer: 1,
+        explanation: "Le plan comporte **deux ou trois axes**, chacun divisé en deux ou trois sous-parties. Chaque axe défend une idée interprétative sur le texte.",
+      },
+      {
+        id: "2nde-francais-07-hw-3",
+        prompt: "Dans un paragraphe de développement, chaque analyse associe :",
+        choices: [
+          "une biographie de l’auteur et un résumé",
+          "une opinion personnelle et une question",
+          "une citation, le procédé nommé et son interprétation",
+        ],
+        answer: 2,
+        explanation: "Après l’**idée directrice**, chaque analyse associe une **citation** courte, le **procédé** nommé et son **interprétation**. Le paragraphe se termine par une phrase de bilan.",
+      },
+      {
+        id: "2nde-francais-07-hw-4",
+        prompt: "Une transition sert à :",
+        choices: [
+          "résumer le texte étudié",
+          "présenter l’auteur",
+          "ouvrir vers une autre œuvre",
+          "relier deux parties en faisant le bilan et en annonçant la suite",
+        ],
+        answer: 3,
+        explanation: "La **transition** fait le point sur ce que la partie a montré et annonce la suivante, ce qui rend visible la progression du raisonnement. L’ouverture, elle, appartient à la conclusion et la présentation de l’auteur à l’introduction.",
       },
     ],
     exercise: [
@@ -1834,6 +3316,55 @@ export const chapters: Chapter[] = [
             "Vérifier la fidélité : le « nos » de l’auteur est conservé, aucune idée n’est ajoutée.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Repères chiffrés de la contraction",
+          items: [
+            {
+              value: "1/4",
+              label: "longueur visée le plus souvent par rapport au texte",
+            },
+            {
+              value: "± 10 %",
+              label: "tolérance habituelle sur le nombre de mots",
+            },
+            {
+              value: "2 mots",
+              label: "pour « l’homme » (l’apostrophe sépare)",
+            },
+            {
+              value: "4 mots",
+              label: "pour « c’est-à-dire »",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-08-s1-p1",
+            prompt: "Le texte à contracter commence par « Je crois que… ». Dans la contraction, on écrit :",
+            choices: [
+              "« L’auteur croit que… »",
+              "« Je crois que… », en gardant l’énonciation du texte",
+              "« On pense généralement que… »",
+            ],
+            answer: 1,
+            explanation: "La contraction **respecte l’énonciation** : si l’auteur écrit « je », on garde « je ». On ne commence jamais par « L’auteur dit que… », qui transformerait l’exercice en résumé commenté.",
+          },
+          {
+            id: "2nde-francais-08-s1-p2",
+            prompt: "Combien de mots compte « l’homme » dans une contraction ?",
+            choices: ["Deux", "Un", "Trois"],
+            answer: 0,
+            explanation: "Un mot est ce qui est séparé par un espace ou une apostrophe : « l’homme » compte donc **deux mots**. De la même façon, « c’est-à-dire » en compte quatre.",
+          },
+          {
+            id: "2nde-francais-08-s1-p3",
+            prompt: "Remplacer « parce que les villes se développent » par « en raison de l’urbanisation », c’est :",
+            choices: ["généraliser", "citer le texte", "ajouter une opinion", "nominaliser"],
+            answer: 3,
+            explanation: "**Nominaliser**, c’est transformer une proposition verbale en groupe nominal (« se développent » → « l’urbanisation ») pour gagner des mots. Généraliser consiste plutôt à remplacer une énumération par un terme englobant.",
+          },
+        ],
       },
       {
         title: "Mener la contraction pas à pas",
@@ -1859,6 +3390,64 @@ export const chapters: Chapter[] = [
             "Vérification : énonciation conservée, thèse et argument restitués ; la concession et l’exemple, secondaires, sont supprimés pour tenir dans le nombre de mots (dans un texte plus long, la concession serait conservée).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Mener la contraction en quatre étapes",
+          steps: [
+            {
+              label: "1. Comprendre",
+              detail: "Thème, thèse, thèse réfutée, énonciation",
+            },
+            {
+              label: "2. Structurer",
+              detail: "Mouvements, arguments essentiels, connecteurs",
+            },
+            {
+              label: "3. Rédiger",
+              detail: "Texte suivi, reformulé, proportionné",
+            },
+            {
+              label: "4. Vérifier",
+              detail: "Nombre de mots, ordre, énonciation, aucune phrase recopiée",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-08-s2-p1",
+            prompt: "Quelle est la première étape de la contraction ?",
+            choices: [
+              "Compter les mots du texte",
+              "Lire et comprendre : thème, thèse, énonciation",
+              "Rédiger directement au propre",
+            ],
+            answer: 1,
+            explanation: "On commence par **lire et comprendre** le texte : thème, thèse, thèse éventuellement réfutée, situation d’énonciation. Sans cette compréhension, impossible de distinguer l’essentiel du secondaire.",
+          },
+          {
+            id: "2nde-francais-08-s2-p2",
+            prompt: "Dans la contraction, un « mouvement » du texte est :",
+            choices: [
+              "une figure de style",
+              "un connecteur logique",
+              "un ensemble de paragraphes qui développe une même idée",
+            ],
+            answer: 2,
+            explanation: "Un **mouvement** regroupe les paragraphes qui développent une même idée. On résume chaque mouvement en une phrase, puis on lui attribue une longueur proportionnelle à son importance dans le texte.",
+          },
+          {
+            id: "2nde-francais-08-s2-p3",
+            prompt: "Lors de la vérification finale, on contrôle notamment :",
+            choices: [
+              "que l’on a bien ajouté son avis personnel",
+              "que quelques phrases du texte ont été recopiées",
+              "le nombre de mots, l’ordre du texte et l’énonciation",
+              "que les exemples sont tous conservés",
+            ],
+            answer: 2,
+            explanation: "La vérification porte sur le **nombre de mots**, la fidélité à la thèse, le respect de l’**ordre** et de l’**énonciation**, et l’absence de phrases recopiées. Ajouter un avis ou recopier le texte sont interdits.",
+          },
+        ],
       },
       {
         title: "L’essai : construire une réflexion argumentée",
@@ -1889,6 +3478,106 @@ export const chapters: Chapter[] = [
             "Mini-conclusion : « La lecture élargit donc notre expérience et peut modifier notre perception du réel. »",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Choisir le plan de l’essai",
+          headers: ["Type de question", "Exemple", "Plan adapté"],
+          rows: [
+            [
+              "Fermée",
+              "« Faut-il… ? », « Peut-on… ? »",
+              "Dialectique (oui / mais / dépassement) ou « certes… mais… »",
+            ],
+            [
+              "Ouverte",
+              "« Comment… ? », « Pourquoi… ? »",
+              "Thématique ou analytique (causes, manifestations, conséquences)",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-francais-08-s3-p1",
+            prompt: "Les trois sources que mobilise l’essai sont :",
+            choices: [
+              "le dictionnaire, Internet et les manuels",
+              "les lectures, la culture et l’expérience",
+              "la biographie de l’auteur, le résumé et la citation",
+            ],
+            answer: 1,
+            explanation: "L’essai s’appuie sur les **lectures** (œuvres étudiées, lectures personnelles), la **culture** générale et l’**expérience**. Il ne s’agit pas de raconter sa vie, mais de démontrer une position nuancée.",
+          },
+          {
+            id: "2nde-francais-08-s3-p2",
+            prompt: "« Faut-il lire les classiques ? » est une question fermée. Quel plan convient le mieux ?",
+            choices: [
+              "Un plan dialectique",
+              "Un plan analytique (causes, conséquences)",
+              "Un plan linéaire",
+            ],
+            answer: 0,
+            explanation: "Une question fermée (« Faut-il… ? ») appelle une discussion du pour et du contre : le plan **dialectique** (oui… mais… dépassement) ou en deux parties « certes… mais… » est adapté. Le plan analytique convient plutôt aux questions ouvertes.",
+          },
+          {
+            id: "2nde-francais-08-s3-p3",
+            prompt: "Un paragraphe argumentatif d’essai suit en général l’ordre :",
+            choices: [
+              "exemple → opinion → question",
+              "citation → paraphrase → résumé",
+              "argument → explication → exemple précis → conclusion partielle",
+            ],
+            answer: 2,
+            explanation: "Chaque paragraphe formule clairement un **argument**, l’explique, l’illustre par un **exemple précis** (titre d’œuvre, auteur, situation) puis se clôt par une conclusion partielle. Cette structure rend la démonstration lisible.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-francais-08-hw-1",
+        prompt: "Un texte de 800 mots doit être contracté au quart. On vise :",
+        choices: [
+          "environ 400 mots",
+          "environ 200 mots (de 180 à 220 avec la tolérance de 10 %)",
+          "environ 80 mots",
+          "environ 600 mots",
+        ],
+        answer: 1,
+        explanation: "Le quart de 800 est **200 mots** ; avec la tolérance habituelle de ± 10 %, la contraction doit compter entre 180 et 220 mots. On indique le nombre de mots utilisés à la fin de la copie.",
+      },
+      {
+        id: "2nde-francais-08-hw-2",
+        prompt: "Dans une contraction de texte, il est interdit de :",
+        choices: [
+          "utiliser des connecteurs logiques",
+          "reformuler avec ses propres mots",
+          "respecter l’ordre du texte",
+          "ajouter son opinion personnelle",
+        ],
+        answer: 3,
+        explanation: "La contraction restitue **fidèlement** la pensée de l’auteur : aucune opinion personnelle ni information extérieure ne doit être ajoutée. Reformuler, garder les connecteurs et respecter l’ordre sont au contraire obligatoires.",
+      },
+      {
+        id: "2nde-francais-08-hw-3",
+        prompt: "Face à un sujet d’essai, on commence par :",
+        choices: [
+          "définir les mots-clés et dégager l’enjeu de la question",
+          "rédiger la conclusion",
+          "choisir un exemple au hasard",
+        ],
+        answer: 0,
+        explanation: "L’**analyse du sujet** vient en premier : définir chaque mot-clé, repérer le type de question (fermée ou ouverte) et reformuler l’enjeu. C’est elle qui permet ensuite de choisir le plan adapté.",
+      },
+      {
+        id: "2nde-francais-08-hw-4",
+        prompt: "Dans un essai, l’emploi du « je » est :",
+        choices: [
+          "strictement interdit",
+          "obligatoire à chaque phrase",
+          "possible, avec mesure",
+        ],
+        answer: 2,
+        explanation: "L’essai engage une réflexion **personnelle** : on peut donc employer « je » **avec mesure**, en gardant un registre soutenu. À l’inverse, la contraction n’utilise le « je » que s’il est celui de l’auteur du texte.",
       },
     ],
     exercise: [

@@ -45,6 +45,44 @@ export const chapters: Chapter[] = [
             "Vérification : works ne prend pas de forme continue car c’est la situation habituelle ; is working souligne le caractère provisoire.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Temps et aspects en anglais",
+          caption: "Deux temps (présent, prétérit) combinés à des aspects (simple, continu, parfait).",
+          headers: ["Aspect", "Présent", "Prétérit", "Valeur"],
+          rows: [
+            ["Simple", "she works", "she worked", "fait brut, habitude, vérité générale"],
+            ["Continu (be + V-ing)", "she is working", "she was working", "action en cours, temporaire, commentaire"],
+            ["Parfait (have + V-en)", "she has worked", "she had worked", "bilan au présent / antériorité dans le passé"],
+            ["Parfait continu (have been + V-ing)", "she has been working", "she had been working", "durée d’une activité jusqu’à un repère"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-01-s1-p1",
+            prompt: "Choose the correct form: « Water ___ at 100°C. »",
+            choices: ["boils", "is boiling", "boiled"],
+            answer: 0,
+            explanation:
+              "Il s’agit d’une **vérité générale**, toujours valable : on emploie le **présent simple** (boils). Le présent continu présenterait l’action comme temporaire, ce qui n’a pas de sens pour une loi physique.",
+          },
+          {
+            id: "1re-anglais-01-s1-p2",
+            prompt: "Which sentence is correct?",
+            choices: ["I'm knowing the answer.", "I am know the answer.", "I knowing the answer.", "I know the answer."],
+            answer: 3,
+            explanation:
+              "**Know** est un **verbe d’état** (stative verb) : il ne s’emploie pas à la forme continue. On dit donc simplement I know the answer, au présent simple.",
+          },
+          {
+            id: "1re-anglais-01-s1-p3",
+            prompt: "« I'm meeting my teacher tomorrow. » What does the present continuous express here?",
+            choices: ["an action in progress right now", "a future arrangement that is already organised", "a permanent situation"],
+            answer: 1,
+            explanation:
+              "Associé à un **marqueur de futur** (tomorrow), le présent continu exprime un **rendez-vous déjà organisé**. Ce n’est ni une action en cours au moment où l’on parle, ni une situation permanente.",
+          },
+        ],
       },
       {
         title: "Prétérit ou present perfect : coupé du présent ou relié à lui",
@@ -75,6 +113,44 @@ export const chapters: Chapter[] = [
             "Variante avec un point de départ : She has been learning English since 2020.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Prétérit ou present perfect : les marqueurs",
+          caption: "Le marqueur de temps oriente souvent le choix du temps.",
+          headers: ["Temps", "Marqueurs", "Exemple"],
+          rows: [
+            ["Prétérit", "yesterday, last year, in 1963, ago", "I saw him yesterday."],
+            ["Present perfect (bilan)", "ever, never, just, already, yet, so far", "Have you ever been to Scotland?"],
+            ["Present perfect + for", "durée (for ten years)", "I have lived here for ten years."],
+            ["Present perfect + since", "point de départ (since 2015)", "I have lived here since 2015."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-01-s2-p1",
+            prompt: "Choose the correct form: « She ___ to Scotland three times so far. »",
+            choices: ["went", "has been", "had been", "goes"],
+            answer: 1,
+            explanation:
+              "**So far** (« jusqu’à présent ») indique un **bilan au moment où l’on parle** : on utilise le **present perfect** (has been). Le prétérit went exigerait un passé coupé du présent, souvent daté.",
+          },
+          {
+            id: "1re-anglais-01-s2-p2",
+            prompt: "Translate: « J’ai déménagé il y a deux ans. »",
+            choices: ["I have moved two years ago.", "I moved since two years.", "I moved two years ago."],
+            answer: 2,
+            explanation:
+              "« Il y a » + durée au passé se traduit par **ago**, qui impose le **prétérit** (moved). Le present perfect est impossible avec un repère passé daté, et since s’emploie avec un point de départ, pas une durée.",
+          },
+          {
+            id: "1re-anglais-01-s2-p3",
+            prompt: "« Your eyes are red. ___ » Which question best explains this visible trace?",
+            choices: ["Have you been crying?", "Did you cry last year?", "Had you cried?"],
+            answer: 0,
+            explanation:
+              "Le **present perfect continuous** (have been + V-ing) sert à expliquer une **trace visible dans le présent** d’une activité récente. Le prétérit daté (last year) est coupé du présent et le past perfect exigerait un repère passé.",
+          },
+        ],
       },
       {
         title: "Le past perfect : l’antériorité dans le passé",
@@ -105,6 +181,81 @@ export const chapters: Chapter[] = [
             "Remarque : le français utilise ici un imparfait + depuis, l’anglais un past perfect + for.",
           ],
         },
+        practice: [
+          {
+            id: "1re-anglais-01-s3-p1",
+            prompt: "« When I arrived, the film had started. » What does this sentence mean?",
+            choices: [
+              "The film started at the moment I arrived.",
+              "The film started before I arrived.",
+              "The film started after I arrived.",
+              "The film never started.",
+            ],
+            answer: 1,
+            explanation:
+              "Le **past perfect** (had started) marque une action **antérieure** à un autre moment du passé (mon arrivée). Avec le prétérit started, le film aurait commencé au moment même de l’arrivée.",
+          },
+          {
+            id: "1re-anglais-01-s3-p2",
+            prompt: "« I lost my phone », she said. → She said that she ___ her phone.",
+            choices: ["has lost", "loses", "had lost"],
+            answer: 2,
+            explanation:
+              "Au **discours indirect** introduit par un verbe au passé (said), le prétérit recule au **past perfect** : had lost. Has lost et loses ne respectent pas cette concordance des temps.",
+          },
+          {
+            id: "1re-anglais-01-s3-p3",
+            prompt: "Choose the correct form: « They ___ for hours when they finally saw the village. »",
+            choices: ["had been walking", "have been walking", "are walking", "walk"],
+            answer: 0,
+            explanation:
+              "On insiste sur la **durée d’une activité avant un moment passé** (when they saw) : c’est le **past perfect continuous** (had been walking). Le present perfect continuous renverrait au moment présent, ce qui est incompatible avec saw.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-01-hw-1",
+        prompt: "Choose the correct form: « By the time we arrived, the show ___. »",
+        choices: ["has ended", "had ended", "ends", "is ending"],
+        answer: 1,
+        explanation:
+          "**By the time** + prétérit annonce une action déjà terminée avant ce moment passé : on emploie le **past perfect** (had ended). Le spectacle s’est terminé avant notre arrivée.",
+      },
+      {
+        id: "1re-anglais-01-hw-2",
+        prompt: "Translate: « Elle apprend le piano depuis six mois. »",
+        choices: [
+          "She learns the piano since six months.",
+          "She learned the piano for six months.",
+          "She is learning the piano since six months.",
+          "She has been learning the piano for six months.",
+        ],
+        answer: 3,
+        explanation:
+          "Présent français + « depuis » = action commencée dans le passé qui dure encore : **present perfect continuous**. « Six mois » est une **durée**, donc **for** et non since.",
+      },
+      {
+        id: "1re-anglais-01-hw-3",
+        prompt: "Choose the correct form: « Look! The children ___ in the garden. »",
+        choices: ["play", "played", "are playing"],
+        answer: 2,
+        explanation:
+          "« Look! » signale une action **en cours au moment où l’on parle** : on emploie le **présent continu** (are playing). Le présent simple play exprimerait une habitude.",
+      },
+      {
+        id: "1re-anglais-01-hw-4",
+        prompt: "Which sentence is **incorrect**?",
+        choices: [
+          "I have seen him yesterday.",
+          "I saw him yesterday.",
+          "I have already seen this film.",
+          "I have drunk three coffees today.",
+        ],
+        answer: 0,
+        explanation:
+          "On n’emploie **jamais le present perfect avec un repère passé daté** comme yesterday : il faut dire I saw him yesterday. En revanche, today est une période non terminée, compatible avec le present perfect.",
       },
     ],
     exercise: [
@@ -304,6 +455,44 @@ export const chapters: Chapter[] = [
             "Si c’est impossible (ciel sans nuage, sol sec ailleurs) : It can’t have rained.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les deux valeurs des modaux",
+          caption: "Valeur épistémique (probabilité) ou radicale (relations entre personnes).",
+          headers: ["Modal", "Valeur épistémique", "Valeur radicale"],
+          rows: [
+            ["must", "déduction : He must be tired.", "obligation : You must wear a seatbelt."],
+            ["can / can’t", "impossibilité : That can’t be true.", "capacité : I can speak Spanish."],
+            ["may / might", "possibilité : She may be at home.", "permission (may) : You may leave."],
+            ["should", "probabilité : They should arrive soon.", "conseil : You should see a doctor."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-02-s1-p1",
+            prompt: "Choose the correct modal: « You ___ smoke here: it's forbidden. »",
+            choices: ["don't have to", "mustn't", "needn't"],
+            answer: 1,
+            explanation:
+              "**Mustn’t** exprime une **interdiction**, ce qui correspond à « it’s forbidden ». Don’t have to et needn’t signifient seulement qu’il n’y a **pas d’obligation**.",
+          },
+          {
+            id: "1re-anglais-02-s1-p2",
+            prompt: "« The streets are wet this morning. It ___ during the night. »",
+            choices: ["must have rained", "should rain", "can rain", "must rain"],
+            answer: 0,
+            explanation:
+              "On fait une **déduction quasi certaine sur le passé** : must + **have + participe passé** (must have rained). Must rain porterait sur le présent ou l’obligation, ce qui ne convient pas.",
+          },
+          {
+            id: "1re-anglais-02-s1-p3",
+            prompt: "« You should have told me. » What does this sentence express?",
+            choices: ["an obligation in the future", "a deduction about the present", "a reproach about the past"],
+            answer: 2,
+            explanation:
+              "**Should have + participe passé** exprime un **reproche ou un regret** sur une action passée qui n’a pas eu lieu (« tu aurais dû me le dire »). La structure modal + have + V-en renvoie toujours au passé.",
+          },
+        ],
       },
       {
         title: "Les phrases en if : du réel à l’irréel",
@@ -337,6 +526,48 @@ export const chapters: Chapter[] = [
             "Version soutenue avec inversion : Had I known about the strike, I would have taken my bike.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les quatre types de phrases en if",
+          caption: "Plus l’hypothèse s’éloigne du réel, plus les temps « reculent ».",
+          headers: ["Type", "Subordonnée (if)", "Principale", "Exemple"],
+          rows: [
+            ["0 – vérité générale", "présent", "présent", "If you heat ice, it melts."],
+            ["1 – possible", "présent", "will + V", "If it rains, we will stay at home."],
+            ["2 – irréel du présent", "prétérit (were)", "would + V", "If I had more time, I would travel more."],
+            ["3 – irréel du passé", "past perfect", "would have + V-en", "If she had studied, she would have passed."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-02-s2-p1",
+            prompt: "Complete: « If I ___ you, I would accept the offer. »",
+            choices: ["am", "will be", "were", "would be"],
+            answer: 2,
+            explanation:
+              "C’est un **type 2** (irréel du présent) : if + **prétérit**, et avec be on emploie **were** à toutes les personnes en registre soutenu. On ne met jamais will ni would dans la subordonnée en if.",
+          },
+          {
+            id: "1re-anglais-02-s2-p2",
+            prompt: "Complete: « If she had studied harder, she ___ the exam. »",
+            choices: ["would pass", "would have passed", "will pass", "had passed"],
+            answer: 1,
+            explanation:
+              "La subordonnée au **past perfect** (had studied) indique un **type 3**, irréel du passé. La principale se construit donc avec **would have + participe passé** : would have passed.",
+          },
+          {
+            id: "1re-anglais-02-s2-p3",
+            prompt: "« Unless you hurry, you will miss the train. » This means:",
+            choices: [
+              "If you don't hurry, you will miss the train.",
+              "If you hurry, you will miss the train.",
+              "Although you hurry, you will miss the train.",
+            ],
+            answer: 0,
+            explanation:
+              "**Unless** équivaut à **if… not** (« à moins que »). La phrase signifie donc : si tu ne te dépêches pas, tu rateras le train.",
+          },
+        ],
       },
       {
         title: "Wish et if only : souhaits et regrets",
@@ -367,6 +598,78 @@ export const chapters: Chapter[] = [
             "Prolongement avec une conséquence présente (phrase mixte) : If we had acted earlier, the situation would be less critical today.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Wish, if only et structures voisines",
+          headers: ["Structure", "Valeur", "Exemple"],
+          rows: [
+            ["wish / if only + prétérit", "regret sur le présent", "I wish I had a car."],
+            ["wish / if only + past perfect", "regret sur le passé", "I wish I had listened to you."],
+            ["wish + would", "souhait de changement chez l’autre", "I wish you would stop interrupting me."],
+            ["It’s (high) time + prétérit", "il est temps que…", "It’s time we left."],
+            ["I’d rather + S + prétérit", "je préférerais que…", "I’d rather you didn’t tell her."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-02-s3-p1",
+            prompt: "Express a regret about the present: « I don't have a car. »",
+            choices: ["I wish I have a car.", "I wish I would have a car.", "I wish I had had a car.", "I wish I had a car."],
+            answer: 3,
+            explanation:
+              "Pour un **regret sur le présent**, on emploie wish + **prétérit** : I wish I had a car. Had had (past perfect) renverrait à un regret sur le passé, et I wish I would est impossible avec le même sujet.",
+          },
+          {
+            id: "1re-anglais-02-s3-p2",
+            prompt: "They sold their house last year and now regret it: « If only we ___ the house! »",
+            choices: ["hadn't sold", "didn't sell", "wouldn't sell"],
+            answer: 0,
+            explanation:
+              "Le regret porte sur une **action passée** : if only + **past perfect** (hadn’t sold). Le prétérit didn’t sell exprimerait un regret sur le présent.",
+          },
+          {
+            id: "1re-anglais-02-s3-p3",
+            prompt: "Complete: « It's high time we ___. »",
+            choices: ["leave", "left", "will leave", "have left"],
+            answer: 1,
+            explanation:
+              "**It’s (high) time** est suivi d’un sujet + **prétérit** à valeur d’irréel : It’s high time we left (« il est grand temps que nous partions »). Le présent ou le futur ne sont pas possibles dans cette structure.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-02-hw-1",
+        prompt: "« He ___ seen us: he was in London at the time. »",
+        choices: ["must have", "can't have", "should have", "might have"],
+        answer: 1,
+        explanation:
+          "Il était à Londres : il est **impossible** qu’il nous ait vus. L’impossibilité logique dans le passé s’exprime avec **can’t have + participe passé**.",
+      },
+      {
+        id: "1re-anglais-02-hw-2",
+        prompt: "Mixed conditional: « If I had taken that job, I ___ rich now. »",
+        choices: ["would have been", "will be", "would be"],
+        answer: 2,
+        explanation:
+          "La condition porte sur le **passé** (had taken) mais la conséquence sur le **présent** (now) : c’est une **phrase mixte**. La principale prend donc would + base verbale : would be.",
+      },
+      {
+        id: "1re-anglais-02-hw-3",
+        prompt: "« Had I known about the strike, I would have taken my bike. » « Had I known » is equivalent to:",
+        choices: ["If I knew", "If I have known", "If I would know", "If I had known"],
+        answer: 3,
+        explanation:
+          "L’**inversion** Had + sujet + participe passé est une version **soutenue** de if + past perfect. Had I known = If I had known (type 3, irréel du passé).",
+      },
+      {
+        id: "1re-anglais-02-hw-4",
+        prompt: "« You don't have to come. » This means:",
+        choices: ["It is not necessary for you to come.", "You are forbidden to come.", "You will certainly come."],
+        answer: 0,
+        explanation:
+          "**Don’t have to** exprime l’**absence d’obligation** : ce n’est pas nécessaire. Il ne faut pas le confondre avec mustn’t, qui exprime une interdiction.",
       },
     ],
     exercise: [
@@ -563,6 +866,51 @@ export const chapters: Chapter[] = [
             "L’agent « by engineers » est évident : on peut le supprimer.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "La voix passive à tous les temps",
+          caption: "C’est be qui porte le temps ; le verbe est toujours au participe passé.",
+          headers: ["Temps", "Actif", "Passif"],
+          rows: [
+            ["Présent simple", "They build houses.", "Houses are built."],
+            ["Présent continu", "They are building a bridge.", "A bridge is being built."],
+            ["Prétérit", "Banksy painted this mural.", "This mural was painted by Banksy."],
+            ["Present perfect", "They have signed the deal.", "The deal has been signed."],
+            ["Modal", "You must do it.", "It must be done."],
+            ["Modal passé", "They should have done it.", "It should have been done."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-03-s1-p1",
+            prompt: "Put into the passive: « They are building a new school. »",
+            choices: [
+              "A new school is built.",
+              "A new school is being built.",
+              "A new school has been building.",
+              "A new school was being build.",
+            ],
+            answer: 1,
+            explanation:
+              "Are building est au **présent continu** : au passif, be devient **is being**, suivi du participe passé built. Is built correspondrait au présent simple et ne garderait pas l’idée d’action en cours.",
+          },
+          {
+            id: "1re-anglais-03-s1-p2",
+            prompt: "Translate: « On lui a proposé un emploi. » (lui = elle)",
+            choices: ["She offered a job.", "One offered her a job.", "She was offered a job."],
+            answer: 2,
+            explanation:
+              "Le « on » français se traduit très souvent par un **passif**. Avec un verbe à deux compléments, l’anglais prend la **personne comme sujet** : She was offered a job.",
+          },
+          {
+            id: "1re-anglais-03-s1-p3",
+            prompt: "« Nobody listened to him. » → « He ___ »",
+            choices: ["was not listened to.", "was not listened.", "did not be listened to.", "was not listen to."],
+            answer: 0,
+            explanation:
+              "Avec un **verbe prépositionnel** (listen to), la préposition **reste après le verbe** au passif : He was not listened to. Le participe passé listened est obligatoire après be.",
+          },
+        ],
       },
       {
         title: "Passif impersonnel et causatif",
@@ -594,6 +942,49 @@ export const chapters: Chapter[] = [
             "Retenir : on vérifie toujours qu’il y a un objet entre have/get et le participe passé.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Le causatif et les verbes de contrainte ou de permission",
+          headers: ["Structure", "Sens", "Exemple"],
+          rows: [
+            ["have / get + objet + V-en", "faire faire, se faire + V", "I had my hair cut."],
+            ["make + personne + V", "obliger", "The teacher made us rewrite the essay."],
+            ["have + personne + V", "demander (service)", "I had the mechanic check the brakes."],
+            ["get + personne + to + V", "persuader", "I got my friend to help me."],
+            ["let + personne + V", "laisser, permettre", "My parents let me go to the concert."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-03-s2-p1",
+            prompt: "Translate: « On dit que le président est malade. »",
+            choices: [
+              "The president is said being ill.",
+              "It says the president is ill.",
+              "The president says to be ill.",
+              "The president is said to be ill.",
+            ],
+            answer: 3,
+            explanation:
+              "Le **passif des verbes d’opinion** se construit avec be said + **to + base verbale** : The president is said to be ill. On pourrait aussi dire It is said that the president is ill, mais jamais It says.",
+          },
+          {
+            id: "1re-anglais-03-s2-p2",
+            prompt: "Translate: « Il s’est fait voler son portefeuille. »",
+            choices: ["He had his wallet stolen.", "He made his wallet steal.", "He got stolen his wallet."],
+            answer: 0,
+            explanation:
+              "Le **causatif** have + **objet** + participe passé exprime aussi une action **subie** : He had his wallet stolen. L’objet (his wallet) doit se placer entre have et le participe passé.",
+          },
+          {
+            id: "1re-anglais-03-s2-p3",
+            prompt: "Put into the passive: « They made us wait. »",
+            choices: ["We were made wait.", "We were made to wait.", "We were let wait."],
+            answer: 1,
+            explanation:
+              "À l’actif, make est suivi de la base verbale sans to, mais **au passif make reprend to** : We were made to wait. Let n’a pas de passif : on utiliserait be allowed to.",
+          },
+        ],
       },
       {
         title: "Les verbes à particule (phrasal verbs)",
@@ -623,6 +1014,84 @@ export const chapters: Chapter[] = [
             "Erreur à éviter : *She turned down it.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Phrasal verbs essentiels",
+          headers: ["Phrasal verb", "Sens", "Exemple"],
+          rows: [
+            ["give up", "abandonner", "She gave up smoking."],
+            ["turn down", "refuser", "She turned the offer down."],
+            ["put off", "repousser", "They put off the meeting."],
+            ["look after", "s’occuper de", "He looks after his little sister."],
+            ["carry out", "mener, réaliser", "Scientists carried out a study."],
+            ["bring about", "provoquer", "The war brought about huge changes."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-03-s3-p1",
+            prompt: "Choose the correct sentence:",
+            choices: ["She turned down it.", "She it turned down.", "She turned it down."],
+            answer: 2,
+            explanation:
+              "Avec un verbe à particule séparable, un **pronom complément** se place **obligatoirement entre le verbe et la particule** : turned it down. *Turned down it est une erreur classique.",
+          },
+          {
+            id: "1re-anglais-03-s3-p2",
+            prompt: "Complete: « I look forward to ___ from you. »",
+            choices: ["hear", "hearing", "heard", "to hear"],
+            answer: 1,
+            explanation:
+              "Dans look forward to, **to est une préposition** : elle est suivie d’un nom ou d’un **V-ing**. On écrit donc I look forward to hearing from you.",
+          },
+          {
+            id: "1re-anglais-03-s3-p3",
+            prompt: "What does « carry on » mean?",
+            choices: ["continuer", "abandonner", "porter", "refuser"],
+            answer: 0,
+            explanation:
+              "La particule **on** a ici une valeur aspectuelle de **continuation** : carry on = continuer. Abandonner se dit give up et refuser se dit turn down.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-03-hw-1",
+        prompt: "Put into the passive: « Someone should have warned them. »",
+        choices: ["They should be warned.", "They should have been warned.", "They should have warned.", "They had been warned."],
+        answer: 1,
+        explanation:
+          "Le **modal passé passif** se forme avec modal + **have been** + participe passé : They should have been warned. They should have warned garde un sens actif (ils auraient dû prévenir).",
+      },
+      {
+        id: "1re-anglais-03-hw-2",
+        prompt: "« He is believed ___ the country last week. » (« Il aurait quitté le pays »)",
+        choices: ["to leave", "leaving", "to have left", "having left"],
+        answer: 2,
+        explanation:
+          "L’action est **antérieure** au moment où l’on parle : on emploie l’**infinitif passé** to have + participe passé. He is believed to have left = « on pense qu’il a quitté / il aurait quitté ».",
+      },
+      {
+        id: "1re-anglais-03-hw-3",
+        prompt: "Translate: « Mes parents m’ont laissé sortir. »",
+        choices: [
+          "My parents let me to go out.",
+          "My parents made me going out.",
+          "My parents allowed me go out.",
+          "My parents let me go out.",
+        ],
+        answer: 3,
+        explanation:
+          "**Let + personne + base verbale sans to** exprime la permission : My parents let me go out. Avec allow, il faudrait dire allowed me to go out.",
+      },
+      {
+        id: "1re-anglais-03-hw-4",
+        prompt: "Complete: « I had the mechanic ___ the brakes. »",
+        choices: ["check", "checked", "to check"],
+        answer: 0,
+        explanation:
+          "Quand on mentionne la **personne** qui agit, on emploie have + personne + **base verbale** : I had the mechanic check the brakes. Le participe passé s’emploie seulement avec un objet chose (I had the brakes checked).",
       },
     ],
     exercise: [
@@ -832,6 +1301,49 @@ export const chapters: Chapter[] = [
             "Autre cas : « le livre dont je parle » (parler de) → the book I’m talking about.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les pronoms relatifs",
+          headers: ["Relatif", "Emploi", "Exemple"],
+          rows: [
+            ["who", "antécédent personne", "the woman who founded the charity"],
+            ["which", "antécédent chose ou animal", "the law which was passed in 1964"],
+            ["that", "personne ou chose, relative déterminative seulement", "the book that I bought"],
+            ["whose", "possession (« dont le / la »)", "the writer whose novel won the prize"],
+            ["where / when", "lieu / moment", "the town where I grew up"],
+            ["Ø", "relatif complément d’une déterminative", "the book Ø I bought"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-04-s1-p1",
+            prompt: "Complete: « My sister, ___ lives in Leeds, is a nurse. »",
+            choices: ["that", "who", "which", "whose"],
+            answer: 1,
+            explanation:
+              "La relative est **appositive** (entre virgules) et l’antécédent est une **personne** : on emploie **who**. That est **interdit** dans une relative entre virgules.",
+          },
+          {
+            id: "1re-anglais-04-s1-p2",
+            prompt: "Translate: « l’artiste dont les œuvres ont été exposées » → the artist ___ were exhibited",
+            choices: ["whose the works", "that works", "whose works"],
+            answer: 2,
+            explanation:
+              "« Dont » + nom exprime ici la **possession** : on emploie **whose**. Attention, **pas d’article** après whose : whose works et non *whose the works.",
+          },
+          {
+            id: "1re-anglais-04-s1-p3",
+            prompt: "In which sentence can the relative pronoun be omitted?",
+            choices: [
+              "The book that I bought is great.",
+              "The man who called you is here.",
+              "My sister, who lives in Leeds, is a nurse.",
+            ],
+            answer: 0,
+            explanation:
+              "On peut supprimer le relatif (**relatif zéro**) seulement quand il est **complément** dans une relative déterminative : that I bought (I est le sujet). Who called you est sujet, et une relative entre virgules ne permet jamais l’omission.",
+          },
+        ],
       },
       {
         title: "What, which et les subordonnées",
@@ -860,6 +1372,32 @@ export const chapters: Chapter[] = [
             "Règle : what ouvre la phrase ou suit un verbe ; which suit une virgule et commente ce qui précède.",
           ],
         },
+        practice: [
+          {
+            id: "1re-anglais-04-s2-p1",
+            prompt: "Complete: « ___ surprised me was his silence. »",
+            choices: ["Which", "That", "What", "The thing what"],
+            answer: 2,
+            explanation:
+              "Il n’y a **pas d’antécédent** : « ce qui » se traduit par **what**. Which a besoin d’une proposition à reprendre, et *the thing what est incorrect.",
+          },
+          {
+            id: "1re-anglais-04-s2-p2",
+            prompt: "Complete: « He refused to apologise, ___ made everyone angry. »",
+            choices: ["what", "which", "that"],
+            answer: 1,
+            explanation:
+              "Après une virgule, **which** reprend **toute la proposition** précédente (le fait qu’il ait refusé de s’excuser) et signifie « ce qui ». That est impossible après une virgule et what n’a pas d’antécédent.",
+          },
+          {
+            id: "1re-anglais-04-s2-p3",
+            prompt: "Complete: « I'll call you when I ___. »",
+            choices: ["will arrive", "would arrive", "arrived", "arrive"],
+            answer: 3,
+            explanation:
+              "Après une **conjonction de temps** (when, as soon as, until), le futur s’exprime au **présent** : when I arrive. Will n’apparaît que dans la principale (I’ll call you).",
+          },
+        ],
       },
       {
         title: "Les mots de liaison : structurer l’argumentation",
@@ -891,6 +1429,79 @@ export const chapters: Chapter[] = [
             "Adverbe : He was poor. Nevertheless, he gave money to charity.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les connecteurs selon leur construction",
+          caption: "Conjonction + proposition ; préposition + nom ou V-ing ; adverbe entre deux phrases.",
+          headers: ["Fonction", "Conjonction (+ S + V)", "Préposition (+ nom / V-ing)", "Adverbe"],
+          rows: [
+            ["Concession", "although, even though", "despite, in spite of", "however, nevertheless, yet"],
+            ["Cause", "because, as, since", "because of, due to", "—"],
+            ["Conséquence", "so", "—", "therefore, thus, as a result"],
+            ["Opposition", "whereas, while", "unlike", "on the other hand"],
+            ["Addition", "—", "in addition to, besides", "moreover, furthermore"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-04-s3-p1",
+            prompt: "Complete: « ___ the rain, they marched. »",
+            choices: ["Although", "Despite", "However", "Because"],
+            answer: 1,
+            explanation:
+              "The rain est un **nom** : il faut une **préposition** de concession, **despite** (ou in spite of). Although doit être suivi d’une proposition (although it was raining).",
+          },
+          {
+            id: "1re-anglais-04-s3-p2",
+            prompt: "Complete: « The match was cancelled ___ the storm. »",
+            choices: ["because of", "because", "although"],
+            answer: 0,
+            explanation:
+              "Devant un **nom** (the storm), on emploie la préposition **because of**. Because seul est une conjonction qui doit être suivie d’un sujet et d’un verbe.",
+          },
+          {
+            id: "1re-anglais-04-s3-p3",
+            prompt: "Complete: « Not only ___ segregation, but it also protected voting rights. »",
+            choices: ["the law banned", "the law did ban", "did the law ban", "banned the law"],
+            answer: 2,
+            explanation:
+              "Quand **not only** est placé en tête de phrase, il entraîne une **inversion** auxiliaire + sujet : Not only did the law ban… L’ordre habituel sujet + verbe n’est pas possible ici.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-04-hw-1",
+        prompt: "Complete: « In spite of ___ tired, she continued. »",
+        choices: ["she was", "being", "be", "to be"],
+        answer: 1,
+        explanation:
+          "**In spite of** est une préposition : elle est suivie d’un nom ou d’un **V-ing** (being). Pour garder une proposition, il faudrait écrire although she was tired.",
+      },
+      {
+        id: "1re-anglais-04-hw-2",
+        prompt: "Choose the formal version of « the person I spoke to »:",
+        choices: ["the person to whom I spoke", "the person to who I spoke", "the person whom I spoke", "the person to that I spoke"],
+        answer: 0,
+        explanation:
+          "En registre soutenu, la préposition se place **devant le relatif**, qui prend la forme **whom** : the person to whom I spoke. That ne peut jamais suivre une préposition.",
+      },
+      {
+        id: "1re-anglais-04-hw-3",
+        prompt: "Complete: « I'll speak slowly ___ everyone can understand. »",
+        choices: ["in order to", "so as to", "so that"],
+        answer: 2,
+        explanation:
+          "Le but a ici un **sujet différent** (everyone) et un **modal** (can) : on emploie **so that**. In order to et so as to sont suivis d’une base verbale sans nouveau sujet.",
+      },
+      {
+        id: "1re-anglais-04-hw-4",
+        prompt: "Which connector expresses a **consequence**?",
+        choices: ["whereas", "moreover", "although", "therefore"],
+        answer: 3,
+        explanation:
+          "**Therefore** signifie « par conséquent » et introduit une conséquence. Whereas marque l’opposition, moreover l’addition et although la concession.",
       },
     ],
     exercise: [
@@ -1081,6 +1692,48 @@ export const chapters: Chapter[] = [
             "Lien avec l’axe : This document illustrates how American identity was built through successive waves of immigration.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : migrations et échanges",
+          events: [
+            { date: "1886", label: "Inauguration de la Statue of Liberty à New York" },
+            { date: "1892", label: "Ouverture d’Ellis Island, principal centre d’immigration des États-Unis" },
+            { date: "1948", label: "Arrivée de l’HMT Empire Windrush : début de la Windrush generation" },
+            { date: "1954", label: "Fermeture d’Ellis Island (environ 12 millions de migrants accueillis)" },
+            { date: "2018", label: "Windrush scandal au Royaume-Uni" },
+            { date: "2021", label: "Le Turing scheme remplace Erasmus+ au Royaume-Uni" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-05-s1-p1",
+            prompt: "Which ship brought passengers from the Caribbean to Britain in 1948?",
+            choices: ["The Mayflower", "HMT Empire Windrush", "The Titanic", "HMS Victory"],
+            answer: 1,
+            explanation:
+              "L’**HMT Empire Windrush** est arrivé en **1948** avec des passagers venus des Caraïbes, invités à aider à reconstruire le pays. Il a donné son nom à la **Windrush generation**.",
+          },
+          {
+            id: "1re-anglais-05-s1-p2",
+            prompt: "What does the « salad bowl » model mean?",
+            choices: [
+              "Cultures coexist and keep their specificities.",
+              "Cultures merge into one single identity.",
+              "Immigrants must give up their language.",
+            ],
+            answer: 0,
+            explanation:
+              "Dans le modèle du **salad bowl** (ou mosaïque), les cultures **coexistent** en gardant leurs spécificités, comme les ingrédients d’une salade. La fusion en une identité commune correspond au **melting pot**.",
+          },
+          {
+            id: "1re-anglais-05-s1-p3",
+            prompt: "What does « to fit in » mean?",
+            choices: ["s’installer", "être déraciné", "s’intégrer", "émigrer"],
+            answer: 2,
+            explanation:
+              "**To fit in** signifie **s’intégrer**, trouver sa place dans un groupe. S’installer se dit to settle et être déraciné se dit to be uprooted.",
+          },
+        ],
       },
       {
         title: "Espace privé et espace public : où s’arrête l’intime ?",
@@ -1112,6 +1765,42 @@ export const chapters: Chapter[] = [
             "Conclusion nuancée : All in all, security matters, but it should not come at the expense of our freedom.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : vie privée et surveillance",
+          events: [
+            { date: "1949", label: "Publication de Nineteen Eighty-Four (George Orwell) : naissance de Big Brother" },
+            { date: "1997", label: "Mort de la princesse Diana à Paris, poursuivie par des paparazzi" },
+            { date: "2013", label: "Révélations d’Edward Snowden sur la surveillance de masse de la NSA" },
+            { date: "2018", label: "Scandale Cambridge Analytica (données Facebook)" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-05-s2-p1",
+            prompt: "Who revealed the NSA's mass surveillance programmes in 2013?",
+            choices: ["Julian Assange", "George Orwell", "Mark Zuckerberg", "Edward Snowden"],
+            answer: 3,
+            explanation:
+              "**Edward Snowden**, ancien sous-traitant de la NSA, a révélé en **2013** l’existence de programmes de surveillance de masse. Il est devenu l’un des **whistleblowers** les plus célèbres.",
+          },
+          {
+            id: "1re-anglais-05-s2-p2",
+            prompt: "The character « Big Brother » comes from which novel?",
+            choices: ["Animal Farm", "Brave New World", "Nineteen Eighty-Four"],
+            answer: 2,
+            explanation:
+              "**Big Brother** est le chef omniprésent de **Nineteen Eighty-Four**, roman de George Orwell publié en **1949**. Il symbolise la surveillance totalitaire ; Animal Farm est une autre œuvre d’Orwell, sous forme de fable.",
+          },
+          {
+            id: "1re-anglais-05-s2-p3",
+            prompt: "What is a « whistleblower »?",
+            choices: ["un lanceur d’alerte", "un photographe de presse à scandale", "un pirate informatique"],
+            answer: 0,
+            explanation:
+              "Un **whistleblower** est un **lanceur d’alerte** : il révèle des pratiques illégales ou dangereuses au sein d’une organisation. Le mot vient de l’image du coup de sifflet (whistle) de l’arbitre.",
+          },
+        ],
       },
       {
         title: "Croiser les deux axes : identités exposées et intimité partagée",
@@ -1140,6 +1829,83 @@ export const chapters: Chapter[] = [
             "Problématique : To what extent does social media allow people to express their identity freely?",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Vocabulaire des deux axes",
+          headers: ["English", "Français"],
+          rows: [
+            ["sense of belonging", "sentiment d’appartenance"],
+            ["online identity", "identité numérique"],
+            ["oversharing", "le fait de trop partager"],
+            ["to keep sth to oneself", "garder quelque chose pour soi"],
+            ["peer pressure", "pression des pairs"],
+            ["self-image", "image de soi"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-05-s3-p1",
+            prompt: "Which event is considered the starting point of the modern LGBTQ+ rights movement?",
+            choices: ["The Stonewall riots (1969)", "The March on Washington (1963)", "The Montgomery Bus Boycott (1955)"],
+            answer: 0,
+            explanation:
+              "Les **émeutes de Stonewall**, à New York en **1969**, sont considérées comme le point de départ du mouvement LGBTQ+ moderne. La March on Washington et le boycott de Montgomery appartiennent au mouvement des droits civiques.",
+          },
+          {
+            id: "1re-anglais-05-s3-p2",
+            prompt: "Complete: « The ___ we post, the more exposed we are. »",
+            choices: ["most", "more", "much", "many"],
+            answer: 1,
+            explanation:
+              "Le **comparatif progressif** se construit avec **the more… the more…** (« plus… plus… »). On ne peut employer ni le superlatif most ni much ou many dans cette structure.",
+          },
+          {
+            id: "1re-anglais-05-s3-p3",
+            prompt: "What is a « curated self »?",
+            choices: ["a legal identity document", "a private diary", "a self-image carefully staged for others"],
+            answer: 2,
+            explanation:
+              "Le **curated self** désigne un **moi mis en scène**, sélectionné et embelli pour les réseaux sociaux. Cette image ne correspond pas toujours à la réalité, ce qui illustre la tension entre privé et public.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-05-hw-1",
+        prompt: "Roughly how many migrants passed through Ellis Island between 1892 and 1954?",
+        choices: ["1 million", "12 million", "50 million", "120 million"],
+        answer: 1,
+        explanation:
+          "Environ **12 millions** de migrants sont passés par Ellis Island entre 1892 et 1954. Ce chiffre explique pourquoi les États-Unis se définissent comme une **nation of immigrants**.",
+      },
+      {
+        id: "1re-anglais-05-hw-2",
+        prompt: "The saying « An Englishman's home is his castle » underlines:",
+        choices: [
+          "the home as a protected private space",
+          "the British love of medieval castles",
+          "the right to buy property abroad",
+        ],
+        answer: 0,
+        explanation:
+          "Ce proverbe exprime l’attachement britannique au **domicile comme espace protégé**, à l’abri des intrusions. Il illustre l’axe « Espace privé et espace public ».",
+      },
+      {
+        id: "1re-anglais-05-hw-3",
+        prompt: "What does « to invade someone's privacy » mean?",
+        choices: ["inviter quelqu’un chez soi", "porter atteinte à la vie privée de quelqu’un", "envahir un pays"],
+        answer: 1,
+        explanation:
+          "**Privacy** désigne la **vie privée** : to invade someone’s privacy, c’est y porter atteinte. Le verbe invade est ici employé au sens figuré.",
+      },
+      {
+        id: "1re-anglais-05-hw-4",
+        prompt: "Which term describes identities such as « Irish-American » or « British-Asian »?",
+        choices: ["melting pot", "lingua franca", "asylum seekers", "hyphenated identities"],
+        answer: 3,
+        explanation:
+          "On parle d’**hyphenated identities** (identités « à trait d’union ») pour désigner des identités doubles. Elles peuvent être une richesse mais aussi une source de tiraillements.",
       },
     ],
     exercise: [
@@ -1354,6 +2120,50 @@ export const chapters: Chapter[] = [
             "Lien avec l’axe : It shows how art can be used by the state to influence citizens.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : l’art au service du pouvoir",
+          events: [
+            { date: "vers 1588", label: "Armada Portrait d’Elizabeth I, après la victoire sur l’Armada espagnole" },
+            { date: "1917", label: "Affiche « I Want You for U.S. Army » (Uncle Sam, James Montgomery Flagg)" },
+            { date: "1927-1941", label: "Sculpture du Mount Rushmore dans les Black Hills" },
+            { date: "1939", label: "Affiche britannique « Keep Calm and Carry On »" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-06-s1-p1",
+            prompt: "Which four presidents are carved on Mount Rushmore?",
+            choices: [
+              "Washington, Jefferson, Theodore Roosevelt, Lincoln",
+              "Washington, Adams, Jefferson, Lincoln",
+              "Lincoln, Kennedy, Franklin D. Roosevelt, Washington",
+            ],
+            answer: 0,
+            explanation:
+              "Le Mount Rushmore représente **Washington, Jefferson, Theodore Roosevelt et Lincoln**. Ce monument patriotique a été sculpté entre 1927 et 1941.",
+          },
+          {
+            id: "1re-anglais-06-s1-p2",
+            prompt: "Why is Mount Rushmore also a controversial symbol?",
+            choices: [
+              "It depicts British monarchs.",
+              "It was carved in the Black Hills, land sacred to the Lakota.",
+              "It was built in the 19th century.",
+            ],
+            answer: 1,
+            explanation:
+              "Le monument a été taillé dans les **Black Hills**, terres **sacrées pour les Lakotas**. Il glorifie donc le pouvoir américain sur un territoire pris aux peuples autochtones.",
+          },
+          {
+            id: "1re-anglais-06-s1-p3",
+            prompt: "Which verb means « commander une œuvre » ?",
+            choices: ["to ban", "to glorify", "to commission", "to tear down"],
+            answer: 2,
+            explanation:
+              "**To commission a work** signifie **commander une œuvre** à un artiste, souvent par un mécène (patron) ou un dirigeant. To ban = interdire, to tear down = déboulonner.",
+          },
+        ],
       },
       {
         title: "L’art contre le pouvoir : contestation et engagement",
@@ -1384,6 +2194,44 @@ export const chapters: Chapter[] = [
             "Lien avec l’axe : It shows how music can denounce injustice and challenge those in power.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : l’art contre le pouvoir",
+          events: [
+            { date: "1939", label: "Strange Fruit, chantée par Billie Holiday" },
+            { date: "1945", label: "Animal Farm, fable satirique de George Orwell" },
+            { date: "1963", label: "Blowin’ in the Wind, Bob Dylan" },
+            { date: "1964", label: "A Change Is Gonna Come, Sam Cooke" },
+            { date: "2015", label: "Alright, Kendrick Lamar" },
+            { date: "2018", label: "Girl with Balloon de Banksy devient Love is in the Bin" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-06-s2-p1",
+            prompt: "Who sang « Strange Fruit » in 1939?",
+            choices: ["Nina Simone", "Aretha Franklin", "Ella Fitzgerald", "Billie Holiday"],
+            answer: 3,
+            explanation:
+              "**Billie Holiday** a interprété **Strange Fruit** en 1939. La chanson dénonce les lynchages d’Afro-Américains dans le Sud des États-Unis.",
+          },
+          {
+            id: "1re-anglais-06-s2-p2",
+            prompt: "Which technique is Banksy famous for?",
+            choices: ["stencil", "oil painting", "mosaic"],
+            answer: 0,
+            explanation:
+              "Banksy, artiste anonyme originaire de Bristol, utilise surtout le **pochoir** (stencil). Cette technique permet de peindre rapidement dans l’espace public.",
+          },
+          {
+            id: "1re-anglais-06-s2-p3",
+            prompt: "Animal Farm (1945) criticises totalitarianism in the form of:",
+            choices: ["a sonnet", "a fable", "a protest song", "a political cartoon"],
+            answer: 1,
+            explanation:
+              "George Orwell dénonce les dérives totalitaires sous la forme d’une **fable** animalière. C’est un exemple de **satire** littéraire contre le pouvoir.",
+          },
+        ],
       },
       {
         title: "Citoyenneté et mondes virtuels",
@@ -1415,6 +2263,84 @@ export const chapters: Chapter[] = [
             "Conclusion du paragraphe : Therefore, teaching young people to fact-check is crucial for democracy.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Vocabulaire de la citoyenneté numérique",
+          headers: ["English", "Français"],
+          rows: [
+            ["filter bubble", "bulle de filtres"],
+            ["echo chamber", "chambre d’écho"],
+            ["disinformation", "désinformation (volontaire)"],
+            ["cyberbullying", "cyberharcèlement"],
+            ["hate speech", "discours de haine"],
+            ["to fact-check", "vérifier les faits"],
+            ["slacktivism", "engagement limité à un clic"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-06-s3-p1",
+            prompt: "What is the difference between misinformation and disinformation?",
+            choices: [
+              "They mean exactly the same thing.",
+              "Misinformation is always deliberate.",
+              "Disinformation is deliberately false; misinformation may be shared by mistake.",
+            ],
+            answer: 2,
+            explanation:
+              "La **disinformation** est une fausse information diffusée **volontairement** pour tromper. La **misinformation** peut être partagée de bonne foi, par erreur.",
+          },
+          {
+            id: "1re-anglais-06-s3-p2",
+            prompt: "What does « slacktivism » refer to?",
+            choices: ["violent protest", "an easy form of engagement limited to a click", "voting in elections", "a type of video game"],
+            answer: 1,
+            explanation:
+              "Le **slacktivism** (de slacker, « fainéant », et activism) désigne de façon critique un engagement facile, limité à un like ou un partage. Il s’oppose à une mobilisation concrète.",
+          },
+          {
+            id: "1re-anglais-06-s3-p3",
+            prompt: "When was the UK's Online Safety Act passed?",
+            choices: ["2013", "2017", "2020", "2023"],
+            answer: 3,
+            explanation:
+              "L’**Online Safety Act** a été adopté au Royaume-Uni en **2023**. Il impose des obligations aux plateformes, notamment pour protéger les mineurs.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-06-hw-1",
+        prompt: "Which 2015 song by Kendrick Lamar became a protest anthem during Black Lives Matter demonstrations?",
+        choices: ["Humble", "DNA", "Alright"],
+        answer: 2,
+        explanation:
+          "**Alright** (2015) a été reprise lors des manifestations Black Lives Matter. Elle s’inscrit dans la tradition des protest songs, aux côtés de Strange Fruit ou A Change Is Gonna Come.",
+      },
+      {
+        id: "1re-anglais-06-hw-2",
+        prompt: "In an echo chamber, social media users mainly:",
+        choices: ["see opinions that confirm their own", "meet opposing points of view", "check their sources carefully"],
+        answer: 0,
+        explanation:
+          "Une **echo chamber** enferme les utilisateurs dans des contenus qui **confirment leurs opinions**, sous l’effet des algorithmes. Cela peut renforcer la **polarisation** de la société.",
+      },
+      {
+        id: "1re-anglais-06-hw-3",
+        prompt: "Complete: « The Armada Portrait ___ Elizabeth I as a powerful, almost divine queen. »",
+        choices: ["bans", "portrays", "tears down", "censors"],
+        answer: 1,
+        explanation:
+          "**To portray** (ou to depict) signifie **représenter** : c’est le verbe adapté pour décrire une œuvre. Les autres verbes (bans, tears down, censors) n’ont pas de sens ici.",
+      },
+      {
+        id: "1re-anglais-06-hw-4",
+        prompt: "Which TV series created by Charlie Brooker in 2011 imagines the dark side of new technologies?",
+        choices: ["The Crown", "Sherlock", "Doctor Who", "Black Mirror"],
+        answer: 3,
+        explanation:
+          "**Black Mirror**, créée par Charlie Brooker en 2011, imagine les dérives possibles des technologies. C’est une référence utile pour l’axe « Citoyenneté et mondes virtuels ».",
       },
     ],
     exercise: [
@@ -1625,6 +2551,48 @@ export const chapters: Chapter[] = [
             "Problématique : Should there be limits to scientific progress?",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : fictions, sciences et responsabilité",
+          events: [
+            { date: "1818", label: "Frankenstein; or, The Modern Prometheus, Mary Shelley" },
+            { date: "1852", label: "Uncle Tom’s Cabin, Harriet Beecher Stowe" },
+            { date: "1949", label: "Nineteen Eighty-Four, George Orwell" },
+            { date: "1985", label: "The Handmaid’s Tale, Margaret Atwood" },
+            { date: "1996", label: "Naissance de la brebis Dolly au Roslin Institute (Écosse)" },
+            { date: "2020", label: "Prix Nobel de chimie pour CRISPR-Cas9 (Charpentier et Doudna)" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-07-s1-p1",
+            prompt: "Which novel by Mary Shelley (1818) warns against scientists losing control of their creation?",
+            choices: ["Dracula", "Frankenstein", "The Handmaid's Tale"],
+            answer: 1,
+            explanation:
+              "Dans **Frankenstein** (1818), Victor Frankenstein crée une créature qu’il ne parvient pas à contrôler. Le roman est une référence pour débattre de l’IA ou de l’édition génétique.",
+          },
+          {
+            id: "1re-anglais-07-s1-p2",
+            prompt: "Dolly the sheep, born in 1996, was:",
+            choices: [
+              "the first mammal cloned from an adult cell",
+              "the first animal sent into space",
+              "a sheep genetically modified to resist the cold",
+            ],
+            answer: 0,
+            explanation:
+              "**Dolly**, née en **1996** au Roslin Institute en Écosse, est le **premier mammifère cloné à partir d’une cellule adulte**. Sa naissance a relancé le débat éthique sur le clonage.",
+          },
+          {
+            id: "1re-anglais-07-s1-p3",
+            prompt: "Complete: « The benefits ___ the risks. » (= are greater than)",
+            choices: ["overlook", "undergo", "outweigh", "outrun"],
+            answer: 2,
+            explanation:
+              "**To outweigh** signifie « l’emporter sur » : the benefits outweigh the risks = les avantages l’emportent sur les risques. C’est une formule très utile pour conclure un argument.",
+          },
+        ],
       },
       {
         title: "Diversité et inclusion",
@@ -1656,6 +2624,45 @@ export const chapters: Chapter[] = [
             "Portée : She is often called « the mother of the civil rights movement ».",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères : droits civiques et inclusion",
+          events: [
+            { date: "1954", label: "Brown v. Board of Education : la ségrégation scolaire est inconstitutionnelle" },
+            { date: "1955", label: "Arrestation de Rosa Parks ; début du Montgomery Bus Boycott" },
+            { date: "1963", label: "March on Washington : discours « I Have a Dream »" },
+            { date: "1964", label: "Civil Rights Act" },
+            { date: "1965", label: "Voting Rights Act" },
+            { date: "2010", label: "Equality Act au Royaume-Uni" },
+            { date: "2013", label: "Naissance du mouvement Black Lives Matter" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-07-s2-p1",
+            prompt: "Which 1954 Supreme Court decision declared school segregation unconstitutional?",
+            choices: ["Plessy v. Ferguson", "Brown v. Board of Education", "Roe v. Wade"],
+            answer: 1,
+            explanation:
+              "En **1954**, l’arrêt **Brown v. Board of Education** déclare la ségrégation scolaire inconstitutionnelle. Plessy v. Ferguson (1896) avait au contraire validé la doctrine « separate but equal ».",
+          },
+          {
+            id: "1re-anglais-07-s2-p2",
+            prompt: "Which law protected African Americans' right to vote?",
+            choices: ["the Civil Rights Act (1964)", "the Equality Act (2010)", "the Voting Rights Act (1965)"],
+            answer: 2,
+            explanation:
+              "Le **Voting Rights Act** de **1965** protège le droit de vote des Afro-Américains. Le Civil Rights Act de 1964 interdit plus largement la discrimination, et l’Equality Act est une loi britannique.",
+          },
+          {
+            id: "1re-anglais-07-s2-p3",
+            prompt: "In which city did Rosa Parks refuse to give up her seat in 1955?",
+            choices: ["Montgomery", "Birmingham", "Atlanta", "Memphis"],
+            answer: 0,
+            explanation:
+              "Rosa Parks a refusé de céder sa place dans un bus de **Montgomery**, en Alabama, en décembre 1955. Son arrestation a déclenché le **Montgomery Bus Boycott**, mené par Martin Luther King Jr.",
+          },
+        ],
       },
       {
         title: "Territoire et mémoire",
@@ -1687,6 +2694,70 @@ export const chapters: Chapter[] = [
             "Conclusion : This shows that memory is never neutral: it reflects the values of each generation.",
           ],
         },
+        practice: [
+          {
+            id: "1re-anglais-07-s3-p1",
+            prompt: "Why do people in Britain wear a poppy around Remembrance Day?",
+            choices: [
+              "in reference to the poem In Flanders Fields",
+              "because it is the national flower of England",
+              "to celebrate the Good Friday Agreement",
+            ],
+            answer: 0,
+            explanation:
+              "Le **poppy** fait référence au poème **In Flanders Fields** (John McCrae, 1915), où les coquelicots poussent sur les tombes des soldats. Il rend hommage aux soldats morts depuis la Première Guerre mondiale.",
+          },
+          {
+            id: "1re-anglais-07-s3-p2",
+            prompt: "Whose statue was pulled down by protesters in Bristol in 2020?",
+            choices: ["Winston Churchill", "Edward Colston", "Cecil Rhodes", "Queen Victoria"],
+            answer: 1,
+            explanation:
+              "En juin **2020**, des manifestants ont renversé la statue d’**Edward Colston**, marchand impliqué dans la traite négrière, et l’ont jetée dans le port de Bristol. Elle est aujourd’hui exposée dans un musée avec des explications.",
+          },
+          {
+            id: "1re-anglais-07-s3-p3",
+            prompt: "In 2008, the Australian Prime Minister Kevin Rudd apologised to:",
+            choices: ["the Windrush generation", "the victims of the Troubles", "Native Americans", "the Stolen Generations"],
+            answer: 3,
+            explanation:
+              "En **2008**, Kevin Rudd a présenté des **excuses officielles** aux **Stolen Generations**, enfants aborigènes retirés de force à leur famille. Ce geste illustre le travail de mémoire d’un territoire.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-07-hw-1",
+        prompt: "In which year was the Good Friday Agreement signed?",
+        choices: ["1969", "1998", "2001", "2008"],
+        answer: 1,
+        explanation:
+          "L’**accord du Vendredi saint** (Good Friday Agreement) a été signé en **1998**. Il a mis fin aux **Troubles** en Irlande du Nord, conflit commencé à la fin des années 1960.",
+      },
+      {
+        id: "1re-anglais-07-hw-2",
+        prompt: "What does « to pay tribute to » mean?",
+        choices: ["rendre hommage à", "payer une taxe à", "présenter des excuses à"],
+        answer: 0,
+        explanation:
+          "**To pay tribute to** signifie **rendre hommage à** : This memorial pays tribute to the victims. Présenter des excuses se dit to apologise for.",
+      },
+      {
+        id: "1re-anglais-07-hw-3",
+        prompt: "Which dystopian novel imagines a society in which women are deprived of their rights?",
+        choices: ["Uncle Tom's Cabin", "Frankenstein", "The Handmaid's Tale"],
+        answer: 2,
+        explanation:
+          "**The Handmaid’s Tale** (Margaret Atwood, 1985) imagine une société oppressive où les femmes sont privées de leurs droits. C’est un exemple de **dystopia** qui alerte sur des dérives possibles.",
+      },
+      {
+        id: "1re-anglais-07-hw-4",
+        prompt: "Complete: « Although progress ___, inequalities still persist. »",
+        choices: ["was making", "has made", "makes", "has been made"],
+        answer: 3,
+        explanation:
+          "Progress ne fait pas l’action, il la subit : il faut un **passif** au **present perfect** (has been made), car on fait un bilan au présent. Has made serait actif et n’aurait pas de complément.",
       },
     ],
     exercise: [
@@ -1902,6 +2973,43 @@ export const chapters: Chapter[] = [
             "Formulation : The tone is ironic: the author pretends to praise the government but actually criticises its decision.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Méthode : comprendre un document",
+          steps: [
+            { label: "Identifier", detail: "Nature, source, date, titre, auteur." },
+            { label: "Formuler des hypothèses", detail: "Thème probable et point de vue attendu." },
+            { label: "Repérer", detail: "Who? What? Where? When? Why? How? Noms, chiffres, connecteurs." },
+            { label: "Inférer", detail: "Ton, intention de l’auteur, sentiments des personnages." },
+            { label: "Justifier", detail: "Appuyer chaque inférence sur un indice précis du texte." },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-08-s1-p1",
+            prompt: "What does « actually » mean?",
+            choices: ["actuellement", "en fait", "finalement", "sensiblement"],
+            answer: 1,
+            explanation:
+              "**Actually** est un **faux ami** : il signifie **en fait**, et non « actuellement » (currently, nowadays). Il faut s’en méfier en compréhension comme en compte rendu.",
+          },
+          {
+            id: "1re-anglais-08-s1-p2",
+            prompt: "« Another brilliant idea from our wonderful government: closing libraries to save money. » The tone is:",
+            choices: ["enthusiastic", "neutral", "ironic"],
+            answer: 2,
+            explanation:
+              "Les adjectifs très positifs (brilliant, wonderful) contrastent avec une mesure présentée comme absurde. Ce décalage révèle un **ton ironique** : l’auteur critique en réalité le gouvernement.",
+          },
+          {
+            id: "1re-anglais-08-s1-p3",
+            prompt: "In « hopeless », what does the suffix -less mean?",
+            choices: ["sans", "plein de", "un peu"],
+            answer: 0,
+            explanation:
+              "Le suffixe **-less** signifie **sans** : hopeless = sans espoir. À l’inverse, **-ful** signifie « plein de » (hopeful = plein d’espoir).",
+          },
+        ],
       },
       {
         title: "Rendre compte en français",
@@ -1932,6 +3040,52 @@ export const chapters: Chapter[] = [
             "Vérification : aucune opinion personnelle n’a été ajoutée.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Méthode du compte rendu en français",
+          steps: [
+            { label: "Comprendre", detail: "Repérer les informations essentielles et l’intention de l’auteur." },
+            { label: "Présenter le document", detail: "Nature, source, date, thème général." },
+            { label: "Restituer l’essentiel", detail: "Idées regroupées dans un ordre logique, noms et chiffres conservés." },
+            { label: "Point de vue de l’auteur", detail: "Intention ou ton, sans avis personnel." },
+            { label: "Relire", detail: "Fidélité au texte : négations, modaux, chiffres." },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-08-s2-p1",
+            prompt: "What is a « compte rendu » in the English exam?",
+            choices: [
+              "a word-for-word translation of the text",
+              "a structured summary in French of the essential information",
+              "a personal commentary on the topic",
+            ],
+            answer: 1,
+            explanation:
+              "Le compte rendu **restitue l’essentiel** du document en français, de façon organisée. Ce n’est **ni une traduction ni une paraphrase**, et il ne contient aucun avis personnel.",
+          },
+          {
+            id: "1re-anglais-08-s2-p2",
+            prompt: "Which element must **not** appear in a compte rendu?",
+            choices: [
+              "the nature and source of the document",
+              "the author's point of view",
+              "your personal opinion",
+              "important figures and dates",
+            ],
+            answer: 2,
+            explanation:
+              "Le compte rendu doit rester **fidèle** au document : on n’y ajoute **aucune opinion personnelle** ni information extérieure. En revanche, la source, le point de vue de l’auteur, les chiffres et les dates sont attendus.",
+          },
+          {
+            id: "1re-anglais-08-s2-p3",
+            prompt: "The text says: « The project might be abandoned. » Which French rendering is faithful?",
+            choices: ["Le projet pourrait être abandonné.", "Le projet sera abandonné.", "Le projet a été abandonné."],
+            answer: 0,
+            explanation:
+              "**Might** exprime une simple **possibilité** : il faut la conserver (« pourrait »). Traduire par un futur certain ou un passé transformerait le sens du document.",
+          },
+        ],
       },
       {
         title: "L’essai argumenté en anglais",
@@ -1964,6 +3118,92 @@ export const chapters: Chapter[] = [
             "Vérification : la question est reformulée, le plan est annoncé, aucune réponse définitive n’est encore donnée.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Méthode de l’essai argumenté",
+          steps: [
+            { label: "Analyser la question", detail: "Mots-clés et type de réponse attendue." },
+            { label: "Brouillon", detail: "Deux ou trois idées, exemples précis tirés des axes." },
+            { label: "Introduction", detail: "Hook, problématique, annonce du plan." },
+            { label: "Développement", detail: "Topic sentence → explication → exemple → lien avec la question." },
+            { label: "Conclusion", detail: "Réponse claire et ouverture." },
+            { label: "Relecture ciblée", detail: "-s de la 3ᵉ personne, verbes irréguliers, adjectifs invariables." },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-anglais-08-s3-p1",
+            prompt: "What are the three parts of an essay introduction?",
+            choices: ["summary, opinion, conclusion", "title, examples, quotation", "hook, problem statement, outline"],
+            answer: 2,
+            explanation:
+              "L’introduction comporte une **accroche** (hook), la **problématique** reformulée et l’**annonce du plan**. Elle ne donne pas encore de réponse définitive à la question.",
+          },
+          {
+            id: "1re-anglais-08-s3-p2",
+            prompt: "What is a « topic sentence »?",
+            choices: [
+              "the last sentence of the essay",
+              "the sentence that introduces the main idea of a paragraph",
+              "a quotation used as a hook",
+              "the title of the essay",
+            ],
+            answer: 1,
+            explanation:
+              "La **topic sentence** ouvre un paragraphe et en annonce l’**idée principale**. Elle est ensuite développée, illustrée par un exemple et reliée à la question.",
+          },
+          {
+            id: "1re-anglais-08-s3-p3",
+            prompt: "Which sentence is correct?",
+            choices: ["People are different.", "People are differents.", "People is different."],
+            answer: 0,
+            explanation:
+              "En anglais, les **adjectifs sont invariables** : ils ne prennent jamais de -s. De plus, people est un pluriel et s’accorde avec are.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-anglais-08-hw-1",
+        prompt: "What does « eventually » mean?",
+        choices: ["éventuellement", "finalement", "actuellement"],
+        answer: 1,
+        explanation:
+          "**Eventually** est un **faux ami** : il signifie **finalement**, au bout du compte. « Éventuellement » se traduit plutôt par possibly.",
+      },
+      {
+        id: "1re-anglais-08-hw-2",
+        prompt: "Which type of essay plan presents arguments for, then arguments against, then a nuanced conclusion?",
+        choices: ["thematic", "chronological", "dialectical"],
+        answer: 2,
+        explanation:
+          "Le plan **dialectique** oppose les arguments pour (On the one hand…) et contre (On the other hand…) avant une conclusion nuancée. C’est le plan le plus courant dans l’essai argumenté.",
+      },
+      {
+        id: "1re-anglais-08-hw-3",
+        prompt: "Where would you typically write « This raises the question of whether… »?",
+        choices: [
+          "in the introduction, to state the problem",
+          "in the conclusion, to add a new example",
+          "in a compte rendu in French",
+        ],
+        answer: 0,
+        explanation:
+          "Cette formule sert à **formuler la problématique** dans l’**introduction** de l’essai. Le compte rendu, lui, est rédigé en français, et la conclusion n’introduit pas de nouvel exemple.",
+      },
+      {
+        id: "1re-anglais-08-hw-4",
+        prompt: "Which question words guide the « repérage » stage when you study a document?",
+        choices: [
+          "If, unless, although, whereas",
+          "Must, can, may, should",
+          "However, therefore, moreover, yet",
+          "Who, What, Where, When, Why, How",
+        ],
+        answer: 3,
+        explanation:
+          "Le repérage s’appuie sur les **5 W + H** : Who? What? Where? When? Why? How? Ces questions permettent de relever les informations explicites essentielles du document.",
       },
     ],
     exercise: [

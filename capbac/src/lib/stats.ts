@@ -23,6 +23,14 @@ export type GradeLine = {
   assignmentId?: string;
 };
 
+/** Libellé d'une note selon son contexte. */
+export function contextLabel(context: string, kind: Attempt["kind"]) {
+  if (context.startsWith("hw:")) return "Devoir maison";
+  if (context.startsWith("pr:")) return "Exercice de la leçon";
+  if (context.startsWith("ex:")) return "Exercice de synthèse";
+  return kind === "test" ? "Contrôle" : "Exercice";
+}
+
 /** La correction d'un contrôle est-elle publiée ? */
 export function isReleased(a: Attempt, now = new Date()) {
   return !a.releaseAt || new Date(a.releaseAt) <= now;
@@ -39,7 +47,7 @@ export function gradeLines(data: AppData, level?: Level, now = new Date()): Grad
       id: a.id,
       subject: a.subject,
       level: a.level,
-      label: asg ? asg.title : a.kind === "test" ? "Contrôle" : "Exercice noté",
+      label: asg ? asg.title : contextLabel(a.context, a.kind),
       kind: asg ? "devoir" : a.kind,
       score20: a.score,
       raw: `${fmtNote(a.score)}/20`,
@@ -134,8 +142,7 @@ export function appreciation(n: number | null) {
 
 /** Meilleure tentative et tentative officielle d'un chapitre. */
 export function chapterResults(data: AppData, chapterId: string, kind: Attempt["kind"]) {
-  const context = `${kind === "test" ? "ct" : "ex"}:${chapterId}`;
-  const list = data.attempts.filter((a) => a.context === context);
+  const list = data.attempts.filter((a) => a.chapterId === chapterId && a.kind === kind);
   const official = list.find((a) => a.official) ?? null;
   const best = list.reduce<Attempt | null>((b, a) => (!b || a.score > b.score ? a : b), null);
   return { official, best, count: list.length };
@@ -160,7 +167,7 @@ export type AttendanceStats = {
 };
 
 export function attendanceStats(data: AppData, now = new Date()): AttendanceStats {
-  const sessions = allSessions(data.settings);
+  const sessions = allSessions(data);
   const past: AttendanceStats["past"] = [];
   for (const s of sessions) {
     const { status, record } = liveStatus(s, data, now);

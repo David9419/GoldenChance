@@ -34,6 +34,43 @@ export const chapters: Chapter[] = [
           "21 janvier 1793 → exécution de Louis XVI",
           "27 juillet 1794 (9 thermidor) → chute de Robespierre",
         ],
+        figure: {
+          type: "timeline",
+          title: "La Révolution française, de 1789 à la chute de Robespierre",
+          caption: "Du transfert de la souveraineté à la nation jusqu’à la fin de la Terreur.",
+          events: [
+            { date: "5 mai 1789", label: "Ouverture des États généraux à Versailles" },
+            { date: "17 juin 1789", label: "Le tiers état se proclame Assemblée nationale" },
+            { date: "14 juillet 1789", label: "Prise de la Bastille" },
+            { date: "26 août 1789", label: "Déclaration des droits de l’homme et du citoyen" },
+            { date: "21 septembre 1792", label: "Abolition de la royauté : Ire République" },
+            { date: "21 janvier 1793", label: "Exécution de Louis XVI" },
+            { date: "27 juillet 1794", label: "Chute de Robespierre (9 thermidor an II)" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-01-s1-p1",
+            prompt: "Que proclament les députés du tiers état le **17 juin 1789** ?",
+            choices: ["La République", "L’Assemblée nationale", "L’abolition des privilèges", "La déchéance du roi"],
+            answer: 1,
+            explanation: "Le 17 juin 1789, les députés du tiers état se proclament **Assemblée nationale** : ils affirment représenter la nation tout entière. C’est une révolution juridique, car la souveraineté passe du roi à la nation ; la République ne sera proclamée qu’en septembre 1792.",
+          },
+          {
+            id: "1re-hg-01-s1-p2",
+            prompt: "Quelle mesure est adoptée dans la nuit du **4 août 1789** ?",
+            choices: ["L’abolition des privilèges et des droits féodaux", "La Déclaration des droits de l’homme", "L’abolition de l’esclavage", "La Constitution de 1791"],
+            answer: 0,
+            explanation: "Dans la nuit du 4 août 1789, les députés abolissent les **privilèges** et les droits féodaux : la société d’ordres disparaît. La DDHC est adoptée le 26 août, l’esclavage est aboli en 1794 et la Constitution date de 1791.",
+          },
+          {
+            id: "1re-hg-01-s1-p3",
+            prompt: "Quel événement met fin à la **Terreur** ?",
+            choices: ["La fuite à Varennes", "L’exécution de Louis XVI", "La chute de Robespierre le 9 thermidor an II", "Le coup d’État de Brumaire"],
+            answer: 2,
+            explanation: "La Terreur (1793-1794) prend fin avec la **chute de Robespierre**, le 9 thermidor an II (27 juillet 1794). Le coup d’État de Brumaire, en 1799, met fin au Directoire, non à la Terreur.",
+          },
+        ],
         example: {
           title: "Méthode : analyser l’article 3 de la DDHC",
           steps: [
@@ -66,6 +103,41 @@ export const chapters: Chapter[] = [
           "2 décembre 1805 → victoire d’Austerlitz",
           "1808 → soulèvement espagnol",
           "18 juin 1815 → défaite de Waterloo",
+        ],
+        figure: {
+          type: "flow",
+          title: "Comment l’Empire napoléonien suscite les nationalismes européens",
+          caption: "L’héritage révolutionnaire est diffusé, mais la domination française provoque des résistances.",
+          steps: [
+            { label: "Conquêtes militaires", detail: "Austerlitz (1805), Iéna (1806) : la France domine le continent." },
+            { label: "Diffusion de l’héritage révolutionnaire", detail: "Code civil, abolition de la féodalité, égalité juridique." },
+            { label: "Poids de la domination", detail: "Occupation, impôts, conscription, Blocus continental (1806)." },
+            { label: "Résistances nationales", detail: "Soulèvement espagnol (1808), Discours à la nation allemande de Fichte." },
+            { label: "Chute de l’Empire", detail: "Russie (1812), Leipzig (1813), Waterloo (18 juin 1815)." },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-01-s2-p1",
+            prompt: "Par quel coup d’État Bonaparte prend-il le pouvoir ?",
+            choices: ["Le 9 thermidor an II", "Le 10 août 1792", "Le 2 décembre 1851", "Le 18 brumaire an VIII"],
+            answer: 3,
+            explanation: "Le **18 brumaire an VIII** (9 novembre 1799), Bonaparte renverse le Directoire et devient Premier consul. Le 2 décembre 1851 est le coup d’État de son neveu Louis-Napoléon Bonaparte.",
+          },
+          {
+            id: "1re-hg-01-s2-p2",
+            prompt: "Quelle mesure de Bonaparte revient sur un acquis de la Révolution ?",
+            choices: ["La création des préfets", "Le rétablissement de l’esclavage en 1802", "La création des lycées", "Le Code civil"],
+            answer: 1,
+            explanation: "En **1802**, Bonaparte rétablit l’esclavage dans les colonies, aboli par la Convention en 1794. Saint-Domingue se révolte et devient indépendant sous le nom d’Haïti en 1804 ; les autres mesures citées consolident l’État sans revenir sur la Révolution.",
+          },
+          {
+            id: "1re-hg-01-s2-p3",
+            prompt: "Selon Fichte, sur quoi repose la nation allemande ?",
+            choices: ["Sur la langue et la culture partagées", "Sur un contrat librement consenti", "Sur la religion catholique", "Sur la fidélité à Napoléon"],
+            answer: 0,
+            explanation: "Dans ses **Discours à la nation allemande** (1807-1808), Fichte définit la nation par la **langue et la culture**. C’est une conception « culturelle » de la nation, différente de la conception « contractuelle » née en France en 1789.",
+          },
         ],
         example: {
           title: "Étude de cas : l’Espagne face à Napoléon",
@@ -101,6 +173,43 @@ export const chapters: Chapter[] = [
           "février 1848 → IIe République ; Printemps des peuples",
           "27 avril 1848 → abolition définitive de l’esclavage",
         ],
+        figure: {
+          type: "timeline",
+          title: "L’Europe de 1815 à 1848 : de la Restauration aux révolutions",
+          caption: "L’ordre de Vienne est contesté par les mouvements libéraux et nationaux.",
+          events: [
+            { date: "1815", label: "Congrès de Vienne et Sainte-Alliance" },
+            { date: "1821", label: "Soulèvement des Grecs contre l’Empire ottoman" },
+            { date: "1827", label: "Bataille de Navarin" },
+            { date: "27-29 juillet 1830", label: "Trois Glorieuses à Paris ; indépendance grecque reconnue" },
+            { date: "1830-1831", label: "Indépendance belge ; insurrection polonaise écrasée" },
+            { date: "Février 1848", label: "IIe République en France ; Printemps des peuples" },
+            { date: "27 avril 1848", label: "Abolition définitive de l’esclavage" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-01-s3-p1",
+            prompt: "Sur quels principes le **congrès de Vienne** réorganise-t-il l’Europe ?",
+            choices: ["Le droit des peuples à disposer d’eux-mêmes", "La légitimité dynastique et l’équilibre des puissances", "La souveraineté nationale", "Le suffrage universel"],
+            answer: 1,
+            explanation: "Au congrès de Vienne (1814-1815), les vainqueurs de Napoléon redessinent la carte selon la **légitimité dynastique** et l’**équilibre des puissances**. Ils ignorent les aspirations des peuples : l’Italie reste divisée et la Pologne partagée.",
+          },
+          {
+            id: "1re-hg-01-s3-p2",
+            prompt: "Quel régime naît de la révolution des **Trois Glorieuses** (1830) ?",
+            choices: ["La IIe République", "Le Second Empire", "La monarchie de Juillet", "La Restauration"],
+            answer: 2,
+            explanation: "Les Trois Glorieuses (27-29 juillet 1830) renversent Charles X. **Louis-Philippe** devient « roi des Français » : c’est la **monarchie de Juillet** (1830-1848), libérale mais censitaire.",
+          },
+          {
+            id: "1re-hg-01-s3-p3",
+            prompt: "Quel peuple obtient son indépendance de l’Empire ottoman, reconnue en **1830** ?",
+            choices: ["Les Belges", "Les Polonais", "Les Hongrois", "Les Grecs"],
+            answer: 3,
+            explanation: "Les **Grecs**, soulevés en 1821, obtiennent leur indépendance reconnue en 1830, grâce au soutien des puissances (Navarin, 1827) et au philhellénisme. La Belgique se sépare des Pays-Bas, pas de l’Empire ottoman, et l’insurrection polonaise est écrasée.",
+          },
+        ],
         example: {
           title: "Méthode : analyser « La Liberté guidant le peuple » de Delacroix (1830)",
           steps: [
@@ -111,6 +220,36 @@ export const chapters: Chapter[] = [
             "**Portée** : l’œuvre devient un symbole universel de la révolution libérale ; elle est achetée par l’État de Louis-Philippe en 1831.",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-01-hw-1",
+        prompt: "Quel article de la DDHC affirme que la souveraineté réside dans la **Nation** ?",
+        choices: ["L’article 1", "L’article 3", "L’article 6", "L’article 17"],
+        answer: 1,
+        explanation: "L’**article 3** de la DDHC énonce que « le principe de toute souveraineté réside essentiellement dans la Nation ». Il marque la fin de la monarchie de droit divin et fonde le principe de souveraineté nationale.",
+      },
+      {
+        id: "1re-hg-01-hw-2",
+        prompt: "Quel tableau de **Goya** témoigne de la répression française à Madrid en 1808 ?",
+        choices: ["La Liberté guidant le peuple", "Le Radeau de la Méduse", "Tres de Mayo", "Le Sacre de Napoléon"],
+        answer: 2,
+        explanation: "**Tres de Mayo** (1814) représente l’exécution des insurgés madrilènes au lendemain du soulèvement du 2 mai 1808. *La Liberté guidant le peuple* est de Delacroix (1830) et *Le Sacre* de David.",
+      },
+      {
+        id: "1re-hg-01-hw-3",
+        prompt: "Qui obtient l’abolition définitive de l’esclavage le **27 avril 1848** ?",
+        choices: ["Victor Schœlcher", "Lamartine", "Louis Blanc", "Victor Hugo"],
+        answer: 0,
+        explanation: "Le décret du 27 avril 1848 est préparé à l’initiative de **Victor Schœlcher**, sous-secrétaire d’État à la Marine du gouvernement provisoire. Il abolit définitivement l’esclavage dans les colonies françaises, après son rétablissement par Bonaparte en 1802.",
+      },
+      {
+        id: "1re-hg-01-hw-4",
+        prompt: "Quelle formule résume le mieux le **Printemps des peuples** de 1848 ?",
+        choices: ["Une guerre européenne contre la France", "Un congrès de souverains pour restaurer l’ordre", "Une série de révolutions toutes victorieuses et durables", "Une vague de révolutions libérales et nationales, presque partout écrasées dès 1849"],
+        answer: 3,
+        explanation: "En 1848, des révolutions éclatent à Paris, Vienne, Berlin, Milan, Budapest ou Prague. Elles sont **libérales** (constitutions) et **nationales** ; hors de France, elles sont écrasées dès 1849, mais l’idée nationale progresse.",
       },
     ],
     exercise: [
@@ -287,6 +426,40 @@ export const chapters: Chapter[] = [
           "2 décembre 1851 → coup d’État",
           "2 décembre 1852 → rétablissement de l’Empire",
         ],
+        figure: {
+          type: "figures",
+          title: "La IIe République en chiffres clés",
+          caption: "Le suffrage universel masculin, instauré en 1848, profite à Louis-Napoléon Bonaparte.",
+          items: [
+            { value: "21 ans", label: "âge du droit de vote pour tous les hommes (suffrage universel masculin, 1848)" },
+            { value: "≈ 11 000", label: "arrestations après les journées de Juin (23-26 juin 1848)" },
+            { value: "≈ 74 %", label: "des voix pour Louis-Napoléon Bonaparte (10 décembre 1848)" },
+            { value: "4 ans", label: "durée du mandat présidentiel, non renouvelable (Constitution du 4 novembre 1848)" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-02-s1-p1",
+            prompt: "Pourquoi les **journées de Juin 1848** éclatent-elles ?",
+            choices: ["À cause de la fermeture des Ateliers nationaux", "À cause du coup d’État de Louis-Napoléon", "À cause de la défaite de Sedan", "À cause de la proclamation du suffrage universel"],
+            answer: 0,
+            explanation: "La fermeture des **Ateliers nationaux**, qui employaient les chômeurs parisiens, provoque l’insurrection ouvrière du 23 au 26 juin 1848. Elle est écrasée par le général Cavaignac, ce qui met fin aux espoirs d’une République sociale.",
+          },
+          {
+            id: "1re-hg-02-s1-p2",
+            prompt: "Quel pourcentage des voix obtient Louis-Napoléon Bonaparte le **10 décembre 1848** ?",
+            choices: ["Environ 34 %", "Environ 51 %", "Environ 74 %", "Environ 95 %"],
+            answer: 2,
+            explanation: "Louis-Napoléon Bonaparte est élu avec environ **74 %** des voix (5,4 millions), loin devant Cavaignac. Il profite de la légende napoléonienne, du vote paysan et du soutien du « parti de l’Ordre ».",
+          },
+          {
+            id: "1re-hg-02-s1-p3",
+            prompt: "Pourquoi Louis-Napoléon organise-t-il le coup d’État du **2 décembre 1851** ?",
+            choices: ["Pour rétablir la monarchie des Bourbons", "Parce que la Constitution lui interdit un second mandat", "Pour déclarer la guerre à la Prusse", "Pour abolir le suffrage universel"],
+            answer: 1,
+            explanation: "La Constitution de 1848 interdit au président d’être réélu, et l’Assemblée refuse de la réviser. Louis-Napoléon s’empare donc du pouvoir par la force le **2 décembre 1851**, puis fait ratifier son coup d’État par plébiscite, en rétablissant le suffrage universel que l’Assemblée avait restreint en 1850.",
+          },
+        ],
         example: {
           title: "Méthode : expliquer le succès de Louis-Napoléon Bonaparte en 1848",
           steps: [
@@ -317,6 +490,36 @@ export const chapters: Chapter[] = [
           "1860 → traité de libre-échange ; rattachement de Nice et de la Savoie",
           "1864 → loi Ollivier (droit de grève)",
           "mai 1870 → plébiscite approuvant les réformes libérales",
+        ],
+        figure: {
+          type: "bars",
+          title: "Le réseau ferré français sous le Second Empire",
+          caption: "Ordres de grandeur : environ 3 000 km au début du régime, près de 17 000 km en 1870.",
+          unit: "km",
+          data: [{ label: "Début des années 1850", value: 3000 }, { label: "1870", value: 17000 }],
+        },
+        practice: [
+          {
+            id: "1re-hg-02-s2-p1",
+            prompt: "Qu’appelle-t-on la **candidature officielle** sous le Second Empire ?",
+            choices: ["Un candidat soutenu par l’administration impériale", "Un candidat élu par le Sénat", "Un candidat désigné par le pape", "Un candidat de l’opposition républicaine"],
+            answer: 0,
+            explanation: "La **candidature officielle** est le soutien de l’administration (préfets, maires) à un candidat favorable au régime lors des élections au Corps législatif. C’est un moyen de contrôler un suffrage universel que l’Empire maintient.",
+          },
+          {
+            id: "1re-hg-02-s2-p2",
+            prompt: "Quelle loi de **1864** marque l’évolution vers l’Empire libéral ?",
+            choices: ["La loi Falloux", "La loi Ollivier qui reconnaît le droit de grève", "La loi Waldeck-Rousseau sur les syndicats", "La loi sur la liberté de la presse"],
+            answer: 1,
+            explanation: "La **loi Ollivier** de 1864 reconnaît le droit de grève : c’est un signe de l’ouverture libérale du régime dans les années 1860. Les syndicats ne seront légalisés qu’en 1884 et la grande loi sur la presse date de 1881.",
+          },
+          {
+            id: "1re-hg-02-s2-p3",
+            prompt: "Que gagne la France en **1860** en échange de son aide au Piémont ?",
+            choices: ["L’Alsace et la Moselle", "La Corse", "Nice et la Savoie", "La Vénétie"],
+            answer: 2,
+            explanation: "Après avoir aidé le Piémont contre l’Autriche en 1859, Napoléon III obtient **Nice et la Savoie** en 1860, rattachées après plébiscite. L’Alsace-Moselle sera au contraire perdue en 1871.",
+          },
         ],
         example: {
           title: "Étude de cas : Paris transformé par Haussmann",
@@ -353,6 +556,43 @@ export const chapters: Chapter[] = [
           "10 mai 1871 → traité de Francfort",
           "18 mars - 28 mai 1871 → Commune de Paris",
         ],
+        figure: {
+          type: "timeline",
+          title: "Les unités italienne et allemande et la défaite française (1859-1871)",
+          caption: "Deux unités réalisées par la guerre, sous la direction du Piémont et de la Prusse.",
+          events: [
+            { date: "Juin 1859", label: "Magenta et Solferino : victoires franco-piémontaises sur l’Autriche" },
+            { date: "17 mars 1861", label: "Proclamation du royaume d’Italie" },
+            { date: "1864", label: "Guerre des Duchés contre le Danemark" },
+            { date: "3 juillet 1866", label: "Sadowa : la Prusse bat l’Autriche" },
+            { date: "2 septembre 1870", label: "Capitulation de Napoléon III à Sedan" },
+            { date: "18 janvier 1871", label: "Proclamation de l’Empire allemand à Versailles" },
+            { date: "10 mai 1871", label: "Traité de Francfort : perte de l’Alsace-Moselle" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-02-s3-p1",
+            prompt: "Quel ministre mène l’unité italienne aux côtés du roi **Victor-Emmanuel II** ?",
+            choices: ["Bismarck", "Metternich", "Mazzini", "Cavour"],
+            answer: 3,
+            explanation: "**Cavour**, Premier ministre du Piémont-Sardaigne, conduit l’unité par la diplomatie (entrevue de Plombières avec Napoléon III en 1858) et la guerre. Bismarck est l’artisan de l’unité allemande et Metternich le chancelier autrichien du congrès de Vienne.",
+          },
+          {
+            id: "1re-hg-02-s3-p2",
+            prompt: "Où l’**Empire allemand** est-il proclamé le 18 janvier 1871 ?",
+            choices: ["À Berlin", "Dans la galerie des Glaces du château de Versailles", "À Francfort", "À Sedan"],
+            answer: 1,
+            explanation: "L’Empire allemand est proclamé dans la **galerie des Glaces** de Versailles, en pleine guerre contre la France. Ce choix humiliant nourrit en France l’esprit de revanche ; le traité de paix est signé à Francfort le 10 mai 1871.",
+          },
+          {
+            id: "1re-hg-02-s3-p3",
+            prompt: "Quelle période correspond à la **Semaine sanglante** ?",
+            choices: ["21-28 mai 1871", "23-26 juin 1848", "27-29 juillet 1830", "2-4 septembre 1870"],
+            answer: 0,
+            explanation: "La **Semaine sanglante** (21-28 mai 1871) est l’écrasement de la Commune de Paris par l’armée versaillaise de Thiers. Elle fait plusieurs milliers de morts (souvent estimés entre 10 000 et 20 000) et entraîne des milliers de déportations.",
+          },
+        ],
         example: {
           title: "Méthode : construire une composition sur l’unité allemande",
           steps: [
@@ -364,6 +604,36 @@ export const chapters: Chapter[] = [
             "**Conclusion** : une puissance nouvelle bouleverse l’équilibre européen et crée un antagonisme durable avec la France.",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-02-hw-1",
+        prompt: "Quel préfet dirige la transformation de Paris sous le Second Empire ?",
+        choices: ["Thiers", "Haussmann", "Gambetta", "Ollivier"],
+        answer: 1,
+        explanation: "Le baron **Haussmann**, préfet de la Seine de 1853 à 1870, perce de grands boulevards, construit égouts et parcs. Ces travaux répondent à des objectifs d’hygiène, de circulation, de prestige et de maintien de l’ordre.",
+      },
+      {
+        id: "1re-hg-02-hw-2",
+        prompt: "Quel épisode diplomatique Bismarck utilise-t-il pour pousser la France à la guerre en 1870 ?",
+        choices: ["L’entrevue de Plombières", "Le traité de Francfort", "La dépêche d’Ems", "Le congrès de Vienne"],
+        answer: 2,
+        explanation: "Bismarck publie une version volontairement blessante de la **dépêche d’Ems** (13 juillet 1870). Napoléon III déclare la guerre le 19 juillet, mais les États du Sud de l’Allemagne se rangent aux côtés de la Prusse.",
+      },
+      {
+        id: "1re-hg-02-hw-3",
+        prompt: "Que prévoit le **traité de Francfort** (10 mai 1871) ?",
+        choices: ["Le rattachement de Nice et de la Savoie", "L’indépendance de la Belgique", "La restitution de l’Alsace-Moselle à la France", "L’annexion de l’Alsace et de la Moselle et une indemnité de 5 milliards de francs-or"],
+        answer: 3,
+        explanation: "Le traité de Francfort impose à la France la cession de l’**Alsace** et de la **Moselle** et une indemnité de **5 milliards de francs-or**. Cette perte nourrit l’esprit de revanche ; la restitution n’interviendra qu’en 1919.",
+      },
+      {
+        id: "1re-hg-02-hw-4",
+        prompt: "Comment appelle-t-on la politique de Bismarck fondée sur les rapports de force ?",
+        choices: ["La Realpolitik", "Le Risorgimento", "Le bonapartisme", "Le Zollverein"],
+        answer: 0,
+        explanation: "La **Realpolitik** est une politique pragmatique fondée sur les rapports de force plutôt que sur les principes. Le Risorgimento désigne le mouvement pour l’unité italienne et le Zollverein l’union douanière allemande de 1834.",
       },
     ],
     exercise: [
@@ -546,6 +816,43 @@ export const chapters: Chapter[] = [
           "1879 → démission de Mac-Mahon ; la Marseillaise hymne national",
           "1880 → le 14 Juillet fête nationale",
         ],
+        figure: {
+          type: "timeline",
+          title: "L’enracinement de la République (1870-1880)",
+          caption: "D’une République provisoire, dominée par les monarchistes, à une République installée par les républicains.",
+          events: [
+            { date: "4 septembre 1870", label: "Proclamation de la République à Paris" },
+            { date: "Février 1871", label: "Élection d’une Assemblée à majorité monarchiste" },
+            { date: "1873", label: "Le maréchal Mac-Mahon devient président" },
+            { date: "30 janvier 1875", label: "Amendement Wallon, adopté à une voix de majorité" },
+            { date: "16 mai 1877", label: "Crise du 16 mai : Mac-Mahon contre la Chambre" },
+            { date: "1879", label: "Démission de Mac-Mahon ; la Marseillaise devient hymne national" },
+            { date: "1880", label: "Le 14 Juillet devient fête nationale" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-03-s1-p1",
+            prompt: "Quelle est la particularité de l’**amendement Wallon** (30 janvier 1875) ?",
+            choices: ["Il est adopté à l’unanimité", "Il est adopté à une voix de majorité", "Il est rejeté par le Sénat", "Il rétablit la monarchie"],
+            answer: 1,
+            explanation: "L’amendement Wallon, qui mentionne l’élection du « président de la République » pour sept ans, est adopté à **une voix de majorité**. Il installe le mot « République » dans les lois constitutionnelles de 1875.",
+          },
+          {
+            id: "1re-hg-03-s1-p2",
+            prompt: "Comment se termine la **crise du 16 mai 1877** ?",
+            choices: ["Par un coup d’État de Mac-Mahon", "Par le retour du comte de Chambord", "Par la victoire électorale des républicains", "Par la dissolution du Sénat"],
+            answer: 2,
+            explanation: "Mac-Mahon dissout la Chambre, mais les **républicains gagnent les élections**. Il doit « se soumettre », puis démissionne en 1879 ; le président de la République n’osera plus utiliser le droit de dissolution.",
+          },
+          {
+            id: "1re-hg-03-s1-p3",
+            prompt: "Depuis quelle année le **14 Juillet** est-il la fête nationale ?",
+            choices: ["1880", "1789", "1848", "1905"],
+            answer: 0,
+            explanation: "La loi de **1880** fait du 14 Juillet la fête nationale, en souvenir de la prise de la Bastille et de la fête de la Fédération. Les républicains installent ainsi les symboles du régime, après la Marseillaise devenue hymne national en 1879.",
+          },
+        ],
         example: {
           title: "Méthode : analyser un symbole républicain (Marianne)",
           steps: [
@@ -579,6 +886,43 @@ export const chapters: Chapter[] = [
           "13 janvier 1898 → « J’accuse…! » de Zola",
           "1901 → loi sur les associations",
           "9 décembre 1905 → séparation des Églises et de l’État",
+        ],
+        figure: {
+          type: "timeline",
+          title: "Les grandes lois républicaines (1881-1905)",
+          caption: "Libertés publiques, école et laïcité : le programme républicain mis en œuvre.",
+          events: [
+            { date: "16 juin 1881", label: "Gratuité de l’école primaire publique" },
+            { date: "30 juin 1881", label: "Liberté de réunion" },
+            { date: "29 juillet 1881", label: "Liberté de la presse" },
+            { date: "28 mars 1882", label: "École primaire obligatoire (6-13 ans) et laïque" },
+            { date: "21 mars 1884", label: "Loi Waldeck-Rousseau : légalisation des syndicats" },
+            { date: "1er juillet 1901", label: "Liberté d’association" },
+            { date: "9 décembre 1905", label: "Séparation des Églises et de l’État" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-03-s2-p1",
+            prompt: "Que prévoit la loi Ferry du **28 mars 1882** ?",
+            choices: ["La gratuité de l’université", "La liberté de la presse", "La séparation des Églises et de l’État", "L’instruction primaire obligatoire et laïque"],
+            answer: 3,
+            explanation: "La loi du 28 mars 1882 rend l’instruction primaire **obligatoire** de 6 à 13 ans et **laïque**, après la loi de 1881 sur la gratuité. Les instituteurs, « hussards noirs » de la République, diffusent la langue française et les valeurs républicaines.",
+          },
+          {
+            id: "1re-hg-03-s2-p2",
+            prompt: "Que garantit la loi de séparation du **9 décembre 1905** ?",
+            choices: ["Le financement public de tous les cultes", "La liberté de conscience et le libre exercice des cultes", "L’interdiction de toute religion", "Le retour au Concordat"],
+            answer: 1,
+            explanation: "La loi de 1905 dispose que la République « ne reconnaît, ne salarie ni ne subventionne aucun culte » mais elle **garantit la liberté de conscience** et le libre exercice des cultes. Elle met fin au Concordat de 1801.",
+          },
+          {
+            id: "1re-hg-03-s2-p3",
+            prompt: "Qui publie « **J’accuse…!** » le 13 janvier 1898 ?",
+            choices: ["Jean Jaurès", "Georges Clemenceau", "Émile Zola", "Édouard Drumont"],
+            answer: 2,
+            explanation: "**Émile Zola** publie « J’accuse…! » en une de *L’Aurore*, le journal de Clemenceau. Il accuse les officiers d’avoir couvert une erreur judiciaire et cherche un procès public ; Drumont est au contraire un antidreyfusard antisémite.",
+          },
         ],
         example: {
           title: "Méthode : analyser « J’accuse…! » d’Émile Zola (1898)",
@@ -614,6 +958,40 @@ export const chapters: Chapter[] = [
           "1895 → AOF ; 1910 → AEF",
           "1912 → protectorat sur le Maroc",
         ],
+        figure: {
+          type: "figures",
+          title: "L’empire colonial français en 1914",
+          caption: "Le deuxième empire colonial du monde, après l’Empire britannique.",
+          items: [
+            { value: "≈ 11 millions de km²", label: "superficie de l’empire colonial en 1914" },
+            { value: "≈ 50 millions", label: "d’habitants dans l’empire en 1914" },
+            { value: "1830", label: "prise d’Alger, début de la conquête de l’Algérie" },
+            { value: "1912", label: "protectorat sur le Maroc (traité de Fès)" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-03-s3-p1",
+            prompt: "Qu’est-ce qu’un **protectorat** ?",
+            choices: ["Un territoire qui garde son souverain mais dont la métropole contrôle la politique", "Un territoire juridiquement intégré à la France en départements", "Un territoire confié par la SDN", "Un État indépendant allié à la France"],
+            answer: 0,
+            explanation: "Dans un **protectorat** (Tunisie, Maroc), le souverain local est maintenu, mais la métropole contrôle la politique extérieure et l’administration réelle. L’Algérie, elle, est divisée en départements, et les mandats de la SDN n’apparaissent qu’après 1919.",
+          },
+          {
+            id: "1re-hg-03-s3-p2",
+            prompt: "Que règle la **conférence de Berlin** (1884-1885) ?",
+            choices: ["La fin de la guerre franco-prussienne", "Le partage de l’Afrique entre Européens", "L’indépendance de l’Algérie", "La création de l’Indochine française"],
+            answer: 1,
+            explanation: "La **conférence de Berlin** fixe les règles du partage de l’Afrique entre puissances européennes. Elle accélère la course aux colonies de la fin du XIXe siècle.",
+          },
+          {
+            id: "1re-hg-03-s3-p3",
+            prompt: "Quel statut juridique ont la plupart des colonisés dans l’empire français ?",
+            choices: ["Citoyens français à part entière", "Électeurs au suffrage censitaire", "Sujets soumis au Code de l’indigénat", "Protégés du pape"],
+            answer: 2,
+            explanation: "Les colonisés sont pour la plupart des **sujets** et non des citoyens. Le **Code de l’indigénat** leur impose des peines spéciales et le travail forcé, ce qui fait de la société coloniale une société profondément inégalitaire.",
+          },
+        ],
         example: {
           title: "Étude de cas : l’Algérie, une colonie de peuplement",
           steps: [
@@ -624,6 +1002,36 @@ export const chapters: Chapter[] = [
             "**Bilan** : une société coloniale profondément inégalitaire, source de tensions qui mèneront à la guerre d’Algérie (1954-1962).",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-03-hw-1",
+        prompt: "Quel est le mode d’élection du président de la République selon les lois de 1875 ?",
+        choices: ["Au suffrage universel direct pour 5 ans", "Par les deux chambres réunies pour 7 ans", "Par le Sénat seul pour 4 ans", "Par plébiscite à vie"],
+        answer: 1,
+        explanation: "Selon les lois constitutionnelles de 1875, le président est élu pour **sept ans** par la Chambre des députés et le Sénat **réunis**. Le régime est parlementaire : le gouvernement est responsable devant les chambres.",
+      },
+      {
+        id: "1re-hg-03-hw-2",
+        prompt: "En quelle année Alfred Dreyfus est-il **réhabilité** ?",
+        choices: ["1894", "1898", "1899", "1906"],
+        answer: 3,
+        explanation: "Condamné à tort en 1894, gracié en 1899, Dreyfus est **réhabilité en 1906**. L’affaire a opposé dreyfusards, défenseurs des droits individuels, et antidreyfusards, nationalistes et souvent antisémites.",
+      },
+      {
+        id: "1re-hg-03-hw-3",
+        prompt: "Quelle phrase résume le discours de **Jules Ferry** du 28 juillet 1885 ?",
+        choices: ["La colonisation est un crime contre l’humanité", "La France doit d’abord penser à la ligne bleue des Vosges", "Les « races supérieures » auraient le devoir de « civiliser » les « races inférieures »", "Les colonies doivent devenir indépendantes"],
+        answer: 2,
+        explanation: "Jules Ferry justifie la colonisation par une prétendue **mission civilisatrice** des « races supérieures ». Clemenceau lui répond en dénonçant cette prétention et en jugeant prioritaire la revanche contre l’Allemagne.",
+      },
+      {
+        id: "1re-hg-03-hw-4",
+        prompt: "Quelle organisation unifie les socialistes français en **1905** autour de Jean Jaurès ?",
+        choices: ["La SFIO", "La CGT", "La Ligue des droits de l’homme", "Le Parti colonial"],
+        answer: 0,
+        explanation: "La **SFIO** (Section française de l’Internationale ouvrière) unifie les socialistes en 1905. La CGT est un syndicat fondé en 1895 et la Ligue des droits de l’homme est née en 1898 pendant l’affaire Dreyfus.",
       },
     ],
     exercise: [
@@ -807,6 +1215,43 @@ export const chapters: Chapter[] = [
           "3 mars 1918 → traité de Brest-Litovsk",
           "11 novembre 1918 → armistice de Rethondes",
         ],
+        figure: {
+          type: "timeline",
+          title: "Les grandes étapes de la Première Guerre mondiale (1914-1918)",
+          caption: "D’un attentat dans les Balkans à l’armistice de Rethondes.",
+          events: [
+            { date: "28 juin 1914", label: "Attentat de Sarajevo contre François-Ferdinand" },
+            { date: "3 août 1914", label: "L’Allemagne déclare la guerre à la France" },
+            { date: "Septembre 1914", label: "Bataille de la Marne : fin de la guerre de mouvement" },
+            { date: "21 février 1916", label: "Début de la bataille de Verdun" },
+            { date: "6 avril 1917", label: "Entrée en guerre des États-Unis" },
+            { date: "3 mars 1918", label: "Traité de Brest-Litovsk : la Russie bolchevique sort de la guerre" },
+            { date: "11 novembre 1918", label: "Armistice de Rethondes" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-04-s1-p1",
+            prompt: "Quels pays forment la **Triple-Entente** en 1914 ?",
+            choices: ["Allemagne, Autriche-Hongrie, Italie", "France, Royaume-Uni, États-Unis", "France, Royaume-Uni, Russie", "Russie, Serbie, Empire ottoman"],
+            answer: 2,
+            explanation: "La **Triple-Entente** associe la France, le Royaume-Uni et la Russie. Elle fait face à la Triple-Alliance (Allemagne, Autriche-Hongrie, Italie) ; l’Italie rejoint finalement l’Entente en mai 1915.",
+          },
+          {
+            id: "1re-hg-04-s1-p2",
+            prompt: "Quelle bataille de **septembre 1914** met fin à la guerre de mouvement à l’Ouest ?",
+            choices: ["La Marne", "Verdun", "La Somme", "Le Chemin des Dames"],
+            answer: 0,
+            explanation: "La victoire franco-britannique de la **Marne** arrête l’offensive allemande du plan Schlieffen. Le front se fige ensuite de la mer du Nord à la Suisse : commence la guerre de position dans les tranchées.",
+          },
+          {
+            id: "1re-hg-04-s1-p3",
+            prompt: "Quel événement de **1917** provoque des mutineries dans l’armée française ?",
+            choices: ["L’entrée en guerre des États-Unis", "L’échec de l’offensive Nivelle au Chemin des Dames", "Le traité de Brest-Litovsk", "La bataille de Verdun"],
+            answer: 1,
+            explanation: "L’échec sanglant de l’offensive Nivelle au **Chemin des Dames** (avril 1917) provoque des **mutineries** : les soldats refusent de monter à l’assaut sans espoir. Pétain y répond par une répression limitée et une amélioration des conditions de vie des soldats.",
+          },
+        ],
         example: {
           title: "Étude de cas : Verdun, une bataille symbole",
           steps: [
@@ -837,6 +1282,40 @@ export const chapters: Chapter[] = [
           "avril 1915 → premiers gaz de combat massifs (Ypres)",
           "24 avril 1915 → début du génocide des Arméniens",
           "novembre 1917 → Clemenceau président du Conseil",
+        ],
+        figure: {
+          type: "figures",
+          title: "Une guerre totale en chiffres",
+          caption: "Mobilisation de masse et violences extrêmes contre les civils.",
+          items: [
+            { value: "≈ 65 millions", label: "de soldats mobilisés dans le monde" },
+            { value: "≈ 600 000", label: "soldats coloniaux mobilisés par la France" },
+            { value: "Avril 1915", label: "premiers gaz de combat utilisés massivement (Ypres)" },
+            { value: "1,2 à 1,5 million", label: "d’Arméniens tués lors du génocide (1915-1916)" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-04-s2-p1",
+            prompt: "Que désigne l’expression **« bourrage de crâne »** ?",
+            choices: ["L’entraînement physique des soldats", "La censure du courrier des soldats uniquement", "Les emprunts de guerre", "La propagande qui donne une image héroïque et mensongère du front"],
+            answer: 3,
+            explanation: "Le **bourrage de crâne** désigne la propagande qui embellit la réalité du front pour soutenir le moral de l’arrière. Elle est associée à la **censure**, qui supprime les informations jugées démoralisantes.",
+          },
+          {
+            id: "1re-hg-04-s2-p2",
+            prompt: "Qui sont les **munitionnettes** ?",
+            choices: ["Des infirmières du front", "Des ouvrières des usines d’armement", "Des soldates de l’armée française", "Des espionnes au service de l’Allemagne"],
+            answer: 1,
+            explanation: "Les **munitionnettes** sont les femmes qui travaillent dans les usines d’armement pour remplacer les hommes mobilisés. Leur rôle illustre la mobilisation de toute la société dans une **guerre totale**.",
+          },
+          {
+            id: "1re-hg-04-s2-p3",
+            prompt: "Quel gouvernement organise le **génocide des Arméniens** à partir du 24 avril 1915 ?",
+            choices: ["Le gouvernement des Jeunes-Turcs", "Le gouvernement de Mustafa Kemal", "Le gouvernement du tsar Nicolas II", "Le gouvernement austro-hongrois"],
+            answer: 0,
+            explanation: "Le gouvernement des **Jeunes-Turcs** accuse les Arméniens de complicité avec la Russie et organise leur extermination : massacres et déportations vers les déserts de Syrie. Environ 1,2 à 1,5 million d’Arméniens périssent, soit les deux tiers des Arméniens de l’Empire.",
+          },
         ],
         example: {
           title: "Méthode : analyser une affiche de propagande",
@@ -872,6 +1351,42 @@ export const chapters: Chapter[] = [
           "janvier 1923 → occupation de la Ruhr",
           "24 juillet 1923 → traité de Lausanne",
         ],
+        figure: {
+          type: "bars",
+          title: "Soldats morts pendant la Première Guerre mondiale (estimations)",
+          caption: "Estimations courantes, en millions ; le total dépasse 10 millions de soldats tués. Pour le Royaume-Uni : ensemble de l’Empire britannique.",
+          unit: "millions",
+          data: [
+            { label: "Allemagne", value: 2 },
+            { label: "France", value: 1.4 },
+            { label: "Empire britannique", value: 0.9 },
+            { label: "Italie", value: 0.6 },
+            { label: "États-Unis", value: 0.12 },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-04-s3-p1",
+            prompt: "Quelle clause du **traité de Versailles** concerne l’armée allemande ?",
+            choices: ["Elle est limitée à 100 000 hommes", "Elle est dissoute entièrement", "Elle est placée sous commandement français", "Elle doit occuper la Ruhr"],
+            answer: 0,
+            explanation: "Le traité de Versailles (28 juin 1919) limite l’armée allemande à **100 000 hommes** et démilitarise la Rhénanie. Les Allemands, exclus des négociations, dénoncent un « Diktat ».",
+          },
+          {
+            id: "1re-hg-04-s3-p2",
+            prompt: "Qu’est-ce qu’un **mandat** de la SDN ?",
+            choices: ["Un territoire annexé définitivement par un vainqueur", "Un traité de paix séparé", "Un vote de l’Assemblée de la SDN", "Un territoire confié à une puissance chargée de le conduire vers l’indépendance"],
+            answer: 3,
+            explanation: "Un **mandat** est un territoire confié par la SDN à une puissance chargée de le mener vers l’indépendance. La Syrie et le Liban sont ainsi confiés à la France, la Palestine et l’Irak au Royaume-Uni.",
+          },
+          {
+            id: "1re-hg-04-s3-p3",
+            prompt: "Quel traité de **1923** fonde la Turquie moderne ?",
+            choices: ["Le traité de Sèvres", "Le traité de Trianon", "Le traité de Lausanne", "Le traité de Brest-Litovsk"],
+            answer: 2,
+            explanation: "Mustafa Kemal rejette le traité de Sèvres (1920), mène la guerre contre la Grèce et obtient le **traité de Lausanne** (24 juillet 1923). La république turque est proclamée le 29 octobre 1923.",
+          },
+        ],
         example: {
           title: "Méthode : réaliser un croquis de l’Europe en 1923",
           steps: [
@@ -882,6 +1397,36 @@ export const chapters: Chapter[] = [
             "**Titrer et soigner** : « L’Europe en 1923 : une paix fragile » ; écriture lisible, nomenclature horizontale.",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-04-hw-1",
+        prompt: "Pourquoi le Royaume-Uni entre-t-il en guerre le **4 août 1914** ?",
+        choices: ["À cause de l’attentat de Sarajevo", "À cause de la violation de la neutralité belge par l’Allemagne", "À cause de la guerre sous-marine à outrance", "À la demande des États-Unis"],
+        answer: 1,
+        explanation: "Le Royaume-Uni déclare la guerre à l’Allemagne après la **violation de la neutralité belge** par les troupes allemandes, conformément au plan Schlieffen. La guerre sous-marine à outrance explique plutôt l’entrée en guerre américaine en 1917.",
+      },
+      {
+        id: "1re-hg-04-hw-2",
+        prompt: "Quel homme politique français prononce l’appel à l’**Union sacrée** le 4 août 1914 ?",
+        choices: ["Georges Clemenceau", "Jean Jaurès", "Philippe Pétain", "Raymond Poincaré"],
+        answer: 3,
+        explanation: "Le président de la République **Raymond Poincaré** appelle à l’**Union sacrée** : toutes les forces politiques suspendent leurs oppositions face à l’ennemi. Jaurès a été assassiné le 31 juillet 1914 et Clemenceau ne dirige le gouvernement qu’à partir de novembre 1917.",
+      },
+      {
+        id: "1re-hg-04-hw-3",
+        prompt: "Pourquoi la France et la Belgique occupent-elles la **Ruhr** en janvier 1923 ?",
+        choices: ["Pour obtenir le paiement des réparations allemandes", "Pour soutenir le putsch d’Hitler", "Pour aider la république de Weimar contre les spartakistes", "Pour appliquer les Quatorze Points de Wilson"],
+        answer: 0,
+        explanation: "L’Allemagne ne paie pas les **réparations** prévues ; la France et la Belgique occupent la Ruhr, cœur industriel allemand, pour se payer en nature. Cette crise de 1923 s’accompagne d’une hyperinflation en Allemagne.",
+      },
+      {
+        id: "1re-hg-04-hw-4",
+        prompt: "Quels sont les quatre empires effondrés à l’issue de la guerre ?",
+        choices: ["Britannique, français, allemand, russe", "Allemand, austro-hongrois, russe, ottoman", "Austro-hongrois, japonais, ottoman, italien", "Russe, chinois, allemand, britannique"],
+        answer: 1,
+        explanation: "La guerre provoque l’effondrement des empires **allemand, austro-hongrois, russe et ottoman**. De nouveaux États apparaissent au nom du droit des peuples à disposer d’eux-mêmes, mais ils comptent d’importantes minorités.",
       },
     ],
     exercise: [
@@ -1063,6 +1608,44 @@ export const chapters: Chapter[] = [
           "Plus de 10 millions d’habitants → mégapole",
           "1961 → Jean Gottmann décrit la mégalopole BosWash",
         ],
+        figure: {
+          type: "bars",
+          title: "Les plus grandes agglomérations du monde en 2018",
+          caption: "Population des agglomérations en 2018, en millions d’habitants (ONU, World Urbanization Prospects 2018).",
+          unit: "millions d’hab.",
+          data: [
+            { label: "Tokyo", value: 37.5 },
+            { label: "Delhi", value: 28.5 },
+            { label: "Shanghai", value: 25.6 },
+            { label: "São Paulo", value: 21.7 },
+            { label: "Mexico", value: 21.6 },
+            { label: "Le Caire", value: 20.1 },
+            { label: "Mumbai", value: 20 },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-05-s1-p1",
+            prompt: "Depuis quelle année plus de la moitié de l’humanité vit-elle en ville ?",
+            choices: ["1950", "1990", "2007", "2020"],
+            answer: 2,
+            explanation: "Depuis **2007**, la population urbaine dépasse la population rurale dans le monde. Le taux d’urbanisation dépasse aujourd’hui 55 % et pourrait atteindre environ 68 % en 2050 selon l’ONU.",
+          },
+          {
+            id: "1re-hg-05-s1-p2",
+            prompt: "Qu’est-ce qui définit avant tout une **métropole** ?",
+            choices: ["Une population de plus de 10 millions d’habitants", "La concentration de fonctions de commandement et sa connexion aux autres grandes villes", "Le statut de capitale politique", "Sa situation sur un littoral"],
+            answer: 1,
+            explanation: "Une métropole se définit d’abord par ses **fonctions de commandement** (sièges sociaux, finance, pouvoir politique, universités) et par sa **connexion** aux autres grandes villes. Le seuil de 10 millions d’habitants définit une mégapole, pas une métropole.",
+          },
+          {
+            id: "1re-hg-05-s1-p3",
+            prompt: "Qui a forgé la notion de **ville mondiale** (ou ville globale) en 1991 ?",
+            choices: ["Jean Gottmann", "Bernard Kayser", "Saskia Sassen", "Raphael Lemkin"],
+            answer: 2,
+            explanation: "La sociologue **Saskia Sassen** décrit en 1991 les villes globales (New York, Londres, Tokyo), qui concentrent places boursières et sièges de firmes. Jean Gottmann a, lui, décrit la mégalopole BosWash en 1961.",
+          },
+        ],
         example: {
           title: "Étude de cas : Londres, une ville mondiale",
           steps: [
@@ -1086,6 +1669,41 @@ export const chapters: Chapter[] = [
           "**Gentrification** : embourgeoisement d’un quartier populaire par l’arrivée de catégories aisées.",
           "**Fragmentation urbaine** : division de la ville en espaces séparés socialement et physiquement.",
           "**Bidonville** : quartier d’habitat précaire et informel, sans services de base suffisants.",
+        ],
+        figure: {
+          type: "table",
+          title: "Des métropoles en mutation : pays riches et pays en développement",
+          caption: "Une métropolisation différenciée selon le niveau de développement.",
+          headers: ["Critère", "Pays anciennement industrialisés", "Pays en développement"],
+          rows: [
+            ["Croissance urbaine", "Lente, population déjà urbaine à près de 80 %", "Rapide (exode rural et accroissement naturel)"],
+            ["Extension de la ville", "Périurbanisation, étalement pavillonnaire", "Extension souvent informelle en périphérie"],
+            ["Recompositions", "Reconversion des friches (Docklands), gentrification", "Grands projets d’affaires (Eko Atlantic à Lagos)"],
+            ["Inégalités", "Quartiers fermés et quartiers populaires", "Bidonvilles (environ 1 milliard d’habitants dans le monde)"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-05-s2-p1",
+            prompt: "Que désigne la **gentrification** ?",
+            choices: ["L’embourgeoisement d’un quartier populaire par l’arrivée de catégories aisées", "L’extension de la ville en périphérie", "La construction de bidonvilles", "La création de quartiers d’affaires"],
+            answer: 0,
+            explanation: "La **gentrification** est l’embourgeoisement d’un quartier populaire, souvent central, par l’arrivée de ménages aisés. Elle provoque la hausse des loyers et le départ des habitants les plus modestes, comme dans l’East End de Londres.",
+          },
+          {
+            id: "1re-hg-05-s2-p2",
+            prompt: "Combien de personnes vivent environ dans des **bidonvilles** dans le monde ?",
+            choices: ["Environ 10 millions", "Environ 100 millions", "Environ 4 milliards", "Environ 1 milliard"],
+            answer: 3,
+            explanation: "Environ **1 milliard** de personnes vivent dans des quartiers informels. La croissance urbaine rapide des pays en développement dépasse souvent les capacités des pouvoirs publics à loger la population et à fournir les services de base.",
+          },
+          {
+            id: "1re-hg-05-s2-p3",
+            prompt: "Que sont les **gated communities** ?",
+            choices: ["Des écoquartiers subventionnés", "Des quartiers résidentiels fermés et sécurisés", "Des bidonvilles construits sur pilotis", "Des zones portuaires reconverties"],
+            answer: 1,
+            explanation: "Les **gated communities** sont des quartiers fermés, réservés à des catégories aisées et protégés par des murs et des gardiens. Elles illustrent la **fragmentation urbaine**, c’est-à-dire la séparation sociale et physique des espaces de la ville.",
+          },
         ],
         example: {
           title: "Étude de cas : Lagos, une métropole d’un pays en développement",
@@ -1117,6 +1735,40 @@ export const chapters: Chapter[] = [
           "2014 → loi MAPTAM ; 2015 → Métropole de Lyon",
           "2018 → programme « Action cœur de ville »",
         ],
+        figure: {
+          type: "figures",
+          title: "La métropolisation en France : chiffres clés",
+          caption: "Une hiérarchie urbaine dominée par Paris (macrocéphalie).",
+          items: [
+            { value: "≈ 13 millions", label: "d’habitants dans l’aire d’attraction de Paris" },
+            { value: "≈ 30 %", label: "du PIB national produit par l’aire parisienne" },
+            { value: "≈ 200 km", label: "de métro automatique prévus par le Grand Paris Express" },
+            { value: "2014", label: "loi MAPTAM, qui crée le statut de métropole" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-05-s3-p1",
+            prompt: "Que désigne la **macrocéphalie** parisienne ?",
+            choices: ["Le poids démesuré de Paris dans le réseau urbain national", "Le déclin démographique de Paris", "La rivalité entre Paris et Lyon", "La forte densité des villes moyennes"],
+            answer: 0,
+            explanation: "La **macrocéphalie** est le poids démesuré de la capitale : l’aire d’attraction de Paris rassemble environ 13 millions d’habitants, près d’un Français sur cinq, et environ 30 % du PIB. Les métropoles régionales restent loin derrière.",
+          },
+          {
+            id: "1re-hg-05-s3-p2",
+            prompt: "Quelle loi de **2014** crée le statut administratif de métropole ?",
+            choices: ["La loi NOTRe", "La loi SRU", "La loi Waldeck-Rousseau", "La loi MAPTAM"],
+            answer: 3,
+            explanation: "La loi **MAPTAM** (2014) crée le statut de métropole pour les grandes intercommunalités. On en compte aujourd’hui une vingtaine, dont la Métropole de Lyon, collectivité à statut particulier depuis 2015.",
+          },
+          {
+            id: "1re-hg-05-s3-p3",
+            prompt: "Quel programme lancé en **2018** vise à soutenir les villes moyennes ?",
+            choices: ["Le Grand Paris Express", "Action cœur de ville", "La politique de développement de l’Ouest", "France 2030"],
+            answer: 1,
+            explanation: "Le programme **Action cœur de ville** (2018) aide les villes moyennes à revitaliser leur centre (commerces, logements). Il répond aux inégalités territoriales accrues par la métropolisation.",
+          },
+        ],
         example: {
           title: "Méthode : réaliser un croquis « La métropolisation en France »",
           steps: [
@@ -1127,6 +1779,36 @@ export const chapters: Chapter[] = [
             "**Finaliser** : titre, nomenclature lisible, orientation et échelle approximative.",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-05-hw-1",
+        prompt: "Que désigne une **mégalopole** ?",
+        choices: ["Une ville de plus de 10 millions d’habitants", "Un ensemble urbain continu formé de plusieurs métropoles reliées", "Une ville mondiale de premier rang", "Un quartier d’affaires"],
+        answer: 1,
+        explanation: "Une **mégalopole** est un chapelet de métropoles reliées entre elles, comme BosWash sur la côte nord-est des États-Unis ou la mégalopole japonaise. Il ne faut pas la confondre avec la **mégapole**, agglomération de plus de 10 millions d’habitants.",
+      },
+      {
+        id: "1re-hg-05-hw-2",
+        prompt: "Quelle ville est l’exemple d’une métropole régionale puissante mais encore faiblement intégrée aux réseaux de commandement mondiaux ?",
+        choices: ["Londres", "New York", "Lagos", "Tokyo"],
+        answer: 2,
+        explanation: "**Lagos**, capitale économique du Nigeria, est l’une des plus grandes métropoles d’Afrique. Elle reste toutefois faiblement intégrée aux réseaux de commandement mondiaux, contrairement à Londres, New York ou Tokyo.",
+      },
+      {
+        id: "1re-hg-05-hw-3",
+        prompt: "Quel quartier d’affaires symbolise la fonction de ville mondiale de Paris ?",
+        choices: ["La Défense", "Canary Wharf", "Pudong", "Victoria Island"],
+        answer: 0,
+        explanation: "**La Défense** concentre sièges sociaux et tours de bureaux à l’ouest de Paris. Canary Wharf est à Londres, Pudong à Shanghai et Victoria Island à Lagos.",
+      },
+      {
+        id: "1re-hg-05-hw-4",
+        prompt: "Quel effet de la métropolisation est un **inconvénient** pour les territoires français ?",
+        choices: ["La création d’emplois qualifiés", "Le développement de l’innovation", "L’essor des universités", "L’accroissement des inégalités entre métropoles et villes moyennes ou rurales"],
+        answer: 3,
+        explanation: "La métropolisation crée des emplois qualifiés et de l’innovation, mais elle **accroît les inégalités territoriales**. Les villes moyennes et certains espaces ruraux perdent des habitants et des services, d’où des politiques de rééquilibrage.",
       },
     ],
     exercise: [
@@ -1297,6 +1979,40 @@ export const chapters: Chapter[] = [
           "**Délocalisation** : transfert d’une activité vers un pays où les coûts sont plus faibles ; **relocalisation** : retour dans le pays d’origine.",
           "**Technopôle** : espace associant entreprises de haute technologie, universités et centres de recherche.",
         ],
+        figure: {
+          type: "flow",
+          title: "La chaîne de valeur mondiale d’un smartphone",
+          caption: "Les étapes de conception et de vente captent l’essentiel de la valeur (« courbe du sourire »).",
+          steps: [
+            { label: "Conception", detail: "Design, logiciels, brevets : par exemple en Californie." },
+            { label: "Composants", detail: "Écrans, puces, mémoires : Corée du Sud, Taïwan, Japon, États-Unis." },
+            { label: "Assemblage", detail: "Sous-traitants (Foxconn) en Chine, en Inde ou au Vietnam." },
+            { label: "Distribution et vente", detail: "Flux maritimes et aériens, magasins et vente en ligne dans le monde entier." },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-06-s1-p1",
+            prompt: "Qu’est-ce qu’une **chaîne de valeur mondiale** ?",
+            choices: ["Un réseau de magasins d’une même marque", "La répartition des étapes de production d’un bien entre plusieurs pays", "Une chaîne de montage automatisée", "Un accord commercial entre deux États"],
+            answer: 1,
+            explanation: "Une **chaîne de valeur mondiale** répartit les étapes de production (conception, composants, assemblage, vente) entre plusieurs pays selon les coûts, les compétences et les infrastructures. Le smartphone en est un exemple typique.",
+          },
+          {
+            id: "1re-hg-06-s1-p2",
+            prompt: "Selon la « **courbe du sourire** », quelle étape capte le moins de valeur ajoutée ?",
+            choices: ["La conception", "Le marketing", "La fabrication et l’assemblage", "La vente"],
+            answer: 2,
+            explanation: "La courbe du sourire montre que la **fabrication et l’assemblage** captent peu de valeur, alors que la conception, la recherche, le marketing et la vente en captent l’essentiel. La mondialisation hiérarchise ainsi les territoires.",
+          },
+          {
+            id: "1re-hg-06-s1-p3",
+            prompt: "Quel est l’acteur majeur de l’organisation mondiale de la production ?",
+            choices: ["Les firmes transnationales", "Les petites exploitations agricoles", "Les communes rurales", "Les syndicats"],
+            answer: 0,
+            explanation: "Les **firmes transnationales** possèdent des filiales dans plusieurs pays et organisent les chaînes de valeur ; environ 80 % du commerce mondial y serait lié selon la CNUCED. D’autres acteurs interviennent aussi : États, collectivités, OMC, sous-traitants.",
+          },
+        ],
         example: {
           title: "Étude de cas : la chaîne de valeur d’un smartphone",
           steps: [
@@ -1328,6 +2044,40 @@ export const chapters: Chapter[] = [
           "Shanghai → premier port mondial de conteneurs",
           "Rotterdam → premier port européen",
         ],
+        figure: {
+          type: "table",
+          title: "Les grandes façades maritimes mondiales",
+          caption: "Plus de 80 % du commerce mondial de marchandises (en volume) passe par la mer.",
+          headers: ["Façade maritime", "Grands ports", "Rôle"],
+          rows: [
+            ["Asie orientale", "Shanghai, Singapour, Ningbo, Shenzhen", "Première façade mondiale ; Shanghai, premier port de conteneurs"],
+            ["Northern Range (Europe)", "Rotterdam, Anvers, Hambourg, Le Havre", "Porte d’entrée de l’Europe ; Rotterdam, premier port européen"],
+            ["Nord-est des États-Unis", "New York - New Jersey", "Façade de la mégalopole BosWash"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-06-s2-p1",
+            prompt: "Quelle innovation de **1956** a fait chuter les coûts du transport maritime ?",
+            choices: ["Le moteur diesel", "Le canal de Panama", "Le conteneur", "Le câble sous-marin"],
+            answer: 2,
+            explanation: "Le **conteneur**, mis au point par Malcolm McLean en 1956, standardise le transport des marchandises et réduit fortement les coûts. Il a favorisé la littoralisation des activités et l’essor des grands ports.",
+          },
+          {
+            id: "1re-hg-06-s2-p2",
+            prompt: "Qu’est-ce qu’un **hub** ?",
+            choices: ["Un regroupement d’entreprises innovantes", "Une plate-forme de correspondance qui concentre et redistribue les flux", "Une zone industrielle autour d’un port", "Un détroit stratégique"],
+            answer: 1,
+            explanation: "Un **hub** est une plate-forme (port ou aéroport) qui concentre puis redistribue les flux. Le regroupement d’entreprises innovantes est un cluster, et la zone industrielle portuaire une ZIP.",
+          },
+          {
+            id: "1re-hg-06-s2-p3",
+            prompt: "Quel événement de **mars 2021** a montré la vulnérabilité des flux maritimes ?",
+            choices: ["Le blocage du canal de Suez par l’Ever Given", "La fermeture du détroit de Gibraltar", "La crise financière mondiale", "L’inauguration de Maasvlakte 2"],
+            answer: 0,
+            explanation: "Le porte-conteneurs **Ever Given** a bloqué le canal de Suez pendant plusieurs jours en mars 2021. Avec la pandémie de Covid-19, cet épisode a relancé le débat sur la relocalisation et la souveraineté industrielle.",
+          },
+        ],
         example: {
           title: "Étude de cas : Rotterdam, porte d’entrée de l’Europe",
           steps: [
@@ -1358,6 +2108,40 @@ export const chapters: Chapter[] = [
           "2004-2005 → pôles de compétitivité",
           "2021 → plan France 2030",
         ],
+        figure: {
+          type: "figures",
+          title: "Les espaces productifs français : repères",
+          caption: "Une économie très tertiarisée qui cherche à se réindustrialiser.",
+          items: [
+            { value: "≈ 75 %", label: "des emplois dans le secteur tertiaire" },
+            { value: "≈ 1/8", label: "des emplois dans l’industrie" },
+            { value: "< 3 %", label: "des emplois dans l’agriculture" },
+            { value: "1969", label: "création du technopôle de Sophia Antipolis" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-06-s3-p1",
+            prompt: "Que désigne la **désindustrialisation** ?",
+            choices: ["La fermeture des services publics", "La hausse de la part de l’agriculture", "Le transfert des usines vers les métropoles", "Le recul de l’emploi et de la part de l’industrie dans l’économie"],
+            answer: 3,
+            explanation: "La **désindustrialisation** est le recul de l’emploi industriel et de la part de l’industrie dans la richesse produite. En France, elle a frappé depuis les années 1970 les mines, la sidérurgie et le textile, notamment en Lorraine et dans le Nord.",
+          },
+          {
+            id: "1re-hg-06-s3-p2",
+            prompt: "Quand les **pôles de compétitivité** ont-ils été créés en France ?",
+            choices: ["En 1962", "En 1969", "En 2004-2005", "En 2021"],
+            answer: 2,
+            explanation: "Les pôles de compétitivité sont créés en **2004-2005** pour rassembler entreprises, laboratoires et universités autour de projets innovants (Aerospace Valley, Minalogic). 1969 est la date de Sophia Antipolis et 2021 celle du plan France 2030.",
+          },
+          {
+            id: "1re-hg-06-s3-p3",
+            prompt: "Quel nom porte l’ensemble portuaire Le Havre-Rouen-Paris ?",
+            choices: ["Haropa", "Euralille", "Northern Range", "Aerospace Valley"],
+            answer: 0,
+            explanation: "Les ports du Havre, de Rouen et de Paris sont réunis sous le nom d’**Haropa**. Malgré cela, les ports français restent en retrait face aux grands ports de la Northern Range comme Rotterdam ou Anvers.",
+          },
+        ],
         example: {
           title: "Étude de cas : Toulouse et l’industrie aéronautique",
           steps: [
@@ -1368,6 +2152,36 @@ export const chapters: Chapter[] = [
             "**Fragilités** : forte dépendance à un seul secteur, comme l’a montré la crise du transport aérien en 2020.",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-06-hw-1",
+        prompt: "Qu’est-ce qu’une **délocalisation** ?",
+        choices: ["Le retour d’une activité dans son pays d’origine", "Le transfert d’une activité vers un pays où les coûts sont plus faibles", "La création d’une nouvelle entreprise", "La fusion de deux firmes"],
+        answer: 1,
+        explanation: "Une **délocalisation** est le transfert d’une activité vers un pays aux coûts plus faibles. Le mouvement inverse, le retour dans le pays d’origine, s’appelle **relocalisation**.",
+      },
+      {
+        id: "1re-hg-06-hw-2",
+        prompt: "Quel est le premier port d’Europe ?",
+        choices: ["Le Havre", "Marseille-Fos", "Hambourg", "Rotterdam"],
+        answer: 3,
+        explanation: "**Rotterdam**, à l’embouchure du Rhin et de la Meuse, est le premier port européen. Il est relié par le Rhin, les autoroutes, les voies ferrées et les oléoducs à un vaste hinterland qui inclut l’Allemagne industrielle.",
+      },
+      {
+        id: "1re-hg-06-hw-3",
+        prompt: "Pourquoi Toulouse est-elle un espace productif dynamique ?",
+        choices: ["Grâce à l’industrie aéronautique et à son écosystème de recherche", "Grâce à ses mines de charbon", "Grâce à son port de conteneurs", "Grâce à l’industrie textile"],
+        answer: 0,
+        explanation: "Toulouse accueille le siège et les chaînes d’assemblage d’**Airbus**, des sous-traitants, des écoles d’ingénieurs et le CNES, réunis dans le pôle Aerospace Valley. Cette spécialisation la rend toutefois dépendante d’un seul secteur, comme l’a montré la crise de 2020.",
+      },
+      {
+        id: "1re-hg-06-hw-4",
+        prompt: "Quel plan lancé en **2021** vise la réindustrialisation de la France ?",
+        choices: ["Action cœur de ville", "La PAC", "France 2030", "Le Grand Paris Express"],
+        answer: 2,
+        explanation: "Le plan **France 2030**, lancé en 2021, soutient la réindustrialisation et la transition énergétique, par exemple avec les usines de batteries de la « vallée de la batterie » dans les Hauts-de-France.",
       },
     ],
     exercise: [
@@ -1548,6 +2362,40 @@ export const chapters: Chapter[] = [
           "≈ 25 % des actifs du monde → agriculture",
           "Moins de 3 % des actifs en France → agriculture",
         ],
+        figure: {
+          type: "figures",
+          title: "Les espaces ruraux dans le monde : repères",
+          caption: "Des campagnes encore très peuplées, mais des agricultures très inégales.",
+          items: [
+            { value: "≈ 43 %", label: "de la population mondiale vit dans les campagnes" },
+            { value: "≈ 25 %", label: "des actifs du monde travaillent dans l’agriculture" },
+            { value: "< 3 %", label: "des actifs travaillent dans l’agriculture en France" },
+            { value: "> 40 %", label: "des actifs travaillent dans l’agriculture en Inde" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-07-s1-p1",
+            prompt: "Qu’est-ce qu’une **agriculture vivrière** ?",
+            choices: ["Une agriculture destinée à nourrir la famille et les marchés locaux", "Une agriculture tournée vers l’exportation", "Une agriculture très mécanisée", "Une agriculture contrôlée par l’agro-industrie"],
+            answer: 0,
+            explanation: "L’**agriculture vivrière** produit pour nourrir la famille et approvisionner les marchés locaux ; elle est peu mécanisée. Elle s’oppose à l’agriculture productiviste, intégrée aux marchés mondiaux.",
+          },
+          {
+            id: "1re-hg-07-s1-p2",
+            prompt: "Où se situe le **front pionnier** du soja et de l’élevage cité dans le cours ?",
+            choices: ["Dans la Beauce", "Dans le Mato Grosso brésilien", "Dans la plaine du Nord chinoise", "Dans le Middle West américain"],
+            answer: 1,
+            explanation: "Dans le **Mato Grosso**, au Brésil, le soja et l’élevage progressent aux dépens de la forêt amazonienne. Ce front pionnier illustre l’intégration de certains espaces ruraux à la mondialisation, au prix de la déforestation.",
+          },
+          {
+            id: "1re-hg-07-s1-p3",
+            prompt: "Que désigne l’**accaparement des terres** ?",
+            choices: ["Le partage des terres entre petits paysans", "L’abandon des terres agricoles", "L’acquisition de vastes terres agricoles par des investisseurs, souvent étrangers", "La transformation des terres en parcs naturels"],
+            answer: 2,
+            explanation: "L’**accaparement des terres** est l’achat ou la location de vastes surfaces par des investisseurs, souvent étrangers, notamment en Afrique. Il menace les petits paysans et accroît les conflits d’usage pour l’eau et la terre.",
+          },
+        ],
         example: {
           title: "Étude de cas : le soja au Brésil, un espace rural intégré à la mondialisation",
           steps: [
@@ -1571,6 +2419,41 @@ export const chapters: Chapter[] = [
           "**Néoruraux** : citadins qui s’installent à la campagne.",
           "**Conflit d’usage** : opposition entre acteurs qui veulent utiliser un même espace de façon différente.",
           "**Circuit court** : vente avec au plus un intermédiaire entre producteur et consommateur.",
+        ],
+        figure: {
+          type: "table",
+          title: "Les fonctions des espaces ruraux",
+          caption: "Un espace multifonctionnel aux usages parfois concurrents.",
+          headers: ["Fonction", "Exemples", "Tensions possibles"],
+          rows: [
+            ["Productive", "Agriculture, élevage, agriculture biologique, circuits courts", "Épandage de pesticides, odeurs, accès à l’eau"],
+            ["Résidentielle", "Périurbanisation, néoruraux, télétravail", "Hausse des prix du foncier"],
+            ["Récréative et touristique", "Gîtes, randonnée, stations de ski, résidences secondaires", "Saturation saisonnière"],
+            ["Environnementale et énergétique", "Parcs naturels, Natura 2000, éoliennes, méthaniseurs", "Opposition aux éoliennes, mégabassines"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-07-s2-p1",
+            prompt: "Qui sont les **néoruraux** ?",
+            choices: ["Des agriculteurs qui partent en ville", "Des touristes de passage", "Des citadins qui s’installent à la campagne", "Des ouvriers agricoles saisonniers"],
+            answer: 2,
+            explanation: "Les **néoruraux** sont des citadins qui choisissent de vivre à la campagne. Leur installation, renforcée par le télétravail depuis 2020, participe à la « renaissance rurale » décrite par Bernard Kayser.",
+          },
+          {
+            id: "1re-hg-07-s2-p2",
+            prompt: "Qu’est-ce qu’un **conflit d’usage** ?",
+            choices: ["Une opposition entre acteurs qui veulent utiliser un même espace de façon différente", "Une guerre entre deux pays pour un territoire", "Un désaccord sur le prix des produits agricoles", "Une grève d’agriculteurs"],
+            answer: 0,
+            explanation: "Un **conflit d’usage** oppose des acteurs aux intérêts différents (agriculteurs, résidents, touristes, associations) sur l’utilisation d’un même espace. Les mégabassines de l’ouest de la France ou les éoliennes en sont des exemples.",
+          },
+          {
+            id: "1re-hg-07-s2-p3",
+            prompt: "Que définit un **circuit court** ?",
+            choices: ["Une vente uniquement en grande surface", "Une vente avec au plus un intermédiaire entre producteur et consommateur", "Une exportation vers un pays voisin", "Un label de qualité européen"],
+            answer: 1,
+            explanation: "Un **circuit court** limite la vente à **au plus un intermédiaire** entre le producteur et le consommateur (vente directe, marchés, paniers). Il témoigne de la diversification de l’agriculture.",
+          },
         ],
         example: {
           title: "Méthode : analyser un paysage rural multifonctionnel",
@@ -1603,6 +2486,40 @@ export const chapters: Chapter[] = [
           "1962 → PAC",
           "1967 → création des parcs naturels régionaux",
         ],
+        figure: {
+          type: "figures",
+          title: "Les espaces ruraux en France : chiffres clés",
+          caption: "Selon la grille communale de densité de l’INSEE (2020).",
+          items: [
+            { value: "≈ 88 %", label: "des communes françaises sont rurales" },
+            { value: "≈ 1/3", label: "de la population vit dans les communes rurales" },
+            { value: "1962", label: "création de la politique agricole commune (PAC)" },
+            { value: "1967", label: "création des parcs naturels régionaux" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-07-s3-p1",
+            prompt: "Quelle part de la population française vit dans les communes rurales selon l’INSEE (2020) ?",
+            choices: ["Environ 5 %", "Environ 10 %", "Environ 60 %", "Environ un tiers"],
+            answer: 3,
+            explanation: "Selon la grille communale de densité (2020), les communes rurales rassemblent environ **un tiers** de la population, soit plus de 20 millions d’habitants, et environ 88 % des communes. La France reste donc un pays très rural par l’étendue de ses campagnes.",
+          },
+          {
+            id: "1re-hg-07-s3-p2",
+            prompt: "Que désigne la **diagonale des faibles densités** ?",
+            choices: ["Les espaces peu peuplés des Ardennes aux Pyrénées en passant par le Massif central", "L’axe urbain Paris-Lyon-Marseille", "Les littoraux touristiques de l’Atlantique", "Les espaces périurbains autour des métropoles"],
+            answer: 0,
+            explanation: "La **diagonale des faibles densités** s’étend des Ardennes aux Pyrénées en passant par le Massif central. Ces espaces souffrent du vieillissement, de la fermeture des services et des déserts médicaux.",
+          },
+          {
+            id: "1re-hg-07-s3-p3",
+            prompt: "Quel est l’objectif des **parcs naturels régionaux** créés en 1967 ?",
+            choices: ["Interdire toute activité humaine", "Développer l’élevage hors-sol", "Associer protection du patrimoine et développement local", "Accueillir des zones industrielles"],
+            answer: 2,
+            explanation: "Les **parcs naturels régionaux** associent la protection du patrimoine naturel et culturel au développement local durable. Contrairement aux parcs nationaux, ils sont habités et fondés sur un projet de territoire.",
+          },
+        ],
         example: {
           title: "Méthode : construire le schéma des espaces ruraux en France",
           steps: [
@@ -1613,6 +2530,36 @@ export const chapters: Chapter[] = [
             "**Titre** : « Les espaces ruraux en France : une mosaïque d’espaces multifonctionnels et fragmentés ».",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-07-hw-1",
+        prompt: "Quel pays est le premier producteur et exportateur mondial de **soja** ?",
+        choices: ["Les États-Unis", "Le Brésil", "La Chine", "L’Inde"],
+        answer: 1,
+        explanation: "Le **Brésil** est le premier producteur et exportateur de soja, surtout dans le Mato Grosso et le Cerrado. Le soja est exporté principalement vers la Chine pour nourrir le bétail.",
+      },
+      {
+        id: "1re-hg-07-hw-2",
+        prompt: "Quelle notion désigne la coexistence de plusieurs fonctions dans un même espace rural ?",
+        choices: ["La fragmentation", "La métropolisation", "La littoralisation", "La multifonctionnalité"],
+        answer: 3,
+        explanation: "La **multifonctionnalité** désigne la coexistence des fonctions productive, résidentielle, récréative et environnementale. Elle est surtout marquée dans les pays développés.",
+      },
+      {
+        id: "1re-hg-07-hw-3",
+        prompt: "Quelle politique européenne, créée en **1962**, soutient les agriculteurs ?",
+        choices: ["La PAC", "Le programme LEADER", "Natura 2000", "Le plan France 2030"],
+        answer: 0,
+        explanation: "La **politique agricole commune** (PAC), créée en 1962, soutient les agriculteurs européens. Elle a favorisé la modernisation des espaces agricoles productifs comme le Bassin parisien ou la Bretagne.",
+      },
+      {
+        id: "1re-hg-07-hw-4",
+        prompt: "Quelle mesure répond à la fermeture des services publics dans les espaces ruraux en difficulté ?",
+        choices: ["La création de zones économiques spéciales", "Les maisons France Services", "Le Grand Paris Express", "L’accaparement des terres"],
+        answer: 1,
+        explanation: "Les **maisons France Services** regroupent en un même lieu plusieurs services publics pour les habitants des territoires isolés. Elles s’ajoutent aux zones de revitalisation rurale, au programme européen LEADER et à l’« Agenda rural » (2019).",
       },
     ],
     exercise: [
@@ -1795,6 +2742,44 @@ export const chapters: Chapter[] = [
           "2001 → entrée dans l’OMC",
           "2010 → deuxième PIB mondial",
         ],
+        figure: {
+          type: "timeline",
+          title: "L’ouverture de la Chine (1976-2010)",
+          caption: "De la mort de Mao à la Chine deuxième puissance économique mondiale.",
+          events: [
+            { date: "1976", label: "Mort de Mao Zedong" },
+            { date: "1978", label: "Deng Xiaoping lance la « réforme et ouverture »" },
+            { date: "1980", label: "Quatre premières ZES, dont Shenzhen" },
+            { date: "1984", label: "Ouverture de quatorze villes côtières" },
+            { date: "1990", label: "Lancement de la zone de Pudong à Shanghai" },
+            { date: "1997", label: "Rétrocession de Hong Kong" },
+            { date: "2001", label: "Entrée de la Chine dans l’OMC" },
+            { date: "2010", label: "Deuxième PIB mondial, devant le Japon" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-08-s1-p1",
+            prompt: "Que sépare la **ligne Hu Huanyong** ?",
+            choices: ["La Chine du Nord et la Chine du Sud", "La Chine continentale et Taïwan", "La Chine orientale très peuplée et la Chine occidentale peu peuplée", "Les ZES et le reste du territoire"],
+            answer: 2,
+            explanation: "La ligne Hu Huanyong, tracée en 1935 de Heihe à Tengchong, sépare l’est très peuplé de l’ouest aride et montagneux. Environ **94 %** de la population vit à l’est, sur un peu plus de 40 % du territoire.",
+          },
+          {
+            id: "1re-hg-08-s1-p2",
+            prompt: "Quelle est la première **zone économique spéciale** devenue symbole de l’ouverture ?",
+            choices: ["Shenzhen", "Pékin", "Chongqing", "Lhassa"],
+            answer: 0,
+            explanation: "**Shenzhen**, à la frontière de Hong Kong, fait partie des quatre premières ZES créées en 1980. Petite ville d’environ 300 000 habitants à l’époque, elle compte aujourd’hui plus de 17 millions d’habitants.",
+          },
+          {
+            id: "1re-hg-08-s1-p3",
+            prompt: "En quelle année la Chine entre-t-elle à l’**OMC** ?",
+            choices: ["1978", "1997", "2010", "2001"],
+            answer: 3,
+            explanation: "La Chine entre dans l’Organisation mondiale du commerce en **2001**, ce qui accélère son intégration dans la mondialisation. Elle devient premier exportateur mondial de marchandises en 2009 et deuxième PIB mondial en 2010.",
+          },
+        ],
         example: {
           title: "Étude de cas : Shenzhen, du village de pêcheurs à la métropole",
           steps: [
@@ -1824,6 +2809,43 @@ export const chapters: Chapter[] = [
           "≈ 18 % (1978) → ≈ 66 % aujourd’hui : taux d’urbanisation",
           "2000 → politique de développement de l’Ouest",
           "Plus de 40 000 km → réseau de lignes à grande vitesse",
+        ],
+        figure: {
+          type: "bars",
+          title: "Le taux d’urbanisation de la Chine (1978-2023)",
+          caption: "Part de la population urbaine, en % (Bureau national des statistiques de Chine).",
+          unit: "%",
+          data: [
+            { label: "1978", value: 18 },
+            { label: "1990", value: 26 },
+            { label: "2000", value: 36 },
+            { label: "2010", value: 50 },
+            { label: "2020", value: 64 },
+            { label: "2023", value: 66 },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-08-s2-p1",
+            prompt: "Qu’est-ce que le **hukou** ?",
+            choices: ["Un livret de résidence qui rattache chaque Chinois à son lieu d’origine", "Une zone économique spéciale", "Un train à grande vitesse", "Un impôt sur les entreprises étrangères"],
+            answer: 0,
+            explanation: "Le **hukou**, instauré en 1958, est un système d’enregistrement qui lie chaque Chinois à son lieu de naissance. Il conditionne l’accès à l’école, à la santé et au logement, ce qui pénalise les migrants ruraux en ville.",
+          },
+          {
+            id: "1re-hg-08-s2-p2",
+            prompt: "Qui sont les **mingong** ?",
+            choices: ["Les cadres du Parti communiste", "Les travailleurs migrants d’origine rurale employés en ville", "Les investisseurs étrangers", "Les habitants de Hong Kong"],
+            answer: 1,
+            explanation: "Les **mingong** sont environ 290 millions de travailleurs migrants d’origine rurale. Ils travaillent en ville sans y avoir les mêmes droits que les citadins, en raison du hukou.",
+          },
+          {
+            id: "1re-hg-08-s2-p3",
+            prompt: "Quel est l’objectif de la politique de « **développement de l’Ouest** » lancée en 2000 ?",
+            choices: ["Renforcer encore les littoraux", "Fermer les ZES", "Réduire les écarts entre la Chine littorale et la Chine intérieure", "Limiter l’urbanisation"],
+            answer: 2,
+            explanation: "La politique de **développement de l’Ouest** (Go West) vise à réduire les inégalités territoriales grâce à de grands investissements dans les infrastructures et au transfert d’usines vers l’intérieur (Chongqing, Chengdu, Wuhan).",
+          },
         ],
         example: {
           title: "Méthode : réaliser le croquis « Les recompositions spatiales de la Chine »",
@@ -1855,6 +2877,40 @@ export const chapters: Chapter[] = [
           "2013 → nouvelles routes de la soie",
           "2060 → objectif de neutralité carbone",
         ],
+        figure: {
+          type: "figures",
+          title: "Ressources et environnement : chiffres clés",
+          caption: "Une puissance gourmande en ressources qui investit aussi dans les énergies renouvelables.",
+          items: [
+            { value: "≈ 30 %", label: "des émissions mondiales de CO₂ (premier émetteur mondial)" },
+            { value: "≈ 22 500 MW", label: "puissance du barrage des Trois-Gorges" },
+            { value: "> 1,3 million", label: "de personnes déplacées par le barrage des Trois-Gorges" },
+            { value: "2060", label: "objectif chinois de neutralité carbone" },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-hg-08-s3-p1",
+            prompt: "Quelle source d’énergie fournit encore plus de la moitié de l’énergie primaire chinoise ?",
+            choices: ["Le pétrole", "Le nucléaire", "L’hydroélectricité", "Le charbon"],
+            answer: 3,
+            explanation: "Le **charbon** fournit encore plus de la moitié de l’énergie primaire de la Chine. Cela explique qu’elle soit le premier émetteur mondial de CO₂, avec environ 30 % des émissions mondiales.",
+          },
+          {
+            id: "1re-hg-08-s3-p2",
+            prompt: "Sur quel fleuve est construit le **barrage des Trois-Gorges** ?",
+            choices: ["Le Huang He (fleuve Jaune)", "Le Yangzi", "Le Mékong", "La rivière des Perles"],
+            answer: 1,
+            explanation: "Le barrage des Trois-Gorges est construit sur le **Yangzi**, dans la province du Hubei, de 1994 à 2006. Plus grande centrale hydroélectrique du monde, il a entraîné le déplacement de plus d’un million de personnes.",
+          },
+          {
+            id: "1re-hg-08-s3-p3",
+            prompt: "Qui lance les **nouvelles routes de la soie** en 2013 ?",
+            choices: ["Xi Jinping", "Deng Xiaoping", "Mao Zedong", "Hu Jintao"],
+            answer: 0,
+            explanation: "Les nouvelles routes de la soie (Belt and Road Initiative) sont lancées par **Xi Jinping** en 2013. Elles financent ports, voies ferrées et routes en Asie, en Afrique et en Europe, comme le port du Pirée en Grèce.",
+          },
+        ],
         example: {
           title: "Étude de cas : le barrage des Trois-Gorges, un aménagement controversé",
           steps: [
@@ -1865,6 +2921,36 @@ export const chapters: Chapter[] = [
             "**Bilan** : un symbole de la puissance de l’État chinois et de sa capacité à transformer le territoire, au prix de lourds sacrifices.",
           ],
         },
+      },
+    ],
+    homework: [
+      {
+        id: "1re-hg-08-hw-1",
+        prompt: "Comment appelle-t-on le système économique chinois depuis les réformes de Deng Xiaoping ?",
+        choices: ["Le collectivisme intégral", "L’économie socialiste de marché", "Le libre-échange total", "L’économie de subsistance"],
+        answer: 1,
+        explanation: "L’**économie socialiste de marché** associe une économie capitaliste ouverte aux capitaux étrangers et un État dirigé par le Parti communiste, qui garde le monopole du pouvoir.",
+      },
+      {
+        id: "1re-hg-08-hw-2",
+        prompt: "Quel ensemble urbain associe Canton, Shenzhen, Hong Kong et Macao ?",
+        choices: ["Le Jing-Jin-Ji", "Le delta du Yangzi", "La Greater Bay Area", "La plaine du Nord"],
+        answer: 2,
+        explanation: "La **Greater Bay Area** est la mégalopole du delta de la rivière des Perles (Canton, Shenzhen, Hong Kong, Macao). Le Jing-Jin-Ji associe Pékin, Tianjin et le Hebei.",
+      },
+      {
+        id: "1re-hg-08-hw-3",
+        prompt: "Dans quelle mer la Chine affirme-t-elle des revendications sur les îles **Spratleys et Paracels** ?",
+        choices: ["La mer Jaune", "La mer du Japon", "La mer d’Arabie", "La mer de Chine méridionale"],
+        answer: 3,
+        explanation: "La Chine revendique les îles Spratleys et Paracels en **mer de Chine méridionale**. Ces revendications suscitent des tensions avec ses voisins (Vietnam, Philippines) et avec les États-Unis.",
+      },
+      {
+        id: "1re-hg-08-hw-4",
+        prompt: "Quelle est la longueur approximative du réseau chinois de lignes à grande vitesse ?",
+        choices: ["Plus de 40 000 km", "Environ 4 000 km", "Environ 10 000 km", "Moins de 1 000 km"],
+        answer: 0,
+        explanation: "Le réseau chinois de trains à grande vitesse dépasse **40 000 km** : c’est le plus long du monde. Il relie désormais la Chine intérieure aux littoraux et participe au rééquilibrage du territoire.",
       },
     ],
     exercise: [

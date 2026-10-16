@@ -22,6 +22,7 @@ import { toISO } from "@/lib/dates";
 import { useData, type Role } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { CheckInBanner } from "./checkin-banner";
+import { TestAlert } from "./test-alert";
 import { LoginScreen } from "./login";
 import { Logo, LogoMark } from "./logo";
 import { Onboarding } from "./onboarding";
@@ -34,6 +35,7 @@ const NAV: Record<Role, NavItem[]> = {
     { href: "/", label: "Accueil", icon: House, mobile: true },
     { href: "/agenda", label: "Agenda", icon: ListTodo, mobile: true },
     { href: "/emploi-du-temps", label: "Emploi du temps", short: "EDT", icon: CalendarDays, mobile: true },
+    { href: "/devoirs", label: "Devoirs", icon: ClipboardPen },
     { href: "/matieres", label: "Matières & cours", short: "Cours", icon: BookOpen, mobile: true },
     { href: "/notes", label: "Notes & bulletin", short: "Notes", icon: Trophy, mobile: true },
     { href: "/absences", label: "Vie scolaire", icon: ClipboardCheck },
@@ -136,6 +138,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}
             className="mx-auto w-full max-w-[1180px] px-4 pt-6 pb-28 sm:px-6 lg:px-10 lg:pt-8 lg:pb-16"
           >
+            {role === "eleve" && <TestAlert data={data} />}
             {role === "eleve" && <CheckInBanner data={data} />}
             {children}
           </motion.div>

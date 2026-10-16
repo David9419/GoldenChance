@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { Bell, BellRing, CalendarClock, ClipboardPen, LogOut, Moon, Radio, Settings, Sun, Trophy, UserRound, UserX } from "lucide-react";
+import { Bell, BellRing, CalendarClock, ClipboardPen, LogOut, Moon, Radio, Settings, ShieldAlert, Sun, Trophy, UserRound, UserX } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,6 +30,7 @@ const NOTIF_ICON: Record<Notif["kind"], typeof Bell> = {
   note: BellRing,
   absence: UserX,
   info: CalendarClock,
+  alerte: ShieldAlert,
 };
 
 export function Topbar({ data, role }: { data: AppData; role: Role }) {
@@ -97,6 +98,7 @@ export function Topbar({ data, role }: { data: AppData; role: Role }) {
                           n.kind === "note" && "bg-emerald-500/15 text-emerald-300",
                           n.kind === "absence" && "bg-rose-500/15 text-rose-300",
                           n.kind === "info" && "bg-fg/[0.06] text-mist-300",
+                          n.kind === "alerte" && "bg-rose-500/20 text-rose-300",
                         )}
                       >
                         <Icon />

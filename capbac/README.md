@@ -11,9 +11,13 @@ Application d’école à la maison : emploi du temps, cours de la Seconde (remi
   - Les codes se choisissent à la première configuration et se changent dans Paramètres.
 - **Accès par niveau** : l’élève n’a accès qu’au programme de Seconde ; la Première s’ouvre automatiquement le 1er décembre 2026, la Terminale à la rentrée 2027.
 - **Emploi du temps** (repris du PDF) : la semaine en cours s’affiche du lundi au samedi, et **dès le dimanche, la semaine qui arrive**.
-- **Séances** : chaque créneau est relié automatiquement à un chapitre (cours → exercice noté → révisions).
-- **Contrôles** : **3 à 4 par semaine** (en alternance), dans des **matières différentes** et des jours différents, en début de séance, sur un chapitre déjà terminé. Une seule copie, chronométrée. **La note et la correction arrivent 2 jours après** (réglable). Les **exercices notés** sont corrigés tout de suite.
-- **Agenda** : contrôles, exercices notés et devoirs des jours à venir (aujourd’hui, demain…).
+- **Leçons** : chaque créneau est relié automatiquement à un chapitre (une leçon par partie → exercice de synthèse → révisions). **Une leçon n’est visible qu’au début de son cours** (jour et heure) ; les leçons passées restent consultables. Les cours contiennent des schémas, graphiques, tableaux, frises et exemples corrigés.
+- **Exercices** : après la leçon, l’élève clique « J’ai compris et appris la leçon », ce qui débloque 1 ou 2 exercices sur cette leçon, **corrigés question par question** avec l’explication.
+- **Contrôles** : **3 à 4 par semaine**, matières et jours différents, **annoncés au moins 3 jours avant** (agenda + notifications). Un contrôle **remplace 1 créneau (1h15–1h30), ou 2 créneaux (≈ 2h45) pour certains contrôles de maths/français**. Il ne peut se faire **que le jour même, pendant le créneau**. **Alerte 1 h avant** (bandeau + notification de l’ordinateur). Correction publiée 2 jours après (réglable). Contrôle manqué : le prof peut autoriser un rattrapage.
+- **Devoirs maison** : donnés automatiquement **en fin de journée (après le dernier cours)**, 1 ou 2 par jour, sur ce qui a été appris, **pour le lendemain ou le surlendemain**. L’élève peut les faire dès qu’ils sont donnés. Correction dès la copie rendue.
+- **Anti-triche** : pendant un contrôle ou un devoir (mode examen plein écran), **quitter la page, l’onglet ou l’application fait recommencer l’épreuve** (questions mélangées), et le prof/la direction reçoivent une alerte.
+- **Agenda** : contrôles à venir, devoirs pour le lendemain et les jours suivants, exercices en classe.
+- **Prof** : peut ajouter des devoirs (QCM ou rédaction, corrigée par lui) et des contrôles en choisissant le jour (≥ 3 jours à l’avance) et le créneau remplacé (1 ou 2 heures).
 - **Notes** : exercice = coef 1, contrôle = coef 2, devoirs du prof = coef choisi. Moyenne par matière et moyenne générale.
 - **Vie scolaire** : bouton « Je suis présent » à chaque cours (15 min avant → fin du cours, retard après 10 min). **Un cours non pointé à la fin = absent automatiquement.** Le prof ou la direction peuvent corriger et justifier.
 - **Notifications** (cloche) : contrôles à venir, notes publiées, copies à corriger, absences du jour.

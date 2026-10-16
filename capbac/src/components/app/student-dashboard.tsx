@@ -7,6 +7,7 @@ import { AgendaRow } from "@/components/app/agenda-item";
 import { upcoming as upcomingItems } from "@/lib/agenda";
 import { CountUp, Ring, Stagger, StaggerItem, StatusPill } from "@/components/app/common";
 import { QuoteCard } from "@/components/app/quote-card";
+import { NotificationPrompt } from "@/components/app/test-alert";
 import { CheckInButton, SessionRow, sessionHref } from "@/components/app/session-card";
 import { SubjectBadge } from "@/components/app/subject-icon";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +16,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { getChapter } from "@/content";
 import { LEVELS, SUBJECT_IDS, SUBJECTS } from "@/content/subjects";
-import { allSessions, KIND_LABEL, levelAt, liveStatus } from "@/lib/calendar";
+import { testTitle } from "@/lib/agenda";
+import { allSessions, KIND_LABEL, levelAt, liveStatus, sessionStarted } from "@/lib/calendar";
 import { at, daysBetween, formatFull, formatHour, formatLong, toISO } from "@/lib/dates";
 import { attendanceStats, chapterResults, fmtNote, generalAverage, gradeLines, noteTone, subjectAverages } from "@/lib/stats";
 import { useData } from "@/lib/store";
@@ -28,7 +30,7 @@ export function StudentDashboard() {
   const s = data.settings;
   const today = toISO(now);
   const level = levelAt(today, s) ?? "seconde";
-  const sessions = allSessions(s);
+  const sessions = allSessions(data);
 
   const todaySessions = sessions.filter((x) => x.date === today);
   const upcoming = sessions.find((x) => at(x.date, x.end) > now);
@@ -40,7 +42,7 @@ export function StudentDashboard() {
   const att = attendanceStats(data, now);
   const recent = gradeLines(data).slice(0, 5);
   const subjAvg = subjectAverages(data, level);
-  const todo = upcomingItems(data, today, 6)
+  const todo = upcomingItems(data, today, 6, false)
     .filter((i) => i.status === "a-faire" || i.status === "en-retard")
     .slice(0, 6);
 
@@ -72,6 +74,7 @@ export function StudentDashboard() {
       </div>
 
       <QuoteCard date={now} />
+      <NotificationPrompt />
 
       {/* Séance en cours / prochaine */}
       {focus && <FocusCard key={focus.key} session={focus} live={!!current} now={now} />}
@@ -313,8 +316,9 @@ function FocusCard({ session, live, now }: { session: NonNullable<ReturnType<typ
               </div>
               <h2 className="mt-1.5 font-display text-2xl font-bold sm:text-3xl">{meta.name}</h2>
               <p className="mt-1 text-mist-300">
-                {session.test ? "Contrôle + " : ""}
-                {KIND_LABEL[session.kind]} · {ref ? ref.chapter.title : "Programme bientôt disponible"}
+                {session.test
+                  ? `Contrôle · ${testTitle(session)}`
+                  : `${KIND_LABEL[session.kind]} · ${!sessionStarted(session, now) ? "leçon dévoilée au début du cours" : ref ? ref.chapter.title : "Programme bientôt disponible"}`}
               </p>
               <p className="mt-1 text-sm text-mist-500">
                 {formatHour(session.start)} – {formatHour(session.end)}

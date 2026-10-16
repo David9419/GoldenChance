@@ -31,8 +31,10 @@ export type Settings = {
   terminaleStart: ISODate;
   terminaleEnd: ISODate;
   holidays: Holiday[];
-  /** Durée d'un contrôle en minutes. */
+  /** (Ancien réglage, non utilisé : la durée d'un contrôle = son créneau.) */
   testMinutes: number;
+  /** Premier jour possible pour un contrôle automatique (≥ 3 jours après l'ouverture du compte). */
+  testsFrom?: ISODate;
   /** Délai avant la publication de la correction d'un contrôle (heures). */
   correctionDelayHours: number;
 };
@@ -57,6 +59,8 @@ export type Attempt = {
   /** Pour les contrôles : date de publication de la correction. */
   releaseAt?: string;
   assignmentId?: string;
+  /** Nombre de sorties détectées (onglet quitté) avant de rendre la copie. */
+  exits?: number;
 };
 
 export type ManualGrade = {
@@ -86,6 +90,9 @@ export type Assignment = {
   chapterId?: string;
   coef: number;
   createdAt: string;
+  /** Contrôle : créneau de l'emploi du temps remplacé (et le suivant si `long`). */
+  slot?: number;
+  long?: boolean;
 };
 
 export type Submission = {
@@ -109,7 +116,7 @@ export type AttendanceRecord = {
   reason?: string;
 };
 
-export type Activity = { id: string; at: string; type: "presence" | "exercice" | "controle" | "devoir" | "note" | "absence" | "systeme"; text: string };
+export type Activity = { id: string; at: string; type: "presence" | "exercice" | "controle" | "devoir" | "note" | "absence" | "systeme" | "alerte"; text: string };
 
 export type AppData = {
   version: 2;
@@ -127,6 +134,8 @@ export type AppData = {
   activity: Activity[];
   /** Dernière consultation des notifications, par rôle. */
   seen: Partial<Record<Role, string>>;
+  /** Rattrapages accordés par le prof : contexte → jour autorisé. */
+  retakes: Record<string, ISODate>;
 };
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -168,6 +177,7 @@ function emptyData(): AppData {
     lessonsDone: {},
     activity: [],
     seen: {},
+    retakes: {},
   };
 }
 
@@ -176,6 +186,11 @@ function migrate(raw: Partial<AppData> & Record<string, unknown>): AppData {
   const base = emptyData();
   const settings = { ...DEFAULT_SETTINGS, ...(raw.settings ?? {}) } as Settings & { parentPin?: string };
   delete settings.parentPin;
+  if (!settings.testsFrom && raw.profile?.createdAt) {
+    const d = new Date(raw.profile.createdAt);
+    d.setDate(d.getDate() + 3);
+    settings.testsFrom = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  }
   const attempts = (raw.attempts ?? []).map((a) => ({
     ...a,
     context: a.context ?? `${a.kind === "test" ? "ct" : "ex"}:${a.chapterId}`,
@@ -191,6 +206,7 @@ function migrate(raw: Partial<AppData> & Record<string, unknown>): AppData {
     submissions: raw.submissions ?? {},
     activity: raw.activity ?? [],
     seen: raw.seen ?? {},
+    retakes: raw.retakes ?? {},
   } as AppData;
 }
 
@@ -267,10 +283,26 @@ function log(d: AppData, type: Activity["type"], text: string): Activity[] {
 
 export const actions = {
   saveProfile(p: Omit<Profile, "createdAt"> & { createdAt?: string }) {
-    update((d) => ({
-      ...d,
-      profile: { ...p, createdAt: p.createdAt ?? d.profile?.createdAt ?? new Date().toISOString() },
-    }));
+    update((d) => {
+      const createdAt = p.createdAt ?? d.profile?.createdAt ?? new Date().toISOString();
+      // Premier contrôle possible : 3 jours après l'ouverture du compte.
+      let testsFrom = d.settings.testsFrom;
+      if (!testsFrom) {
+        const t = new Date(createdAt);
+        t.setDate(t.getDate() + 3);
+        testsFrom = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+      }
+      return { ...d, profile: { ...p, createdAt }, settings: { ...d.settings, testsFrom } };
+    });
+  },
+
+  /** Sortie détectée pendant une évaluation (le travail recommence). */
+  logExit(label: string) {
+    update((d) => ({ ...d, activity: log(d, "alerte", `Sortie pendant ${label} : l’épreuve a recommencé`) }));
+  },
+
+  grantRetake(context: string, day: ISODate) {
+    update((d) => ({ ...d, retakes: { ...d.retakes, [context]: day }, activity: log(d, "controle", "Rattrapage de contrôle autorisé") }));
   },
 
   saveAccount(role: "prof" | "directeur", acc: Partial<StaffAccount>) {
@@ -281,16 +313,15 @@ export const actions = {
     update((d) => ({ ...d, settings: { ...d.settings, ...s } }));
   },
 
-  addAttempt(a: Omit<Attempt, "id" | "official" | "date" | "releaseAt">, label: string) {
+  addAttempt(a: Omit<Attempt, "id" | "official" | "date" | "releaseAt">, label: string, delayed = a.kind === "test") {
     let saved: Attempt | null = null;
     update((d) => {
       const official = !d.attempts.some((x) => x.context === a.context);
-      const releaseAt = a.kind === "test" ? new Date(Date.now() + d.settings.correctionDelayHours * 3_600_000).toISOString() : undefined;
+      const releaseAt = delayed ? new Date(Date.now() + d.settings.correctionDelayHours * 3_600_000).toISOString() : undefined;
       saved = { ...a, id: uid(), official, date: new Date().toISOString(), releaseAt };
-      const text =
-        a.kind === "test"
-          ? `Contrôle rendu : ${label} (correction à venir)`
-          : `${official ? "Exercice noté" : "Entraînement"} : ${label} — ${String(a.score).replace(".", ",")}/20`;
+      const text = delayed
+        ? `Contrôle rendu : ${label} (correction à venir)`
+        : `${official ? "" : "Entraînement — "}${label} : ${String(a.score).replace(".", ",")}/20`;
       return { ...d, attempts: [...d.attempts, saved], activity: log(d, a.kind === "test" ? "controle" : "exercice", text) };
     });
     return saved as unknown as Attempt;

@@ -45,6 +45,76 @@ export const chapters: Chapter[] = [
             "La chute brutale à 7 pg correspond à la séparation des deux cellules filles, qui reçoivent chacune Q.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Quantité d’ADN par cellule au cours d’un cycle cellulaire",
+          caption: "Plateau à Q en G1, doublement progressif en phase S, plateau à 2Q en G2 et pendant la mitose, puis retour à Q dans chaque cellule fille.",
+          xMin: 0,
+          xMax: 30,
+          yMin: 0,
+          yMax: 16,
+          curves: [
+            {
+              expr: "x<10 ? 7 : (x<18 ? 7 + (x-10)*7/8 : (x<24 ? 14 : 7))",
+              label: "Quantité d’ADN (pg) en fonction du temps (h)"
+            }
+          ],
+          points: [
+            {
+              x: 5,
+              y: 7,
+              label: "G1"
+            },
+            {
+              x: 14,
+              y: 10.5,
+              label: "S"
+            },
+            {
+              x: 21,
+              y: 14,
+              label: "G2 + mitose"
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-01-s1-p1",
+            prompt: "Au cours de quelle phase du cycle cellulaire la quantité d’ADN double-t-elle ?",
+            choices: [
+              "G1",
+              "Phase S",
+              "G2",
+              "Anaphase"
+            ],
+            answer: 1,
+            explanation: "La **phase S** (synthèse) est la phase de l’interphase pendant laquelle l’ADN est répliqué. La quantité d’ADN passe alors progressivement de Q à 2Q, puis reste à 2Q en G2."
+          },
+          {
+            id: "1re-svt-01-s1-p2",
+            prompt: "Une cellule humaine en phase G2 possède :",
+            choices: [
+              "23 chromosomes à 2 chromatides",
+              "46 chromosomes à 1 chromatide",
+              "46 chromosomes à 2 chromatides",
+              "92 chromosomes à 1 chromatide"
+            ],
+            answer: 2,
+            explanation: "Après la réplication, chaque chromosome est formé de **deux chromatides sœurs** reliées au centromère. Le nombre de chromosomes ne change pas (46 chez l’Homme), seul le nombre de chromatides par chromosome double."
+          },
+          {
+            id: "1re-svt-01-s1-p3",
+            prompt: "Une cellule contient 6 pg d’ADN en G1. Quelle quantité contient chacune des cellules filles juste après la division ?",
+            choices: [
+              "3 pg",
+              "6 pg",
+              "12 pg",
+              "24 pg"
+            ],
+            answer: 1,
+            explanation: "La cellule passe de 6 pg à 12 pg pendant la phase S, puis la mitose répartit cette quantité équitablement entre les deux cellules filles. Chacune retrouve donc **6 pg**, soit la quantité Q de la cellule mère en G1."
+          }
+        ],
       },
       {
         title: "La réplication semi-conservative de l’ADN",
@@ -69,6 +139,66 @@ export const chapters: Chapter[] = [
             "Un modèle conservatif aurait donné dès la 1re génération 50 % lourd et 50 % léger, sans ADN intermédiaire : il est donc rejeté.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "La réplication semi-conservative de l’ADN",
+          steps: [
+            {
+              label: "Ouverture de la double hélice",
+              detail: "Les liaisons hydrogène entre bases complémentaires sont rompues : formation d’un œil de réplication."
+            },
+            {
+              label: "Chaque brin sert de matrice",
+              detail: "Les deux brins parentaux sont lus séparément."
+            },
+            {
+              label: "Synthèse par l’ADN polymérase",
+              detail: "Ajout de nucléotides complémentaires (A–T, G–C)."
+            },
+            {
+              label: "Deux molécules d’ADN identiques",
+              detail: "Chacune contient un brin ancien et un brin nouveau."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-01-s2-p1",
+            prompt: "Pourquoi dit-on que la réplication de l’ADN est **semi-conservative** ?",
+            choices: [
+              "Parce que la moitié de l’ADN est détruite",
+              "Parce que chaque molécule fille contient un brin parental et un brin néoformé",
+              "Parce que seule la moitié des gènes est copiée",
+              "Parce que les deux brins parentaux restent associés"
+            ],
+            answer: 1,
+            explanation: "Lors de la réplication, les deux brins de la molécule mère se séparent et chacun sert de matrice. Chaque molécule fille conserve donc **un brin ancien** et possède **un brin nouveau**."
+          },
+          {
+            id: "1re-svt-01-s2-p2",
+            prompt: "Quelle enzyme assemble les nouveaux nucléotides lors de la réplication ?",
+            choices: [
+              "L’ARN polymérase",
+              "La tyrosinase",
+              "L’amylase",
+              "L’ADN polymérase"
+            ],
+            answer: 3,
+            explanation: "L’**ADN polymérase** ajoute des nucléotides complémentaires de ceux du brin matrice (A en face de T, G en face de C). L’ARN polymérase intervient, elle, lors de la transcription."
+          },
+          {
+            id: "1re-svt-01-s2-p3",
+            prompt: "Dans l’expérience de Meselson et Stahl, après **une** génération en milieu ¹⁴N d’ADN initialement marqué au ¹⁵N, on obtient :",
+            choices: [
+              "Uniquement de l’ADN lourd",
+              "Uniquement de l’ADN hybride (intermédiaire)",
+              "Moitié ADN lourd, moitié ADN léger",
+              "Uniquement de l’ADN léger"
+            ],
+            answer: 1,
+            explanation: "Chaque molécule fille possède un brin ancien lourd (¹⁵N) et un brin nouveau léger (¹⁴N) : tout l’ADN est **hybride**. Ce résultat exclut le modèle conservatif, qui aurait donné une bande lourde et une bande légère."
+          }
+        ],
       },
       {
         title: "La mitose : une répartition équitable de l’information",
@@ -93,6 +223,66 @@ export const chapters: Chapter[] = [
             "Conclusion : la cellule est en métaphase ; chaque chromosome possède encore deux chromatides.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Les étapes de la mitose",
+          steps: [
+            {
+              label: "Prophase",
+              detail: "Condensation des chromosomes à 2 chromatides, disparition de l’enveloppe nucléaire, mise en place du fuseau."
+            },
+            {
+              label: "Métaphase",
+              detail: "Chromosomes alignés sur la plaque équatoriale."
+            },
+            {
+              label: "Anaphase",
+              detail: "Séparation des chromatides sœurs, migration vers les pôles opposés."
+            },
+            {
+              label: "Télophase",
+              detail: "Décondensation, reformation de deux noyaux, puis cytodiérèse."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-01-s3-p1",
+            prompt: "À quelle étape de la mitose les chromatides sœurs se séparent-elles ?",
+            choices: [
+              "Prophase",
+              "Métaphase",
+              "Anaphase",
+              "Télophase"
+            ],
+            answer: 2,
+            explanation: "Lors de l’**anaphase**, les centromères se clivent et les deux chromatides de chaque chromosome migrent vers des pôles opposés. Chaque pôle reçoit ainsi un lot complet de chromosomes à une chromatide."
+          },
+          {
+            id: "1re-svt-01-s3-p2",
+            prompt: "Pourquoi les deux cellules filles issues d’une mitose sont-elles génétiquement identiques ?",
+            choices: [
+              "Parce qu’elles reçoivent chacune une chromatide de chaque chromosome, copies identiques issues de la réplication",
+              "Parce qu’elles reçoivent chacune la moitié des chromosomes",
+              "Parce que la mitose corrige toutes les mutations",
+              "Parce que le cytoplasme est partagé en deux"
+            ],
+            answer: 0,
+            explanation: "Les deux chromatides d’un chromosome sont des copies identiques produites par la réplication. La mitose en distribue **une à chaque cellule fille**, qui reçoit donc la même information génétique que la cellule mère."
+          },
+          {
+            id: "1re-svt-01-s3-p3",
+            prompt: "Une cellule observée au microscope présente des chromosomes très condensés, alignés au centre de la cellule. Elle est en :",
+            choices: [
+              "Interphase",
+              "Métaphase",
+              "Anaphase",
+              "Télophase"
+            ],
+            answer: 1,
+            explanation: "L’alignement des chromosomes à deux chromatides sur la **plaque équatoriale** caractérise la métaphase. C’est le stade où les chromosomes sont les plus condensés, ce qui permet de réaliser un caryotype."
+          }
+        ],
       },
     ],
     exercise: [
@@ -254,6 +444,56 @@ export const chapters: Chapter[] = [
           "Trois mitoses produisent 2³ = **8 cellules**. La réplication semi-conservative recopie fidèlement la séquence mutée et la mitose la transmet à chaque cellule fille : tout le clone porte la mutation.",
       },
     ],
+    homework: [
+      {
+        id: "1re-svt-01-hw-1",
+        prompt: "Une cellule de 2n = 8 chromosomes entre en mitose. Combien de chromatides compte-t-elle au total en métaphase ?",
+        choices: [
+          "8",
+          "4",
+          "32",
+          "16"
+        ],
+        answer: 3,
+        explanation: "En métaphase, la cellule possède toujours 8 chromosomes, mais chacun est formé de 2 chromatides depuis la phase S. On compte donc 8 × 2 = **16 chromatides**."
+      },
+      {
+        id: "1re-svt-01-hw-2",
+        prompt: "On cultive des bactéries à ADN lourd (¹⁵N) pendant **deux** générations en milieu léger (¹⁴N). Quelle composition de l’ADN prévoit le modèle semi-conservatif ?",
+        choices: [
+          "100 % hybride",
+          "50 % hybride, 50 % léger",
+          "50 % lourd, 50 % léger",
+          "100 % léger"
+        ],
+        answer: 1,
+        explanation: "À la première génération, tout l’ADN est hybride. À la deuxième réplication, chaque brin lourd s’associe à un brin léger neuf (hybride) et chaque brin léger à un autre brin léger (léger) : on obtient **50 % hybride et 50 % léger**."
+      },
+      {
+        id: "1re-svt-01-hw-3",
+        prompt: "La durée d’un cycle est de 24 h. Une substance bloque la phase S. Quelle conséquence attend-on ?",
+        choices: [
+          "La quantité d’ADN double plus vite",
+          "Les cellules se divisent normalement",
+          "Les cellules restent avec une quantité Q d’ADN et ne peuvent pas entrer en mitose",
+          "Les cellules perdent la moitié de leur ADN"
+        ],
+        answer: 2,
+        explanation: "Sans phase S, l’ADN n’est pas répliqué : les chromosomes restent à une chromatide et la quantité d’ADN reste égale à Q. La cellule ne peut pas réaliser une mitose normale, car il n’y a pas de copies à répartir."
+      },
+      {
+        id: "1re-svt-01-hw-4",
+        prompt: "Quelle affirmation sur la chromatine est exacte ?",
+        choices: [
+          "Elle est condensée en chromosomes pendant toute l’interphase",
+          "Elle est formée d’ADN associé à des protéines, les histones",
+          "Elle est formée uniquement d’ARN",
+          "Elle disparaît pendant la mitose"
+        ],
+        answer: 1,
+        explanation: "La **chromatine** est l’association de l’ADN et de protéines (histones). Dispersée dans le noyau en interphase, elle se condense au début de la mitose pour former les chromosomes visibles au microscope."
+      }
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -293,6 +533,81 @@ export const chapters: Chapter[] = [
             "Il s’agit d’une substitution ; le codon GAG (acide glutamique) devient GTG (valine) : c’est une mutation faux-sens.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Conséquences d’une substitution sur la protéine",
+          caption: "Exemples réels construits avec le code génétique.",
+          headers: [
+            "Codon initial",
+            "Codon muté",
+            "Acide aminé",
+            "Type de mutation"
+          ],
+          rows: [
+            [
+              "UAC",
+              "UAU",
+              "Tyr → Tyr",
+              "Silencieuse"
+            ],
+            [
+              "GAG",
+              "GUG",
+              "Glu → Val",
+              "Faux-sens (drépanocytose)"
+            ],
+            [
+              "UGG",
+              "UAG",
+              "Trp → Stop",
+              "Non-sens (protéine tronquée)"
+            ],
+            [
+              "AAA",
+              "AAG",
+              "Lys → Lys",
+              "Silencieuse"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-02-s1-p1",
+            prompt: "Une substitution qui remplace un codon par un autre codon codant le **même** acide aminé est dite :",
+            choices: [
+              "Faux-sens",
+              "Non-sens",
+              "Silencieuse",
+              "Décalante"
+            ],
+            answer: 2,
+            explanation: "Grâce à la **redondance du code génétique**, plusieurs codons codent souvent le même acide aminé. Une telle substitution ne modifie pas la séquence de la protéine : elle est silencieuse."
+          },
+          {
+            id: "1re-svt-02-s1-p2",
+            prompt: "Une délétion d’**un seul** nucléotide dans la partie codante d’un gène provoque le plus souvent :",
+            choices: [
+              "Un décalage du cadre de lecture",
+              "Aucun changement de la protéine",
+              "Le remplacement d’un seul acide aminé",
+              "L’ajout d’un acide aminé"
+            ],
+            answer: 0,
+            explanation: "Les codons sont lus trois par trois à partir du codon d’initiation. Une délétion d’un nucléotide (non multiple de 3) **décale le cadre de lecture** : tous les codons suivants changent et un codon stop apparaît souvent prématurément."
+          },
+          {
+            id: "1re-svt-02-s1-p3",
+            prompt: "Une mutation est à l’origine :",
+            choices: [
+              "D’un nouveau gène sur un autre chromosome",
+              "D’un nouvel allèle du gène concerné",
+              "D’une nouvelle espèce",
+              "D’un nouveau chromosome"
+            ],
+            answer: 1,
+            explanation: "Une mutation modifie la séquence de nucléotides d’un gène existant. La version modifiée du gène est un **nouvel allèle**, qui peut coder une protéine identique, modifiée ou non fonctionnelle."
+          }
+        ],
       },
       {
         title: "L’origine des mutations et leur réparation",
@@ -315,6 +630,62 @@ export const chapters: Chapter[] = [
             "Conclusion : les UV sont mutagènes et les systèmes de réparation limitent les conséquences de leurs lésions.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Fidélité de la réplication (ordres de grandeur)",
+          items: [
+            {
+              value: "≈ 1 / 10⁵",
+              label: "erreurs par nucléotide ajouté par l’ADN polymérase, avant correction"
+            },
+            {
+              value: "≈ 1 / 10⁹",
+              label: "erreurs subsistant après relecture et réparation"
+            },
+            {
+              value: "≈ 6 × 10⁹",
+              label: "paires de nucléotides dans une cellule humaine diploïde"
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-02-s2-p1",
+            prompt: "Parmi les agents suivants, lequel est un agent mutagène **physique** ?",
+            choices: [
+              "Le benzopyrène de la fumée de tabac",
+              "Les rayons ultraviolets",
+              "Le glucose",
+              "L’ADN polymérase"
+            ],
+            answer: 1,
+            explanation: "Les **UV** et les rayons X sont des rayonnements qui endommagent l’ADN : ce sont des mutagènes physiques. Le benzopyrène est, lui, un mutagène chimique."
+          },
+          {
+            id: "1re-svt-02-s2-p2",
+            prompt: "Une lésion de l’ADN devient une mutation lorsque :",
+            choices: [
+              "Elle est réparée avant la réplication",
+              "Elle n’est pas réparée et est recopiée lors de la réplication",
+              "La cellule entre en G1",
+              "Elle touche une protéine"
+            ],
+            answer: 1,
+            explanation: "La plupart des lésions sont corrigées par les **systèmes de réparation**. Seule une lésion non réparée, puis transmise lors de la réplication, devient une mutation définitivement inscrite dans la séquence."
+          },
+          {
+            id: "1re-svt-02-s2-p3",
+            prompt: "Les mutations spontanées ont pour origine principale :",
+            choices: [
+              "Les erreurs de réplication non corrigées",
+              "La nourriture",
+              "La mitose",
+              "La transcription"
+            ],
+            answer: 0,
+            explanation: "Même sans agent extérieur, l’ADN polymérase commet de rares erreurs d’appariement. Celles qui échappent à la relecture et à la réparation deviennent des **mutations spontanées**, à faible fréquence."
+          }
+        ],
       },
       {
         title: "Mutations et variabilité génétique",
@@ -338,6 +709,75 @@ export const chapters: Chapter[] = [
             "Conclusion : il s’agit d’une mutation somatique.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Mutations somatiques et germinales",
+          headers: [
+            "Critère",
+            "Mutation somatique",
+            "Mutation germinale"
+          ],
+          rows: [
+            [
+              "Cellules touchées",
+              "Cellules du corps (peau, poumon…)",
+              "Cellules à l’origine des gamètes"
+            ],
+            [
+              "Étendue",
+              "Un clone de cellules",
+              "Toutes les cellules du descendant"
+            ],
+            [
+              "Transmission à la descendance",
+              "Non",
+              "Oui"
+            ],
+            [
+              "Exemple",
+              "Mélanome lié aux UV",
+              "Allèle de la mucoviscidose transmis"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-02-s3-p1",
+            prompt: "Une mutation apparue dans une cellule de la peau à cause des UV :",
+            choices: [
+              "Est transmise aux enfants",
+              "Touche toutes les cellules de l’organisme",
+              "Est somatique et n’est pas transmise à la descendance",
+              "Est toujours silencieuse"
+            ],
+            answer: 2,
+            explanation: "Une cellule de peau n’est pas une cellule germinale : la mutation est **somatique**. Elle se transmet aux cellules filles par mitose (formation d’un clone), mais jamais aux enfants."
+          },
+          {
+            id: "1re-svt-02-s3-p2",
+            prompt: "Un gène est dit **polymorphe** lorsque :",
+            choices: [
+              "Il existe sur plusieurs chromosomes",
+              "Il code plusieurs protéines",
+              "Il est muté dans toutes les cellules",
+              "Il possède plusieurs allèles dont au moins un est présent à plus de 1 % dans la population"
+            ],
+            answer: 3,
+            explanation: "Le polymorphisme est la coexistence, dans une population, de **plusieurs allèles fréquents** d’un même gène. Il résulte de l’accumulation de mutations germinales au fil des générations."
+          },
+          {
+            id: "1re-svt-02-s3-p3",
+            prompt: "Seules les mutations germinales participent à la diversité génétique des populations car :",
+            choices: [
+              "Elles sont plus fréquentes",
+              "Elles sont transmises aux générations suivantes",
+              "Elles sont toujours favorables",
+              "Elles touchent plus de gènes"
+            ],
+            answer: 1,
+            explanation: "Une mutation germinale peut se retrouver dans un gamète, puis dans **toutes les cellules** de l’individu issu de la fécondation. Elle peut ainsi se transmettre et se répandre dans la population."
+          }
+        ],
       },
     ],
     exercise: [
@@ -519,6 +959,56 @@ export const chapters: Chapter[] = [
           "Un gène possédant plusieurs allèles dont au moins deux à une fréquence supérieure à 1 % est **polymorphe**. Tous ses allèles dérivent d’un allèle ancestral par **mutations**. Un individu diploïde ne porte au plus que 2 allèles d’un même gène.",
       },
     ],
+    homework: [
+      {
+        id: "1re-svt-02-hw-1",
+        prompt: "Le brin codant contient **ATG GCT TGG**. Une substitution transforme TGG en TGA. Conséquence ?",
+        choices: [
+          "Mutation silencieuse",
+          "Mutation faux-sens",
+          "Décalage du cadre de lecture",
+          "Mutation non-sens : arrêt prématuré de la traduction"
+        ],
+        answer: 3,
+        explanation: "Sur l’ARNm, UGG (tryptophane) devient **UGA**, un codon stop. La traduction s’arrête prématurément et la protéine est tronquée : c’est une mutation non-sens."
+      },
+      {
+        id: "1re-svt-02-hw-2",
+        prompt: "Dans la drépanocytose, le codon GAG de l’allèle normal de la β-globine devient GUG. Il s’agit :",
+        choices: [
+          "D’une substitution faux-sens (Glu → Val)",
+          "D’une insertion",
+          "D’une mutation silencieuse",
+          "D’une délétion de trois nucléotides"
+        ],
+        answer: 0,
+        explanation: "Un seul nucléotide est remplacé (A → U sur l’ARNm) : c’est une substitution. GAG code l’acide glutamique et GUG la valine : un acide aminé est changé, la mutation est **faux-sens**, ce qui altère les propriétés de l’hémoglobine."
+      },
+      {
+        id: "1re-svt-02-hw-3",
+        prompt: "Des levures exposées à des UV pendant des durées croissantes montrent une fréquence de mutants qui augmente. On en conclut que les UV :",
+        choices: [
+          "Réparent l’ADN",
+          "Augmentent la fréquence des mutations",
+          "Créent de nouveaux gènes",
+          "Empêchent toute réplication"
+        ],
+        answer: 1,
+        explanation: "La fréquence des mutations augmente avec la dose d’UV : les UV sont un **agent mutagène**. Ils ne créent pas les mutations à partir de rien, mais augmentent la probabilité de lésions non réparées."
+      },
+      {
+        id: "1re-svt-02-hw-4",
+        prompt: "Une insertion de **trois** nucléotides dans la partie codante d’un gène :",
+        choices: [
+          "Décale tout le cadre de lecture",
+          "Ajoute un acide aminé sans décaler le cadre de lecture (si aucun codon stop n’apparaît)",
+          "Ne modifie jamais la protéine",
+          "Supprime le gène"
+        ],
+        answer: 1,
+        explanation: "Trois nucléotides correspondent à un codon : le cadre de lecture est conservé en aval. La protéine possède généralement **un acide aminé supplémentaire** (sauf si l’insertion crée un codon stop)."
+      }
+    ],
   },
   // ─────────────────────────────────────────────────────────────
   // Chapitre 3
@@ -557,6 +1047,70 @@ export const chapters: Chapter[] = [
             "L’ARNm est bien identique au brin codant, T étant remplacé par U.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Du gène à la protéine : transcription → traduction",
+          steps: [
+            {
+              label: "Gène (ADN)",
+              detail: "Dans le noyau ; le brin transcrit sert de matrice."
+            },
+            {
+              label: "Transcription",
+              detail: "L’ARN polymérase synthétise un ARN complémentaire du brin transcrit."
+            },
+            {
+              label: "Maturation (épissage)",
+              detail: "Élimination des introns → ARNm mature, qui sort du noyau."
+            },
+            {
+              label: "Traduction",
+              detail: "Dans le cytoplasme, les ribosomes lisent les codons de l’ARNm."
+            },
+            {
+              label: "Protéine",
+              detail: "Chaîne d’acides aminés dont la séquence dépend de celle du gène."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-03-s1-p1",
+            prompt: "Le brin codant d’un gène est **ATG CCA**. Quelle est la séquence de l’ARNm correspondant ?",
+            choices: [
+              "UAC GGU",
+              "AUG CCA",
+              "ATG CCA",
+              "TAC GGT"
+            ],
+            answer: 1,
+            explanation: "L’ARNm est complémentaire du brin transcrit, donc de même séquence que le **brin codant**, avec U à la place de T. On obtient AUG CCA."
+          },
+          {
+            id: "1re-svt-03-s1-p2",
+            prompt: "Où se déroule la transcription chez une cellule eucaryote ?",
+            choices: [
+              "Dans le cytoplasme, sur les ribosomes",
+              "Dans la membrane plasmique",
+              "Dans le noyau",
+              "Dans le réticulum uniquement"
+            ],
+            answer: 2,
+            explanation: "La transcription a lieu dans le **noyau**, là où se trouve l’ADN. L’ARN produit, après maturation, quitte le noyau par les pores nucléaires pour être traduit dans le cytoplasme."
+          },
+          {
+            id: "1re-svt-03-s1-p3",
+            prompt: "Quelle différence existe entre l’ARN et l’ADN ?",
+            choices: [
+              "L’ARN contient de la thymine",
+              "L’ARN est double brin",
+              "L’ARN contient du désoxyribose",
+              "L’ARN contient de l’uracile et du ribose"
+            ],
+            answer: 3,
+            explanation: "L’ARN est un polymère **simple brin** de nucléotides à **ribose**, où l’uracile (U) remplace la thymine (T). L’ADN est double brin et contient du désoxyribose."
+          }
+        ],
       },
       {
         title: "La maturation de l’ARN et l’épissage alternatif",
@@ -579,6 +1133,62 @@ export const chapters: Chapter[] = [
             "Ce gène peut donc produire 4 ARNm matures, et donc 4 protéines différentes.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "L’épissage chez l’être humain (ordres de grandeur)",
+          items: [
+            {
+              value: "≈ 20 000",
+              label: "gènes codant des protéines dans le génome humain"
+            },
+            {
+              value: "> 90 %",
+              label: "des gènes à plusieurs exons subissent un épissage alternatif"
+            },
+            {
+              value: "≈ 1,5 %",
+              label: "du génome correspond à des exons codants"
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-03-s2-p1",
+            prompt: "L’**épissage** consiste à :",
+            choices: [
+              "Éliminer les introns et raccorder les exons du pré-ARNm",
+              "Copier l’ADN",
+              "Ajouter des acides aminés",
+              "Détruire l’ARNm"
+            ],
+            answer: 0,
+            explanation: "Le pré-ARNm transcrit contient exons et introns. L’épissage **retire les introns** et raboute les exons, ce qui donne l’ARNm mature traduit dans le cytoplasme."
+          },
+          {
+            id: "1re-svt-03-s2-p2",
+            prompt: "Grâce à l’épissage alternatif, un seul gène peut :",
+            choices: [
+              "Coder plusieurs protéines différentes",
+              "Être transcrit sans ARN polymérase",
+              "Changer de chromosome",
+              "Ne jamais être traduit"
+            ],
+            answer: 0,
+            explanation: "Selon les exons conservés, un même pré-ARNm peut donner **plusieurs ARNm matures** différents, donc plusieurs protéines. Cela explique qu’environ 20 000 gènes produisent bien plus de protéines différentes."
+          },
+          {
+            id: "1re-svt-03-s2-p3",
+            prompt: "Un gène contient 4 exons (E1 à E4). Quel ARNm mature **ne peut pas** résulter d’un épissage alternatif ?",
+            choices: [
+              "E1-E2-E3-E4",
+              "E1-E3-E4",
+              "E1-E2-E4",
+              "E1-E3-E2-E4"
+            ],
+            answer: 3,
+            explanation: "L’épissage conserve toujours l’**ordre** des exons dans le gène : il peut en omettre certains, mais pas les inverser. E1-E3-E2-E4 est donc impossible."
+          }
+        ],
       },
       {
         title: "La traduction et le code génétique",
@@ -607,6 +1217,93 @@ export const chapters: Chapter[] = [
             "Le peptide obtenu est Met–Phe–Gly (3 acides aminés) ; les nucléotides avant AUG et après le stop ne sont pas traduits.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Extrait du code génétique (codons de l’ARNm)",
+          caption: "Le code est redondant : plusieurs codons peuvent coder le même acide aminé.",
+          headers: [
+            "Codon",
+            "Acide aminé",
+            "Codon",
+            "Acide aminé"
+          ],
+          rows: [
+            [
+              "AUG",
+              "Méthionine (initiation)",
+              "UUU",
+              "Phénylalanine"
+            ],
+            [
+              "UUC",
+              "Phénylalanine",
+              "GGC",
+              "Glycine"
+            ],
+            [
+              "GAA",
+              "Acide glutamique",
+              "GAG",
+              "Acide glutamique"
+            ],
+            [
+              "GUG",
+              "Valine",
+              "UGG",
+              "Tryptophane"
+            ],
+            [
+              "AAA",
+              "Lysine",
+              "CAU",
+              "Histidine"
+            ],
+            [
+              "UAA",
+              "Stop",
+              "UAG / UGA",
+              "Stop"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-03-s3-p1",
+            prompt: "Combien de codons différents existe-t-il ?",
+            choices: [
+              "20",
+              "64",
+              "61",
+              "4"
+            ],
+            answer: 1,
+            explanation: "Un codon comporte 3 nucléotides choisis parmi 4 (A, U, G, C) : il existe 4³ = **64 codons**. 61 codent des acides aminés et 3 sont des codons stop."
+          },
+          {
+            id: "1re-svt-03-s3-p2",
+            prompt: "Le code génétique est dit **redondant** car :",
+            choices: [
+              "Un codon code plusieurs acides aminés",
+              "Il est identique chez presque tous les êtres vivants",
+              "Plusieurs codons peuvent coder le même acide aminé",
+              "Il ne contient pas de codon stop"
+            ],
+            answer: 2,
+            explanation: "Il y a 61 codons pour seulement 20 acides aminés : un même acide aminé est souvent codé par plusieurs codons (ex. GAA et GAG pour l’acide glutamique). Le code reste **non ambigu** : un codon ne code qu’un seul acide aminé."
+          },
+          {
+            id: "1re-svt-03-s3-p3",
+            prompt: "Quelle séquence d’acides aminés code l’ARNm **AUG UUU GGC UAA** ?",
+            choices: [
+              "Met – Phe – Gly",
+              "Met – Phe – Gly – Stop – Lys",
+              "Phe – Gly",
+              "Met – Lys – Gly"
+            ],
+            answer: 0,
+            explanation: "AUG = méthionine (initiation), UUU = phénylalanine, GGC = glycine, et **UAA** est un codon stop qui termine la traduction sans ajouter d’acide aminé. On obtient Met – Phe – Gly."
+          }
+        ],
       },
     ],
     exercise: [
@@ -768,6 +1465,56 @@ export const chapters: Chapter[] = [
           "ARNm = complémentaire du brin transcrit : TAC → AUG, AAA → UUU, CCG → GGC, ATT → UAA. Traduction : Met–Phe–Gly puis **stop**. Le peptide est **Met–Phe–Gly**.",
       },
     ],
+    homework: [
+      {
+        id: "1re-svt-03-hw-1",
+        prompt: "Le brin **transcrit** d’un fragment d’ADN est **TAC AAA CCG**. Quel est l’ARNm ?",
+        choices: [
+          "ATG TTT GGC",
+          "TAC AAA CCG",
+          "AUG UUU GGC",
+          "UAC AAA CCG"
+        ],
+        answer: 2,
+        explanation: "L’ARNm est complémentaire du brin transcrit (A ↔ U, T ↔ A, G ↔ C). TAC AAA CCG donne donc **AUG UUU GGC**, qui code Met – Phe – Gly."
+      },
+      {
+        id: "1re-svt-03-hw-2",
+        prompt: "Le code génétique est **universel**. Cette propriété permet :",
+        choices: [
+          "De faire produire une protéine humaine (comme l’insuline) par une bactérie",
+          "D’éviter toute mutation",
+          "D’avoir autant de codons que d’acides aminés",
+          "De supprimer les introns"
+        ],
+        answer: 0,
+        explanation: "Un même codon code le même acide aminé chez presque tous les êtres vivants. Une bactérie dans laquelle on introduit le gène humain de l’insuline (sans introns) peut ainsi **produire la même protéine**."
+      },
+      {
+        id: "1re-svt-03-hw-3",
+        prompt: "Une protéine de 300 acides aminés est codée par un ARNm mature dont la partie codante (codon stop compris) compte :",
+        choices: [
+          "300 nucléotides",
+          "100 nucléotides",
+          "903 nucléotides",
+          "900 nucléotides"
+        ],
+        answer: 2,
+        explanation: "Chaque acide aminé correspond à un codon de 3 nucléotides : 300 × 3 = 900. Il faut ajouter le **codon stop** (3 nucléotides), soit 903 nucléotides."
+      },
+      {
+        id: "1re-svt-03-hw-4",
+        prompt: "Deux types cellulaires d’un même individu (neurone, cellule du foie) possèdent les mêmes gènes mais des protéines différentes. Pourquoi ?",
+        choices: [
+          "Ils ont des codes génétiques différents",
+          "Ils n’expriment pas les mêmes gènes",
+          "Le neurone n’a pas d’ADN",
+          "Leurs gènes ont muté différemment"
+        ],
+        answer: 1,
+        explanation: "Toutes les cellules issues d’une même cellule-œuf portent la même information génétique. Mais chaque type cellulaire n’**exprime qu’une partie de ses gènes** (transcription sélective, épissage alternatif), d’où des protéines différentes."
+      }
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -809,6 +1556,80 @@ export const chapters: Chapter[] = [
             "Conclusion : l’amylase est indispensable à l’hydrolyse de l’amidon et spécifique de son substrat.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Quelques enzymes digestives et leur double spécificité",
+          headers: [
+            "Enzyme",
+            "Substrat",
+            "Produit(s)",
+            "Lieu d’action"
+          ],
+          rows: [
+            [
+              "Amylase salivaire",
+              "Amidon",
+              "Maltose",
+              "Bouche"
+            ],
+            [
+              "Pepsine",
+              "Protéines",
+              "Peptides",
+              "Estomac"
+            ],
+            [
+              "Lipase pancréatique",
+              "Lipides (triglycérides)",
+              "Acides gras et glycérol",
+              "Intestin grêle"
+            ],
+            [
+              "Saccharase",
+              "Saccharose",
+              "Glucose et fructose",
+              "Intestin grêle"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-04-s1-p1",
+            prompt: "Une enzyme est :",
+            choices: [
+              "Un glucide consommé au cours de la réaction",
+              "Un acide nucléique",
+              "Une protéine qui catalyse une réaction sans être consommée",
+              "Un substrat"
+            ],
+            answer: 2,
+            explanation: "Les enzymes sont des **protéines** qui accélèrent les réactions du métabolisme. Elles se retrouvent intactes à la fin de la réaction et peuvent donc agir de nombreuses fois."
+          },
+          {
+            id: "1re-svt-04-s1-p2",
+            prompt: "L’amylase hydrolyse l’amidon mais pas le saccharose. Cela illustre sa :",
+            choices: [
+              "Spécificité de substrat",
+              "Spécificité d’action",
+              "Température optimale",
+              "Dénaturation"
+            ],
+            answer: 0,
+            explanation: "La **spécificité de substrat** signifie qu’une enzyme ne reconnaît qu’un substrat (ou une famille de substrats). La spécificité d’action, elle, concerne le type de réaction catalysée (ici une hydrolyse)."
+          },
+          {
+            id: "1re-svt-04-s1-p3",
+            prompt: "Le **métabolisme** désigne :",
+            choices: [
+              "La division des cellules",
+              "L’ensemble des réactions chimiques qui se déroulent dans l’organisme",
+              "La seule digestion",
+              "La copie de l’ADN"
+            ],
+            answer: 1,
+            explanation: "Le métabolisme regroupe toutes les réactions chimiques de l’organisme (synthèses et dégradations). Chacune est catalysée par une enzyme, elle-même codée par un gène."
+          }
+        ],
       },
       {
         title: "Le complexe enzyme-substrat et les conditions d’activité",
@@ -834,6 +1655,66 @@ export const chapters: Chapter[] = [
             "Si l’on ramène l’enzyme de 60 °C à 40 °C, elle reste inactive (dénaturation irréversible) ; en revanche, une enzyme placée à 0 °C retrouve son activité à 40 °C.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Vitesse d’une réaction enzymatique selon la température (enzyme humaine)",
+          caption: "Allure qualitative : la vitesse augmente jusqu’à un optimum vers 37 °C, puis chute rapidement car l’enzyme est dénaturée.",
+          xMin: 0,
+          xMax: 70,
+          yMin: 0,
+          yMax: 110,
+          curves: [
+            {
+              expr: "x <= 37 ? 100*Math.exp(-((x-37)**2)/450) : Math.max(0, 100*(1-((x-37)/18)**2))",
+              label: "Vitesse relative (%) en fonction de la température (°C)"
+            }
+          ],
+          points: [
+            {
+              x: 37,
+              y: 100,
+              label: "Optimum"
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-04-s2-p1",
+            prompt: "Le **site actif** d’une enzyme :",
+            choices: [
+              "Est la zone où se fixe le substrat et où se déroule la catalyse",
+              "Est le gène codant l’enzyme",
+              "Est toujours situé dans le noyau",
+              "Est le produit de la réaction"
+            ],
+            answer: 0,
+            explanation: "Le site actif est une petite région de l’enzyme, formée d’acides aminés rapprochés par le repliement de la protéine. Il comprend un **site de fixation** du substrat et un **site catalytique**."
+          },
+          {
+            id: "1re-svt-04-s2-p2",
+            prompt: "Une enzyme chauffée à 80 °C puis ramenée à 37 °C ne retrouve pas son activité. Pourquoi ?",
+            choices: [
+              "Elle a été consommée",
+              "Elle a été dénaturée de manière irréversible : sa forme 3D est détruite",
+              "Elle est trop froide",
+              "Le substrat a disparu"
+            ],
+            answer: 1,
+            explanation: "Une température élevée détruit la **structure tridimensionnelle** de la protéine, donc la forme du site actif. Cette dénaturation est irréversible, contrairement au ralentissement dû au froid."
+          },
+          {
+            id: "1re-svt-04-s2-p3",
+            prompt: "À 0 °C, l’activité d’une enzyme est quasi nulle ; à 37 °C elle redevient normale. On en déduit que le froid :",
+            choices: [
+              "Dénature l’enzyme",
+              "Détruit le site actif",
+              "Ralentit les rencontres enzyme-substrat de façon réversible",
+              "Modifie le gène de l’enzyme"
+            ],
+            answer: 2,
+            explanation: "À basse température, l’agitation moléculaire est faible : les complexes **enzyme-substrat** se forment rarement. L’enzyme n’est pas abîmée, l’effet est donc **réversible**."
+          }
+        ],
       },
       {
         title: "Du génotype au phénotype",
@@ -858,6 +1739,70 @@ export const chapters: Chapter[] = [
             "Si l’on fournit B au premier mutant, il produit C, car E2 est fonctionnelle chez lui : on confirme le diagnostic.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Du génotype au phénotype : l’exemple de l’albinisme",
+          steps: [
+            {
+              label: "Génotype",
+              detail: "Deux allèles mutés du gène de la tyrosinase."
+            },
+            {
+              label: "Protéine",
+              detail: "Tyrosinase au site actif modifié, inactive."
+            },
+            {
+              label: "Métabolisme",
+              detail: "La tyrosine n’est pas transformée : pas de synthèse de mélanine."
+            },
+            {
+              label: "Phénotype cellulaire",
+              detail: "Mélanocytes sans pigment."
+            },
+            {
+              label: "Phénotype macroscopique",
+              detail: "Peau et cheveux très clairs, yeux sensibles à la lumière."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-04-s3-p1",
+            prompt: "L’albinisme est dû à :",
+            choices: [
+              "Un excès de mélanine",
+              "Une tyrosinase non fonctionnelle empêchant la synthèse de mélanine",
+              "Une exposition au soleil",
+              "Une absence de mélanocytes dans la peau"
+            ],
+            answer: 1,
+            explanation: "Chez une personne albinos, les mélanocytes sont présents, mais la **tyrosinase** est inactive à cause d’une mutation. La chaîne de réactions conduisant à la mélanine est bloquée."
+          },
+          {
+            id: "1re-svt-04-s3-p2",
+            prompt: "Le phénotype d’un individu dépend :",
+            choices: [
+              "Uniquement de son génotype",
+              "Uniquement de son environnement",
+              "De son génotype et de l’influence de l’environnement",
+              "Uniquement de sa taille"
+            ],
+            answer: 2,
+            explanation: "Le génotype détermine les protéines produites, mais l’environnement (soleil, alimentation…) peut moduler leur activité. Le bronzage, par exemple, est une modification du phénotype par l’exposition aux UV."
+          },
+          {
+            id: "1re-svt-04-s3-p3",
+            prompt: "Quel est le bon enchaînement ?",
+            choices: [
+              "Phénotype → protéines → génotype",
+              "Protéines → génotype → phénotype",
+              "Métabolisme → génotype → protéines",
+              "Génotype → protéines (enzymes) → métabolisme → phénotype"
+            ],
+            answer: 3,
+            explanation: "Les gènes déterminent la séquence des protéines, dont les enzymes. Celles-ci catalysent les réactions du métabolisme, qui produisent les caractères observables : le **phénotype** aux échelles moléculaire, cellulaire et macroscopique."
+          }
+        ],
       },
     ],
     exercise: [
@@ -1039,6 +1984,56 @@ export const chapters: Chapter[] = [
           "Une seule copie fonctionnelle suffit à produire assez d’**enzyme active** : la mélanine est synthétisée et le phénotype est normal. L’allèle muté est dit **récessif** ; l’albinisme n’apparaît que si les deux allèles sont mutés.",
       },
     ],
+    homework: [
+      {
+        id: "1re-svt-04-hw-1",
+        prompt: "La pepsine (estomac) a un pH optimal d’environ 2, l’amylase salivaire d’environ 7. Que se passe-t-il pour l’amylase arrivée dans l’estomac ?",
+        choices: [
+          "Son activité augmente fortement",
+          "Elle devient une pepsine",
+          "Son activité devient très faible car le pH est très éloigné de son optimum",
+          "Elle digère les protéines"
+        ],
+        answer: 2,
+        explanation: "Chaque enzyme a un **pH optimal**. Dans l’estomac très acide (pH ≈ 2), la forme du site actif de l’amylase est modifiée et son activité devient très faible, d’où l’arrêt de la digestion de l’amidon."
+      },
+      {
+        id: "1re-svt-04-hw-2",
+        prompt: "Une mutation touche un acide aminé situé **loin** du site actif, sans modifier le repliement de l’enzyme. On peut prévoir que :",
+        choices: [
+          "L’enzyme est forcément inactive",
+          "L’activité de l’enzyme est probablement peu ou pas modifiée",
+          "L’enzyme change de substrat",
+          "L’enzyme devient deux fois plus rapide"
+        ],
+        answer: 1,
+        explanation: "L’activité dépend surtout de la **forme du site actif**. Une substitution éloignée qui ne change pas le repliement de la protéine a peu de chances d’affecter la catalyse."
+      },
+      {
+        id: "1re-svt-04-hw-3",
+        prompt: "Dans un tube contenant de l’amidon et de l’amylase à 37 °C, le test à l’eau iodée devient négatif après 10 min. Quel témoin permet de prouver le rôle de l’enzyme ?",
+        choices: [
+          "Un tube d’amidon sans amylase, à 37 °C",
+          "Un tube d’amylase sans eau",
+          "Un tube à 37 °C avec plus d’amidon",
+          "Un tube contenant du glucose"
+        ],
+        answer: 0,
+        explanation: "Le témoin ne doit différer que par **un seul facteur** : l’absence d’enzyme. Si l’amidon y persiste (eau iodée bleu-noir), on démontre que sa disparition est due à l’amylase."
+      },
+      {
+        id: "1re-svt-04-hw-4",
+        prompt: "Un individu albinos et un individu non albinos ont la même alimentation. Leur différence de pigmentation est due à :",
+        choices: [
+          "Leur environnement",
+          "Leur âge",
+          "Leurs allèles du gène de la tyrosinase",
+          "Leur alimentation"
+        ],
+        answer: 2,
+        explanation: "L’environnement étant le même, la différence s’explique par le **génotype** : l’individu albinos possède deux allèles mutés du gène de la tyrosinase, produisant une enzyme inactive."
+      }
+    ],
   },
   // ─────────────────────────────────────────────────────────────
   // Chapitre 5
@@ -1081,6 +2076,75 @@ export const chapters: Chapter[] = [
             "Les ondes P sont bien plus rapides que les ondes S ; ces valeurs sont typiques de la croûte continentale.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Comparaison des ondes sismiques de volume",
+          headers: [
+            "Caractéristique",
+            "Ondes P",
+            "Ondes S"
+          ],
+          rows: [
+            [
+              "Nature",
+              "Compression-dilatation",
+              "Cisaillement"
+            ],
+            [
+              "Vitesse dans la croûte",
+              "≈ 6 km·s⁻¹",
+              "≈ 3,5 km·s⁻¹"
+            ],
+            [
+              "Ordre d’arrivée",
+              "Premières",
+              "Secondes"
+            ],
+            [
+              "Propagation dans un liquide",
+              "Oui (ralenties)",
+              "Non"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-05-s1-p1",
+            prompt: "Quelles ondes sismiques arrivent en premier à une station ?",
+            choices: [
+              "Les ondes S",
+              "Les ondes P",
+              "Les ondes de surface",
+              "Toutes en même temps"
+            ],
+            answer: 1,
+            explanation: "Les ondes **P** sont les plus rapides (environ 6 km·s⁻¹ dans la croûte) : elles sont enregistrées en premier, d’où leur nom (premières). Les ondes S arrivent ensuite, puis les ondes de surface."
+          },
+          {
+            id: "1re-svt-05-s1-p2",
+            prompt: "Une onde P parcourt 300 km en 50 s. Sa vitesse moyenne est :",
+            choices: [
+              "6 km·s⁻¹",
+              "15 km·s⁻¹",
+              "0,17 km·s⁻¹",
+              "350 km·s⁻¹"
+            ],
+            answer: 0,
+            explanation: "On applique v = d / t = 300 / 50 = **6 km·s⁻¹**. Cette valeur est typique des ondes P dans la croûte continentale."
+          },
+          {
+            id: "1re-svt-05-s1-p3",
+            prompt: "Que subit une onde sismique lorsqu’elle rencontre une discontinuité ?",
+            choices: [
+              "Elle s’arrête toujours",
+              "Elle accélère sans changer de direction",
+              "Elle est réfléchie et réfractée",
+              "Elle se transforme en onde de surface"
+            ],
+            answer: 2,
+            explanation: "À une **discontinuité**, la surface séparant deux milieux aux propriétés différentes, une partie de l’onde est **réfléchie** et une autre est **réfractée** (déviée). L’étude de ces trajets révèle la structure interne du globe."
+          }
+        ],
       },
       {
         title: "Les grandes discontinuités et les enveloppes du globe",
@@ -1104,6 +2168,76 @@ export const chapters: Chapter[] = [
             "Conclusion : le noyau externe est liquide.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Profondeur des principales limites internes du globe",
+          caption: "Valeurs moyennes ; le Moho est beaucoup plus profond sous les continents que sous les océans.",
+          unit: "km",
+          data: [
+            {
+              label: "Moho (océans)",
+              value: 7
+            },
+            {
+              label: "Moho (continents)",
+              value: 30
+            },
+            {
+              label: "Base lithosphère océanique",
+              value: 100
+            },
+            {
+              label: "Gutenberg (manteau / noyau)",
+              value: 2900
+            },
+            {
+              label: "Lehmann (noyau externe / graine)",
+              value: 5150
+            },
+            {
+              label: "Centre de la Terre",
+              value: 6370
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-05-s2-p1",
+            prompt: "Le **Moho** sépare :",
+            choices: [
+              "Le manteau et le noyau",
+              "La croûte et le manteau",
+              "Le noyau externe et la graine",
+              "La lithosphère et l’asthénosphère"
+            ],
+            answer: 1,
+            explanation: "La discontinuité de Mohorovičić, ou Moho, est la limite **croûte / manteau**. Elle se trouve vers 30 km sous les continents et vers 7 km sous les océans."
+          },
+          {
+            id: "1re-svt-05-s2-p2",
+            prompt: "À quelle profondeur se trouve la discontinuité de Gutenberg ?",
+            choices: [
+              "30 km",
+              "100 km",
+              "5 150 km",
+              "2 900 km"
+            ],
+            answer: 3,
+            explanation: "Gutenberg a placé la limite **manteau / noyau** à 2 900 km de profondeur. Elle explique la zone d’ombre des ondes P, située entre environ 105° et 142° de l’épicentre."
+          },
+          {
+            id: "1re-svt-05-s2-p3",
+            prompt: "Les ondes S ne traversent pas le noyau externe. On en déduit que celui-ci est :",
+            choices: [
+              "Liquide",
+              "Solide",
+              "Gazeux",
+              "Constitué de péridotite"
+            ],
+            answer: 0,
+            explanation: "Les ondes S (de cisaillement) **ne se propagent pas dans les liquides**. Leur absence au-delà de 105° de l’épicentre montre que le noyau externe, composé surtout de fer et de nickel, est liquide."
+          }
+        ],
       },
       {
         title: "Croûtes, lithosphère et asthénosphère",
@@ -1127,6 +2261,74 @@ export const chapters: Chapter[] = [
             "Conclusion : la lithosphère océanique est régulièrement renouvelée (créée puis détruite), contrairement à la croûte continentale.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Croûte continentale, croûte océanique et manteau",
+          headers: [
+            "Enveloppe",
+            "Roches principales",
+            "Densité",
+            "Épaisseur / âge"
+          ],
+          rows: [
+            [
+              "Croûte continentale",
+              "Granite (et roches proches)",
+              "2,7",
+              "30 km en moyenne (jusqu’à 70 km), jusqu’à 4 Ga"
+            ],
+            [
+              "Croûte océanique",
+              "Basalte et gabbro",
+              "2,9",
+              "≈ 7 km, moins de 180 Ma"
+            ],
+            [
+              "Manteau supérieur",
+              "Péridotite",
+              "3,3",
+              "Jusqu’à 670 km (manteau total : 2 900 km)"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-05-s3-p1",
+            prompt: "La **lithosphère** est constituée :",
+            choices: [
+              "De la croûte seule",
+              "Du manteau seul",
+              "De la croûte et de la partie supérieure rigide du manteau",
+              "Du noyau et du manteau"
+            ],
+            answer: 2,
+            explanation: "La lithosphère est définie par son comportement **rigide** : elle comprend la croûte et le manteau lithosphérique. Sa base correspond environ à l’isotherme 1 300 °C."
+          },
+          {
+            id: "1re-svt-05-s3-p2",
+            prompt: "L’asthénosphère est :",
+            choices: [
+              "Liquide",
+              "Solide mais ductile (déformable lentement)",
+              "Constituée de granite",
+              "Située au-dessus de la lithosphère"
+            ],
+            answer: 1,
+            explanation: "L’asthénosphère est **solide** : les ondes S la traversent. Mais, plus chaude, elle peut se déformer lentement par fluage, ce qui permet le déplacement des plaques lithosphériques."
+          },
+          {
+            id: "1re-svt-05-s3-p3",
+            prompt: "Quelle roche constitue l’essentiel du manteau ?",
+            choices: [
+              "Le granite",
+              "Le basalte",
+              "Le gabbro",
+              "La péridotite"
+            ],
+            answer: 3,
+            explanation: "Le manteau est formé de **péridotite**, roche riche en olivine et en pyroxènes, de densité voisine de 3,3. Basalte et gabbro forment la croûte océanique, le granite la croûte continentale."
+          }
+        ],
       },
     ],
     exercise: [
@@ -1308,6 +2510,56 @@ export const chapters: Chapter[] = [
           "Pour que la moyenne atteigne 5,5 avec des roches superficielles de densité ≈ 3, il faut des matériaux **très denses en profondeur** : le **noyau** de fer et de nickel (densité ≈ 10 à 13).",
       },
     ],
+    homework: [
+      {
+        id: "1re-svt-05-hw-1",
+        prompt: "Lors d’un séisme, une station enregistre les ondes P à 20 s et les ondes S à 35 s. Une station plus éloignée du foyer enregistrera un écart S − P :",
+        choices: [
+          "Plus petit",
+          "Identique",
+          "Plus grand",
+          "Nul"
+        ],
+        answer: 2,
+        explanation: "Les ondes P étant plus rapides que les ondes S, l’écart entre leurs arrivées **augmente avec la distance** parcourue. C’est ce qui permet de localiser l’épicentre à partir de plusieurs stations."
+      },
+      {
+        id: "1re-svt-05-hw-2",
+        prompt: "Au-delà d’environ 200 km de l’épicentre, des ondes P réfractées sur le Moho arrivent **avant** les ondes P directes, qui ont pourtant suivi un trajet plus court. Cela montre que sous le Moho :",
+        choices: [
+          "Les ondes vont plus vite",
+          "Les ondes vont moins vite",
+          "Les ondes S disparaissent",
+          "La roche est liquide"
+        ],
+        answer: 0,
+        explanation: "Au-delà d’une certaine distance, l’onde qui fait un détour par le manteau arrive avant l’onde directe : elle a donc voyagé **plus vite** dans le manteau. C’est l’observation qui a permis à Mohorovičić de découvrir le Moho."
+      },
+      {
+        id: "1re-svt-05-hw-3",
+        prompt: "La croûte océanique la plus ancienne date d’environ 180 Ma, alors qu’on trouve des roches continentales de 4 Ga. Explication ?",
+        choices: [
+          "La croûte océanique se forme plus lentement",
+          "La croûte continentale est plus dense",
+          "La lithosphère océanique est créée aux dorsales puis disparaît par subduction",
+          "Les océans sont apparus il y a 180 Ma"
+        ],
+        answer: 2,
+        explanation: "La lithosphère océanique est **constamment renouvelée** : formée aux dorsales, elle s’enfonce dans le manteau au niveau des zones de subduction. La croûte continentale, moins dense, n’est pas recyclée de cette façon."
+      },
+      {
+        id: "1re-svt-05-hw-4",
+        prompt: "Quelle limite correspond approximativement à l’isotherme 1 300 °C ?",
+        choices: [
+          "Le Moho",
+          "La limite lithosphère / asthénosphère",
+          "La discontinuité de Gutenberg",
+          "La discontinuité de Lehmann"
+        ],
+        answer: 1,
+        explanation: "Au-delà d’environ 1 300 °C, la péridotite devient ductile. La **base de la lithosphère** coïncide donc approximativement avec cet isotherme, à environ 100 km sous les océans."
+      }
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -1349,6 +2601,70 @@ export const chapters: Chapter[] = [
             "Les deux plaques s’écartent donc de 5 cm/an.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Naissance de la lithosphère océanique à une dorsale",
+          steps: [
+            {
+              label: "Remontée de la péridotite",
+              detail: "Le manteau asthénosphérique chaud remonte sous la dorsale."
+            },
+            {
+              label: "Décompression",
+              detail: "La pression diminue à température quasi constante."
+            },
+            {
+              label: "Fusion partielle",
+              detail: "Quelques % à 20 % de la péridotite fondent → magma basaltique."
+            },
+            {
+              label: "Cristallisation",
+              detail: "Basalte en surface (refroidissement rapide), gabbro en profondeur (lent)."
+            },
+            {
+              label: "Écartement et vieillissement",
+              detail: "La lithosphère s’éloigne, se refroidit, s’épaissit et devient plus dense."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-06-s1-p1",
+            prompt: "À l’axe d’une dorsale, la péridotite fond partiellement principalement à cause :",
+            choices: [
+              "D’une augmentation de la pression",
+              "D’une décompression lors de sa remontée",
+              "De l’arrivée d’eau de mer",
+              "D’un refroidissement"
+            ],
+            answer: 1,
+            explanation: "En remontant sous la dorsale, la péridotite chaude subit une **baisse de pression** sans se refroidir beaucoup. Elle franchit alors son solidus et fond partiellement, produisant un magma basaltique."
+          },
+          {
+            id: "1re-svt-06-s1-p2",
+            prompt: "Le gabbro et le basalte ont la même composition chimique mais des structures différentes car :",
+            choices: [
+              "Le gabbro a refroidi lentement en profondeur, le basalte rapidement en surface",
+              "Le basalte vient du noyau",
+              "Le gabbro contient du granite",
+              "Le basalte est plus ancien"
+            ],
+            answer: 0,
+            explanation: "Un refroidissement **lent** en profondeur permet la croissance de grands cristaux (structure grenue du gabbro). Un refroidissement **rapide** en surface donne un verre et des microlites (structure microlitique du basalte)."
+          },
+          {
+            id: "1re-svt-06-s1-p3",
+            prompt: "Quel indice montre que les océans s’ouvrent à partir des dorsales ?",
+            choices: [
+              "Les fosses océaniques",
+              "Les ophiolites",
+              "La symétrie des âges des fonds océaniques et des anomalies magnétiques de part et d’autre de la dorsale",
+              "Les plis"
+            ],
+            answer: 2,
+            explanation: "Les fonds océaniques sont de plus en plus âgés en s’éloignant de la dorsale, de façon **symétrique**, comme les bandes d’anomalies magnétiques. Cela montre que la lithosphère se forme à l’axe puis s’en écarte."
+          }
+        ],
       },
       {
         title: "La subduction : disparition de la lithosphère océanique",
@@ -1372,6 +2688,70 @@ export const chapters: Chapter[] = [
             "Les volcans des Andes se situent à l’aplomb des foyers situés vers 100 km de profondeur, là où le manteau fond grâce à l’eau libérée.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le fonctionnement d’une zone de subduction",
+          steps: [
+            {
+              label: "Plongement",
+              detail: "La lithosphère océanique âgée, froide et dense s’enfonce dans l’asthénosphère (fosse)."
+            },
+            {
+              label: "Séismes",
+              detail: "Foyers de plus en plus profonds le long du plan de Wadati-Benioff."
+            },
+            {
+              label: "Déshydratation",
+              detail: "Les minéraux hydratés de la plaque plongeante libèrent de l’eau vers 100 km."
+            },
+            {
+              label: "Fusion partielle du manteau",
+              detail: "L’eau abaisse la température de fusion de la péridotite sus-jacente."
+            },
+            {
+              label: "Magmatisme",
+              detail: "Volcanisme explosif (andésites) et plutons (granodiorites) : croissance de la croûte continentale."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-06-s2-p1",
+            prompt: "Pourquoi la lithosphère océanique âgée plonge-t-elle dans l’asthénosphère ?",
+            choices: [
+              "Parce qu’elle est plus chaude",
+              "Parce qu’elle est plus mince",
+              "Parce qu’elle est plus riche en granite",
+              "Parce qu’elle devient plus dense que l’asthénosphère sous-jacente"
+            ],
+            answer: 3,
+            explanation: "En vieillissant, la lithosphère océanique se refroidit et s’épaissit (le manteau lithosphérique croît). Après quelques dizaines de millions d’années, elle devient **plus dense que l’asthénosphère** et peut s’y enfoncer."
+          },
+          {
+            id: "1re-svt-06-s2-p2",
+            prompt: "Le plan de Wadati-Benioff correspond :",
+            choices: [
+              "À l’alignement des foyers sismiques de plus en plus profonds le long de la plaque plongeante",
+              "À la ride centrale d’une dorsale",
+              "À la limite croûte / manteau",
+              "À une chaîne de montagnes"
+            ],
+            answer: 0,
+            explanation: "Les séismes d’une zone de subduction ont des foyers alignés sur un plan incliné, de plus en plus profonds en s’éloignant de la fosse. Ce **plan de Wadati-Benioff** matérialise la plaque qui plonge."
+          },
+          {
+            id: "1re-svt-06-s2-p3",
+            prompt: "Dans une zone de subduction, la fusion partielle du manteau est provoquée surtout par :",
+            choices: [
+              "La décompression",
+              "La chaleur du noyau",
+              "L’eau libérée par la déshydratation de la plaque plongeante",
+              "La collision de deux continents"
+            ],
+            answer: 2,
+            explanation: "Les minéraux hydratés de la croûte océanique libèrent de l’eau en profondeur. Cette eau **abaisse la température de fusion** de la péridotite du manteau sus-jacent, qui fond partiellement."
+          }
+        ],
       },
       {
         title: "La collision continentale et la formation des chaînes de montagnes",
@@ -1395,6 +2775,75 @@ export const chapters: Chapter[] = [
             "Ce raccourcissement s’accompagne d’un épaississement : la croûte, comprimée horizontalement, gagne en épaisseur.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les indices d’une collision continentale",
+          headers: [
+            "Indice",
+            "Observation",
+            "Ce qu’il révèle"
+          ],
+          rows: [
+            [
+              "Plis, failles inverses, chevauchements",
+              "Couches déformées et empilées",
+              "Raccourcissement horizontal"
+            ],
+            [
+              "Racine crustale",
+              "Moho jusqu’à 50-70 km sous la chaîne",
+              "Épaississement de la croûte"
+            ],
+            [
+              "Ophiolites",
+              "Fragments de lithosphère océanique sur le continent",
+              "Existence d’un ancien océan"
+            ],
+            [
+              "Roches de haute pression, basse température",
+              "Minéraux comme la jadéite ou la coésite",
+              "Ancienne subduction"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-06-s3-p1",
+            prompt: "Une collision continentale se produit :",
+            choices: [
+              "Lorsqu’une dorsale s’ouvre dans un continent",
+              "Après la fermeture d’un océan, lorsque deux lithosphères continentales se rencontrent",
+              "Lorsque deux plaques océaniques s’écartent",
+              "Lorsqu’un volcan entre en éruption"
+            ],
+            answer: 1,
+            explanation: "La subduction fait disparaître progressivement un océan. Lorsqu’il est entièrement refermé, les deux **lithosphères continentales**, trop peu denses pour plonger, s’affrontent : c’est la collision."
+          },
+          {
+            id: "1re-svt-06-s3-p2",
+            prompt: "Une **ophiolite** est :",
+            choices: [
+              "Un pli dans une couche sédimentaire",
+              "Une roche continentale très ancienne",
+              "Un fragment de lithosphère océanique charrié sur un continent",
+              "Un volcan actif"
+            ],
+            answer: 2,
+            explanation: "Les ophiolites associent péridotites, gabbros et basaltes en coussins. Retrouvées dans une chaîne de montagnes (ex. le Chenaillet dans les Alpes), elles témoignent d’un **ancien océan** disparu."
+          },
+          {
+            id: "1re-svt-06-s3-p3",
+            prompt: "La présence d’une racine crustale sous une chaîne de montagnes indique :",
+            choices: [
+              "Un épaississement de la croûte",
+              "Un amincissement de la croûte",
+              "Une dorsale active",
+              "Une absence de Moho"
+            ],
+            answer: 0,
+            explanation: "Sous les grandes chaînes, le Moho descend jusqu’à 50-70 km : la croûte s’est **épaissie** sous l’effet du raccourcissement. Cette racine légère compense en profondeur le relief en surface."
+          }
+        ],
       },
     ],
     exercise: [
@@ -1581,6 +3030,56 @@ export const chapters: Chapter[] = [
           "En vieillissant, la lithosphère océanique se refroidit et s’épaissit en manteau dense : sa densité moyenne dépasse celle de l’asthénosphère, ce qui permet sa plongée. La lithosphère continentale, avec une croûte épaisse de densité 2,7, reste **moins dense** : elle **résiste à l’enfouissement**, d’où la collision.",
       },
     ],
+    homework: [
+      {
+        id: "1re-svt-06-hw-1",
+        prompt: "Une anomalie magnétique est située à 40 km de l’axe d’une dorsale et datée de 2 Ma. La demi-vitesse d’expansion est :",
+        choices: [
+          "20 cm·an⁻¹",
+          "2 cm·an⁻¹",
+          "8 cm·an⁻¹",
+          "0,5 cm·an⁻¹"
+        ],
+        answer: 1,
+        explanation: "40 km = 4 000 000 cm, parcourus en 2 000 000 ans : 4 000 000 / 2 000 000 = **2 cm·an⁻¹**. C’est la vitesse d’écartement d’un seul côté ; la vitesse totale d’expansion vaut 4 cm·an⁻¹."
+      },
+      {
+        id: "1re-svt-06-hw-2",
+        prompt: "Le volcanisme des zones de subduction est généralement :",
+        choices: [
+          "Effusif, avec des basaltes fluides",
+          "Absent",
+          "Explosif, avec des laves visqueuses riches en gaz (andésites)",
+          "Limité aux dorsales"
+        ],
+        answer: 2,
+        explanation: "Les magmas de subduction, riches en eau et en silice, sont **visqueux** : les gaz s’en échappent difficilement, ce qui provoque des éruptions explosives (ex. mont Saint Helens, Pinatubo)."
+      },
+      {
+        id: "1re-svt-06-hw-3",
+        prompt: "Dans les Alpes, on trouve des métagabbros contenant de la jadéite, minéral de haute pression. Ils indiquent :",
+        choices: [
+          "Que ces roches ont été enfouies en profondeur lors d’une ancienne subduction",
+          "Que ces roches se sont formées en surface",
+          "La présence d’une dorsale actuelle",
+          "Une fusion partielle par décompression"
+        ],
+        answer: 0,
+        explanation: "La jadéite ne se forme qu’à **haute pression** et température relativement basse. Ces gabbros océaniques ont donc été entraînés en profondeur lors d’une subduction, puis remontés lors de la collision."
+      },
+      {
+        id: "1re-svt-06-hw-4",
+        prompt: "Pourquoi la lithosphère continentale ne subit-elle généralement pas de subduction ?",
+        choices: [
+          "Elle est trop chaude",
+          "Elle est trop mince",
+          "Elle est trop ancienne",
+          "Sa croûte épaisse et peu dense (d ≈ 2,7) la rend trop légère pour plonger"
+        ],
+        answer: 3,
+        explanation: "La croûte continentale, épaisse et de faible densité, donne à la lithosphère continentale une **densité moyenne trop faible** pour s’enfoncer dans l’asthénosphère. Elle résiste à la subduction, ce qui conduit à la collision."
+      }
+    ],
   },
   // ─────────────────────────────────────────────────────────────
   // Chapitre 7
@@ -1619,6 +3118,81 @@ export const chapters: Chapter[] = [
             "La chouette capture des mulots → prédation.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les principales interactions entre êtres vivants",
+          caption: "+ : l’espèce en tire un bénéfice ; − : elle subit un coût.",
+          headers: [
+            "Interaction",
+            "Espèce A",
+            "Espèce B",
+            "Exemple"
+          ],
+          rows: [
+            [
+              "Prédation",
+              "+ (prédateur)",
+              "− (proie)",
+              "Chouette et mulot"
+            ],
+            [
+              "Parasitisme",
+              "+ (parasite)",
+              "− (hôte)",
+              "Gui et pin"
+            ],
+            [
+              "Compétition",
+              "−",
+              "−",
+              "Jeunes pins privés de lumière"
+            ],
+            [
+              "Mutualisme / symbiose",
+              "+",
+              "+",
+              "Mycorhizes pin-bolet, lichen"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-07-s1-p1",
+            prompt: "Un écosystème est formé :",
+            choices: [
+              "Uniquement des animaux d’un lieu",
+              "D’une biocénose, d’un biotope et de leurs interactions",
+              "Uniquement du climat et du sol",
+              "D’une seule espèce et de sa nourriture"
+            ],
+            answer: 1,
+            explanation: "La **biocénose** (ensemble des êtres vivants) et le **biotope** (milieu physico-chimique) interagissent en permanence. C’est cet ensemble, avec ses interactions, qui forme un écosystème."
+          },
+          {
+            id: "1re-svt-07-s1-p2",
+            prompt: "Une interaction durable dans laquelle les deux partenaires tirent un bénéfice est :",
+            choices: [
+              "Le parasitisme",
+              "La compétition",
+              "La prédation",
+              "Le mutualisme"
+            ],
+            answer: 3,
+            explanation: "Dans le **mutualisme**, chaque partenaire gagne quelque chose : dans une mycorhize, le champignon fournit eau et sels minéraux, la plante fournit des sucres. Lorsque l’association est intime et obligatoire, on parle de symbiose."
+          },
+          {
+            id: "1re-svt-07-s1-p3",
+            prompt: "Le castor, qui transforme un cours d’eau en zone humide en construisant des barrages, est qualifié :",
+            choices: [
+              "D’espèce ingénieure",
+              "De décomposeur",
+              "De producteur primaire",
+              "De parasite"
+            ],
+            answer: 0,
+            explanation: "Une **espèce ingénieure** modifie profondément le biotope, créant de nouveaux habitats pour d’autres espèces. Cet exemple montre que les êtres vivants ne font pas que subir leur milieu : ils le transforment."
+          }
+        ],
       },
       {
         title: "Flux de matière et d’énergie, dynamique des écosystèmes",
@@ -1642,6 +3216,68 @@ export const chapters: Chapter[] = [
             "Les carnivores secondaires (rapaces) environ 10 kJ : il ne peut y avoir que peu de niveaux et peu de grands prédateurs.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Énergie stockée à chaque niveau trophique d’une prairie",
+          caption: "Modèle avec un rendement d’environ 10 % d’un niveau au suivant.",
+          unit: "kJ·m⁻²·an⁻¹",
+          data: [
+            {
+              label: "Producteurs (herbes)",
+              value: 10000
+            },
+            {
+              label: "Herbivores (criquets)",
+              value: 1000
+            },
+            {
+              label: "Carnivores I (musaraignes)",
+              value: 100
+            },
+            {
+              label: "Carnivores II (rapaces)",
+              value: 10
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-07-s2-p1",
+            prompt: "Les producteurs primaires d’un écosystème sont :",
+            choices: [
+              "Les champignons",
+              "Les herbivores",
+              "Les végétaux chlorophylliens, qui réalisent la photosynthèse",
+              "Les décomposeurs"
+            ],
+            answer: 2,
+            explanation: "Les **producteurs primaires** fabriquent leur matière organique à partir de matière minérale (CO₂, eau, sels minéraux) et de l’énergie lumineuse. Ils sont à la base de tous les réseaux trophiques."
+          },
+          {
+            id: "1re-svt-07-s2-p2",
+            prompt: "Pourquoi n’y a-t-il que peu de grands prédateurs dans un écosystème ?",
+            choices: [
+              "Parce que l’énergie se perd à chaque niveau trophique (≈ 10 % seulement transmis)",
+              "Parce que la matière n’est pas recyclée",
+              "Parce que les prédateurs ne respirent pas",
+              "Parce que les végétaux sont toxiques"
+            ],
+            answer: 0,
+            explanation: "À chaque niveau, l’essentiel de l’énergie est dissipé sous forme de chaleur (respiration) ou non consommé. Seulement **10 % environ** sont transmis : il reste très peu d’énergie pour les derniers niveaux."
+          },
+          {
+            id: "1re-svt-07-s2-p3",
+            prompt: "La **résilience** d’un écosystème est :",
+            choices: [
+              "Sa capacité à ne jamais changer",
+              "Sa capacité à retrouver un état proche de l’état initial après une perturbation",
+              "Le nombre d’espèces qu’il contient",
+              "Sa production de dioxygène"
+            ],
+            answer: 1,
+            explanation: "Après un incendie ou une tempête, un écosystème résilient se reconstitue progressivement. La **biodiversité** favorise cette résilience, car plusieurs espèces peuvent assurer des fonctions proches."
+          }
+        ],
       },
       {
         title: "Les services écosystémiques et leur gestion",
@@ -1665,6 +3301,70 @@ export const chapters: Chapter[] = [
             "La haie rend donc des services de régulation (pollinisation, lutte biologique) et limite aussi l’érosion des sols.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les catégories de services écosystémiques",
+          headers: [
+            "Catégorie",
+            "Exemples"
+          ],
+          rows: [
+            [
+              "Approvisionnement",
+              "Nourriture, eau douce, bois, fibres, molécules médicinales"
+            ],
+            [
+              "Régulation",
+              "Pollinisation, épuration de l’eau, stockage du carbone, protection contre l’érosion"
+            ],
+            [
+              "Culturels",
+              "Loisirs, tourisme, paysages, valeur éducative et spirituelle"
+            ],
+            [
+              "Soutien",
+              "Formation des sols, photosynthèse, cycles des éléments"
+            ]
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-07-s3-p1",
+            prompt: "La pollinisation des cultures par les abeilles est un service :",
+            choices: [
+              "D’approvisionnement",
+              "Culturel",
+              "De régulation",
+              "Industriel"
+            ],
+            answer: 2,
+            explanation: "La pollinisation **régule** le fonctionnement des écosystèmes et permet la reproduction d’environ trois quarts des espèces cultivées. C’est un service de régulation, dont dépendent ensuite des services d’approvisionnement (fruits, graines)."
+          },
+          {
+            id: "1re-svt-07-s3-p2",
+            prompt: "Laquelle de ces pratiques relève de l’**agroécologie** ?",
+            choices: [
+              "Planter des haies et des bandes fleuries autour des parcelles",
+              "Augmenter les doses de pesticides",
+              "Supprimer toutes les haies",
+              "Cultiver une seule espèce sur de très grandes surfaces"
+            ],
+            answer: 0,
+            explanation: "L’agroécologie s’appuie sur les fonctionnements naturels : les **haies et bandes fleuries** abritent pollinisateurs et prédateurs des ravageurs. On réduit ainsi les intrants tout en maintenant la production."
+          },
+          {
+            id: "1re-svt-07-s3-p3",
+            prompt: "Une zone humide qui filtre les nitrates de l’eau rend un service de :",
+            choices: [
+              "Approvisionnement",
+              "Régulation (épuration de l’eau)",
+              "Culturel",
+              "Aucun service"
+            ],
+            answer: 1,
+            explanation: "Les plantes et micro-organismes des zones humides absorbent ou transforment les nitrates. Cette **épuration naturelle** est un service de régulation qui évite des coûts de traitement de l’eau."
+          }
+        ],
       },
     ],
     exercise: [
@@ -1846,6 +3546,56 @@ export const chapters: Chapter[] = [
           "Les décomposeurs utilisent la matière organique de la feuille et **respirent** : le carbone est rejeté sous forme de **CO₂**, qui pourra de nouveau être fixé par photosynthèse. La matière est ainsi recyclée.",
       },
     ],
+    homework: [
+      {
+        id: "1re-svt-07-hw-1",
+        prompt: "Dans une prairie, les végétaux stockent 20 000 kJ·m⁻²·an⁻¹. Avec un rendement de 10 % par niveau, quelle énergie est stockée par les carnivores primaires ?",
+        choices: [
+          "2 000 kJ",
+          "20 kJ",
+          "2 kJ",
+          "200 kJ"
+        ],
+        answer: 3,
+        explanation: "Herbivores : 20 000 × 0,1 = 2 000 kJ. Carnivores primaires : 2 000 × 0,1 = **200 kJ**. Chaque transfert divise l’énergie disponible par environ 10."
+      },
+      {
+        id: "1re-svt-07-hw-2",
+        prompt: "Le cycle du carbone dans un écosystème montre que :",
+        choices: [
+          "La matière est recyclée entre êtres vivants et milieu",
+          "L’énergie est recyclée indéfiniment",
+          "Le carbone ne sort jamais des végétaux",
+          "Seuls les animaux respirent"
+        ],
+        answer: 0,
+        explanation: "Le carbone passe du CO₂ de l’air à la matière organique (photosynthèse), puis aux consommateurs, avant de retourner à l’atmosphère par respiration et décomposition. La **matière est recyclée**, alors que l’énergie, elle, est dissipée."
+      },
+      {
+        id: "1re-svt-07-hw-3",
+        prompt: "Le déclin des pollinisateurs a pour conséquence principale :",
+        choices: [
+          "Une baisse des rendements de nombreuses cultures fruitières et légumières",
+          "Une augmentation de la photosynthèse",
+          "La disparition des céréales comme le blé",
+          "Une hausse de la biodiversité"
+        ],
+        answer: 0,
+        explanation: "Beaucoup de fruits et légumes dépendent des insectes pour leur pollinisation. Le blé, le maïs ou le riz sont en revanche pollinisés par le vent : ce sont surtout les **cultures fruitières et légumières** qui sont menacées."
+      },
+      {
+        id: "1re-svt-07-hw-4",
+        prompt: "Deux espèces d’oiseaux consomment les mêmes graines dans une forêt où elles sont rares. Il s’agit :",
+        choices: [
+          "De mutualisme",
+          "De parasitisme",
+          "De compétition",
+          "De prédation"
+        ],
+        answer: 2,
+        explanation: "Les deux espèces exploitent la **même ressource limitée** : chacune réduit la part disponible pour l’autre. C’est une compétition, interaction défavorable (−/−) aux deux espèces."
+      }
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -1885,6 +3635,70 @@ export const chapters: Chapter[] = [
             "Des neutrophiles affluent et phagocytent les bactéries ; le pus est formé de leucocytes morts et de débris.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le déroulement de la réaction inflammatoire",
+          steps: [
+            {
+              label: "Entrée d’un pathogène",
+              detail: "Après une effraction de la peau (coupure, piqûre…)."
+            },
+            {
+              label: "Détection",
+              detail: "Des cellules sentinelles (macrophages, mastocytes, cellules dendritiques) reconnaissent des motifs du pathogène."
+            },
+            {
+              label: "Médiateurs chimiques",
+              detail: "Histamine, prostaglandines, cytokines : vasodilatation et perméabilité accrue des vaisseaux."
+            },
+            {
+              label: "Symptômes",
+              detail: "Rougeur, chaleur, gonflement, douleur."
+            },
+            {
+              label: "Recrutement et phagocytose",
+              detail: "Les granulocytes neutrophiles et les monocytes rejoignent le site et phagocytent les pathogènes."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-08-s1-p1",
+            prompt: "Quels sont les quatre symptômes caractéristiques de la réaction inflammatoire ?",
+            choices: [
+              "Fièvre, toux, fatigue, nausée",
+              "Rougeur, chaleur, gonflement, douleur",
+              "Pâleur, froid, démangeaison, saignement",
+              "Rougeur, fièvre, toux, frissons"
+            ],
+            answer: 1,
+            explanation: "La **vasodilatation** provoque rougeur et chaleur ; la sortie de plasma hors des vaisseaux provoque le gonflement (œdème) ; certains médiateurs stimulent les terminaisons nerveuses, d’où la douleur."
+          },
+          {
+            id: "1re-svt-08-s1-p2",
+            prompt: "L’immunité innée est :",
+            choices: [
+              "Acquise après une vaccination",
+              "Très spécifique d’un antigène",
+              "Immédiate, héréditaire et peu spécifique",
+              "Assurée uniquement par les anticorps"
+            ],
+            answer: 2,
+            explanation: "L’immunité innée est présente dès la naissance chez tous les animaux. Elle agit **immédiatement**, sans apprentissage préalable, contre une large gamme de pathogènes grâce à des récepteurs peu spécifiques."
+          },
+          {
+            id: "1re-svt-08-s1-p3",
+            prompt: "La phagocytose est :",
+            choices: [
+              "L’ingestion et la digestion d’un pathogène par une cellule immunitaire",
+              "La production d’anticorps",
+              "La division des lymphocytes",
+              "La dilatation des vaisseaux"
+            ],
+            answer: 0,
+            explanation: "Les **phagocytes** (granulocytes neutrophiles, macrophages) englobent le pathogène dans une vésicule, puis le digèrent grâce à des enzymes. Les cellules dendritiques, après phagocytose, présentent les antigènes aux lymphocytes."
+          }
+        ],
       },
       {
         title: "L’immunité adaptative : lymphocytes B et T",
@@ -1908,6 +3722,70 @@ export const chapters: Chapter[] = [
             "Cet arc correspond aux complexes immuns : les anticorps du sérum sont spécifiques de l’antigène qui a provoqué leur production.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "La réponse adaptative : sélection, amplification, différenciation",
+          steps: [
+            {
+              label: "Présentation de l’antigène",
+              detail: "Une cellule dendritique présente l’antigène dans un ganglion lymphatique."
+            },
+            {
+              label: "Sélection clonale",
+              detail: "Seuls les lymphocytes dont le récepteur reconnaît l’antigène sont activés."
+            },
+            {
+              label: "Amplification clonale",
+              detail: "Ces lymphocytes se multiplient par mitoses (stimulés par les interleukines des LT CD4)."
+            },
+            {
+              label: "Différenciation",
+              detail: "LB → plasmocytes sécréteurs d’anticorps ; LT CD8 → LT cytotoxiques ; formation de cellules mémoire."
+            },
+            {
+              label: "Élimination",
+              detail: "Complexes immuns phagocytés ; cellules infectées détruites par les LT cytotoxiques."
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-08-s2-p1",
+            prompt: "Les cellules qui sécrètent les anticorps sont :",
+            choices: [
+              "Les LT cytotoxiques",
+              "Les macrophages",
+              "Les granulocytes",
+              "Les plasmocytes, issus des LB"
+            ],
+            answer: 3,
+            explanation: "Après sélection et amplification, une partie des lymphocytes B se **différencie en plasmocytes**, cellules riches en réticulum endoplasmique qui sécrètent en grande quantité des anticorps spécifiques de l’antigène."
+          },
+          {
+            id: "1re-svt-08-s2-p2",
+            prompt: "Le rôle principal des LT CD4 auxiliaires est :",
+            choices: [
+              "De détruire directement les bactéries",
+              "De sécréter des interleukines qui stimulent la multiplication et la différenciation des LB et LT CD8",
+              "De produire des anticorps",
+              "De phagocyter les complexes immuns"
+            ],
+            answer: 1,
+            explanation: "Les LT CD4 activés deviennent des **LT auxiliaires** qui sécrètent des interleukines. Ces messagers chimiques sont indispensables à l’amplification clonale des LB et des LT CD8 : c’est pourquoi leur destruction par le VIH effondre l’immunité adaptative."
+          },
+          {
+            id: "1re-svt-08-s2-p3",
+            prompt: "Un anticorps se fixe sur un antigène et forme un complexe immun. Ce complexe est ensuite :",
+            choices: [
+              "Éliminé par phagocytose",
+              "Transformé en lymphocyte",
+              "Excrété par les reins sans transformation",
+              "Recopié par l’ADN polymérase"
+            ],
+            answer: 0,
+            explanation: "L’anticorps neutralise l’antigène mais ne le détruit pas. Les **complexes immuns** sont reconnus et phagocytés par les macrophages, ce qui achève l’élimination."
+          }
+        ],
       },
       {
         title: "Mémoire immunitaire et vaccination",
@@ -1931,6 +3809,76 @@ export const chapters: Chapter[] = [
             "Cela s’explique par les lymphocytes B mémoire produits lors de la première injection : c’est le principe des rappels de vaccin.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Concentration d’anticorps après deux contacts avec le même antigène",
+          caption: "Allure qualitative : 1er contact au jour 0 (réponse primaire), 2e contact au jour 30 (réponse secondaire plus rapide, plus intense et plus durable).",
+          xMin: 0,
+          xMax: 70,
+          yMin: 0,
+          yMax: 110,
+          curves: [
+            {
+              expr: "10*Math.exp(-((x-12)**2)/40) + (x < 30 ? 0 : 100*(1-Math.exp(-(x-30)/2.5))*Math.exp(-(x-30)/40))",
+              label: "Concentration d’anticorps (unités arbitraires) en fonction du temps (jours)"
+            }
+          ],
+          points: [
+            {
+              x: 12,
+              y: 10,
+              label: "Réponse primaire"
+            },
+            {
+              x: 0,
+              y: 0,
+              label: "1er contact"
+            },
+            {
+              x: 30,
+              y: 0,
+              label: "2e contact"
+            }
+          ]
+        },
+        practice: [
+          {
+            id: "1re-svt-08-s3-p1",
+            prompt: "Par rapport à la réponse primaire, la réponse secondaire est :",
+            choices: [
+              "Plus lente et plus faible",
+              "Identique",
+              "Plus rapide, plus intense et plus durable",
+              "Plus rapide mais plus faible"
+            ],
+            answer: 2,
+            explanation: "Lors du premier contact, des **cellules mémoire** sont formées. Plus nombreuses et plus vite activables que les lymphocytes naïfs, elles déclenchent au second contact une réponse plus rapide, plus forte et plus durable."
+          },
+          {
+            id: "1re-svt-08-s3-p2",
+            prompt: "Un vaccin contient :",
+            choices: [
+              "Des anticorps prêts à l’emploi",
+              "Un antigène rendu inoffensif (souvent avec un adjuvant)",
+              "Des antibiotiques",
+              "Des lymphocytes d’un donneur"
+            ],
+            answer: 1,
+            explanation: "Le vaccin présente au système immunitaire un **antigène inoffensif** (pathogène tué ou atténué, fragment, ARNm…). L’adjuvant déclenche une réaction inflammatoire qui favorise une réponse adaptative et la formation de cellules mémoire."
+          },
+          {
+            id: "1re-svt-08-s3-p3",
+            prompt: "Quelle est la différence entre vaccination et sérothérapie ?",
+            choices: [
+              "La vaccination est préventive et durable ; la sérothérapie apporte des anticorps à effet immédiat mais temporaire",
+              "La vaccination est immédiate, la sérothérapie durable",
+              "Les deux apportent des anticorps",
+              "Les deux créent des cellules mémoire"
+            ],
+            answer: 0,
+            explanation: "La vaccination fait produire ses propres anticorps et des **cellules mémoire** : protection différée mais durable. La sérothérapie injecte des anticorps déjà produits : protection immédiate mais **temporaire**, sans mémoire."
+          }
+        ],
       },
     ],
     exercise: [
@@ -2116,6 +4064,56 @@ export const chapters: Chapter[] = [
         explanation:
           "Sous le seuil de 95 %, chaque malade peut contaminer en moyenne plus d’une personne non immunisée : des **épidémies** redeviennent possibles. Les personnes non vaccinées, notamment les nourrissons et les immunodéprimés, ne sont plus protégées par l’**immunité de groupe** (cas des épidémies de rougeole).",
       },
+    ],
+    homework: [
+      {
+        id: "1re-svt-08-hw-1",
+        prompt: "Une personne reçoit un rappel de vaccin 6 mois après la première injection. Le but est :",
+        choices: [
+          "De provoquer une réaction inflammatoire durable",
+          "De remplacer les anticorps par des antibiotiques",
+          "De détruire les cellules mémoire",
+          "D’augmenter le nombre de cellules mémoire et le taux d’anticorps grâce à une réponse secondaire"
+        ],
+        answer: 3,
+        explanation: "Le rappel déclenche une **réponse secondaire** : les cellules mémoire sont réactivées, se multiplient, et le taux d’anticorps devient bien plus élevé et durable qu’après la première injection."
+      },
+      {
+        id: "1re-svt-08-hw-2",
+        prompt: "Lorsque 95 % d’une population est vaccinée contre la rougeole, les personnes non vaccinables sont protégées car :",
+        choices: [
+          "Le virus circule difficilement : c’est l’immunité de groupe",
+          "Elles reçoivent les anticorps des autres",
+          "Le virus disparaît de lui-même",
+          "Elles deviennent immunisées par contact"
+        ],
+        answer: 0,
+        explanation: "Si la grande majorité des individus est immunisée, un malade a très peu de chances de transmettre le virus. Les chaînes de transmission sont rompues : c’est l’**immunité de groupe**, qui protège aussi les plus fragiles."
+      },
+      {
+        id: "1re-svt-08-hw-3",
+        prompt: "Chez une souris privée de thymus (pas de LT), on observe :",
+        choices: [
+          "Une réponse inflammatoire absente",
+          "Une absence de LT cytotoxiques et une production d’anticorps très faible",
+          "Une production normale d’anticorps",
+          "Une réponse adaptative renforcée"
+        ],
+        answer: 1,
+        explanation: "Les LT maturent dans le thymus. Sans LT CD8, il n’y a pas de LT cytotoxiques ; sans LT CD4 auxiliaires, les LB ne sont presque plus stimulés et **produisent très peu d’anticorps**. L’immunité innée reste en revanche fonctionnelle."
+      },
+      {
+        id: "1re-svt-08-hw-4",
+        prompt: "Un antigène est :",
+        choices: [
+          "Une cellule immunitaire",
+          "Un anticorps",
+          "Une molécule reconnue spécifiquement par un récepteur de lymphocyte ou un anticorps",
+          "Un médiateur chimique de l’inflammation"
+        ],
+        answer: 2,
+        explanation: "Un **antigène** est une molécule (souvent une protéine de surface d’un pathogène) reconnue de façon spécifique par les récepteurs des lymphocytes B ou T et par les anticorps. C’est lui qui déclenche la réponse adaptative."
+      }
     ],
   },
 ];

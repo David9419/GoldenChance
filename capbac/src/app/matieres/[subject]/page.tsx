@@ -72,7 +72,7 @@ export default function SubjectPage() {
           {chapters.map((c, i) => {
             const ex = chapterResults(data, c.id, "exercise");
             const ct = chapterResults(data, c.id, "test");
-            const plan = sessionsOfChapter(c.id, data.settings);
+            const plan = sessionsOfChapter(c.id, data);
             const first = plan[0];
             const done = ex.count > 0;
             const isNow = plan.some((p) => p.date === today) || (first && first.date <= today && plan[plan.length - 1].date >= today);

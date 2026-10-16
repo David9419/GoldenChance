@@ -15,7 +15,7 @@ import { CheckInButton, sessionHref } from "./session-card";
 export function CheckInBanner({ data }: { data: AppData }) {
   const now = useNow(20_000);
   const pathname = usePathname();
-  const pending = pathname === "/" ? undefined : sessionsOn(toISO(now), data.settings).find((s) => {
+  const pending = pathname === "/" ? undefined : sessionsOn(toISO(now), data).find((s) => {
     const st = liveStatus(s, data, now).status;
     return (st === "a-venir" || st === "en-cours") && canCheckIn(s, now);
   });

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronLeft, ChevronRight, Coffee, Palmtree, Printer, Sun } from "lucide-react";
+import { ChevronLeft, ChevronRight, Coffee, Palmtree, Printer, Sun, Trophy } from "lucide-react";
 import { PageHeader, StatusPill } from "@/components/app/common";
 import { sessionHref } from "@/components/app/session-card";
 import { SubjectIcon } from "@/components/app/subject-icon";
@@ -12,7 +12,9 @@ import { Card } from "@/components/ui/card";
 import { getChapter } from "@/content";
 import { LUNCH, SLOTS, weeklyHours } from "@/content/schedule";
 import { LEVELS, SUBJECT_IDS, SUBJECTS } from "@/content/subjects";
-import { defaultWeek, holidayOn, KIND_LABEL, levelAt, liveStatus, sessionsOn, type Session } from "@/lib/calendar";
+import { testTitle } from "@/lib/agenda";
+import { useRole } from "@/lib/auth";
+import { defaultWeek, holidayOn, KIND_LABEL, levelAt, liveStatus, sessionAtSlot, sessionsOn, sessionStarted, type Session } from "@/lib/calendar";
 import { addDays, formatHour, formatShort, formatWeekday, fromISO, toISO } from "@/lib/dates";
 import { useData, type AppData } from "@/lib/store";
 import { useNow } from "@/lib/use-now";
@@ -169,7 +171,7 @@ function Row({ slot, days, data, now, today }: { slot: number; days: string[]; d
       </div>
       {days.map((d) => {
         const holiday = holidayOn(d, data.settings.holidays);
-        const sess = sessionsOn(d, data.settings).find((x) => x.slot === slot);
+        const sess = sessionAtSlot(d, slot, data);
         if (holiday) {
           return (
             <div key={d} className="flex min-h-[104px] flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-amber-400/25 bg-amber-500/[0.05] p-2 text-center">
@@ -196,6 +198,19 @@ function Row({ slot, days, data, now, today }: { slot: number; days: string[]; d
             </div>
           );
         }
+        if (sess.slot !== slot) {
+          // Deuxième heure d'un contrôle long.
+          return (
+            <Link
+              key={d}
+              href={sessionHref(sess)}
+              className="flex min-h-[104px] flex-col items-center justify-center gap-1 rounded-xl border border-amber-400/40 bg-[repeating-linear-gradient(135deg,rgba(251,191,36,0.14)_0_10px,rgba(251,191,36,0.06)_10px_20px)] p-2 text-center"
+            >
+              <Trophy className="size-4 text-amber-300" />
+              <span className="text-[0.7rem] font-bold text-amber-200">Suite du contrôle</span>
+            </Link>
+          );
+        }
         return <Cell key={d} s={sess} data={data} now={now} isToday={d === today} />;
       })}
     </>
@@ -203,9 +218,12 @@ function Row({ slot, days, data, now, today }: { slot: number; days: string[]; d
 }
 
 function Cell({ s, data, now, isToday }: { s: Session; data: AppData; now: Date; isToday: boolean }) {
+  const role = useRole();
   const meta = SUBJECTS[s.subject];
   const ref = s.chapterId ? getChapter(s.chapterId) : undefined;
   const { status, record } = liveStatus(s, data, now);
+  const hidden = role === "eleve" && !s.test && !sessionStarted(s, now);
+  const label = s.test ? testTitle(s) : hidden ? "Leçon dévoilée le jour du cours" : ref ? ref.chapter.title : "Programme à venir";
   return (
     <Link
       href={sessionHref(s)}
@@ -214,18 +232,25 @@ function Cell({ s, data, now, isToday }: { s: Session; data: AppData; now: Date;
         status === "en-cours" && "ring-2 ring-fg/60",
         !isToday && status !== "a-venir" && "opacity-80",
       )}
-      style={{ background: `linear-gradient(160deg, ${meta.color}30, ${meta.color}10)`, borderColor: `${meta.color}40` }}
+      style={
+        s.test
+          ? { background: "linear-gradient(160deg, rgba(251,191,36,0.32), rgba(251,191,36,0.1))", borderColor: "rgba(251,191,36,0.55)" }
+          : { background: `linear-gradient(160deg, ${meta.color}30, ${meta.color}10)`, borderColor: `${meta.color}40` }
+      }
     >
-      <span className="absolute inset-y-0 left-0 w-1" style={{ background: meta.color }} />
+      <span className="absolute inset-y-0 left-0 w-1" style={{ background: s.test ? "#fbbf24" : meta.color }} />
       <p className="flex items-center gap-1.5 text-[0.8rem] font-bold" style={{ color: meta.color }}>
         <SubjectIcon subject={s.subject} className="size-3.5" />
         {meta.short}
       </p>
-      <p className="line-clamp-2 text-[0.72rem] leading-snug font-semibold text-mist-100">{ref ? ref.chapter.title : "Programme à venir"}</p>
+      <p className={cn("line-clamp-2 text-[0.72rem] leading-snug font-semibold", hidden ? "text-mist-500 italic" : "text-mist-100")}>{label}</p>
       <div className="mt-auto flex items-center justify-between gap-1">
         <span className="flex items-center gap-1 text-[0.65rem] font-semibold text-mist-300">
-          {s.test && <span className="rounded bg-amber-400 px-1 text-[0.6rem] font-bold text-amber-950">CONTRÔLE</span>}
-          {KIND_LABEL[s.kind]}
+          {s.test ? (
+            <span className="rounded bg-amber-400 px-1 text-[0.6rem] font-bold text-amber-950">{s.test.long ? "CONTRÔLE · 2 H" : "CONTRÔLE"}</span>
+          ) : (
+            KIND_LABEL[s.kind]
+          )}
         </span>
         {status !== "a-venir" && status !== "non-suivi" && <StatusPill status={status} justified={record?.justified} compact className="px-1.5 text-[0.6rem]" />}
       </div>
@@ -235,7 +260,7 @@ function Cell({ s, data, now, isToday }: { s: Session; data: AppData; now: Date;
 
 function MobileDay({ date, data, now }: { date: string; data: AppData; now: Date }) {
   const holiday = holidayOn(date, data.settings.holidays);
-  const list = sessionsOn(date, data.settings);
+  const list = sessionsOn(date, data);
   if (holiday)
     return (
       <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-amber-400/25 py-12 text-center">

@@ -13,13 +13,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input, Textarea } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { getChapter, PROGRAMS } from "@/content";
 import { SUBJECT_IDS, SUBJECTS } from "@/content/subjects";
 import type { SubjectId } from "@/content/types";
 import { agendaItems, assignmentStatus } from "@/lib/agenda";
 import { isStaff, useRole } from "@/lib/auth";
-import { levelAt } from "@/lib/calendar";
-import { addDays, formatLong, toISO } from "@/lib/dates";
+import { autoHomework, homeworkGiven, levelAt, sessionsOn } from "@/lib/calendar";
+import { addDays, formatHour, formatLong, toISO } from "@/lib/dates";
 import { fmtNote, noteTone, pendingCorrections, submissionsToGrade } from "@/lib/stats";
 import { actions, useData, type AppData } from "@/lib/store";
 import { cn } from "@/lib/utils";
@@ -34,6 +35,9 @@ export default function AssignmentsPage() {
   const list = [...data.assignments].sort((a, b) => a.dueDate.localeCompare(b.dueDate));
   const upcoming = list.filter((a) => a.dueDate >= today);
   const past = list.filter((a) => a.dueDate < today).reverse();
+  const autoList = autoHomework(data)
+    .filter((h) => homeworkGiven(h, undefined, data.profile?.createdAt) && h.dueDate >= addDays(today, -14))
+    .sort((a, b) => b.givenDate.localeCompare(a.givenDate));
   const toGrade = submissionsToGrade(data);
   const pending = pendingCorrections(data);
 
@@ -45,7 +49,7 @@ export default function AssignmentsPage() {
         description={
           staff
             ? "Ajoute des devoirs (réponse rédigée ou QCM) et des contrôles supplémentaires. Ils apparaissent tout de suite dans l’agenda de l’élève."
-            : "Les devoirs et contrôles donnés par ton professeur, en plus de ceux de l’emploi du temps."
+            : "Tes devoirs maison (donnés chaque soir sur la leçon du jour) et ceux de ton professeur. Tu peux t’avancer dès qu’ils sont donnés."
         }
         actions={
           staff && (
@@ -109,8 +113,37 @@ export default function AssignmentsPage() {
         </div>
       )}
 
+      {autoList.length > 0 && (
+        <section className="mb-8">
+          <h2 className="mb-3 font-display text-lg font-bold">Devoirs maison du soir</h2>
+          <div className="grid gap-3 md:grid-cols-2">
+            {autoList.map((h, i) => {
+              const done = data.attempts.find((a) => a.context === h.id && a.official);
+              const late = !done && h.dueDate < today;
+              return (
+                <motion.div key={h.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}>
+                  <Link href={`/devoirs/auto/${encodeURIComponent(h.id)}`} className="glass group flex h-full items-start gap-4 rounded-2xl p-5 transition-all hover:-translate-y-0.5">
+                    <SubjectBadge subject={h.subject} />
+                    <div className="min-w-0 flex-1">
+                      <Badge variant={done ? "success" : late ? "danger" : "outline"}>
+                        {done ? `Fait · ${fmtNote(done.score)}/20` : late ? "Non rendu" : "À faire"}
+                      </Badge>
+                      <p className="mt-2 font-semibold">{getChapter(h.chapterId)?.chapter.title}</p>
+                      <p className="text-sm text-mist-500">
+                        {SUBJECTS[h.subject].name} · pour le {formatLong(h.dueDate)}
+                      </p>
+                    </div>
+                    <ChevronRight className="size-4 text-mist-500 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       {list.length === 0 ? (
-        <EmptyState icon={ClipboardPen} title="Aucun devoir pour l’instant" text={staff ? "Clique sur « Nouveau » pour donner un devoir ou un contrôle." : "Ton professeur n’a pas encore donné de devoir."}>
+        <EmptyState icon={ClipboardPen} title={staff ? "Aucun devoir du professeur" : "Aucun devoir du professeur pour l’instant"} text={staff ? "Clique sur « Nouveau » pour donner un devoir ou un contrôle." : "Ton professeur n’a pas encore donné de devoir."}>
           {staff && (
             <Button onClick={() => setOpen(true)}>
               <Plus /> Nouveau devoir
@@ -174,10 +207,19 @@ function CreateAssignmentDialog({ open, onOpenChange, data }: { open: boolean; o
   const [instructions, setInstructions] = useState("");
   const [dueDate, setDueDate] = useState(addDays(today, 2));
   const [coef, setCoef] = useState("1");
+  const [slot, setSlot] = useState<number | null>(null);
+  const [long, setLong] = useState(false);
 
+  const minTestDate = addDays(today, 3);
+  const isTest = kind === "controle";
+  const effectiveMode = isTest ? "qcm" : mode;
+  // Créneaux du jour choisi (un contrôle remplace 1 ou 2 heures de cours).
+  const daySessions = sessionsOn(dueDate, data).filter((s) => !s.test);
+  const canLong = slot !== null && slot % 2 === 0 && daySessions.some((s) => s.slot === slot + 1);
   const chapters = PROGRAMS[level][subject];
   const sameDay = agendaItems(data, dueDate, dueDate).filter((i) => i.type !== "exercice");
-  const valid = title.trim() && dueDate && (mode === "texte" ? instructions.trim() : chapterId);
+  const valid =
+    title.trim() && dueDate && (effectiveMode === "texte" ? instructions.trim() : chapterId) && (!isTest || (dueDate >= minTestDate && slot !== null));
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -191,7 +233,12 @@ function CreateAssignmentDialog({ open, onOpenChange, data }: { open: boolean; o
               <button
                 key={k}
                 type="button"
-                onClick={() => (setKind(k), setCoef(k === "controle" ? "2" : "1"))}
+                onClick={() => {
+                  setKind(k);
+                  setCoef(k === "controle" ? "2" : "1");
+                  setSlot(null);
+                  if (k === "controle" && dueDate < minTestDate) setDueDate(minTestDate);
+                }}
                 className={cn(
                   "flex cursor-pointer items-center justify-center gap-2 rounded-xl border py-3 text-sm font-semibold transition-colors",
                   kind === k ? "border-brand-400/60 bg-brand-500/15 text-mist-100" : "border-border text-mist-500",
@@ -221,6 +268,7 @@ function CreateAssignmentDialog({ open, onOpenChange, data }: { open: boolean; o
             <Label htmlFor="as-title">Titre</Label>
             <Input id="as-title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder={kind === "controle" ? "Ex. Contrôle sur les fonctions" : "Ex. Rédiger un paragraphe argumenté"} />
           </div>
+          {!isTest && (
           <div className="grid grid-cols-2 gap-2">
             {(["texte", "qcm"] as const).map((m) => (
               <button
@@ -233,7 +281,8 @@ function CreateAssignmentDialog({ open, onOpenChange, data }: { open: boolean; o
               </button>
             ))}
           </div>
-          {mode === "qcm" ? (
+          )}
+          {effectiveMode === "qcm" ? (
             <div className="grid gap-2">
               <Label htmlFor="as-ch">Chapitre</Label>
               <select
@@ -252,19 +301,66 @@ function CreateAssignmentDialog({ open, onOpenChange, data }: { open: boolean; o
             </div>
           ) : null}
           <div className="grid gap-2">
-            <Label htmlFor="as-ins">Consignes {mode === "qcm" && "(facultatif)"}</Label>
+            <Label htmlFor="as-ins">Consignes {effectiveMode === "qcm" && "(facultatif)"}</Label>
             <Textarea id="as-ins" value={instructions} onChange={(e) => setInstructions(e.target.value)} placeholder="Ce que l’élève doit faire…" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="as-date">{kind === "controle" ? "Date du contrôle" : "À rendre pour le"}</Label>
-              <Input id="as-date" type="date" min={today} value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+              <Input
+                id="as-date"
+                type="date"
+                min={isTest ? minTestDate : today}
+                value={dueDate}
+                onChange={(e) => {
+                  setDueDate(e.target.value);
+                  setSlot(null);
+                }}
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="as-coef">Coefficient</Label>
               <Input id="as-coef" type="number" min="0.5" step="0.5" value={coef} onChange={(e) => setCoef(e.target.value)} />
             </div>
           </div>
+          {isTest && (
+            <div className="grid gap-2">
+              <Label>Créneau remplacé par le contrôle</Label>
+              {dueDate < minTestDate ? (
+                <p className="text-xs text-rose-300">Un contrôle doit être annoncé au moins 3 jours avant (à partir du {formatLong(minTestDate)}).</p>
+              ) : daySessions.length === 0 ? (
+                <p className="text-xs text-mist-500">Pas de cours ce jour-là.</p>
+              ) : (
+                <div className="grid grid-cols-2 gap-2">
+                  {daySessions.map((s) => (
+                    <button
+                      key={s.key}
+                      type="button"
+                      onClick={() => {
+                        setSlot(s.slot);
+                        setLong(false);
+                      }}
+                      className={cn(
+                        "cursor-pointer rounded-xl border px-3 py-2 text-left text-xs",
+                        slot === s.slot ? "border-amber-400/70 bg-amber-500/15 text-mist-100" : "border-border text-mist-500",
+                      )}
+                    >
+                      <span className="block font-bold">
+                        {formatHour(s.start)} – {formatHour(s.end)}
+                      </span>
+                      {SUBJECTS[s.subject].short}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {canLong && (
+                <label className="flex items-center justify-between rounded-xl border border-border p-3 text-sm">
+                  <span>Contrôle long : 2 heures (prend aussi le créneau suivant)</span>
+                  <Switch checked={long} onCheckedChange={setLong} />
+                </label>
+              )}
+            </div>
+          )}
           {sameDay.length >= 1 && (
             <p className="flex items-start gap-2 rounded-xl border border-amber-400/25 bg-amber-500/10 p-3 text-xs text-amber-200">
               <TriangleAlert className="mt-0.5 size-4 shrink-0" />
@@ -287,10 +383,12 @@ function CreateAssignmentDialog({ open, onOpenChange, data }: { open: boolean; o
                 title: title.trim(),
                 instructions: instructions.trim(),
                 dueDate,
-                chapterId: mode === "qcm" ? chapterId : undefined,
+                chapterId: effectiveMode === "qcm" ? chapterId : undefined,
                 coef: Number(coef) || 1,
+                slot: isTest ? (slot ?? undefined) : undefined,
+                long: isTest && canLong ? long : undefined,
               });
-              toast(kind === "controle" ? "Contrôle ajouté à l’agenda" : "Devoir ajouté à l’agenda", "success");
+              toast(kind === "controle" ? "Contrôle placé dans l’emploi du temps" : "Devoir ajouté à l’agenda", "success");
               setTitle("");
               setInstructions("");
               setChapterId("");

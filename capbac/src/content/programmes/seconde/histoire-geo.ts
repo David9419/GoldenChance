@@ -45,6 +45,79 @@ export const chapters: Chapter[] = [
             "Conclure : le document montre l’idéal démocratique athénien, réel mais réservé à une minorité.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Athènes au Ve siècle av. J.-C. : les grandes dates",
+          caption: "Toutes les dates sont avant J.-C. : on compte « à rebours », donc 508 est plus ancien que 431.",
+          events: [
+            {
+              date: "508-507 av. J.-C.",
+              label: "Réformes de Clisthène : naissance de la démocratie",
+            },
+            {
+              date: "490 av. J.-C.",
+              label: "Victoire de Marathon (1re guerre médique)",
+            },
+            {
+              date: "480 av. J.-C.",
+              label: "Victoire navale de Salamine (2e guerre médique)",
+            },
+            {
+              date: "478-477 av. J.-C.",
+              label: "Fondation de la ligue de Délos",
+            },
+            {
+              date: "451 av. J.-C.",
+              label: "Loi de Périclès sur la citoyenneté",
+            },
+            {
+              date: "443-429 av. J.-C.",
+              label: "Périclès réélu stratège presque chaque année",
+            },
+            {
+              date: "431 av. J.-C.",
+              label: "Début de la guerre du Péloponnèse, oraison funèbre de Périclès",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-01-s1-p1",
+            prompt: "Comment sont désignés les 500 membres de la **Boulè** athénienne ?",
+            choices: [
+              "Ils sont élus par l’Ecclésia parmi les plus riches",
+              "Ils sont nommés par les stratèges",
+              "Ils sont tirés au sort, à raison de 50 par tribu",
+              "Ils héritent de leur charge de leur père",
+            ],
+            answer: 2,
+            explanation: "La **Boulè** est un conseil de **500 citoyens tirés au sort**, 50 dans chacune des dix tribus créées par Clisthène. Elle prépare les décrets votés ensuite par l’Ecclésia ; le tirage au sort et la rotation des charges garantissent l’égalité entre citoyens.",
+          },
+          {
+            id: "2nde-hg-01-s1-p2",
+            prompt: "Qu’est-ce que le **misthos**, créé à l’époque de Périclès ?",
+            choices: [
+              "Une indemnité versée aux citoyens qui exercent une fonction publique",
+              "Un impôt payé par les métèques",
+              "Le vote d’exil d’un citoyen jugé dangereux",
+              "Le temple principal de l’Acropole",
+            ],
+            answer: 0,
+            explanation: "Le **misthos** est une indemnité qui compense la journée de travail perdue par un citoyen qui siège (au tribunal, au conseil). Il permet aux citoyens les plus pauvres de participer réellement à la vie politique ; le vote d’exil, lui, s’appelle l’ostracisme.",
+          },
+          {
+            id: "2nde-hg-01-s1-p3",
+            prompt: "Lequel de ces habitants d’Athènes peut voter à l’**Ecclésia** au Ve siècle av. J.-C. ?",
+            choices: [
+              "Une fille de citoyen",
+              "Un esclave affranchi par son maître",
+              "Un métèque installé depuis vingt ans",
+              "Un homme libre et majeur, né d’un père citoyen et d’une mère fille de citoyen",
+            ],
+            answer: 3,
+            explanation: "Depuis la loi de Périclès de **451 av. J.-C.**, seuls les hommes libres et majeurs nés de deux parents athéniens sont citoyens. Les **femmes**, les **métèques** (étrangers libres résidents) et les **esclaves** sont exclus, ce qui fait de la démocratie athénienne le pouvoir d’une minorité.",
+          },
+        ],
       },
       {
         title: "Rome : de la République à l’Empire, un empire méditerranéen",
@@ -78,6 +151,73 @@ export const chapters: Chapter[] = [
             "Bilan : sous l’apparence républicaine, un régime monarchique s’installe pour près de cinq siècles en Occident.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Rome, de la fondation légendaire à la fin de l’Empire",
+          caption: "Repères à connaître : 509 av. J.-C. (République), 27 av. J.-C. (Empire), 476 (fin de l’Empire d’Occident).",
+          events: [
+            {
+              date: "753 av. J.-C.",
+              label: "Fondation légendaire de Rome par Romulus",
+            },
+            {
+              date: "509 av. J.-C.",
+              label: "Instauration de la République",
+            },
+            {
+              date: "44 av. J.-C.",
+              label: "Assassinat de Jules César",
+            },
+            {
+              date: "27 av. J.-C.",
+              label: "Octave reçoit le titre d’Auguste : début de l’Empire",
+            },
+            {
+              date: "330",
+              label: "Constantin fonde Constantinople",
+            },
+            {
+              date: "395",
+              label: "Partage de l’Empire entre Occident et Orient",
+            },
+            {
+              date: "476",
+              label: "Fin de l’Empire romain d’Occident",
+            },
+            {
+              date: "1453",
+              label: "Prise de Constantinople : fin de l’Empire d’Orient",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-01-s2-p1",
+            prompt: "Comment appelle-t-on le régime fondé par **Auguste**, qui conserve en apparence les institutions républicaines ?",
+            choices: ["La tétrarchie", "Le Principat", "La démocratie", "La monarchie de droit divin"],
+            answer: 1,
+            explanation: "Le régime fondé par Auguste en **27 av. J.-C.** est le **Principat** : le Sénat et les magistratures subsistent, mais l’empereur concentre les pouvoirs militaire, politique et religieux. C’est une monarchie qui ne dit pas son nom.",
+          },
+          {
+            id: "2nde-hg-01-s2-p2",
+            prompt: "Qu’appelle-t-on la ***pax romana*** ?",
+            choices: [
+              "Le traité de paix signé avec Carthage",
+              "La frontière fortifiée de l’Empire",
+              "Une période de paix relative aux Ier-IIe siècles qui favorise les échanges",
+              "Le partage de l’Empire en 395",
+            ],
+            answer: 2,
+            explanation: "La ***pax romana*** désigne les deux siècles de stabilité relative qui suivent l’installation de l’Empire. Les routes, les ports et la navigation relient alors les provinces ; la frontière fortifiée, elle, se nomme le ***limes***.",
+          },
+          {
+            id: "2nde-hg-01-s2-p3",
+            prompt: "Quel empereur fonde **Constantinople** en **330** ?",
+            choices: ["Constantin", "Théodose", "Trajan", "Auguste"],
+            answer: 0,
+            explanation: "C’est **Constantin** qui fonde en **330** une nouvelle capitale sur le site de Byzance, à laquelle il donne son nom. Elle devient la capitale de l’Empire d’Orient, qui survit jusqu’en 1453.",
+          },
+        ],
       },
       {
         title: "Citoyenneté romaine, romanisation et christianisation",
@@ -109,6 +249,75 @@ export const chapters: Chapter[] = [
             "Lien avec la suite : ce mouvement aboutit en 212 à l’édit de Caracalla.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Quatre textes qui transforment l’Empire romain",
+          headers: ["Date", "Texte", "Auteur", "Portée"],
+          rows: [
+            [
+              "48",
+              "Discours gravé sur la Table claudienne",
+              "L’empereur Claude",
+              "Des notables de Gaule chevelue peuvent entrer au Sénat",
+            ],
+            [
+              "212",
+              "Édit de Caracalla",
+              "L’empereur Caracalla",
+              "Citoyenneté pour presque tous les hommes libres de l’Empire",
+            ],
+            [
+              "313",
+              "Édit de Milan",
+              "Constantin et Licinius",
+              "Liberté de culte, fin des persécutions contre les chrétiens",
+            ],
+            [
+              "380",
+              "Édit de Thessalonique",
+              "L’empereur Théodose",
+              "Le christianisme devient religion officielle",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-01-s3-p1",
+            prompt: "Que décide l’**édit de Caracalla** en **212** ?",
+            choices: [
+              "Il interdit les cultes païens",
+              "Il accorde la liberté de culte aux chrétiens",
+              "Il partage l’Empire en deux",
+              "Il accorde la citoyenneté romaine à presque tous les hommes libres de l’Empire",
+            ],
+            answer: 3,
+            explanation: "L’**édit de Caracalla** (212) étend la citoyenneté romaine à presque tous les hommes libres de l’Empire. Il est l’aboutissement d’une intégration progressive des provinciaux, dont la Table claudienne (48) est une étape.",
+          },
+          {
+            id: "2nde-hg-01-s3-p2",
+            prompt: "Quelle catégorie de la population des provinces est surtout touchée par la **romanisation** ?",
+            choices: [
+              "Les élites locales",
+              "Les esclaves des mines",
+              "Les paysans des campagnes reculées",
+              "Les soldats germaniques",
+            ],
+            answer: 0,
+            explanation: "La romanisation touche d’abord les **élites locales**, qui adoptent la langue latine, le droit et l’urbanisme romains pour s’intégrer et obtenir des fonctions. Les campagnes reculées restent plus longtemps fidèles aux langues et coutumes locales.",
+          },
+          {
+            id: "2nde-hg-01-s3-p3",
+            prompt: "Pourquoi les chrétiens sont-ils persécutés dans l’Empire avant 313 ?",
+            choices: [
+              "Parce qu’ils refusent de payer l’impôt",
+              "Parce qu’ils refusent de rendre un culte à l’empereur",
+              "Parce qu’ils parlent grec",
+              "Parce qu’ils ne sont pas citoyens romains",
+            ],
+            answer: 1,
+            explanation: "Monothéistes, les chrétiens refusent le **culte impérial**, perçu comme un signe de loyauté envers Rome. Ce refus leur vaut des persécutions (Néron en 64, Dèce, Dioclétien) jusqu’à l’**édit de Milan** de 313.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -277,6 +486,55 @@ export const chapters: Chapter[] = [
           "En **476**, le chef germanique **Odoacre** dépose Romulus Augustule et renvoie les insignes impériaux à Constantinople : l’Empire romain d’Occident disparaît. Constantinople a été fondée en 330, le partage date de 395 et la prise de Constantinople par les Ottomans de **1453** (fin de l’Empire d’Orient).",
       },
     ],
+    homework: [
+      {
+        id: "2nde-hg-01-hw-1",
+        prompt: "Classe ces événements dans l’ordre chronologique : édit de Thessalonique, réformes de Clisthène, Auguste empereur, fin de l’Empire d’Occident.",
+        choices: [
+          "Auguste ; Clisthène ; Thessalonique ; fin de l’Empire d’Occident",
+          "Clisthène ; Thessalonique ; Auguste ; fin de l’Empire d’Occident",
+          "Clisthène ; Auguste ; Thessalonique ; fin de l’Empire d’Occident",
+        ],
+        answer: 2,
+        explanation: "Les réformes de Clisthène datent de **508-507 av. J.-C.**, Auguste devient empereur en **27 av. J.-C.**, l’édit de Thessalonique est de **380** et l’Empire d’Occident disparaît en **476**. Attention : pour les dates avant J.-C., plus le nombre est grand, plus l’événement est ancien.",
+      },
+      {
+        id: "2nde-hg-01-hw-2",
+        prompt: "Quel point commun peut-on établir entre la citoyenneté athénienne et la citoyenneté romaine ?",
+        choices: [
+          "Les deux excluent femmes et esclaves de la vie politique, mais Rome s’ouvre bien plus aux étrangers",
+          "Les deux sont ouvertes aux femmes",
+          "Les deux sont accordées automatiquement aux esclaves",
+          "Athènes intègre plus facilement les étrangers que Rome",
+        ],
+        answer: 0,
+        explanation: "Athènes comme Rome excluent les femmes et les esclaves de la vie politique. Mais Athènes ferme sa citoyenneté (loi de 451 av. J.-C.), alors que Rome l’ouvre progressivement aux vaincus jusqu’à l’**édit de Caracalla** en 212.",
+      },
+      {
+        id: "2nde-hg-01-hw-3",
+        prompt: "Dans l’oraison funèbre de Périclès rapportée par Thucydide, quel élément doit inciter à la prudence ?",
+        choices: [
+          "Le texte a été écrit par un esclave",
+          "C’est un discours d’éloge, réécrit par l’historien, qui passe sous silence les exclus",
+          "Le texte date de l’époque romaine",
+          "Le discours critique violemment la démocratie",
+        ],
+        answer: 1,
+        explanation: "Le discours est un **éloge** prononcé en 431 av. J.-C. pour glorifier Athènes en guerre, et il est rapporté (donc réécrit) par **Thucydide**. Il ne dit rien des femmes, des métèques, des esclaves ni de la domination sur les alliés : il faut le confronter aux réalités de la cité.",
+      },
+      {
+        id: "2nde-hg-01-hw-4",
+        prompt: "Quel enchaînement résume le mieux le passage du christianisme de religion persécutée à religion officielle ?",
+        choices: [
+          "Édit de Caracalla → édit de Milan → Table claudienne",
+          "Édit de Thessalonique → persécutions de Dioclétien → édit de Milan",
+          "Persécutions de Dioclétien → édit de Milan (313) → édit de Thessalonique (380) → interdiction des cultes païens (392)",
+          "Édit de Milan → persécutions de Néron → édit de Caracalla",
+        ],
+        answer: 2,
+        explanation: "Les dernières grandes persécutions ont lieu sous **Dioclétien** au début du IVe siècle. Puis l’**édit de Milan** (313) accorde la liberté de culte, l’**édit de Thessalonique** (380) fait du christianisme la religion officielle et les cultes païens sont interdits en **392**.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 2 ─────────────────────────────
@@ -323,6 +581,77 @@ export const chapters: Chapter[] = [
             "Rédiger une légende organisée en parties (les trois civilisations / les lieux de pouvoir / contacts et échanges).",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Trois civilisations se mettent en place (VIe-XIe siècles)",
+          events: [
+            {
+              date: "527-565",
+              label: "Règne de Justinien à Byzance",
+            },
+            {
+              date: "622",
+              label: "Hégire : début du calendrier musulman",
+            },
+            {
+              date: "632",
+              label: "Mort de Mahomet, début des conquêtes des califes",
+            },
+            {
+              date: "711",
+              label: "Début de la conquête musulmane de la péninsule Ibérique",
+            },
+            {
+              date: "762",
+              label: "Les Abbassides fondent Bagdad",
+            },
+            {
+              date: "800",
+              label: "Charlemagne couronné empereur à Rome",
+            },
+            {
+              date: "929",
+              label: "Califat omeyyade de Cordoue",
+            },
+            {
+              date: "1054",
+              label: "Schisme entre catholiques et orthodoxes",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-02-s1-p1",
+            prompt: "Quel événement de **622** marque le début du calendrier musulman ?",
+            choices: [
+              "La mort de Mahomet",
+              "La fondation de Bagdad",
+              "L’Hégire, départ de Mahomet de La Mecque pour Médine",
+              "La conquête de l’Égypte",
+            ],
+            answer: 2,
+            explanation: "L’**Hégire** désigne le départ de Mahomet de La Mecque pour Médine en **622**. Cette date sert de point de départ au calendrier musulman ; la mort du Prophète survient en 632.",
+          },
+          {
+            id: "2nde-hg-02-s1-p2",
+            prompt: "Que sépare le **schisme de 1054** ?",
+            choices: [
+              "L’Église catholique de Rome et l’Église orthodoxe de Constantinople",
+              "Les sunnites et les chiites",
+              "Les catholiques et les protestants",
+              "Les Omeyyades et les Abbassides",
+            ],
+            answer: 0,
+            explanation: "En **1054**, les divergences de langue, de liturgie et d’autorité (le pape revendique la primauté) aboutissent à la séparation entre l’Église **catholique** (Rome) et l’Église **orthodoxe** (Constantinople). La division entre catholiques et protestants date, elle, du XVIe siècle.",
+          },
+          {
+            id: "2nde-hg-02-s1-p3",
+            prompt: "Quelle ville est la capitale du califat **abbasside** à partir de 762 ?",
+            choices: ["Damas", "Cordoue", "Le Caire", "Bagdad"],
+            answer: 3,
+            explanation: "Les Abbassides fondent **Bagdad** en **762** et en font leur capitale. Damas était la capitale des Omeyyades (661-750), et Cordoue celle de l’émirat puis du califat omeyyade d’Al-Andalus.",
+          },
+        ],
       },
       {
         title: "Un espace de conflits : croisades et Reconquista",
@@ -357,6 +686,87 @@ export const chapters: Chapter[] = [
             "Bilan : l’hostilité entre orthodoxes et catholiques s’accroît, et Byzance sort durablement affaiblie.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Croisades et Reconquista (1085-1492)",
+          caption: "Deux fronts : la Terre sainte à l’est, la péninsule Ibérique à l’ouest.",
+          events: [
+            {
+              date: "1085",
+              label: "Prise de Tolède par Alphonse VI de Castille",
+            },
+            {
+              date: "1095",
+              label: "Appel d’Urbain II à Clermont",
+            },
+            {
+              date: "1099",
+              label: "Prise de Jérusalem, États latins d’Orient",
+            },
+            {
+              date: "1187",
+              label: "Saladin reprend Jérusalem",
+            },
+            {
+              date: "1204",
+              label: "Sac de Constantinople par la 4e croisade",
+            },
+            {
+              date: "1212",
+              label: "Victoire chrétienne de Las Navas de Tolosa",
+            },
+            {
+              date: "1291",
+              label: "Chute de Saint-Jean-d’Acre, fin des États latins",
+            },
+            {
+              date: "1453",
+              label: "Mehmed II prend Constantinople",
+            },
+            {
+              date: "1492",
+              label: "Prise de Grenade, fin de la Reconquista",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-02-s2-p1",
+            prompt: "Qu’est-ce qu’une **croisade** ?",
+            choices: [
+              "Un pèlerinage armé vers la Terre sainte, prêché par le pape et accordant une indulgence",
+              "Une expédition commerciale vénitienne",
+              "Une guerre entre deux royaumes chrétiens d’Occident",
+              "Une conquête menée par les califes",
+            ],
+            answer: 0,
+            explanation: "Une **croisade** est un pèlerinage armé, prêché par le pape, qui accorde aux participants la rémission de leurs péchés (indulgence). La première est lancée par **Urbain II** à Clermont en **1095** pour délivrer Jérusalem.",
+          },
+          {
+            id: "2nde-hg-02-s2-p2",
+            prompt: "Comment la **quatrième croisade** s’achève-t-elle en **1204** ?",
+            choices: [
+              "Par la reprise de Jérusalem",
+              "Par le sac de Constantinople, ville chrétienne",
+              "Par la conquête de l’Égypte",
+              "Par la prise de Grenade",
+            ],
+            answer: 1,
+            explanation: "Détournée par **Venise**, à qui les croisés devaient de l’argent, la quatrième croisade s’empare de **Constantinople** en **1204** et la pille. Cet épisode aggrave la rupture entre catholiques et orthodoxes et affaiblit durablement Byzance.",
+          },
+          {
+            id: "2nde-hg-02-s2-p3",
+            prompt: "Qui achève la **Reconquista** en prenant Grenade en **1492** ?",
+            choices: [
+              "Le sultan Mehmed II",
+              "Le pape Urbain II",
+              "Alphonse VI de Castille",
+              "Les Rois catholiques Isabelle de Castille et Ferdinand d’Aragon",
+            ],
+            answer: 3,
+            explanation: "En **1492**, **Isabelle de Castille** et **Ferdinand d’Aragon** prennent **Grenade**, dernier royaume musulman de la péninsule. Alphonse VI avait pris Tolède en 1085, bien plus tôt ; Mehmed II, lui, prend Constantinople en 1453.",
+          },
+        ],
       },
       {
         title: "Un espace d’échanges : commerce, savoirs et cohabitations",
@@ -383,6 +793,70 @@ export const chapters: Chapter[] = [
             "Bilan : Venise montre que commerce et conflits sont liés (rôle dans le sac de 1204, puis rivalité avec Gênes et les Ottomans).",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Comment les savoirs grecs reviennent en Occident",
+          steps: [
+            {
+              label: "Savoirs grecs antiques",
+              detail: "Aristote, Ptolémée, Galien",
+            },
+            {
+              label: "Traduction et commentaire en arabe",
+              detail: "Savants du monde musulman, Averroès (1126-1198)",
+            },
+            {
+              label: "Enrichissement",
+              detail: "Algèbre, chiffres venus d’Inde, zéro, médecine, astronomie",
+            },
+            {
+              label: "Traduction en latin à Tolède",
+              detail: "Traducteurs chrétiens, juifs et musulmans au XIIe siècle",
+            },
+            {
+              label: "Renouveau intellectuel de l’Occident",
+              detail: "Les œuvres circulent dans la chrétienté latine",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-02-s3-p1",
+            prompt: "Qu’est-ce qu’un **fondouk** ?",
+            choices: [
+              "Un navire de guerre vénitien",
+              "Un impôt payé par les non-musulmans",
+              "Un entrepôt-hôtellerie où logent les marchands étrangers",
+              "Une école de traducteurs",
+            ],
+            answer: 2,
+            explanation: "Un **fondouk** est un bâtiment qui sert à la fois d’entrepôt et d’hôtellerie pour les marchands, par exemple les Occidentaux à Alexandrie ou à Acre. Il montre que les échanges commerciaux se poursuivent malgré les conflits.",
+          },
+          {
+            id: "2nde-hg-02-s3-p2",
+            prompt: "Quelle œuvre le géographe arabe **Al-Idrisi** réalise-t-il en **1154** pour le roi normand Roger II ?",
+            choices: [
+              "Une grande description du monde, le *Livre de Roger*",
+              "Le plafond de la chapelle Palatine",
+              "Une traduction latine d’Aristote",
+              "Un traité de médecine",
+            ],
+            answer: 0,
+            explanation: "Al-Idrisi réalise pour **Roger II** de Sicile une grande description du monde, le ***Livre de Roger*** (1154). Qu’un roi chrétien commande cette œuvre à un savant musulman illustre la cohabitation des cultures latine, grecque et arabe à Palerme.",
+          },
+          {
+            id: "2nde-hg-02-s3-p3",
+            prompt: "Quel est le statut d’un **dhimmi** en terre d’islam ?",
+            choices: [
+              "Un musulman converti au christianisme",
+              "Un non-musulman protégé mais soumis à un impôt spécial",
+              "Un marchand vénitien",
+              "Un esclave affranchi",
+            ],
+            answer: 1,
+            explanation: "Le **dhimmi** est un juif ou un chrétien vivant en terre d’islam : il est protégé et peut pratiquer sa religion, mais il paie un impôt spécial et reste dans une position inférieure. Cette tolérance a donc des limites.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -546,6 +1020,51 @@ export const chapters: Chapter[] = [
           "Le **29 mai 1453**, les Ottomans prennent Constantinople : l’**Empire byzantin**, héritier de Rome en Orient depuis plus de mille ans, disparaît. La ville devient la capitale ottomane et Sainte-Sophie est transformée en mosquée. Les États latins d’Orient datent de 1099 et ont disparu en 1291.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-hg-02-hw-1",
+        prompt: "Laquelle de ces villes **n’a pas** changé de civilisation dominante entre 1050 et 1500 ?",
+        choices: ["Constantinople", "Tolède", "Grenade", "Venise"],
+        answer: 3,
+        explanation: "**Venise** reste une république chrétienne pendant toute la période. Tolède passe aux chrétiens en 1085, Grenade en 1492, et Constantinople aux Ottomans en 1453 : ces trois villes montrent les déplacements des frontières entre civilisations.",
+      },
+      {
+        id: "2nde-hg-02-hw-2",
+        prompt: "Quel événement montre que les conflits médiévaux ne sont pas seulement religieux entre chrétiens et musulmans ?",
+        choices: [
+          "La prise de Jérusalem en 1099",
+          "Le sac de Constantinople par des croisés en 1204",
+          "La reprise de Jérusalem par Saladin en 1187",
+          "La prise de Grenade en 1492",
+        ],
+        answer: 1,
+        explanation: "En **1204**, des croisés catholiques, poussés par les intérêts de **Venise**, pillent **Constantinople**, une ville chrétienne orthodoxe. Cela montre le poids des intérêts politiques et commerciaux dans les croisades.",
+      },
+      {
+        id: "2nde-hg-02-hw-3",
+        prompt: "Quel personnage est **mal associé** à son action ?",
+        choices: [
+          "Urbain II — appel à la croisade à Clermont",
+          "Saladin — reprise de Jérusalem en 1187",
+          "Charlemagne — prise de Constantinople en 1453",
+          "Averroès — commentaire d’Aristote",
+        ],
+        answer: 2,
+        explanation: "**Charlemagne** est couronné empereur en **800** ; c’est le sultan ottoman **Mehmed II** qui prend Constantinople en **1453**. Les trois autres associations sont exactes.",
+      },
+      {
+        id: "2nde-hg-02-hw-4",
+        prompt: "Pour justifier que la Méditerranée médiévale est un espace d’échanges, quel argument est le plus pertinent ?",
+        choices: [
+          "Les croisades réunissent chrétiens et musulmans dans une même armée",
+          "Il n’y a jamais de guerre entre les trois civilisations",
+          "Les califes se convertissent au christianisme",
+          "Venise et Gênes importent épices et soie du Levant, et Tolède traduit en latin des savoirs grecs passés par l’arabe",
+        ],
+        answer: 3,
+        explanation: "Les échanges sont à la fois **commerciaux** (épices, soie, alun importés par Venise et Gênes) et **intellectuels** (traductions de Tolède au XIIe siècle). Les autres propositions sont fausses : les conflits sont nombreux et les civilisations restent distinctes.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 3 ─────────────────────────────
@@ -594,6 +1113,73 @@ export const chapters: Chapter[] = [
             "Conclusion : deux stratégies qui fondent deux empires différents — un empire territorial (Espagne) et un empire de comptoirs (Portugal).",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Les grandes explorations (1488-1522)",
+          events: [
+            {
+              date: "1488",
+              label: "Bartolomeu Dias franchit le cap de Bonne-Espérance",
+            },
+            {
+              date: "12 octobre 1492",
+              label: "Christophe Colomb débarque aux Bahamas",
+            },
+            {
+              date: "1494",
+              label: "Traité de Tordesillas entre Espagne et Portugal",
+            },
+            {
+              date: "1498",
+              label: "Vasco de Gama atteint Calicut, en Inde",
+            },
+            {
+              date: "1500",
+              label: "Pedro Álvares Cabral aborde le Brésil",
+            },
+            {
+              date: "1503",
+              label: "Création de la Casa de Contratación à Séville",
+            },
+            {
+              date: "1519-1522",
+              label: "Premier tour du monde (Magellan puis Elcano)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-03-s1-p1",
+            prompt: "Que prévoit le **traité de Tordesillas** (**1494**) ?",
+            choices: [
+              "La fin de la guerre entre la France et l’Espagne",
+              "Le partage des terres à découvrir entre l’Espagne et le Portugal",
+              "L’interdiction de l’esclavage des Amérindiens",
+              "La création de la Casa de Contratación",
+            ],
+            answer: 1,
+            explanation: "Conclu sous l’égide du pape, le **traité de Tordesillas** partage en **1494** le monde à découvrir entre l’**Espagne** et le **Portugal** selon une ligne nord-sud dans l’Atlantique. C’est ce qui explique que le Brésil, abordé par Cabral en 1500, soit devenu portugais.",
+          },
+          {
+            id: "2nde-hg-03-s1-p2",
+            prompt: "Quel navigateur atteint **Calicut**, en Inde, en **1498** ?",
+            choices: ["Christophe Colomb", "Fernand de Magellan", "Vasco de Gama", "Bartolomeu Dias"],
+            answer: 2,
+            explanation: "**Vasco de Gama**, au service du roi de Portugal, contourne l’Afrique et atteint **Calicut** en **1498**, ouvrant une route maritime directe vers les épices de l’Inde. Dias avait seulement franchi le cap de Bonne-Espérance en 1488.",
+          },
+          {
+            id: "2nde-hg-03-s1-p3",
+            prompt: "Quelle est la principale conséquence économique des grandes découvertes pour l’Europe ?",
+            choices: [
+              "Le centre de gravité du commerce se déplace de la Méditerranée vers l’Atlantique",
+              "Venise devient la première puissance du monde",
+              "Le commerce des épices disparaît",
+              "L’Europe cesse de commercer avec l’Asie",
+            ],
+            answer: 0,
+            explanation: "Les nouvelles routes océaniques font des ports atlantiques (**Lisbonne**, **Séville**, puis **Anvers**) les grands centres du commerce européen. La Méditerranée et ses intermédiaires (Venise, marchands musulmans) perdent leur position centrale.",
+          },
+        ],
       },
       {
         title: "La conquête de l’Amérique et ses conséquences",
@@ -620,6 +1206,61 @@ export const chapters: Chapter[] = [
             "Conséquences : sur les ruines est bâtie Mexico, capitale de la Nouvelle-Espagne ; la conquête montre le rôle décisif des alliances et des épidémies.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "L’« échange colombien » : des transferts à l’échelle mondiale",
+          headers: ["Sens du transfert", "Exemples", "Conséquences"],
+          rows: [
+            [
+              "Amérique → Europe",
+              "Maïs, pomme de terre, tomate, cacao, argent du Potosí",
+              "Nouvelles cultures, afflux de métal précieux par Séville",
+            ],
+            [
+              "Europe → Amérique",
+              "Chevaux, bovins, blé, canne à sucre, maladies (variole, rougeole, grippe)",
+              "Transformation des paysages, effondrement démographique amérindien",
+            ],
+            [
+              "Afrique → Amérique",
+              "Africains réduits en esclavage (traite atlantique)",
+              "Main-d’œuvre forcée des plantations",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-03-s2-p1",
+            prompt: "En quelle année la capitale aztèque **Tenochtitlan** tombe-t-elle aux mains de Cortés ?",
+            choices: ["1492", "1532", "1545", "1521"],
+            answer: 3,
+            explanation: "Après un long siège mené avec des dizaines de milliers d’alliés amérindiens, **Tenochtitlan** tombe le 13 août **1521**. La conquête de l’Empire inca par Pizarro commence en 1532, et la mine du Potosí est découverte en 1545.",
+          },
+          {
+            id: "2nde-hg-03-s2-p2",
+            prompt: "Qu’est-ce que l’**encomienda** ?",
+            choices: [
+              "L’attribution d’Amérindiens à un colon qui exploite leur travail en échange de leur évangélisation",
+              "Une mine d’argent du Pérou",
+              "Un tribunal chargé de juger les conquistadors",
+              "Le nom donné à la traite des Africains",
+            ],
+            answer: 0,
+            explanation: "L’**encomienda** confie un groupe d’Amérindiens à un colon : en échange de leur évangélisation, il exploite leur travail. En pratique, ce système a favorisé de graves abus dénoncés par Las Casas.",
+          },
+          {
+            id: "2nde-hg-03-s2-p3",
+            prompt: "Qui s’affronte lors de la **controverse de Valladolid** (1550-1551) ?",
+            choices: [
+              "Cortés et Pizarro",
+              "Las Casas, défenseur des Amérindiens, et Sepúlveda, qui justifie leur domination",
+              "Luther et le pape",
+              "Colomb et les Rois catholiques",
+            ],
+            answer: 1,
+            explanation: "À Valladolid, le dominicain **Bartolomé de Las Casas** dénonce les violences subies par les Amérindiens, face au juriste **Juan Ginés de Sepúlveda** qui justifie leur domination. Ce débat montre que la conquête suscite des critiques jusqu’en Espagne.",
+          },
+        ],
       },
       {
         title: "Humanisme, Renaissance et Réformes",
@@ -654,6 +1295,86 @@ export const chapters: Chapter[] = [
             "Conclure : un pape commande une œuvre qui glorifie des philosophes païens, preuve que l’humanisme se concilie avec la foi chrétienne.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Humanisme, Renaissance et Réformes (v. 1450-1598)",
+          events: [
+            {
+              date: "v. 1450-1455",
+              label: "Imprimerie de Gutenberg, Bible imprimée",
+            },
+            {
+              date: "1508-1512",
+              label: "Michel-Ange peint le plafond de la chapelle Sixtine",
+            },
+            {
+              date: "1511",
+              label: "Érasme, Éloge de la folie",
+            },
+            {
+              date: "1517",
+              label: "Les 95 thèses de Luther",
+            },
+            {
+              date: "1536",
+              label: "Calvin, Institution de la religion chrétienne",
+            },
+            {
+              date: "1543",
+              label: "Copernic propose l’héliocentrisme",
+            },
+            {
+              date: "1545-1563",
+              label: "Concile de Trente (Réforme catholique)",
+            },
+            {
+              date: "24 août 1572",
+              label: "Massacre de la Saint-Barthélemy",
+            },
+            {
+              date: "1598",
+              label: "Édit de Nantes d’Henri IV",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-03-s3-p1",
+            prompt: "Selon **Luther**, comment le chrétien obtient-il son salut ?",
+            choices: [
+              "Par l’achat d’indulgences",
+              "Par les pèlerinages",
+              "Par la seule foi",
+              "Par l’obéissance au pape",
+            ],
+            answer: 2,
+            explanation: "Luther affirme que le salut vient de la **seule foi** en Dieu, et non des œuvres ni des indulgences vendues par l’Église. Il fait aussi de la **Bible** la seule autorité, ce qui l’oppose à Rome et le conduit à l’excommunication en 1521.",
+          },
+          {
+            id: "2nde-hg-03-s3-p2",
+            prompt: "Qu’est-ce qu’un **mécène** à la Renaissance ?",
+            choices: [
+              "Un moine qui recopie des manuscrits",
+              "Un artiste qui peint des fresques",
+              "Un imprimeur",
+              "Une personne riche qui protège et finance des artistes",
+            ],
+            answer: 3,
+            explanation: "Un **mécène** est une personne riche et puissante (les **Médicis** à Florence, les papes, François Ier) qui protège et finance des artistes. Le mécénat est l’une des conditions de l’essor de la Renaissance en Italie.",
+          },
+          {
+            id: "2nde-hg-03-s3-p3",
+            prompt: "Quel est le rôle du **concile de Trente** (1545-1563) ?",
+            choices: [
+              "Il réaffirme les dogmes catholiques et réforme l’Église catholique",
+              "Il accorde la liberté de culte aux protestants",
+              "Il condamne Copernic",
+              "Il crée l’Église anglicane",
+            ],
+            answer: 0,
+            explanation: "Le **concile de Trente** est le cœur de la **Réforme catholique** : il réaffirme les dogmes contestés par les protestants et améliore la formation des prêtres. La liberté de culte des protestants en France vient de l’édit de Nantes (1598).",
+          },
+        ],
       },
     ],
     exercise: [
@@ -822,6 +1543,56 @@ export const chapters: Chapter[] = [
           "Ordre : **95 thèses (1517)**, ouverture du **concile de Trente (1545)**, **Saint-Barthélemy (1572)**, **édit de Nantes (1598)**. On passe de la rupture religieuse à la réponse catholique, puis aux guerres de Religion en France et à leur pacification.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-hg-03-hw-1",
+        prompt: "Quel facteur a le plus contribué à l’effondrement démographique des Amérindiens au XVIe siècle ?",
+        choices: [
+          "Le choc microbien (variole, rougeole, grippe)",
+          "La famine due à l’échange colombien",
+          "Une émigration massive vers l’Europe",
+          "Les guerres entre Espagnols et Portugais",
+        ],
+        answer: 0,
+        explanation: "Les guerres et le travail forcé ont tué beaucoup d’Amérindiens, mais le facteur principal est le **choc microbien** : n’étant pas immunisés contre les maladies européennes, ils meurent en masse. La population du Mexique central aurait chuté de plusieurs dizaines de millions à quelques millions en un siècle.",
+      },
+      {
+        id: "2nde-hg-03-hw-2",
+        prompt: "Quel lien peut-on établir entre l’imprimerie et la Réforme protestante ?",
+        choices: [
+          "L’imprimerie a été inventée par Luther",
+          "L’imprimerie permet de diffuser rapidement les idées de Luther et la Bible en langue vulgaire",
+          "L’imprimerie est interdite dans les pays protestants",
+          "Il n’y a aucun lien",
+        ],
+        answer: 1,
+        explanation: "Mise au point par **Gutenberg** vers 1450, l’imprimerie permet de diffuser en grand nombre les écrits de Luther (dès 1517) et des Bibles traduites dans les langues parlées. Elle accélère ainsi la propagation des idées humanistes et réformées.",
+      },
+      {
+        id: "2nde-hg-03-hw-3",
+        prompt: "Classe dans l’ordre chronologique : concile de Trente, 95 thèses de Luther, édit de Nantes, voyage de Colomb.",
+        choices: [
+          "95 thèses ; Colomb ; Trente ; édit de Nantes",
+          "Colomb ; Trente ; 95 thèses ; édit de Nantes",
+          "Colomb ; 95 thèses ; édit de Nantes ; Trente",
+          "Colomb ; 95 thèses ; Trente ; édit de Nantes",
+        ],
+        answer: 3,
+        explanation: "Colomb atteint l’Amérique en **1492**, Luther publie ses thèses en **1517**, le concile de Trente se tient de **1545 à 1563** et l’édit de Nantes est signé en **1598**. Ces repères couvrent tout le XVIe siècle.",
+      },
+      {
+        id: "2nde-hg-03-hw-4",
+        prompt: "Pourquoi peut-on parler de **première mondialisation** au XVIe siècle ?",
+        choices: [
+          "Parce que toutes les régions du monde sont reliées par des échanges réguliers de produits, d’hommes et de métaux précieux",
+          "Parce que l’Europe abandonne le commerce",
+          "Parce que l’Asie colonise l’Amérique",
+          "Parce que les Amérindiens découvrent l’Europe",
+        ],
+        answer: 0,
+        explanation: "L’argent américain afflue en Europe puis gagne l’Asie, les plantes et les animaux circulent entre continents (échange colombien) et la traite relie l’Afrique à l’Amérique. Pour la première fois, des échanges réguliers connectent l’ensemble des continents habités.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 4 ─────────────────────────────
@@ -868,6 +1639,82 @@ export const chapters: Chapter[] = [
             "Postérité : c’est l’un des plus anciens textes encore partiellement en vigueur dans le droit français.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Le renforcement du pouvoir royal (1515-1661)",
+          events: [
+            {
+              date: "1515-1547",
+              label: "Règne de François Ier",
+            },
+            {
+              date: "1539",
+              label: "Ordonnance de Villers-Cotterêts",
+            },
+            {
+              date: "1562-1598",
+              label: "Guerres de Religion",
+            },
+            {
+              date: "1598",
+              label: "Édit de Nantes d’Henri IV",
+            },
+            {
+              date: "1624-1642",
+              label: "Richelieu principal ministre de Louis XIII",
+            },
+            {
+              date: "1627-1628",
+              label: "Siège de La Rochelle",
+            },
+            {
+              date: "1648-1653",
+              label: "La Fronde",
+            },
+            {
+              date: "1661",
+              label: "Début du règne personnel de Louis XIV",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-04-s1-p1",
+            prompt: "Que décide l’**ordonnance de Villers-Cotterêts** en **1539** ?",
+            choices: [
+              "L’usage du français dans les actes de justice et d’administration",
+              "La liberté de culte pour les protestants",
+              "La création des intendants",
+              "L’installation de la cour à Versailles",
+            ],
+            answer: 0,
+            explanation: "Signée par **François Ier**, l’ordonnance impose le **français** à la place du latin dans les actes officiels et oblige les curés à tenir des registres de baptêmes. Elle contribue à l’unification administrative du royaume.",
+          },
+          {
+            id: "2nde-hg-04-s1-p2",
+            prompt: "Qu’est-ce qu’un **intendant** ?",
+            choices: [
+              "Un noble élu par sa province",
+              "Un juge du parlement de Paris qui achète sa charge",
+              "Un agent nommé et révocable par le roi, chargé de la justice, de la police et des finances dans une province",
+              "Un prêtre chargé de tenir les registres de baptême",
+            ],
+            answer: 2,
+            explanation: "L’**intendant** est un représentant direct du roi dans une province : nommé et révocable à tout moment, il dépend entièrement du souverain. Richelieu développe cette fonction, et Louis XIV en fait un relais essentiel de son autorité.",
+          },
+          {
+            id: "2nde-hg-04-s1-p3",
+            prompt: "Pourquoi la **Fronde** (1648-1653) marque-t-elle durablement Louis XIV ?",
+            choices: [
+              "Parce qu’elle le chasse définitivement de France",
+              "Parce que cette révolte des parlementaires, des grands nobles et des Parisiens lui inspire une méfiance durable envers eux",
+              "Parce qu’elle aboutit à la révocation de l’édit de Nantes",
+              "Parce qu’elle oppose la France à l’Angleterre",
+            ],
+            answer: 1,
+            explanation: "Pendant la minorité du roi, les parlementaires, les grands nobles et le peuple de Paris se révoltent contre **Mazarin**. Le jeune Louis XIV en garde une méfiance envers la noblesse et Paris, ce qui explique en partie le choix de **Versailles** et la domestication de la noblesse.",
+          },
+        ],
       },
       {
         title: "Louis XIV et la monarchie absolue",
@@ -901,6 +1748,50 @@ export const chapters: Chapter[] = [
             "Conclure : le tableau est une œuvre de propagande qui incarne la monarchie absolue de droit divin.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Deux modèles politiques à la fin du XVIIe siècle",
+          headers: ["Critère", "France de Louis XIV", "Angleterre après 1689"],
+          rows: [
+            [
+              "Source du pouvoir",
+              "Dieu : le roi est sacré à Reims (droit divin)",
+              "Le roi règne dans le cadre fixé par le Parlement",
+            ],
+            ["Impôts", "Levés par décision du roi", "Consentis par le Parlement"],
+            ["Armée en temps de paix", "Décidée par le roi seul", "Accord du Parlement obligatoire"],
+            ["Texte de référence", "Lois fondamentales du royaume (non écrites)", "Bill of Rights (1689)"],
+            ["Nom du régime", "Monarchie absolue de droit divin", "Monarchie parlementaire"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-04-s2-p1",
+            prompt: "Quelle doctrine économique applique **Colbert** ?",
+            choices: ["Le libéralisme", "Le mercantilisme", "Le socialisme", "Le libre-échange"],
+            answer: 1,
+            explanation: "Colbert applique le **mercantilisme** : l’État doit s’enrichir en exportant plus qu’il n’importe et en accumulant des métaux précieux. Il crée pour cela des **manufactures royales** (Gobelins, Saint-Gobain) et des compagnies de commerce.",
+          },
+          {
+            id: "2nde-hg-04-s2-p2",
+            prompt: "En quelle année la cour de Louis XIV s’installe-t-elle à **Versailles** ?",
+            choices: ["1661", "1685", "1715", "1682"],
+            answer: 3,
+            explanation: "La cour s’installe à **Versailles** en **1682**. 1661 marque le début du règne personnel, 1685 la révocation de l’édit de Nantes et 1715 la mort du roi.",
+          },
+          {
+            id: "2nde-hg-04-s2-p3",
+            prompt: "Que décide Louis XIV par l’**édit de Fontainebleau** (1685) ?",
+            choices: [
+              "Il révoque l’édit de Nantes et interdit le culte protestant",
+              "Il accorde la liberté de culte aux protestants",
+              "Il crée l’Académie des sciences",
+              "Il impose le français dans les actes officiels",
+            ],
+            answer: 0,
+            explanation: "Par l’**édit de Fontainebleau**, Louis XIV **révoque l’édit de Nantes** au nom de l’unité religieuse (« un roi, une foi, une loi »). Environ 150 000 à 200 000 protestants fuient alors le royaume.",
+          },
+        ],
       },
       {
         title: "Révolution scientifique et Lumières",
@@ -935,6 +1826,81 @@ export const chapters: Chapter[] = [
             "Le résultat : Jean Calas est réhabilité en 1765 ; l’affaire montre la naissance d’une opinion publique et le rôle de l’intellectuel engagé.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "De la révolution scientifique aux Lumières",
+          events: [
+            {
+              date: "1633",
+              label: "Condamnation de Galilée",
+            },
+            {
+              date: "1637",
+              label: "Descartes, Discours de la méthode",
+            },
+            {
+              date: "1666",
+              label: "Fondation de l’Académie des sciences",
+            },
+            {
+              date: "1687",
+              label: "Newton, gravitation universelle (Principia)",
+            },
+            {
+              date: "1748",
+              label: "Montesquieu, De l’esprit des lois",
+            },
+            {
+              date: "1751-1772",
+              label: "Publication de l’Encyclopédie",
+            },
+            {
+              date: "1762",
+              label: "Rousseau, Du contrat social ; exécution de Jean Calas",
+            },
+            {
+              date: "1763",
+              label: "Voltaire, Traité sur la tolérance",
+            },
+            {
+              date: "1784",
+              label: "Kant : « Ose savoir ! »",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-04-s3-p1",
+            prompt: "Quelle idée **Montesquieu** défend-il dans *De l’esprit des lois* (1748) ?",
+            choices: [
+              "La souveraineté du peuple",
+              "La séparation des pouvoirs législatif, exécutif et judiciaire",
+              "La monarchie de droit divin",
+              "Le doute méthodique",
+            ],
+            answer: 1,
+            explanation: "Pour éviter le despotisme, **Montesquieu** propose de confier les pouvoirs **législatif**, **exécutif** et **judiciaire** à des organes distincts, en s’inspirant de l’Angleterre. La souveraineté du peuple est l’idée de Rousseau, le doute méthodique celle de Descartes.",
+          },
+          {
+            id: "2nde-hg-04-s3-p2",
+            prompt: "Qui dirige la publication de l’**Encyclopédie** (1751-1772) ?",
+            choices: ["Voltaire et Rousseau", "Newton et Galilée", "Diderot et d’Alembert", "Montesquieu et Kant"],
+            answer: 2,
+            explanation: "**Diderot** et **d’Alembert** dirigent l’**Encyclopédie**, qui rassemble les connaissances de l’époque et diffuse l’esprit critique. Elle est publiée malgré la censure, sur plus de vingt ans.",
+          },
+          {
+            id: "2nde-hg-04-s3-p3",
+            prompt: "Que désigne le **despotisme éclairé** ?",
+            choices: [
+              "Des monarques absolus, comme Frédéric II ou Catherine II, qui se disent inspirés par les philosophes",
+              "Une république fondée sur les idées des Lumières",
+              "La monarchie parlementaire anglaise",
+              "Le gouvernement des philosophes",
+            ],
+            answer: 0,
+            explanation: "Le **despotisme éclairé** désigne des souverains absolus, comme **Frédéric II** de Prusse ou **Catherine II** de Russie, qui se réclament des Lumières. Ils mènent certaines réformes sans renoncer à leur pouvoir absolu.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1098,6 +2064,56 @@ export const chapters: Chapter[] = [
           "Dans *Du contrat social* (1762), **Rousseau** fonde la légitimité politique sur la **volonté générale** du peuple souverain, et non sur Dieu. La séparation des pouvoirs est l’idée de Montesquieu ; le mercantilisme est une doctrine économique ; le despotisme éclairé désigne des monarques absolus inspirés des Lumières.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-hg-04-hw-1",
+        prompt: "Quel instrument de gouvernement **n’est pas** utilisé par Louis XIV pour renforcer son pouvoir ?",
+        choices: [
+          "Les intendants dans les provinces",
+          "La cour et l’étiquette à Versailles",
+          "Les arts et les Académies au service de sa gloire",
+          "La convocation régulière des États généraux pour voter l’impôt",
+        ],
+        answer: 3,
+        explanation: "Louis XIV ne convoque jamais les **États généraux** : leur dernière réunion avant 1789 date de 1614. Il gouverne avec des conseils restreints, des intendants, et utilise Versailles et les arts pour imposer son autorité.",
+      },
+      {
+        id: "2nde-hg-04-hw-2",
+        prompt: "Pourquoi les philosophes des Lumières admirent-ils l’Angleterre ?",
+        choices: [
+          "Parce que le roi y est sacré à Reims",
+          "Parce que le Bill of Rights y limite le pouvoir royal au profit du Parlement",
+          "Parce qu’elle interdit toute religion",
+          "Parce qu’elle a aboli la monarchie",
+        ],
+        answer: 1,
+        explanation: "Depuis le **Bill of Rights** de **1689**, le roi d’Angleterre ne peut ni lever d’impôts ni entretenir une armée en temps de paix sans l’accord du Parlement. Montesquieu y voit un modèle de liberté fondé sur l’équilibre des pouvoirs.",
+      },
+      {
+        id: "2nde-hg-04-hw-3",
+        prompt: "Dans l’affaire Calas, quel est le principal combat de **Voltaire** ?",
+        choices: [
+          "La lutte contre le fanatisme et l’intolérance religieuse",
+          "La défense du droit divin",
+          "La séparation des pouvoirs",
+          "La défense du mercantilisme",
+        ],
+        answer: 0,
+        explanation: "Voltaire enquête sur la condamnation du protestant **Jean Calas**, exécuté en 1762 sans preuve, et publie le *Traité sur la tolérance* (1763). Il obtient sa réhabilitation en 1765 : c’est un combat contre le **fanatisme** et l’intolérance.",
+      },
+      {
+        id: "2nde-hg-04-hw-4",
+        prompt: "Quelle affirmation sur la monarchie absolue est **exacte** ?",
+        choices: [
+          "Le roi peut modifier librement les règles de succession",
+          "Le roi tient son pouvoir des États généraux",
+          "Le roi concentre tous les pouvoirs, mais doit respecter les lois fondamentales du royaume et les lois de Dieu",
+          "Le roi partage le pouvoir législatif avec un Parlement élu",
+        ],
+        answer: 2,
+        explanation: "Le roi absolu fait la loi, rend la justice et lève l’impôt, mais il n’est pas un tyran sans limite : il doit respecter les **lois fondamentales** (comme les règles de succession) et les lois de Dieu. Les privilèges des provinces et des corps freinent aussi son action.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 5 ─────────────────────────────
@@ -1146,6 +2162,82 @@ export const chapters: Chapter[] = [
             "Limites : les femmes, les esclaves des colonies et les plus pauvres (citoyens passifs) restent exclus de la citoyenneté politique ; Olympe de Gouges le dénonce en 1791 dans sa *Déclaration des droits de la femme et de la citoyenne*.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "1789-1791 : la fin de l’Ancien Régime",
+          events: [
+            {
+              date: "5 mai 1789",
+              label: "Ouverture des États généraux à Versailles",
+            },
+            {
+              date: "17 juin 1789",
+              label: "Le tiers état se proclame Assemblée nationale",
+            },
+            {
+              date: "20 juin 1789",
+              label: "Serment du Jeu de paume",
+            },
+            {
+              date: "14 juillet 1789",
+              label: "Prise de la Bastille",
+            },
+            {
+              date: "4 août 1789",
+              label: "Abolition des privilèges",
+            },
+            {
+              date: "26 août 1789",
+              label: "Déclaration des droits de l’homme et du citoyen",
+            },
+            {
+              date: "20-21 juin 1791",
+              label: "Fuite du roi, arrêté à Varennes",
+            },
+            {
+              date: "Septembre 1791",
+              label: "Constitution : monarchie constitutionnelle",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-05-s1-p1",
+            prompt: "Que jurent les députés lors du **serment du Jeu de paume** (20 juin 1789) ?",
+            choices: [
+              "D’abolir les privilèges",
+              "De ne pas se séparer avant d’avoir donné une constitution au royaume",
+              "De renverser Louis XVI",
+              "De prendre la Bastille",
+            ],
+            answer: 1,
+            explanation: "Le **20 juin 1789**, les députés du tiers état, proclamés Assemblée nationale, jurent de ne pas se séparer avant d’avoir donné une **constitution** au royaume. Ils affirment ainsi que la souveraineté appartient à la nation et non plus au roi de droit divin.",
+          },
+          {
+            id: "2nde-hg-05-s1-p2",
+            prompt: "Qu’est-ce que le **suffrage censitaire** prévu par la Constitution de 1791 ?",
+            choices: [
+              "Le vote de tous les hommes adultes",
+              "Le vote des femmes et des hommes",
+              "Le vote réservé aux hommes qui paient un certain montant d’impôt",
+              "Le vote par ordre aux États généraux",
+            ],
+            answer: 2,
+            explanation: "Le **suffrage censitaire** réserve le droit de vote aux hommes qui paient un impôt minimal, le **cens**. Les plus pauvres, appelés citoyens passifs, en sont exclus : l’égalité en droits proclamée en 1789 ne s’étend donc pas à l’égalité politique.",
+          },
+          {
+            id: "2nde-hg-05-s1-p3",
+            prompt: "Quelle décision l’Assemblée prend-elle dans la **nuit du 4 août 1789** ?",
+            choices: [
+              "Elle abolit les privilèges et les droits féodaux",
+              "Elle adopte la DDHC",
+              "Elle proclame la République",
+              "Elle crée les départements",
+            ],
+            answer: 0,
+            explanation: "Dans la **nuit du 4 août 1789**, en réponse à la Grande Peur, l’Assemblée **abolit les privilèges** et les droits féodaux (certains rachetables jusqu’en 1793). C’est la fin juridique de la société d’ordres ; la DDHC suit le 26 août.",
+          },
+        ],
       },
       {
         title: "La République, la guerre et la Terreur (1792-1799)",
@@ -1181,6 +2273,86 @@ export const chapters: Chapter[] = [
             "1er janvier 1804 : Saint-Domingue proclame son indépendance sous le nom d’**Haïti**, première république fondée par d’anciens esclaves.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "La République en guerre (1792-1799)",
+          events: [
+            {
+              date: "20 avril 1792",
+              label: "Déclaration de guerre au roi de Bohême et de Hongrie",
+            },
+            {
+              date: "10 août 1792",
+              label: "Prise des Tuileries, chute de la monarchie",
+            },
+            {
+              date: "20 septembre 1792",
+              label: "Victoire de Valmy",
+            },
+            {
+              date: "22 septembre 1792",
+              label: "An I de la République",
+            },
+            {
+              date: "21 janvier 1793",
+              label: "Exécution de Louis XVI",
+            },
+            {
+              date: "4 février 1794",
+              label: "Première abolition de l’esclavage",
+            },
+            {
+              date: "27 juillet 1794",
+              label: "9 thermidor : chute de Robespierre",
+            },
+            {
+              date: "1795",
+              label: "Constitution de l’an III, le Directoire",
+            },
+            {
+              date: "9 novembre 1799",
+              label: "Coup d’État du 18 brumaire",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-05-s2-p1",
+            prompt: "Comment est élue la **Convention** en 1792 ?",
+            choices: [
+              "Au suffrage censitaire",
+              "Par tirage au sort",
+              "Par les seuls députés du tiers état de 1789",
+              "Au suffrage universel masculin",
+            ],
+            answer: 3,
+            explanation: "Après la chute de la monarchie le 10 août 1792, la **Convention** est élue au **suffrage universel masculin**. C’est elle qui abolit la royauté et proclame la République en septembre 1792.",
+          },
+          {
+            id: "2nde-hg-05-s2-p2",
+            prompt: "Quelle mesure la Convention adopte-t-elle le **4 février 1794** (16 pluviôse an II) ?",
+            choices: [
+              "L’abolition de l’esclavage dans toutes les colonies françaises",
+              "Le calendrier républicain",
+              "La loi des suspects",
+              "L’exécution de Louis XVI",
+            ],
+            answer: 0,
+            explanation: "Le **4 février 1794**, la Convention abolit l’**esclavage** dans toutes les colonies, après l’insurrection des esclaves de Saint-Domingue (1791) et l’émancipation proclamée sur place en 1793. Bonaparte le rétablit en 1802.",
+          },
+          {
+            id: "2nde-hg-05-s2-p3",
+            prompt: "Que se passe-t-il le **9 thermidor an II** (27 juillet 1794) ?",
+            choices: [
+              "Le coup d’État de Bonaparte",
+              "La chute de Robespierre, qui met fin à la Terreur",
+              "La victoire de Valmy",
+              "La création du Directoire",
+            ],
+            answer: 1,
+            explanation: "Le **9 thermidor an II**, les députés renversent **Robespierre**, exécuté le lendemain. Les victoires militaires (Fleurus) rendaient la Terreur moins justifiée à leurs yeux ; le Directoire est créé ensuite par la Constitution de l’an III (1795).",
+          },
+        ],
       },
       {
         title: "Napoléon Bonaparte : du Consulat à l’Empire (1799-1815)",
@@ -1215,6 +2387,61 @@ export const chapters: Chapter[] = [
             "Conclure : Napoléon est à la fois l’héritier de la Révolution (égalité civile) et son fossoyeur (liberté politique).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Napoléon face à l’héritage de la Révolution",
+          headers: ["Domaine", "Ce que Napoléon conserve", "Ce qu’il remet en cause"],
+          rows: [
+            [
+              "Société",
+              "Fin des privilèges, égalité devant la loi (Code civil, 1804), biens nationaux confirmés",
+              "Noblesse d’Empire (1808)",
+            ],
+            [
+              "Vie politique",
+              "Suffrage universel masculin maintenu",
+              "Plébiscites sans vrai choix, censure, police de Fouché",
+            ],
+            [
+              "Famille",
+              "Mariage civil et divorce maintenus",
+              "Autorité renforcée du père et du mari sur la femme",
+            ],
+            [
+              "Colonies",
+              "Rien : la liberté des esclaves n’est pas maintenue",
+              "Rétablissement de l’esclavage (1802)",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-05-s3-p1",
+            prompt: "Quelle est la date du **Code civil** ?",
+            choices: ["1801", "1804", "1808", "1815"],
+            answer: 1,
+            explanation: "Le **Code civil** est promulgué le **21 mars 1804**. Il unifie le droit et consacre l’égalité devant la loi, la propriété et la liberté du travail, tout en renforçant l’autorité du père et du mari ; 1801 est la date du Concordat.",
+          },
+          {
+            id: "2nde-hg-05-s3-p2",
+            prompt: "Qu’est-ce qu’un **plébiscite** ?",
+            choices: [
+              "Une assemblée élue au suffrage censitaire",
+              "Un accord avec le pape",
+              "Une loi votée par le Sénat",
+              "Un vote par lequel les citoyens approuvent ou rejettent par oui ou non une décision ou une personne",
+            ],
+            answer: 3,
+            explanation: "Le **plébiscite** demande aux citoyens de répondre par **oui ou non**. Bonaparte l’utilise pour faire approuver ses Constitutions et son pouvoir : le suffrage universel masculin existe, mais il est vidé de son sens car les électeurs n’ont pas de véritable choix.",
+          },
+          {
+            id: "2nde-hg-05-s3-p3",
+            prompt: "Quelle bataille met définitivement fin à l’Empire, le **18 juin 1815** ?",
+            choices: ["Waterloo", "Austerlitz", "Leipzig", "Wagram"],
+            answer: 0,
+            explanation: "Le **18 juin 1815**, Napoléon est vaincu à **Waterloo**, ce qui met fin aux Cent-Jours. Il est exilé à Sainte-Hélène ; Austerlitz (1805) et Wagram (1809) sont des victoires, Leipzig (1813) une défaite qui conduit à la première abdication.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1383,6 +2610,56 @@ export const chapters: Chapter[] = [
           "En 1808, Napoléon impose son frère **Joseph** sur le trône d’Espagne. Le soulèvement du 2 mai 1808 à Madrid, réprimé le 3 mai (peint par Goya), ouvre une guérilla soutenue par le clergé et les Britanniques. Partout, la domination française (impôts, conscription, réquisitions) éveille des **sentiments nationaux** — alors même que Napoléon supprime les droits féodaux et diffuse le Code civil.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-hg-05-hw-1",
+        prompt: "Classe ces régimes dans l’ordre : Directoire, monarchie constitutionnelle, Consulat, Convention.",
+        choices: [
+          "Convention ; monarchie constitutionnelle ; Directoire ; Consulat",
+          "Monarchie constitutionnelle ; Convention ; Directoire ; Consulat",
+          "Monarchie constitutionnelle ; Directoire ; Convention ; Consulat",
+          "Consulat ; Convention ; Directoire ; monarchie constitutionnelle",
+        ],
+        answer: 1,
+        explanation: "La **monarchie constitutionnelle** est fondée par la Constitution de 1791, la **Convention** gouverne de 1792 à 1795, le **Directoire** de 1795 à 1799 et le **Consulat** commence après le 18 brumaire (novembre 1799). L’Empire suit en 1804.",
+      },
+      {
+        id: "2nde-hg-05-hw-2",
+        prompt: "Pourquoi l’article 3 de la DDHC est-il une rupture avec l’Ancien Régime ?",
+        choices: [
+          "Il rétablit les privilèges",
+          "Il donne la souveraineté au roi",
+          "Il place la souveraineté dans la nation, et non plus en Dieu et dans le roi",
+          "Il abolit l’esclavage",
+        ],
+        answer: 2,
+        explanation: "L’article 3 affirme que « le principe de toute souveraineté réside essentiellement dans la Nation ». Le pouvoir ne vient plus de Dieu par le roi : c’est la condamnation de la monarchie absolue de **droit divin**.",
+      },
+      {
+        id: "2nde-hg-05-hw-3",
+        prompt: "Quel enchaînement résume l’histoire de Saint-Domingue entre 1791 et 1804 ?",
+        choices: [
+          "Insurrection des esclaves → abolition (1793-1794) → rétablissement de l’esclavage et expédition de Bonaparte (1802) → indépendance d’Haïti (1804)",
+          "Abolition (1791) → insurrection (1802) → indépendance (1794)",
+          "Indépendance (1791) → rétablissement de l’esclavage (1794) → abolition (1804)",
+          "Expédition de Bonaparte (1791) → insurrection (1794) → Toussaint Louverture président de la France",
+        ],
+        answer: 0,
+        explanation: "L’insurrection des esclaves éclate en **août 1791** ; l’émancipation est proclamée sur place en 1793 puis étendue à toutes les colonies le **4 février 1794**. En **1802**, Bonaparte rétablit l’esclavage et envoie une expédition ; Saint-Domingue proclame son indépendance sous le nom d’**Haïti** le 1er janvier **1804**.",
+      },
+      {
+        id: "2nde-hg-05-hw-4",
+        prompt: "Pourquoi dit-on que Napoléon est à la fois **héritier** et **fossoyeur** de la Révolution ?",
+        choices: [
+          "Parce qu’il rétablit la monarchie absolue et les privilèges",
+          "Parce qu’il conserve l’égalité civile mais supprime les libertés politiques",
+          "Parce qu’il abolit l’esclavage puis la Bastille",
+          "Parce qu’il refuse le Code civil",
+        ],
+        answer: 1,
+        explanation: "Napoléon fixe dans le **Code civil** l’égalité devant la loi et la fin des privilèges : il est héritier de 1789. Mais il impose un régime **autoritaire** (censure, police, plébiscites, pouvoir héréditaire) qui supprime les libertés politiques : il en est aussi le fossoyeur.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 6 ─────────────────────────────
@@ -1427,6 +2704,65 @@ export const chapters: Chapter[] = [
             "Réponse : le barrage de Kokaral (2005) a permis de faire remonter la « petite Aral » au Kazakhstan ; la grande Aral reste très dégradée.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "L’assèchement de la mer d’Aral : un enchaînement de causes et de conséquences",
+          steps: [
+            {
+              label: "Choix politique et économique",
+              detail: "Années 1960 : l’URSS veut développer le coton",
+            },
+            {
+              label: "Détournement des fleuves",
+              detail: "L’Amou-Daria et le Syr-Daria irriguent des millions d’hectares",
+            },
+            {
+              label: "Recul de la mer",
+              detail: "La mer se fragmente et devient très salée",
+            },
+            {
+              label: "Conséquences humaines",
+              detail: "Fin de la pêche, ports abandonnés, problèmes de santé",
+            },
+            {
+              label: "Réponse partielle",
+              detail: "Barrage de Kokaral (2005) : la « petite Aral » remonte",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-06-s1-p1",
+            prompt: "Pourquoi dit-on qu’une ressource est **construite** ?",
+            choices: [
+              "Parce qu’elle est fabriquée en usine",
+              "Parce qu’elle ne devient ressource que lorsqu’une société la juge utile et a les moyens de l’exploiter",
+              "Parce qu’elle est toujours renouvelable",
+              "Parce qu’elle appartient à l’État",
+            ],
+            answer: 1,
+            explanation: "Un élément naturel ne devient une **ressource** que si une société en a besoin et sait l’exploiter. Le pétrole, par exemple, n’est devenu une ressource majeure qu’avec le moteur à explosion aux XIXe-XXe siècles.",
+          },
+          {
+            id: "2nde-hg-06-s1-p2",
+            prompt: "Laquelle de ces ressources est **non renouvelable** à l’échelle humaine ?",
+            choices: ["Le vent", "Le soleil", "Le gaz naturel", "La biomasse bien gérée"],
+            answer: 2,
+            explanation: "Le **gaz naturel**, comme le pétrole, le charbon et les minerais, s’est formé sur des millions d’années : ses stocks s’épuisent à l’échelle humaine. Le soleil, le vent et la biomasse bien gérée sont des ressources renouvelables.",
+          },
+          {
+            id: "2nde-hg-06-s1-p3",
+            prompt: "Quel document définit le **développement durable** en **1987** ?",
+            choices: [
+              "Le rapport Brundtland",
+              "L’accord de Paris",
+              "Le protocole de Kyoto",
+              "La Convention de Genève",
+            ],
+            answer: 0,
+            explanation: "Le **rapport Brundtland** (1987) définit le développement durable comme un développement qui répond aux besoins du présent sans compromettre ceux des générations futures. Le **sommet de la Terre de Rio** (1992) a ensuite popularisé la notion.",
+          },
+        ],
       },
       {
         title: "Les risques : aléas et vulnérabilités",
@@ -1455,6 +2791,63 @@ export const chapters: Chapter[] = [
             "Conclusion : la vulnérabilité, plus que l’aléa, explique la gravité d’une catastrophe ; même un pays riche et préparé reste exposé.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Deux séismes, deux bilans : Haïti (2010) et Japon (2011)",
+          headers: ["Critère", "Haïti (12 janvier 2010)", "Japon (11 mars 2011)"],
+          rows: [
+            ["Magnitude", "7,0", "9,0-9,1"],
+            ["Bilan humain", "Plus de 200 000 morts", "Environ 18 000 morts et disparus"],
+            [
+              "Principale cause des victimes",
+              "Effondrement de bâtiments non parasismiques",
+              "Le tsunami qui suit le séisme",
+            ],
+            [
+              "Préparation",
+              "Faible : pauvreté, État et secours désorganisés",
+              "Forte : normes parasismiques, exercices réguliers",
+            ],
+            [
+              "Conséquence particulière",
+              "Reconstruction longue et difficile",
+              "Accident nucléaire de Fukushima Daiichi (risque mixte)",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-06-s2-p1",
+            prompt: "Quelle formule résume la notion de **risque** ?",
+            choices: [
+              "Risque = aléa + prévention",
+              "Risque = catastrophe − résilience",
+              "Risque = prévision × protection",
+              "Risque = aléa × vulnérabilité",
+            ],
+            answer: 3,
+            explanation: "Un risque naît de la rencontre entre un **aléa** (phénomène dangereux) et des **enjeux vulnérables** (personnes, biens, activités). Sans population exposée, un séisme dans un désert n’est pas une catastrophe.",
+          },
+          {
+            id: "2nde-hg-06-s2-p2",
+            prompt: "Qu’est-ce que la **résilience** ?",
+            choices: [
+              "La capacité d’une société à faire face à une catastrophe et à se reconstruire",
+              "L’intensité d’un séisme",
+              "Une digue de protection",
+              "L’interdiction de construire en zone inondable",
+            ],
+            answer: 0,
+            explanation: "La **résilience** est la capacité d’une société à surmonter une catastrophe et à se reconstruire. Elle dépend des moyens financiers, de l’organisation des secours et de la préparation des habitants.",
+          },
+          {
+            id: "2nde-hg-06-s2-p3",
+            prompt: "À quelle catégorie appartient l’explosion de l’usine **AZF** à Toulouse en **2001** ?",
+            choices: ["Risque naturel", "Risque technologique", "Risque sanitaire", "Risque climatique"],
+            answer: 1,
+            explanation: "L’explosion de l’usine chimique **AZF** est un accident industriel : c’est un **risque technologique**, comme l’incendie de Lubrizol à Rouen en 2019. Un risque naturel provient d’un phénomène comme un séisme ou un cyclone.",
+          },
+        ],
       },
       {
         title: "Ressources sous tension et changement climatique",
@@ -1487,6 +2880,56 @@ export const chapters: Chapter[] = [
             "Rédiger une légende : la ressource / les usages / les tensions et tentatives de coopération.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Ressources et climat : les chiffres clés",
+          items: [
+            {
+              value: "≈ 70 %",
+              label: "de l’eau prélevée dans le monde sert à l’agriculture",
+            },
+            {
+              value: "≈ 80 %",
+              label: "de l’énergie primaire mondiale vient des énergies fossiles",
+            },
+            {
+              value: "1 700 m³",
+              label: "par habitant et par an : seuil de stress hydrique (Falkenmark)",
+            },
+            {
+              value: "1,5 °C",
+              label: "objectif de réchauffement maximal visé par l’accord de Paris (2015)",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-06-s3-p1",
+            prompt: "Végétaliser une ville pour lutter contre les îlots de chaleur relève de :",
+            choices: ["l’atténuation", "la prévision", "l’adaptation", "la transition démographique"],
+            answer: 2,
+            explanation: "L’**adaptation** consiste à s’ajuster aux effets du changement climatique, par exemple en végétalisant les villes contre les fortes chaleurs. L’**atténuation**, elle, vise à réduire les émissions de gaz à effet de serre.",
+          },
+          {
+            id: "2nde-hg-06-s3-p2",
+            prompt: "Pourquoi le **Grand barrage de la Renaissance** (GERD) crée-t-il des tensions ?",
+            choices: [
+              "Parce que l’Éthiopie, en amont sur le Nil Bleu, peut réduire le débit dont dépend l’Égypte en aval",
+              "Parce qu’il prive l’Éthiopie d’électricité",
+              "Parce qu’il est construit sur le Danube",
+              "Parce que l’Égypte veut le détruire pour irriguer le Sahara",
+            ],
+            answer: 0,
+            explanation: "Le barrage éthiopien est situé **en amont** sur le Nil Bleu : l’Égypte, **en aval** et presque entièrement dépendante du Nil, craint une baisse du débit, notamment pendant le remplissage. C’est un exemple de tension autour d’un fleuve transfrontalier.",
+          },
+          {
+            id: "2nde-hg-06-s3-p3",
+            prompt: "Quel organisme, créé en **1988**, étudie le changement climatique ?",
+            choices: ["Le HCR", "Le PNUD", "L’UNESCO", "Le GIEC"],
+            answer: 3,
+            explanation: "Le **GIEC** (Groupe d’experts intergouvernemental sur l’évolution du climat) est créé en **1988**. Ses rapports établissent que le réchauffement actuel est principalement dû aux émissions humaines de gaz à effet de serre.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1650,6 +3093,56 @@ export const chapters: Chapter[] = [
           "Limiter l’urbanisation des zones exposées réduit les **enjeux** et donc la **vulnérabilité** : c’est de la **prévention**, menée en amont. La **prévision** consiste à anticiper l’aléa (surveillance des cours d’eau, Vigicrues) ; la gestion de crise intervient pendant la catastrophe.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-hg-06-hw-1",
+        prompt: "Pourquoi le séisme d’Haïti (2010), moins puissant que celui du Japon (2011), a-t-il fait beaucoup plus de victimes ?",
+        choices: [
+          "Parce qu’il a été suivi d’un tsunami plus haut",
+          "Parce que la vulnérabilité de la société haïtienne était bien plus forte",
+          "Parce qu’Haïti est plus peuplé que le Japon",
+          "Parce que le Japon n’était pas touché par l’aléa",
+        ],
+        answer: 1,
+        explanation: "L’aléa japonais (magnitude 9,0-9,1) était des milliers de fois plus énergétique que le séisme d’Haïti (7,0). Mais la **vulnérabilité** haïtienne (pauvreté, constructions fragiles, absence de préparation) explique un bilan de plus de 200 000 morts : c’est la vulnérabilité, plus que l’aléa, qui fait la catastrophe.",
+      },
+      {
+        id: "2nde-hg-06-hw-2",
+        prompt: "Quelle mesure relève de la **prévention** des risques ?",
+        choices: [
+          "Une digue construite après une inondation",
+          "L’envoi de secours après une catastrophe",
+          "Un plan qui interdit de construire en zone inondable",
+          "La reconstruction d’un quartier détruit",
+        ],
+        answer: 2,
+        explanation: "La **prévention** regroupe les mesures prises en amont pour limiter les effets d’un aléa : normes parasismiques, zonage interdisant de construire en zone inondable, exercices, information. Les digues relèvent de la **protection**, et les secours de la gestion de crise.",
+      },
+      {
+        id: "2nde-hg-06-hw-3",
+        prompt: "Quelle affirmation sur le changement climatique est **exacte** ?",
+        choices: [
+          "Les pays qui émettent le moins de gaz à effet de serre sont souvent parmi les plus vulnérables",
+          "Il touche uniquement les pays riches",
+          "Il est sans lien avec les activités humaines",
+          "L’accord de Paris vise un réchauffement de 4 °C",
+        ],
+        answer: 0,
+        explanation: "Les pays pauvres et les petits États insulaires comme **Tuvalu** ou les **Maldives** émettent peu mais sont très exposés à la montée des eaux et aux événements extrêmes. L’accord de Paris vise un réchauffement « nettement en dessous de 2 °C », si possible 1,5 °C.",
+      },
+      {
+        id: "2nde-hg-06-hw-4",
+        prompt: "Quels sont les trois piliers du développement durable ?",
+        choices: [
+          "Politique, militaire, religieux",
+          "Démographique, culturel, touristique",
+          "Local, national, mondial",
+          "Économique, social, environnemental",
+        ],
+        answer: 3,
+        explanation: "Le développement durable cherche à concilier l’**économie** (créer des richesses), le **social** (répondre aux besoins de tous) et l’**environnement** (préserver les ressources et les milieux). Ces trois piliers doivent être pensés ensemble, pour les générations présentes et futures.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 7 ─────────────────────────────
@@ -1695,6 +3188,62 @@ export const chapters: Chapter[] = [
             "Conséquence : à ce rythme, la population du Niger double en une vingtaine d’années, ce qui pose des défis majeurs (écoles, emplois, alimentation).",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "La population mondiale depuis 1800",
+          caption: "Estimations et projection moyenne de l’ONU (World Population Prospects), valeurs arrondies ; le maximum d’environ 10,3 milliards est attendu vers le milieu des années 2080.",
+          unit: "milliards d’habitants",
+          data: [
+            {
+              label: "1800",
+              value: 1,
+            },
+            {
+              label: "1950",
+              value: 2.5,
+            },
+            {
+              label: "1999",
+              value: 6,
+            },
+            {
+              label: "2022",
+              value: 8,
+            },
+            {
+              label: "v. 2085 (projection)",
+              value: 10.3,
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-07-s1-p1",
+            prompt: "Un pays a un taux de natalité de **30 ‰** et un taux de mortalité de **8 ‰**. Quel est son taux d’accroissement naturel ?",
+            choices: ["38 ‰", "22 ‰", "3,75 ‰", "8 ‰"],
+            answer: 1,
+            explanation: "Le taux d’accroissement naturel est la **différence** entre natalité et mortalité : 30 − 8 = **22 ‰**, soit 2,2 % par an. On ne fait ni la somme ni le quotient des deux taux.",
+          },
+          {
+            id: "2nde-hg-07-s1-p2",
+            prompt: "Que se passe-t-il pendant la **première phase** de la transition démographique ?",
+            choices: [
+              "La natalité baisse alors que la mortalité reste forte",
+              "La natalité et la mortalité baissent en même temps",
+              "La mortalité baisse alors que la natalité reste forte : la population augmente très vite",
+              "La population diminue",
+            ],
+            answer: 2,
+            explanation: "Dans la première phase, les progrès de l’hygiène, de la médecine et de l’alimentation font **baisser la mortalité**, alors que la **natalité reste élevée**. L’écart entre les deux provoque une très forte croissance ; la natalité ne baisse qu’ensuite, dans la seconde phase.",
+          },
+          {
+            id: "2nde-hg-07-s1-p3",
+            prompt: "Quelle valeur de l’**ISF** assure environ le renouvellement des générations dans les pays développés ?",
+            choices: ["2,1 enfants par femme", "1,2 enfant par femme", "4 enfants par femme", "6 enfants par femme"],
+            answer: 0,
+            explanation: "Il faut environ **2,1 enfants par femme** pour remplacer les deux parents, compte tenu de la mortalité avant l’âge adulte et du léger excédent de naissances masculines. En dessous, la population finit par diminuer sans apport migratoire.",
+          },
+        ],
       },
       {
         title: "Le développement et ses mesures : du PIB à l’IDH",
@@ -1725,6 +3274,76 @@ export const chapters: Chapter[] = [
             "Démographie : ISF d’environ 1,4 en Norvège contre environ 6 au Niger ; la faiblesse du développement entretient une forte fécondité, qui elle-même freine le développement.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "L’IDH de quelques pays",
+          caption: "Valeurs de l’IDH pour 2022, publiées par le PNUD (rapport 2023-2024), arrondies au centième.",
+          unit: "IDH (entre 0 et 1)",
+          data: [
+            {
+              label: "Suisse",
+              value: 0.97,
+            },
+            {
+              label: "Norvège",
+              value: 0.97,
+            },
+            {
+              label: "France",
+              value: 0.91,
+            },
+            {
+              label: "Chine",
+              value: 0.79,
+            },
+            {
+              label: "Inde",
+              value: 0.64,
+            },
+            {
+              label: "Niger",
+              value: 0.39,
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-07-s2-p1",
+            prompt: "Quelles sont les trois dimensions mesurées par l’**IDH** ?",
+            choices: [
+              "Population, superficie, PIB",
+              "Santé, éducation, niveau de vie",
+              "Natalité, mortalité, fécondité",
+              "Industrie, agriculture, services",
+            ],
+            answer: 1,
+            explanation: "L’**IDH** combine la **santé** (espérance de vie à la naissance), l’**éducation** (durées de scolarisation) et le **niveau de vie** (revenu national brut par habitant en PPA). Il a été créé par le PNUD en 1990.",
+          },
+          {
+            id: "2nde-hg-07-s2-p2",
+            prompt: "Pourquoi utilise-t-on la **parité de pouvoir d’achat** (PPA) pour comparer les revenus ?",
+            choices: [
+              "Pour tenir compte des différences de prix entre pays",
+              "Pour convertir toutes les monnaies en euros",
+              "Pour exclure les revenus du pétrole",
+              "Pour mesurer les inégalités à l’intérieur d’un pays",
+            ],
+            answer: 0,
+            explanation: "Avec un même revenu, on n’achète pas la même quantité de biens partout, car les prix diffèrent. La **PPA** corrige ces écarts de prix pour comparer le pouvoir d’achat réel des habitants des différents pays.",
+          },
+          {
+            id: "2nde-hg-07-s2-p3",
+            prompt: "Combien d’**Objectifs de développement durable** l’ONU a-t-elle adoptés en 2015, et pour quelle échéance ?",
+            choices: [
+              "8 objectifs, pour 2015",
+              "10 objectifs, pour 2050",
+              "17 objectifs, pour 2030",
+              "3 objectifs, pour 2100",
+            ],
+            answer: 2,
+            explanation: "Les **17 ODD** ont été adoptés en **2015** pour être atteints d’ici **2030**. Ils prennent la suite des 8 Objectifs du millénaire pour le développement (2000-2015).",
+          },
+        ],
       },
       {
         title: "Des trajectoires contrastées : croissance, vieillissement et politiques de population",
@@ -1756,6 +3375,57 @@ export const chapters: Chapter[] = [
             "Conclure sur les défis : scolariser et employer les jeunes au Niger ; financer les retraites et compenser le manque d’actifs au Japon.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Des trajectoires démographiques contrastées",
+          headers: ["Espace", "Situation démographique", "Principal défi"],
+          rows: [
+            [
+              "Afrique subsaharienne",
+              "Croissance rapide, âge médian ≈ 18-19 ans",
+              "Scolariser et créer des emplois pour profiter du dividende démographique",
+            ],
+            [
+              "Inde",
+              "Pays le plus peuplé du monde depuis 2023 (≈ 1,43 milliard)",
+              "Nourrir, former et employer une population nombreuse",
+            ],
+            [
+              "Chine",
+              "Enfant unique de 1979-1980 à 2015, population en baisse depuis 2022",
+              "Vieillissement rapide avant d’être riche",
+            ],
+            ["Japon", "≈ 30 % de 65 ans et plus, ISF ≈ 1,2", "Financer retraites et santé, manque d’actifs"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-07-s3-p1",
+            prompt: "Qu’appelle-t-on le **dividende démographique** ?",
+            choices: [
+              "L’argent versé aux familles nombreuses",
+              "La baisse de la population due à l’émigration",
+              "Une période où la part des actifs est forte par rapport aux personnes dépendantes, favorable à la croissance si les emplois existent",
+              "Le vieillissement de la population",
+            ],
+            answer: 2,
+            explanation: "Quand la natalité commence à baisser, la part des **actifs** augmente par rapport aux enfants et aux personnes âgées. Cette situation peut favoriser la croissance économique, à condition que l’économie crée assez d’emplois.",
+          },
+          {
+            id: "2nde-hg-07-s3-p2",
+            prompt: "Selon l’ONU, quel pays devient en **2023** le plus peuplé du monde ?",
+            choices: ["La Chine", "Les États-Unis", "Le Nigeria", "L’Inde"],
+            answer: 3,
+            explanation: "En **2023**, l’**Inde** (environ 1,43 milliard d’habitants) dépasse la **Chine** (environ 1,41 milliard), dont la population diminue depuis 2022. Ce basculement s’explique par une fécondité restée plus élevée en Inde.",
+          },
+          {
+            id: "2nde-hg-07-s3-p3",
+            prompt: "Des allocations familiales, des congés parentaux et des crèches relèvent d’une politique :",
+            choices: ["nataliste", "antinataliste", "d’enfant unique", "migratoire"],
+            answer: 0,
+            explanation: "Ces mesures cherchent à **encourager les naissances** : c’est une politique **nataliste**, menée par exemple en France ou dans les pays nordiques. La politique de l’enfant unique en Chine était au contraire antinataliste.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1919,6 +3589,51 @@ export const chapters: Chapter[] = [
           "Une moyenne nationale masque des écarts : en France, l’IDH de l’Île-de-France est bien supérieur à celui de **Mayotte** ; en Inde ou en Chine, les écarts entre régions littorales ou urbaines et campagnes de l’intérieur sont considérables. L’analyse doit donc se faire à **plusieurs échelles**.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-hg-07-hw-1",
+        prompt: "Une pyramide des âges à base très large et sommet étroit correspond plutôt à :",
+        choices: ["Le Japon", "Le Niger", "La Norvège", "La Chine d’aujourd’hui"],
+        answer: 1,
+        explanation: "Une base large signale une **natalité élevée** et une population jeune, un sommet étroit une espérance de vie encore limitée : c’est le cas du **Niger** (ISF d’environ 6). Le Japon a au contraire une pyramide à base étroite et à sommet large.",
+      },
+      {
+        id: "2nde-hg-07-hw-2",
+        prompt: "Pourquoi le PIB ne suffit-il pas à mesurer le **développement** ?",
+        choices: [
+          "Parce qu’il ne mesure pas la production",
+          "Parce qu’il ne concerne que l’agriculture",
+          "Parce qu’il mesure la croissance des richesses sans dire si elles améliorent la santé ou l’éducation de toute la population",
+          "Parce qu’il est calculé uniquement pour les pays pauvres",
+        ],
+        answer: 2,
+        explanation: "Le **PIB** mesure la production de richesses, donc la **croissance**, mais pas leur répartition ni leurs effets sur la vie des habitants. Un pays peut avoir une forte croissance sans que la majorité en profite : d’où l’IDH, qui intègre santé et éducation.",
+      },
+      {
+        id: "2nde-hg-07-hw-3",
+        prompt: "Quel facteur contribue le plus à la **baisse de la fécondité** dans un pays ?",
+        choices: [
+          "La scolarisation des filles et le recul de la mortalité infantile",
+          "La hausse de la mortalité",
+          "La baisse de l’urbanisation",
+          "L’interdiction du travail des femmes",
+        ],
+        answer: 0,
+        explanation: "Lorsque les filles sont scolarisées, que les femmes travaillent et que la mortalité infantile recule, les familles ont moins d’enfants. La baisse de la fécondité dépend donc surtout du développement, plus que des seules politiques de population.",
+      },
+      {
+        id: "2nde-hg-07-hw-4",
+        prompt: "Un pays a un IDH de **0,85**. Comment le qualifier selon le PNUD ?",
+        choices: [
+          "Développement faible",
+          "Développement moyen",
+          "Développement élevé, juste sous le seuil du très élevé",
+          "Développement très élevé",
+        ],
+        answer: 3,
+        explanation: "Le PNUD classe un pays en développement humain **« très élevé » à partir de 0,800**. Avec 0,85, le pays fait donc partie de cette catégorie, même s’il reste derrière la Suisse ou la Norvège (environ 0,97).",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 8 ─────────────────────────────
@@ -1964,6 +3679,67 @@ export const chapters: Chapter[] = [
             "Rédiger une légende et une phrase de bilan : des migrations Sud-Sud de travail, temporaires, parfois dans des conditions difficiles (système de la *kafala* qui lie le travailleur à son employeur).",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Les migrations internationales en chiffres",
+          caption: "Sources : ONU (2020), HCR, Banque mondiale ; ordres de grandeur.",
+          items: [
+            {
+              value: "≈ 281 millions",
+              label: "de migrants internationaux en 2020",
+            },
+            {
+              value: "≈ 3,6 %",
+              label: "de la population mondiale : la plupart des humains ne migrent pas",
+            },
+            {
+              value: "> 100 millions",
+              label: "de personnes déplacées de force (réfugiés et déplacés internes)",
+            },
+            {
+              value: "> 650 milliards $",
+              label: "de remises par an vers les pays à revenu faible et intermédiaire",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-08-s1-p1",
+            prompt: "Selon l’ONU, qu’est-ce qu’un **migrant international** ?",
+            choices: [
+              "Une personne qui voyage à l’étranger pour ses vacances",
+              "Une personne qui vit depuis au moins un an dans un pays autre que celui de sa naissance",
+              "Une personne qui fuit sans quitter son pays",
+              "Une personne qui change de région dans son propre pays",
+            ],
+            answer: 1,
+            explanation: "L’ONU définit le **migrant international** comme une personne vivant depuis **au moins un an** hors de son pays de naissance. Un touriste reste moins d’un an, et une personne qui fuit sans franchir de frontière est un **déplacé interne**.",
+          },
+          {
+            id: "2nde-hg-08-s1-p2",
+            prompt: "Quel texte protège les **réfugiés** depuis **1951** ?",
+            choices: [
+              "La Convention de Genève",
+              "La Déclaration des droits de l’homme et du citoyen",
+              "L’accord de Paris",
+              "Le traité de Tordesillas",
+            ],
+            answer: 0,
+            explanation: "La **Convention de Genève** de 1951 définit le réfugié comme une personne qui craint avec raison d’être persécutée et se trouve hors de son pays. Le **HCR**, créé en 1950, est chargé de leur venir en aide.",
+          },
+          {
+            id: "2nde-hg-08-s1-p3",
+            prompt: "Quelle affirmation sur les migrations est **exacte** ?",
+            choices: [
+              "Presque tous les migrants vont du Sud vers le Nord",
+              "Les remises des migrants sont négligeables",
+              "Les réfugiés sont surtout accueillis par les pays riches",
+              "Une grande partie des migrations se fait entre pays du Sud, souvent à l’échelle régionale",
+            ],
+            answer: 3,
+            explanation: "Les migrations **Sud-Sud** sont aussi importantes que les flux Sud-Nord, par exemple de l’Asie du Sud vers les pays du Golfe. De plus, la plupart des réfugiés sont accueillis dans des pays voisins souvent en développement (Turquie, Iran, Colombie, Pakistan, Ouganda).",
+          },
+        ],
       },
       {
         title: "Le tourisme : une mobilité de masse qui transforme les territoires",
@@ -1995,6 +3771,63 @@ export const chapters: Chapter[] = [
             "Bilan : le tourisme fait vivre la ville mais menace son fonctionnement ; il faut concilier accueil et vie locale.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Arrivées de touristes internationaux dans le monde",
+          caption: "Données ONU Tourisme, arrondies : environ 25 millions en 1950, 1,46 milliard en 2019, environ 400 millions en 2020 (Covid-19), retour proche du niveau de 2019 en 2024.",
+          unit: "millions d’arrivées",
+          data: [
+            {
+              label: "1950",
+              value: 25,
+            },
+            {
+              label: "2019",
+              value: 1460,
+            },
+            {
+              label: "2020",
+              value: 400,
+            },
+            {
+              label: "2024",
+              value: 1400,
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-08-s2-p1",
+            prompt: "Quelle est la durée d’un déplacement **touristique** ?",
+            choices: [
+              "Moins d’une journée",
+              "Au moins un an",
+              "Au moins une nuit et moins d’un an hors du lieu de vie habituel",
+              "Exactement une semaine",
+            ],
+            answer: 2,
+            explanation: "Le **tourisme** désigne un déplacement de loisirs ou d’affaires d’**au moins une nuit** et de **moins d’un an** hors du lieu de vie habituel. Au-delà d’un an, on parle de migration ; sans nuitée, d’excursion.",
+          },
+          {
+            id: "2nde-hg-08-s2-p2",
+            prompt: "Quel pays est le **premier au monde** pour les arrivées de touristes internationaux ?",
+            choices: ["L’Espagne", "La France", "Les États-Unis", "La Chine"],
+            answer: 1,
+            explanation: "La **France** est le premier pays récepteur du monde, avec près de **90 millions** d’arrivées internationales en 2019, devant l’Espagne et les États-Unis. L’Europe reste la première région d’accueil.",
+          },
+          {
+            id: "2nde-hg-08-s2-p3",
+            prompt: "Qu’est-ce que le **surtourisme** ?",
+            choices: [
+              "Une fréquentation excessive qui dégrade un lieu et la vie de ses habitants",
+              "Le tourisme dans son propre pays",
+              "Le tourisme d’affaires",
+              "Un tourisme fondé sur la protection de la nature",
+            ],
+            answer: 0,
+            explanation: "Le **surtourisme** désigne une fréquentation excessive qui dégrade un site et la vie de ses habitants : hausse des loyers, départ des résidents, pression sur l’environnement. Venise, Barcelone ou Dubrovnik en sont des exemples.",
+          },
+        ],
       },
       {
         title: "L’Afrique australe : un espace de mobilités autour de l’Afrique du Sud",
@@ -2028,6 +3861,77 @@ export const chapters: Chapter[] = [
             "Tensions : inégalités extrêmes, chômage élevé, épisodes de violences xénophobes ; Johannesburg résume les opportunités et les fractures liées aux mobilités.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "L’Afrique du Sud, pôle des mobilités d’Afrique australe",
+          events: [
+            {
+              date: "1886",
+              label: "Découverte de l’or du Witwatersrand (Johannesburg)",
+            },
+            {
+              date: "1948",
+              label: "Début de l’apartheid",
+            },
+            {
+              date: "1990",
+              label: "Libération de Nelson Mandela",
+            },
+            {
+              date: "1991",
+              label: "Abolition des dernières lois de l’apartheid",
+            },
+            {
+              date: "1992",
+              label: "Création de la SADC",
+            },
+            {
+              date: "1994",
+              label: "Nelson Mandela élu président",
+            },
+            {
+              date: "2008",
+              label: "Émeutes xénophobes (plus de 60 morts)",
+            },
+            {
+              date: "2010",
+              label: "Coupe du monde de football en Afrique du Sud",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-hg-08-s3-p1",
+            prompt: "Pourquoi le **Lesotho** est-il très lié à l’Afrique du Sud ?",
+            choices: [
+              "C’est une île au large du Cap",
+              "C’est le pays le plus riche de la région",
+              "C’est un pays enclavé, entièrement entouré par l’Afrique du Sud",
+              "C’est une province sud-africaine",
+            ],
+            answer: 2,
+            explanation: "Le **Lesotho** est un État indépendant **enclavé** : sans accès à la mer, il est entièrement entouré par le territoire sud-africain. Ses habitants partent depuis longtemps travailler en Afrique du Sud, notamment dans les mines.",
+          },
+          {
+            id: "2nde-hg-08-s3-p2",
+            prompt: "De quel pays vient une grande partie des migrants arrivés en Afrique du Sud dans les années 2000, fuyant une crise économique et politique ?",
+            choices: ["Le Zimbabwe", "Le Maroc", "Madagascar", "L’Éthiopie"],
+            answer: 0,
+            explanation: "Le **Zimbabwe**, en crise économique et politique dans les années 2000, est l’un des principaux pays d’origine des migrants en Afrique du Sud, avec le **Mozambique** et le **Lesotho**. L’Afrique du Sud compte environ 3 millions de migrants internationaux.",
+          },
+          {
+            id: "2nde-hg-08-s3-p3",
+            prompt: "Qu’est-ce que la **SADC**, créée en 1992 ?",
+            choices: [
+              "Un parc naturel transfrontalier",
+              "La compagnie minière du Witwatersrand",
+              "Le parti de Nelson Mandela",
+              "La Communauté de développement de l’Afrique australe",
+            ],
+            answer: 3,
+            explanation: "La **SADC** (Communauté de développement de l’Afrique australe) est une organisation régionale de coopération créée en **1992**. Elle regroupe les pays du sud du continent, dominés économiquement par l’Afrique du Sud.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -2189,6 +4093,56 @@ export const chapters: Chapter[] = [
         answer: 3,
         explanation:
           "Le tourisme en Afrique australe repose sur les **safaris** et paysages (parc **Kruger**, delta de l’**Okavango**, **chutes Victoria**, désert du Namib), les villes (Le Cap) et des grands événements (Coupe du monde 2010). Il crée des emplois, mais les revenus profitent surtout aux grands opérateurs et aux zones déjà équipées ; l’**écotourisme** et les parcs transfrontaliers cherchent à mieux associer les populations locales.",
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-hg-08-hw-1",
+        prompt: "Quelle est la différence entre un **réfugié** et un **déplacé interne** ?",
+        choices: [
+          "Le réfugié a franchi une frontière internationale, le déplacé interne non",
+          "Le déplacé interne est protégé par la Convention de Genève, pas le réfugié",
+          "Le réfugié migre pour le travail, le déplacé pour les vacances",
+          "Il n’y a aucune différence",
+        ],
+        answer: 0,
+        explanation: "Tous deux fuient des dangers, mais le **réfugié** se trouve **hors de son pays** et bénéficie de la protection de la Convention de Genève (1951). Le **déplacé interne** fuit sans franchir de frontière, ce qui le laisse sous la responsabilité de son propre État.",
+      },
+      {
+        id: "2nde-hg-08-hw-2",
+        prompt: "D’après la figure sur le tourisme, quelle évolution peut-on décrire ?",
+        choices: [
+          "Une baisse continue depuis 1950",
+          "Une croissance très forte de 1950 à 2019, un effondrement en 2020 puis un retour proche du niveau de 2019",
+          "Une stagnation depuis 1950",
+          "Une croissance régulière sans aucune rupture",
+        ],
+        answer: 1,
+        explanation: "Les arrivées passent d’environ **25 millions** (1950) à **1,46 milliard** (2019), soit près de 60 fois plus. La pandémie de Covid-19 provoque une chute d’environ 70 % en 2020, avant un retour proche du niveau de 2019 en 2024.",
+      },
+      {
+        id: "2nde-hg-08-hw-3",
+        prompt: "Pourquoi l’Afrique du Sud attire-t-elle les migrants d’Afrique australe ?",
+        choices: [
+          "Parce qu’elle est le pays le moins peuplé de la région",
+          "Parce qu’elle n’a pas de frontières terrestres",
+          "Parce qu’elle a interdit l’immigration",
+          "Parce qu’elle est la première puissance industrielle et minière du continent, avec des réseaux migratoires anciens",
+        ],
+        answer: 3,
+        explanation: "L’Afrique du Sud est la **première puissance industrielle et minière** d’Afrique. Depuis la découverte de l’or en **1886**, les mines recrutent des travailleurs des pays voisins, ce qui a créé des réseaux migratoires toujours actifs.",
+      },
+      {
+        id: "2nde-hg-08-hw-4",
+        prompt: "Quel effet du tourisme est **positif** pour un territoire ?",
+        choices: [
+          "La hausse des loyers liée aux locations touristiques",
+          "Le départ des habitants des centres historiques",
+          "La création d’emplois et la valorisation du patrimoine",
+          "La pression sur l’eau et les milieux",
+        ],
+        answer: 2,
+        explanation: "Le tourisme crée des **emplois** et des revenus, finance des infrastructures et valorise le **patrimoine** (sites UNESCO). Les autres propositions sont des effets négatifs, qui poussent à développer un tourisme durable.",
       },
     ],
   },

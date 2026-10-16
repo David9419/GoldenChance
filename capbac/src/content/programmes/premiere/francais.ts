@@ -40,6 +40,70 @@ export const chapters: Chapter[] = [
             "Conclusion : on reconnaît l’héritage romantique (poète incompris) et la tension baudelairienne entre idéal et réalité.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Repères de la poésie au XIXe siècle",
+          caption: "Du lyrisme romantique à la suggestion symboliste.",
+          events: [
+            {
+              date: "1820",
+              label: "Lamartine, Méditations poétiques (romantisme)",
+            },
+            {
+              date: "1852",
+              label: "Gautier, Émaux et Camées (Parnasse)",
+            },
+            {
+              date: "1856",
+              label: "Hugo, Les Contemplations",
+            },
+            {
+              date: "1857",
+              label: "Baudelaire, Les Fleurs du mal",
+            },
+            {
+              date: "1871",
+              label: "Rimbaud, lettre dite « du Voyant »",
+            },
+            {
+              date: "1893",
+              label: "Heredia, Les Trophées",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-01-s1-p1",
+            prompt: "Quel mouvement poétique défend **l’art pour l’art** et la perfection formelle ?",
+            choices: ["Le romantisme", "Le Parnasse", "Le surréalisme", "Le symbolisme"],
+            answer: 1,
+            explanation: "Le **Parnasse** (Gautier, Leconte de Lisle, Heredia) réagit contre les épanchements lyriques des romantiques. Il affirme que la poésie n’a pas à être utile : elle doit viser la beauté parfaite, travaillée comme une sculpture.",
+          },
+          {
+            id: "1re-francais-01-s1-p2",
+            prompt: "Quelle œuvre ouvre le romantisme poétique en 1820 ?",
+            choices: [
+              "Les Contemplations de Hugo",
+              "Les Fleurs du mal de Baudelaire",
+              "Les Méditations poétiques de Lamartine",
+              "Émaux et Camées de Gautier",
+            ],
+            answer: 2,
+            explanation: "Les **Méditations poétiques** de Lamartine (1820), qui contiennent « Le Lac », marquent l’entrée du romantisme en poésie. Les Contemplations datent de 1856 et Les Fleurs du mal de 1857.",
+          },
+          {
+            id: "1re-francais-01-s1-p3",
+            prompt: "Que désigne chez Baudelaire la théorie des **correspondances** ?",
+            choices: [
+              "L’échange de lettres entre poètes symbolistes",
+              "La correspondance exacte entre le nombre de syllabes de deux vers",
+              "L’idée que le monde visible est fait de signes renvoyant à une réalité cachée",
+              "L’imitation fidèle de la réalité urbaine",
+            ],
+            answer: 2,
+            explanation: "Pour Baudelaire, la nature est « un temple » dont les éléments envoient de « confuses paroles » : le visible renvoie à l’invisible, et les sensations se répondent entre elles. Cette idée prépare la poésie de la **suggestion** chère aux symbolistes.",
+          },
+        ],
       },
       {
         title: "Analyser la forme poétique : vers, rythme, sonorités",
@@ -70,6 +134,72 @@ export const chapters: Chapter[] = [
             "Effet : l’apostrophe et l’impératif traduisent l’élan lyrique du poète qui voudrait arrêter le temps du bonheur.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les outils de l’analyse du vers",
+          caption: "Chaque observation doit être reliée à un effet de sens.",
+          headers: ["Notion", "Définition", "Exemple ou repère"],
+          rows: [
+            [
+              "Alexandrin",
+              "Vers de 12 syllabes, césure à l’hémistiche (6/6)",
+              "« Ô temps ! suspends ton vol, et vous, heures propices ! »",
+            ],
+            [
+              "Décasyllabe / octosyllabe",
+              "Vers de 10 / de 8 syllabes",
+              "Mètres fréquents de la chanson et du lyrisme",
+            ],
+            [
+              "Enjambement",
+              "La phrase déborde sur le vers suivant",
+              "Crée un élan ou une surprise",
+            ],
+            [
+              "Rejet / contre-rejet",
+              "Mot court rejeté au vers suivant / placé en fin de vers",
+              "Met un mot en relief",
+            ],
+            [
+              "Rimes",
+              "Plates AABB, croisées ABAB, embrassées ABBA",
+              "Richesse : pauvre (1 son), suffisante (2), riche (3 ou plus)",
+            ],
+            [
+              "Sonnet",
+              "2 quatrains + 2 tercets = 14 vers",
+              "La chute du dernier vers crée la surprise",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-01-s2-p1",
+            prompt: "Dans « heures propices » (en fin de vers), le e de « heures » :",
+            choices: [
+              "est compté, car il est suivi d’une consonne",
+              "n’est pas compté, car il est en fin de mot",
+              "est élidé, car il est suivi d’une voyelle",
+              "est toujours facultatif",
+            ],
+            answer: 0,
+            explanation: "Le **e muet** se prononce et se compte lorsqu’il est suivi d’une **consonne** : ici « heu-res-pro-pi(ces) ». En revanche, le e final de « propices », en fin de vers, n’est pas compté.",
+          },
+          {
+            id: "1re-francais-01-s2-p2",
+            prompt: "Comment s’appelle la disposition de rimes **ABBA** ?",
+            choices: ["Rimes plates", "Rimes croisées", "Rimes embrassées", "Rimes suivies"],
+            answer: 2,
+            explanation: "Dans les rimes **embrassées**, deux vers qui riment entre eux sont « encadrés » par deux autres (ABBA). Les rimes plates (ou suivies) suivent le schéma AABB et les croisées ABAB.",
+          },
+          {
+            id: "1re-francais-01-s2-p3",
+            prompt: "Un mot court placé à la **fin** d’un vers alors que la phrase se poursuit au vers suivant est un :",
+            choices: ["rejet", "enjambement simple", "hémistiche", "contre-rejet"],
+            answer: 3,
+            explanation: "Le **contre-rejet** met en relief un mot court isolé en fin de vers, la phrase se continuant au vers suivant. Le **rejet** est le procédé inverse : un mot court est rejeté au début du vers suivant.",
+          },
+        ],
       },
       {
         title: "Du poème en prose au surréalisme : la poésie au XXe et au XXIe siècle",
@@ -94,6 +224,105 @@ export const chapters: Chapter[] = [
             "Conclure : la poésie ne se définit pas par le vers, mais par le travail du langage et de l’image.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "La poésie se libère : du poème en prose au surréalisme",
+          events: [
+            {
+              date: "1842",
+              label: "Aloysius Bertrand, Gaspard de la nuit (posthume)",
+            },
+            {
+              date: "1869",
+              label: "Baudelaire, Le Spleen de Paris (posthume)",
+            },
+            {
+              date: "1913",
+              label: "Apollinaire, Alcools (sans ponctuation)",
+            },
+            {
+              date: "1918",
+              label: "Apollinaire, Calligrammes",
+            },
+            {
+              date: "1924",
+              label: "Breton, Manifeste du surréalisme",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-01-s3-p1",
+            prompt: "Qui est considéré comme l’initiateur du **poème en prose** ?",
+            choices: ["Aloysius Bertrand", "Guillaume Apollinaire", "André Breton", "Francis Ponge"],
+            answer: 0,
+            explanation: "**Aloysius Bertrand**, avec Gaspard de la nuit (1842, publié après sa mort), est l’initiateur du poème en prose. Baudelaire reconnaît sa dette envers lui et consacre la forme avec Le Spleen de Paris.",
+          },
+          {
+            id: "1re-francais-01-s3-p2",
+            prompt: "Quel procédé le **surréalisme** met-il en avant pour libérer l’inconscient ?",
+            choices: [
+              "La règle des trois unités",
+              "L’écriture automatique",
+              "L’impersonnalité parnassienne",
+              "L’alexandrin classique",
+            ],
+            answer: 1,
+            explanation: "Dans le Manifeste du surréalisme (1924), Breton promeut l’**écriture automatique**, qui consiste à écrire sans contrôle de la raison. Le rêve, le hasard et les images surprenantes complètent cette exploration de l’inconscient.",
+          },
+          {
+            id: "1re-francais-01-s3-p3",
+            prompt: "Quelle innovation formelle marque Alcools (1913) d’Apollinaire ?",
+            choices: [
+              "La suppression de la ponctuation",
+              "Le retour systématique au sonnet",
+              "L’abandon total des images",
+              "L’écriture uniquement en prose",
+            ],
+            answer: 0,
+            explanation: "Apollinaire supprime la **ponctuation** dans Alcools, laissant le rythme du vers et la mise en page guider la lecture. Le recueil mêle pourtant tradition et modernité, comme le montre « Zone ».",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-01-hw-1",
+        prompt: "Quel couple « auteur – mouvement » est correct ?",
+        choices: [
+          "Verlaine – Parnasse",
+          "Heredia – surréalisme",
+          "Lamartine – romantisme",
+          "Éluard – symbolisme",
+        ],
+        answer: 2,
+        explanation: "**Lamartine** est l’une des grandes voix du **romantisme** (Méditations poétiques, 1820). Heredia appartient au Parnasse, Verlaine au symbolisme et Éluard au surréalisme.",
+      },
+      {
+        id: "1re-francais-01-hw-2",
+        prompt: "Le vers « De la musique avant toute chose » ouvre un poème de :",
+        choices: ["Verlaine", "Rimbaud", "Mallarmé", "Baudelaire"],
+        answer: 0,
+        explanation: "C’est le premier vers de l’« Art poétique » de **Verlaine**. Il résume l’idéal symboliste d’une poésie qui suggère par la musique du vers plutôt qu’elle ne décrit.",
+      },
+      {
+        id: "1re-francais-01-hw-3",
+        prompt: "Combien de vers compte un **sonnet** ?",
+        choices: ["12", "16", "14", "10"],
+        answer: 2,
+        explanation: "Le sonnet compte **14 vers** répartis en deux quatrains et deux tercets. Le dernier vers, ou chute, y occupe une place stratégique.",
+      },
+      {
+        id: "1re-francais-01-hw-4",
+        prompt: "Dans « La terre est bleue comme une orange » (Éluard), l’image :",
+        choices: [
+          "décrit fidèlement la réalité",
+          "relève de l’impersonnalité parnassienne",
+          "est une rime riche",
+          "rapproche deux réalités éloignées pour surprendre",
+        ],
+        answer: 3,
+        explanation: "La comparaison associe deux réalités inattendues (la couleur bleue, l’orange) : c’est l’**image surréaliste** par excellence. Elle déroute le lecteur et renouvelle sa perception du monde.",
       },
     ],
     exercise: [
@@ -294,6 +523,81 @@ export const chapters: Chapter[] = [
             "Usage en dissertation : exemple d’une argumentation indirecte qui aboutit à une leçon claire.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Œuvres clés de la littérature d’idées (XVIe-XVIIIe siècle)",
+          events: [
+            {
+              date: "1532",
+              label: "Rabelais, Pantagruel",
+            },
+            {
+              date: "1580",
+              label: "Montaigne, Essais (première édition)",
+            },
+            {
+              date: "1665",
+              label: "La Rochefoucauld, Maximes",
+            },
+            {
+              date: "1668",
+              label: "La Fontaine, Fables (premier recueil)",
+            },
+            {
+              date: "1688",
+              label: "La Bruyère, Les Caractères",
+            },
+            {
+              date: "1721",
+              label: "Montesquieu, Lettres persanes",
+            },
+            {
+              date: "1759",
+              label: "Voltaire, Candide",
+            },
+            {
+              date: "1762",
+              label: "Rousseau, Du contrat social",
+            },
+            {
+              date: "1791",
+              label: "Olympe de Gouges, Déclaration des droits de la femme et de la citoyenne",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-02-s1-p1",
+            prompt: "Quelle devise résume l’attitude de doute de **Montaigne** ?",
+            choices: [
+              "« Que sais-je ? »",
+              "« Il faut cultiver notre jardin »",
+              "« Tout est au mieux »",
+              "« Science sans conscience »",
+            ],
+            answer: 0,
+            explanation: "« **Que sais-je ?** » exprime le doute et l’humilité de Montaigne face au savoir. « Il faut cultiver notre jardin » est la dernière phrase de Candide de Voltaire.",
+          },
+          {
+            id: "1re-francais-02-s1-p2",
+            prompt: "À quel siècle et à quel courant appartient **La Rochefoucauld** ?",
+            choices: [
+              "XVIe siècle, humanisme",
+              "XVIIe siècle, moralistes",
+              "XVIIIe siècle, Lumières",
+              "XIXe siècle, romantisme",
+            ],
+            answer: 1,
+            explanation: "La Rochefoucauld publie ses **Maximes** en 1665 : il fait partie des **moralistes** du XVIIe siècle, qui observent lucidement la nature humaine. Il y démasque l’amour-propre caché derrière les vertus.",
+          },
+          {
+            id: "1re-francais-02-s1-p3",
+            prompt: "Quelle valeur n’est **pas** au cœur du combat des Lumières ?",
+            choices: ["La tolérance", "La raison", "L’obéissance aveugle à l’autorité", "La liberté"],
+            answer: 2,
+            explanation: "Les Lumières combattent précisément l’**arbitraire** et le fanatisme : elles défendent la raison, la tolérance et la liberté. L’obéissance aveugle est l’inverse de leur idéal d’esprit critique.",
+          },
+        ],
       },
       {
         title: "Les genres de l’argumentation : convaincre et persuader",
@@ -324,6 +628,66 @@ export const chapters: Chapter[] = [
             "Leçon : le récit montre que la force l’emporte sur le droit ; la morale est ironique et constate une injustice au lieu de l’approuver.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Argumentation directe et indirecte",
+          headers: ["Type", "Formes", "Exemples"],
+          rows: [
+            [
+              "Directe",
+              "Essai, traité, discours, lettre ouverte, dialogue, article",
+              "Montaigne, Essais ; Voltaire, Traité sur la tolérance",
+            ],
+            [
+              "Indirecte (apologue)",
+              "Fable, conte philosophique, utopie, regard étranger",
+              "La Fontaine, Fables ; Voltaire, Candide ; Montesquieu, Lettres persanes",
+            ],
+            [
+              "Convaincre",
+              "S’adresse à la raison : arguments, exemples, connecteurs",
+              "Raisonnement logique d’un traité",
+            ],
+            [
+              "Persuader",
+              "S’adresse aux émotions : registres, apostrophes, questions rhétoriques",
+              "Registre pathétique ou polémique",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-02-s2-p1",
+            prompt: "Lequel de ces genres relève de l’argumentation **indirecte** ?",
+            choices: ["Le traité", "L’essai", "Le conte philosophique", "La lettre ouverte"],
+            answer: 2,
+            explanation: "Le **conte philosophique** est un apologue : il passe par une fiction pour transmettre une leçon. Le traité, l’essai et la lettre ouverte exposent explicitement une thèse : ils relèvent de l’argumentation directe.",
+          },
+          {
+            id: "1re-francais-02-s2-p2",
+            prompt: "Quelle est la différence entre **convaincre** et **persuader** ?",
+            choices: [
+              "Convaincre s’adresse aux émotions, persuader à la raison",
+              "Les deux mots sont strictement synonymes",
+              "Convaincre s’adresse à la raison, persuader aux émotions",
+              "Persuader ne concerne que les textes de fiction",
+            ],
+            answer: 2,
+            explanation: "**Convaincre** consiste à emporter l’adhésion par la raison (arguments logiques, exemples). **Persuader** joue sur les émotions et la sensibilité du destinataire ; un texte efficace combine souvent les deux.",
+          },
+          {
+            id: "1re-francais-02-s2-p3",
+            prompt: "Dans une argumentation, quel est le rôle de l’**exemple** ?",
+            choices: [
+              "Illustrer concrètement un argument",
+              "Formuler la thèse",
+              "Réfuter la thèse adverse",
+              "Conclure le raisonnement",
+            ],
+            answer: 0,
+            explanation: "L’exemple est un fait concret qui **illustre** un argument. L’argument, lui, est une idée générale qui justifie la thèse : il ne faut pas confondre ces deux niveaux.",
+          },
+        ],
       },
       {
         title: "L’ironie et les stratégies critiques",
@@ -348,6 +712,84 @@ export const chapters: Chapter[] = [
             "Effet : le lecteur, en riant de l’argument, rejette l’esclavage par lui-même.",
           ],
         },
+        practice: [
+          {
+            id: "1re-francais-02-s3-p1",
+            prompt: "Qu’est-ce qu’une **antiphrase** ?",
+            choices: [
+              "Une phrase sans verbe",
+              "Une exagération volontaire",
+              "Une répétition en début de phrase",
+              "L’emploi d’un mot ou d’une expression dans le sens contraire de ce qu’on pense",
+            ],
+            answer: 3,
+            explanation: "L’**antiphrase** dit le contraire de ce que l’on pense, comme « Quel beau temps ! » sous la pluie. C’est l’un des procédés majeurs de l’ironie ; l’exagération correspond à l’hyperbole.",
+          },
+          {
+            id: "1re-francais-02-s3-p2",
+            prompt: "Dans « De l’esclavage des nègres », comment Montesquieu condamne-t-il l’esclavage ?",
+            choices: [
+              "Par un discours direct et pathétique",
+              "En feignant de le défendre avec des arguments absurdes",
+              "Par une fable animalière",
+              "En citant des statistiques",
+            ],
+            answer: 1,
+            explanation: "Montesquieu prête la parole à un esclavagiste fictif dont les arguments sont si **absurdes** qu’ils se retournent contre lui. C’est une stratégie ironique de **réduction à l’absurde** qui rend le lecteur complice.",
+          },
+          {
+            id: "1re-francais-02-s3-p3",
+            prompt: "Pourquoi les auteurs des Lumières recourent-ils souvent à l’ironie et au détour ?",
+            choices: [
+              "Pour contourner la censure et rendre le lecteur complice",
+              "Parce que l’argumentation directe était interdite par l’Académie",
+              "Pour éviter toute critique de la société",
+              "Parce que leurs lecteurs ne savaient pas lire les essais",
+            ],
+            answer: 0,
+            explanation: "L’ironie et le récit permettent de critiquer les abus sans attaquer frontalement le pouvoir, et donc de **contourner la censure**. Ils font aussi du lecteur un complice qui reconstruit lui-même le vrai sens.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-02-hw-1",
+        prompt: "« L’homme est né libre, et partout il est dans les fers » ouvre :",
+        choices: ["Les Lettres persanes", "Candide", "Du contrat social", "Les Pensées"],
+        answer: 2,
+        explanation: "C’est la première phrase de **Du contrat social** de Rousseau (1762). Elle pose le problème de la légitimité du pouvoir politique.",
+      },
+      {
+        id: "1re-francais-02-hw-2",
+        prompt: "Dans « Le Loup et l’Agneau », la morale « La raison du plus fort est toujours la meilleure » est :",
+        choices: [
+          "une approbation sincère de la loi du plus fort",
+          "placée à la fin de la fable",
+          "une citation de Montaigne",
+          "un constat ironique d’une injustice",
+        ],
+        answer: 3,
+        explanation: "La morale, placée **en tête** de la fable, constate amèrement que la force l’emporte sur le droit. Le récit montre l’injustice de ce constat : La Fontaine ne l’approuve pas, il la dénonce.",
+      },
+      {
+        id: "1re-francais-02-hw-3",
+        prompt: "Quel connecteur exprime une **concession** ?",
+        choices: ["donc", "car", "bien que", "ainsi"],
+        answer: 2,
+        explanation: "**Bien que** introduit une concession : on admet un fait tout en maintenant l’idée principale. « Donc » et « ainsi » expriment la conséquence, « car » la cause.",
+      },
+      {
+        id: "1re-francais-02-hw-4",
+        prompt: "Le procédé du **regard étranger** consiste à :",
+        choices: [
+          "faire découvrir la société par un personnage extérieur qui en révèle les absurdités",
+          "traduire une œuvre étrangère",
+          "décrire un pays imaginaire parfait",
+          "raconter un voyage en focalisation zéro",
+        ],
+        answer: 0,
+        explanation: "Le regard étranger (les Persans de Montesquieu, par exemple) fait voir la société française avec un œil neuf. Ce décalage révèle des usages que l’habitude rendait invisibles et sert la **critique**.",
       },
     ],
     exercise: [
@@ -566,6 +1008,72 @@ export const chapters: Chapter[] = [
             "Conclusion : on passe d’une peinture de la cour à l’exploration d’une conscience individuelle.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Quelques jalons de l’histoire du roman",
+          events: [
+            {
+              date: "1678",
+              label: "Mme de Lafayette, La Princesse de Clèves",
+            },
+            {
+              date: "1731",
+              label: "Abbé Prévost, Manon Lescaut",
+            },
+            {
+              date: "1782",
+              label: "Laclos, Les Liaisons dangereuses",
+            },
+            {
+              date: "1830",
+              label: "Stendhal, Le Rouge et le Noir",
+            },
+            {
+              date: "1857",
+              label: "Flaubert, Madame Bovary",
+            },
+            {
+              date: "1862",
+              label: "Hugo, Les Misérables",
+            },
+            {
+              date: "1885",
+              label: "Zola, Germinal",
+            },
+            {
+              date: "1913",
+              label: "Proust, Du côté de chez Swann",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-03-s1-p1",
+            prompt: "Au Moyen Âge, que désigne d’abord le mot « roman » ?",
+            choices: [
+              "Un récit d’amour en prose",
+              "Un texte écrit en langue romane plutôt qu’en latin",
+              "Un récit réaliste",
+              "Une pièce de théâtre",
+            ],
+            answer: 1,
+            explanation: "Le mot « roman » désigne d’abord un texte écrit en **langue romane**, c’est-à-dire en ancien français, et non en latin. Chrétien de Troyes compose ainsi des romans de chevalerie en vers.",
+          },
+          {
+            id: "1re-francais-03-s1-p2",
+            prompt: "Quelle œuvre est souvent considérée comme le premier roman moderne d’analyse psychologique ?",
+            choices: ["Perceval", "Gargantua", "La Princesse de Clèves", "Germinal"],
+            answer: 2,
+            explanation: "**La Princesse de Clèves** (1678) de Mme de Lafayette est un récit bref et sobre centré sur l’analyse de la passion. On y voit souvent le premier roman moderne.",
+          },
+          {
+            id: "1re-francais-03-s1-p3",
+            prompt: "Quel courant des années 1950 refuse l’intrigue et le personnage traditionnels ?",
+            choices: ["Le Nouveau Roman", "Le naturalisme", "Le romantisme", "L’humanisme"],
+            answer: 0,
+            explanation: "Le **Nouveau Roman** (Robbe-Grillet, Sarraute, Butor) conteste les conventions du roman balzacien. Il remet en cause l’intrigue linéaire et le personnage doté d’une identité stable.",
+          },
+        ],
       },
       {
         title: "Le personnage et la narration",
@@ -594,6 +1102,56 @@ export const chapters: Chapter[] = [
             "Interpréter : le lecteur partage la découverte, l’étonnement ou l’inquiétude du personnage.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les trois focalisations",
+          headers: ["Focalisation", "Ce que sait le narrateur", "Effet"],
+          rows: [
+            [
+              "Zéro (omnisciente)",
+              "Tout : pensées de tous les personnages, passé, avenir",
+              "Vision d’ensemble, maîtrise du récit",
+            ],
+            [
+              "Interne",
+              "Ce que perçoit et pense un personnage",
+              "Le lecteur partage ses découvertes et ses limites",
+            ],
+            [
+              "Externe",
+              "Seulement ce qui se voit de l’extérieur",
+              "Effet de caméra, mystère des pensées",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-03-s2-p1",
+            prompt: "Un passage décrit une ville à travers les verbes de perception d’un héros, sans accès aux pensées des autres : quelle est la focalisation ?",
+            choices: ["Zéro", "Omnisciente", "Externe", "Interne"],
+            answer: 3,
+            explanation: "Le monde est perçu **à travers un personnage**, avec les limites de son savoir : c’est la focalisation interne. En focalisation zéro, le narrateur connaîtrait aussi les pensées des autres.",
+          },
+          {
+            id: "1re-francais-03-s2-p2",
+            prompt: "Comment appelle-t-on une période de l’histoire passée sous silence par le récit ?",
+            choices: ["Une scène", "Une pause", "Une ellipse", "Un sommaire"],
+            answer: 2,
+            explanation: "L’**ellipse** supprime une période de l’histoire (« Trois ans plus tard… »). Le sommaire la résume rapidement, la pause suspend l’action, la scène fait coïncider temps du récit et temps de l’histoire.",
+          },
+          {
+            id: "1re-francais-03-s2-p3",
+            prompt: "Dans un récit au passé, l’**imparfait** sert principalement à :",
+            choices: [
+              "exprimer les actions de premier plan",
+              "décrire l’arrière-plan et les habitudes",
+              "marquer le futur",
+              "introduire un dialogue",
+            ],
+            answer: 1,
+            explanation: "L’imparfait exprime l’**arrière-plan** : descriptions, habitudes, actions en cours. Le passé simple, lui, porte les actions de premier plan qui font avancer l’intrigue.",
+          },
+        ],
       },
       {
         title: "Réalisme et naturalisme",
@@ -618,6 +1176,102 @@ export const chapters: Chapter[] = [
             "Interprétation : le décor annonce la misère du pays minier et fait de ce personnage un représentant de la condition ouvrière.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Réalisme et naturalisme",
+          headers: ["", "Réalisme", "Naturalisme"],
+          rows: [
+            ["Auteurs", "Balzac, Stendhal, Flaubert", "Zola, Maupassant (proche)"],
+            [
+              "Ambition",
+              "Représenter la société sans l’idéaliser",
+              "Étudier l’homme comme un savant",
+            ],
+            [
+              "Méthode",
+              "Descriptions précises, ancrage historique, « effet de réel »",
+              "Enquête, notes, hérédité et milieu",
+            ],
+            [
+              "Œuvre emblématique",
+              "La Comédie humaine ; Madame Bovary (1857)",
+              "Les Rougon-Macquart (1871-1893), Germinal (1885)",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-03-s3-p1",
+            prompt: "Qui compare le roman à « un miroir qu’on promène le long d’un chemin » ?",
+            choices: ["Balzac", "Zola", "Stendhal", "Flaubert"],
+            answer: 2,
+            explanation: "La formule est de **Stendhal** (Le Rouge et le Noir). Elle exprime l’ambition réaliste de refléter la réalité, y compris dans ce qu’elle a de laid.",
+          },
+          {
+            id: "1re-francais-03-s3-p2",
+            prompt: "Quels deux facteurs le naturalisme de Zola met-il au centre de son étude de l’homme ?",
+            choices: [
+              "L’hérédité et le milieu",
+              "Le rêve et l’inconscient",
+              "La grâce et le destin",
+              "L’amour courtois et l’honneur",
+            ],
+            answer: 0,
+            explanation: "Dans Le Roman expérimental (1880), Zola veut montrer l’influence de l’**hérédité** et du **milieu** sur les personnages. Le cycle des Rougon-Macquart suit ainsi une famille sous le Second Empire.",
+          },
+          {
+            id: "1re-francais-03-s3-p3",
+            prompt: "Selon Maupassant dans la préface de Pierre et Jean, les réalistes de talent sont plutôt des :",
+            choices: ["illusionnistes", "photographes", "historiens", "moralistes"],
+            answer: 0,
+            explanation: "Maupassant écrit : « Les réalistes de talent devraient s’appeler plutôt des **illusionnistes** ». Le romancier ne copie pas le réel : il le sélectionne et le compose pour en donner l’illusion.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-03-hw-1",
+        prompt: "Qui est Julien Sorel ?",
+        choices: [
+          "Le héros du Rouge et le Noir",
+          "Le héros du Père Goriot",
+          "Le narrateur de La Recherche",
+          "Le héros de Germinal",
+        ],
+        answer: 0,
+        explanation: "Julien Sorel est le héros du **Rouge et le Noir** de Stendhal (1830). Son parcours d’ambitieux fait de l’œuvre un roman d’apprentissage.",
+      },
+      {
+        id: "1re-francais-03-hw-2",
+        prompt: "Le roman Les Liaisons dangereuses (1782) est un roman :",
+        choices: ["épistolaire", "de chevalerie", "naturaliste", "en vers"],
+        answer: 0,
+        explanation: "Le roman de Laclos est composé de **lettres** échangées entre les personnages : c’est un roman épistolaire. Cette forme multiplie les points de vue et donne une impression d’authenticité.",
+      },
+      {
+        id: "1re-francais-03-hw-3",
+        prompt: "Quelle affirmation sur l’auteur et le narrateur est juste ?",
+        choices: [
+          "Ils sont toujours la même personne",
+          "Le narrateur n’existe que dans les récits à la première personne",
+          "Le narrateur est la voix qui raconte dans le texte, l’auteur est la personne réelle qui écrit",
+          "L’auteur est toujours un personnage du récit",
+        ],
+        answer: 2,
+        explanation: "L’**auteur** est une personne réelle ; le **narrateur** est une instance du texte. Même dans un récit à la troisième personne, une voix narrative raconte l’histoire.",
+      },
+      {
+        id: "1re-francais-03-hw-4",
+        prompt: "Quel détail de l’incipit de Germinal relève de l’ancrage réaliste ?",
+        choices: [
+          "« la nuit sans étoiles »",
+          "« d’une épaisseur d’encre »",
+          "« un homme »",
+          "« la grande route de Marchiennes à Montsou »",
+        ],
+        answer: 3,
+        explanation: "Les lieux nommés (**Marchiennes**, **Montsou**) et la route précise ancrent le récit dans un espace identifiable. Les autres éléments construisent surtout l’atmosphère sombre et l’anonymat du personnage.",
       },
     ],
     exercise: [
@@ -837,6 +1491,54 @@ export const chapters: Chapter[] = [
             "Interprétation : Phèdre subit une passion fatale qu’elle ne maîtrise pas, ce qui est le cœur du tragique racinien.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Tragédie et comédie classiques",
+          headers: ["", "Tragédie", "Comédie"],
+          rows: [
+            [
+              "Personnages",
+              "Rois, héros, personnages de haut rang",
+              "Personnages de condition moyenne",
+            ],
+            [
+              "Enjeu",
+              "Destin fatal, passion, conflit amour / devoir",
+              "Défauts et mœurs ridiculisés",
+            ],
+            ["But", "Terreur et pitié, catharsis", "Faire rire et corriger les mœurs"],
+            ["Dénouement", "Souvent la mort", "Souvent un mariage"],
+            ["Auteurs", "Corneille, Racine", "Molière ; puis Marivaux, Beaumarchais"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-04-s1-p1",
+            prompt: "Quelle règle classique interdit de montrer la mort ou la violence sur scène ?",
+            choices: ["La vraisemblance", "La bienséance", "L’unité de temps", "L’unité d’action"],
+            answer: 1,
+            explanation: "La **bienséance** impose de ne pas choquer le public : la violence et la mort sont donc racontées dans des récits plutôt que montrées. La vraisemblance, elle, exige que l’action paraisse crédible.",
+          },
+          {
+            id: "1re-francais-04-s1-p2",
+            prompt: "Selon Aristote, quel effet la tragédie produit-elle sur le spectateur ?",
+            choices: [
+              "Le rire libérateur",
+              "L’indifférence",
+              "La catharsis, par la terreur et la pitié",
+              "L’apprentissage d’une morale explicite",
+            ],
+            answer: 2,
+            explanation: "La tragédie suscite la **terreur et la pitié** pour purger les passions du spectateur : c’est la **catharsis**. Le rire correcteur relève, lui, de la comédie.",
+          },
+          {
+            id: "1re-francais-04-s1-p3",
+            prompt: "Quelle pièce de Molière dénonce l’**hypocrisie religieuse** ?",
+            choices: ["L’Avare", "Le Malade imaginaire", "Tartuffe", "Le Misanthrope"],
+            answer: 2,
+            explanation: "**Tartuffe** met en scène un faux dévot qui manipule Orgon. L’Avare vise l’avarice, Le Malade imaginaire l’hypocondrie et Le Misanthrope la misanthropie.",
+          },
+        ],
       },
       {
         title: "Le drame romantique et les remises en cause du XIXe siècle",
@@ -860,6 +1562,65 @@ export const chapters: Chapter[] = [
             "Conclure : la scène illustre la volonté de Hugo de représenter la vie dans toute sa diversité.",
           ],
         },
+        figure: {
+          type: "timeline",
+          title: "Les ruptures théâtrales du XIXe siècle",
+          events: [
+            {
+              date: "1827",
+              label: "Hugo, préface de Cromwell",
+            },
+            {
+              date: "1830",
+              label: "Bataille d’Hernani",
+            },
+            {
+              date: "1834",
+              label: "Musset, Lorenzaccio (publication)",
+            },
+            {
+              date: "1838",
+              label: "Hugo, Ruy Blas",
+            },
+            {
+              date: "1896",
+              label: "Jarry, Ubu roi",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-04-s2-p1",
+            prompt: "Quel texte de Hugo est considéré comme le manifeste du drame romantique ?",
+            choices: [
+              "La préface de Cromwell",
+              "La préface de Pierre et Jean",
+              "L’Art poétique",
+              "Le Manifeste du surréalisme",
+            ],
+            answer: 0,
+            explanation: "Dans la **préface de Cromwell** (1827), Hugo réclame le mélange du sublime et du grotesque et la liberté de temps et de lieu. La préface de Pierre et Jean est de Maupassant, à propos du roman.",
+          },
+          {
+            id: "1re-francais-04-s2-p2",
+            prompt: "Quelle unité le drame romantique **conserve-t-il** ?",
+            choices: ["L’unité de temps", "L’unité de lieu", "L’unité d’action", "Aucune des trois"],
+            answer: 2,
+            explanation: "Hugo libère le drame des unités de **temps** et de **lieu**, jugées artificielles, mais garde l’**unité d’action**, nécessaire à la cohérence de l’intrigue.",
+          },
+          {
+            id: "1re-francais-04-s2-p3",
+            prompt: "Pourquoi Lorenzaccio est-il associé au « spectacle dans un fauteuil » ?",
+            choices: [
+              "Parce que la pièce, foisonnante, n’a pas été jouée du vivant de Musset et relevait d’un théâtre à lire",
+              "Parce que Musset l’a écrit pour l’opéra",
+              "Parce que tous les personnages restent assis",
+              "Parce qu’elle respecte la règle des trois unités",
+            ],
+            answer: 0,
+            explanation: "Lorenzaccio (1834) multiplie lieux et personnages, ce qui la rendait difficile à monter ; elle n’a pas été jouée du vivant de Musset. Elle illustre l’idée d’un théâtre destiné d’abord à la **lecture**.",
+          },
+        ],
       },
       {
         title: "Le théâtre du XXe et du XXIe siècle et le langage théâtral",
@@ -885,6 +1646,100 @@ export const chapters: Chapter[] = [
             "Double énonciation : le public, qui connaît l’amour de Rodrigue pour Chimène, mesure le dilemme mieux que le Comte.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Le vocabulaire du théâtre",
+          headers: ["Terme", "Définition"],
+          rows: [
+            ["Didascalie", "Indication scénique (gestes, décor, ton)"],
+            ["Tirade", "Longue réplique d’un personnage"],
+            ["Monologue", "Personnage seul en scène qui parle, souvent pour délibérer"],
+            ["Aparté", "Réplique que les autres personnages sont censés ne pas entendre"],
+            ["Stichomythie", "Échange de répliques très brèves, souvent d’un vers"],
+            [
+              "Double énonciation",
+              "Le personnage parle à un personnage, l’auteur au public",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-04-s3-p1",
+            prompt: "Comment nomme-t-on une réplique que les autres personnages présents sont censés ne pas entendre ?",
+            choices: ["Une tirade", "Une didascalie", "Un monologue", "Un aparté"],
+            answer: 3,
+            explanation: "L’**aparté** est destiné au public (ou à un seul personnage) et non aux autres personnages présents. Il crée souvent une complicité avec le spectateur.",
+          },
+          {
+            id: "1re-francais-04-s3-p2",
+            prompt: "Quel effet produit une **stichomythie** ?",
+            choices: [
+              "Un ralentissement de l’action",
+              "Une impression d’affrontement rapide et tendu",
+              "Une pause descriptive",
+              "Une délibération intérieure",
+            ],
+            answer: 1,
+            explanation: "Les répliques très brèves qui se répondent traduisent la **tension** et l’affrontement verbal. Dans Le Cid, la stichomythie entre Rodrigue et le Comte annonce le duel.",
+          },
+          {
+            id: "1re-francais-04-s3-p3",
+            prompt: "Quelle caractéristique est propre au **théâtre de l’absurde** ?",
+            choices: [
+              "Un langage qui tourne à vide et des personnages sans identité stable",
+              "Un respect strict des trois unités",
+              "Des héros nobles confrontés à la fatalité",
+              "Un dénouement heureux par un mariage",
+            ],
+            answer: 0,
+            explanation: "Chez Ionesco et Beckett, le **langage** se vide de sens (clichés, répétitions) et les personnages perdent leur identité stable. Cette forme traduit la perte de sens du monde après 1945.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-04-hw-1",
+        prompt: "« Je le vis, je rougis, je pâlis à sa vue » est un vers de :",
+        choices: [
+          "Corneille, Le Cid",
+          "Molière, Le Misanthrope",
+          "Racine, Phèdre",
+          "Hugo, Hernani",
+        ],
+        answer: 2,
+        explanation: "Ce vers est prononcé par Phèdre dans la pièce de **Racine** (acte I, scène 3). Le rythme ternaire et les symptômes physiques montrent une passion subie comme une maladie.",
+      },
+      {
+        id: "1re-francais-04-hw-2",
+        prompt: "En quelle année a été créée En attendant Godot de Beckett ?",
+        choices: ["1896", "1930", "1950", "1953"],
+        answer: 3,
+        explanation: "En attendant Godot a été créé en **1953**. La Cantatrice chauve de Ionesco date de 1950 et Ubu roi de Jarry de 1896.",
+      },
+      {
+        id: "1re-francais-04-hw-3",
+        prompt: "L’**ironie dramatique** désigne la situation où :",
+        choices: [
+          "un personnage se moque d’un autre",
+          "la pièce se termine mal",
+          "l’auteur critique la société par l’antiphrase",
+          "le public en sait plus que les personnages",
+        ],
+        answer: 3,
+        explanation: "Grâce à la double énonciation, le public dispose parfois d’informations que les personnages ignorent : c’est l’**ironie dramatique**. Elle crée de la tension ou du comique.",
+      },
+      {
+        id: "1re-francais-04-hw-4",
+        prompt: "Quelle réplique de Beaumarchais critique les privilèges de la noblesse ?",
+        choices: [
+          "« Vous vous êtes donné la peine de naître, et rien de plus »",
+          "« À vaincre sans péril, on triomphe sans gloire »",
+          "« Ver de terre amoureux d’une étoile »",
+          "« Je le vis, je rougis, je pâlis à sa vue »",
+        ],
+        answer: 0,
+        explanation: "Dans Le Mariage de Figaro (1784), Figaro reproche au comte de ne devoir sa position qu’à sa **naissance**. « Ver de terre amoureux d’une étoile » vient de Ruy Blas et « À vaincre sans péril… » du Cid.",
       },
     ],
     exercise: [
@@ -1104,6 +1959,71 @@ export const chapters: Chapter[] = [
             "Piste d’interprétation : le poème construit une allégorie du poète incompris dans la société.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le travail au brouillon du commentaire",
+          caption: "Comprendre le texte avant de construire le plan.",
+          steps: [
+            {
+              label: "Lire le paratexte",
+              detail: "Auteur, titre, date, genre, chapeau",
+            },
+            {
+              label: "Lectures successives",
+              detail: "Qui parle ? À qui ? De quoi ? Dans quelle situation ?",
+            },
+            {
+              label: "Relevé organisé",
+              detail: "Champs lexicaux, figures, énonciation, temps, rythme",
+            },
+            {
+              label: "Effet de chaque procédé",
+              detail: "Procédé → citation → effet → interprétation",
+            },
+            {
+              label: "Enjeu et problématique",
+              detail: "Une question spécifique au texte",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-05-s1-p1",
+            prompt: "Que faut-il faire en premier face au texte du commentaire ?",
+            choices: [
+              "Rédiger l’introduction",
+              "Choisir un plan type",
+              "Lire le paratexte et comprendre la situation du texte",
+              "Chercher l’ouverture de la conclusion",
+            ],
+            answer: 2,
+            explanation: "Le **paratexte** (auteur, titre, date, chapeau) donne le genre, le contexte et souvent une piste de lecture. Il faut d’abord comprendre le texte avant de chercher à l’analyser et à organiser un plan.",
+          },
+          {
+            id: "1re-francais-05-s1-p2",
+            prompt: "Pourquoi un relevé de procédés ne suffit-il pas ?",
+            choices: [
+              "Parce qu’un procédé non interprété ne produit aucune analyse",
+              "Parce qu’il est interdit de nommer les figures de style",
+              "Parce que le correcteur ne lit que l’introduction",
+              "Parce qu’il faut uniquement résumer le texte",
+            ],
+            answer: 0,
+            explanation: "Le commentaire doit montrer **comment la forme produit du sens**. Un procédé simplement nommé, sans effet ni interprétation, reste une remarque technique qui ne rapporte rien.",
+          },
+          {
+            id: "1re-francais-05-s1-p3",
+            prompt: "Quelle problématique est la plus pertinente ?",
+            choices: [
+              "Comment l’auteur décrit-il le personnage ?",
+              "Quel est le thème du texte ?",
+              "Comment ce portrait fait-il d’un personnage ridicule une figure inquiétante ?",
+              "Que raconte ce texte ?",
+            ],
+            answer: 2,
+            explanation: "Une bonne problématique est **spécifique** au texte et annonce une interprétation, ici une tension entre le ridicule et l’inquiétant. Les autres questions sont trop générales et conduisent à la paraphrase.",
+          },
+        ],
       },
       {
         title: "Construire le plan et la problématique",
@@ -1132,6 +2052,71 @@ export const chapters: Chapter[] = [
             "III. Une chute qui révèle un rituel de deuil (tombe, offrande du houx et de la bruyère).",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Plans à adopter ou à éviter",
+          headers: ["Type de plan", "Verdict", "Raison"],
+          rows: [
+            [
+              "Plan thématique et interprétatif",
+              "À adopter",
+              "Chaque partie répond à la problématique",
+            ],
+            [
+              "Plan linéaire",
+              "À éviter à l’écrit",
+              "C’est la démarche de l’explication orale",
+            ],
+            [
+              "Plan « forme / fond »",
+              "À éviter",
+              "Forme et sens doivent être étudiés ensemble",
+            ],
+            [
+              "Progression du littéral au symbolique",
+              "Recommandée",
+              "Va de l’évident vers le plus profond",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-05-s2-p1",
+            prompt: "Pourquoi le plan « I. Les procédés / II. Les thèmes » est-il à éviter ?",
+            choices: [
+              "Parce qu’il comporte trop de parties",
+              "Parce qu’il est réservé à la dissertation",
+              "Parce qu’il suit le texte ligne à ligne",
+              "Parce qu’il sépare la forme et le sens, qui doivent être étudiés ensemble",
+            ],
+            answer: 3,
+            explanation: "Le commentaire repose sur l’idée que la **forme produit le sens** : séparer procédés et thèmes empêche de les relier. Chaque partie doit donc associer observation formelle et interprétation.",
+          },
+          {
+            id: "1re-francais-05-s2-p2",
+            prompt: "Combien de grandes parties comporte habituellement un commentaire ?",
+            choices: [
+              "Une seule",
+              "Deux ou trois",
+              "Quatre ou cinq",
+              "Autant que de paragraphes du texte",
+            ],
+            answer: 1,
+            explanation: "Le commentaire comporte **deux ou trois parties**, chacune divisée en deux ou trois sous-parties. Chaque sous-partie correspond à un paragraphe argumenté.",
+          },
+          {
+            id: "1re-francais-05-s2-p3",
+            prompt: "Comment doivent être formulés les intitulés des parties ?",
+            choices: [
+              "Par des phrases interprétatives qui répondent à la problématique",
+              "Par un seul mot désignant un thème",
+              "Par des numéros de lignes",
+              "Par des questions sans réponse",
+            ],
+            answer: 0,
+            explanation: "Les intitulés sont des **idées directrices** qui avancent une interprétation, par exemple « Un paysage état d’âme ». Un simple thème (« La nature ») n’indique pas ce que la partie démontre.",
+          },
+        ],
       },
       {
         title: "Rédiger : introduction, paragraphes, conclusion",
@@ -1162,6 +2147,105 @@ export const chapters: Chapter[] = [
             "Mini-bilan : le paysage est nié pour laisser place à l’intériorité et au deuil.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Construire un paragraphe d’analyse",
+          steps: [
+            {
+              label: "Phrase-idée",
+              detail: "L’idée directrice de la sous-partie",
+            },
+            {
+              label: "Citation",
+              detail: "Courte, exacte, entre guillemets, avec la ligne ou le vers",
+            },
+            {
+              label: "Procédé",
+              detail: "Nommer précisément l’outil d’analyse",
+            },
+            {
+              label: "Interprétation",
+              detail: "Expliquer l’effet produit",
+            },
+            {
+              label: "Mini-bilan",
+              detail: "Relier à l’idée et à la problématique",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-05-s3-p1",
+            prompt: "Quel élément ne fait **pas** partie de l’introduction d’un commentaire ?",
+            choices: ["L’amorce", "La présentation du texte", "La problématique", "L’ouverture"],
+            answer: 3,
+            explanation: "L’**ouverture** se place à la fin de la **conclusion**, après le bilan. L’introduction comprend l’amorce, la présentation du texte, la problématique et l’annonce du plan.",
+          },
+          {
+            id: "1re-francais-05-s3-p2",
+            prompt: "Quelle est la bonne manière de citer dans un commentaire ?",
+            choices: [
+              "Recopier de longs passages entre parenthèses",
+              "Paraphraser sans jamais citer",
+              "Intégrer une citation courte et exacte à sa propre phrase",
+              "Citer de mémoire, même approximativement",
+            ],
+            answer: 2,
+            explanation: "Une citation **courte**, **exacte** et intégrée à la syntaxe de la phrase montre la maîtrise du texte. Les longues citations jetées entre parenthèses alourdissent la copie sans être analysées.",
+          },
+          {
+            id: "1re-francais-05-s3-p3",
+            prompt: "Que doit contenir la conclusion d’un commentaire ?",
+            choices: [
+              "Un nouvel argument non traité",
+              "Une question sans rapport avec le texte",
+              "Le résumé du texte",
+              "Un bilan qui répond à la problématique et une ouverture justifiée",
+            ],
+            answer: 3,
+            explanation: "La conclusion fait un **bilan** qui répond clairement à la problématique, puis propose une **ouverture** justifiée par un lien précis. On n’y introduit pas d’argument nouveau.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-05-hw-1",
+        prompt: "Quelle est la durée de l’épreuve écrite du bac de français ?",
+        choices: ["2 heures", "3 heures", "4 heures", "5 heures"],
+        answer: 2,
+        explanation: "L’épreuve écrite du bac de français dure **4 heures**. Le candidat y choisit entre le commentaire et la dissertation.",
+      },
+      {
+        id: "1re-francais-05-hw-2",
+        prompt: "Dans « L’Albatros », l’opposition entre « rois de l’azur » et « maladroits et honteux » est :",
+        choices: ["une anaphore", "une litote", "une antithèse", "une périphrase seule"],
+        answer: 2,
+        explanation: "L’opposition entre la grandeur dans le ciel et la déchéance sur le pont forme une **antithèse**. Elle fait passer l’oiseau du sublime au ridicule et construit l’allégorie du poète incompris.",
+      },
+      {
+        id: "1re-francais-05-hw-3",
+        prompt: "Qu’est-ce que la **paraphrase** ?",
+        choices: [
+          "Une analyse des procédés",
+          "Une ouverture en conclusion",
+          "Une citation exacte",
+          "Le fait de redire le texte avec d’autres mots sans l’analyser",
+        ],
+        answer: 3,
+        explanation: "Paraphraser, c’est **redire** le contenu du texte sans montrer comment il produit son sens. C’est le principal défaut à éviter dans un commentaire.",
+      },
+      {
+        id: "1re-francais-05-hw-4",
+        prompt: "Dans « Je ne regarderai ni l’or du soir qui tombe, / Ni les voiles… », la négation « ne… ni… ni » montre que :",
+        choices: [
+          "le poète admire le paysage",
+          "le poète refuse de contempler la beauté pour se tourner vers la morte",
+          "le poète est aveugle",
+          "le poète décrit précisément Harfleur",
+        ],
+        answer: 1,
+        explanation: "La négation écarte deux images de beauté : le **refus de contempler**, paradoxal chez un poète lyrique, montre que tout son être est tourné vers le deuil. Le paysage est nié au profit de l’intériorité.",
       },
     ],
     exercise: [
@@ -1398,6 +2482,65 @@ export const chapters: Chapter[] = [
             "Problématique : le rire moliéresque n’est-il qu’un divertissement, ou devient-il un instrument de critique, voire de malaise ?",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Analyser un sujet de dissertation",
+          steps: [
+            {
+              label: "Lire et souligner",
+              detail: "Repérer chaque mot important",
+            },
+            {
+              label: "Définir les termes",
+              detail: "Attention aux mots restrictifs : seulement, toujours, uniquement",
+            },
+            {
+              label: "Thèse implicite",
+              detail: "Ce que le sujet présuppose",
+            },
+            {
+              label: "Reformuler",
+              detail: "Vérifier qu’on a compris la question",
+            },
+            {
+              label: "Problématique",
+              detail: "Faire apparaître la tension ou le paradoxe",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-06-s1-p1",
+            prompt: "Dans le sujet « Le théâtre de Molière se contente-t-il de faire rire ? », quel mot oriente la réflexion par une restriction ?",
+            choices: ["théâtre", "rire", "Molière", "se contente"],
+            answer: 3,
+            explanation: "« **Se contente** » limite le théâtre de Molière au seul divertissement : c’est cette restriction qu’il faut discuter. Les mots restrictifs (seulement, uniquement, toujours) sont décisifs dans l’analyse du sujet.",
+          },
+          {
+            id: "1re-francais-06-s1-p2",
+            prompt: "Qu’est-ce que le **hors-sujet** ?",
+            choices: [
+              "Utiliser des exemples tirés du parcours",
+              "Réciter un cours sur l’œuvre au lieu de répondre à la question posée",
+              "Formuler une problématique",
+              "Proposer une ouverture en conclusion",
+            ],
+            answer: 1,
+            explanation: "Le hors-sujet consiste à traiter une autre question que celle posée, souvent en **récitant** un cours. Ne traiter qu’une partie du sujet est un autre défaut fréquent.",
+          },
+          {
+            id: "1re-francais-06-s1-p3",
+            prompt: "Que doit faire apparaître la problématique ?",
+            choices: [
+              "La tension ou le paradoxe contenu dans le sujet",
+              "La biographie de l’auteur",
+              "Le résumé de l’œuvre",
+              "La liste des exemples",
+            ],
+            answer: 0,
+            explanation: "La problématique met au jour la **tension** du sujet, par exemple entre plainte et création chez Baudelaire. Elle ne se contente pas de recopier le sujet.",
+          },
+        ],
       },
       {
         title: "Choisir et construire le plan",
@@ -1428,6 +2571,57 @@ export const chapters: Chapter[] = [
             "Transitions : bilan de la partie + question qui lance la suivante.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Choisir son plan de dissertation",
+          headers: ["Plan", "Type de sujet", "Structure"],
+          rows: [
+            [
+              "Dialectique",
+              "Question fermée, citation à discuter",
+              "Thèse → nuance ou antithèse → dépassement",
+            ],
+            [
+              "Analytique",
+              "Question ouverte : « Comment… ? », « Pourquoi… ? »",
+              "Causes → formes → effets",
+            ],
+            ["Thématique", "Notion à explorer", "Aspects successifs de la notion"],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-06-s2-p1",
+            prompt: "Quel plan convient à une question fermée du type « Peut-on dire que… ? » ?",
+            choices: ["Le plan linéaire", "Le plan chronologique", "Le plan dialectique", "Aucun plan"],
+            answer: 2,
+            explanation: "Une question fermée appelle une discussion : le **plan dialectique** examine la thèse, la nuance ou la conteste, puis propose un dépassement. Les questions ouvertes appellent plutôt un plan analytique ou thématique.",
+          },
+          {
+            id: "1re-francais-06-s2-p2",
+            prompt: "La troisième partie d’un plan dialectique doit être :",
+            choices: [
+              "un compromis tiède entre I et II",
+              "une répétition de la première partie",
+              "un dépassement qui propose une perspective nouvelle",
+              "un résumé de l’œuvre",
+            ],
+            answer: 2,
+            explanation: "Le **dépassement** déplace ou affine le problème au lieu de couper la poire en deux. Il apporte une réponse plus fine que les deux premières parties.",
+          },
+          {
+            id: "1re-francais-06-s2-p3",
+            prompt: "Dans un paragraphe de dissertation, l’exemple doit être :",
+            choices: [
+              "simplement mentionné",
+              "placé uniquement en conclusion",
+              "toujours le même passage",
+              "précis, analysé et relié au sujet",
+            ],
+            answer: 3,
+            explanation: "Un exemple doit être **précis** (scène, passage, citation), **analysé** puis relié explicitement à la question. Un exemple sans analyse affaiblit la démonstration.",
+          },
+        ],
       },
       {
         title: "Rédiger l’introduction, le développement et la conclusion",
@@ -1457,6 +2651,103 @@ export const chapters: Chapter[] = [
             "Lien au sujet : la poésie baudelairienne n’est donc pas une simple plainte, mais une transfiguration de la douleur.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Gérer les 4 heures de l’épreuve (repères conseillés)",
+          caption: "Durée officielle : 4 h ; la répartition est un conseil de méthode.",
+          steps: [
+            {
+              label: "Brouillon ≈ 1 h 15",
+              detail: "Analyse du sujet, idées, exemples, plan détaillé, introduction et conclusion",
+            },
+            {
+              label: "Rédaction ≈ 2 h 15",
+              detail: "Développement directement au propre, transitions",
+            },
+            {
+              label: "Relecture 20-30 min",
+              detail: "Orthographe, accords, citations",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-06-s3-p1",
+            prompt: "Combien d’étapes comporte l’introduction de dissertation présentée dans le cours ?",
+            choices: ["Trois", "Quatre", "Cinq", "Six"],
+            answer: 2,
+            explanation: "L’introduction comprend **cinq** temps : amorce, citation ou reformulation du sujet, analyse des termes, problématique et annonce du plan. Elle donne la première impression au correcteur.",
+          },
+          {
+            id: "1re-francais-06-s3-p2",
+            prompt: "Pourquoi ne faut-il pas rédiger tout le devoir au brouillon ?",
+            choices: [
+              "Parce que c’est interdit",
+              "Parce qu’on n’aura pas le temps de tout recopier",
+              "Parce que le brouillon est noté",
+              "Parce que la conclusion se rédige à l’oral",
+            ],
+            answer: 1,
+            explanation: "En 4 heures, recopier un devoir entièrement rédigé au brouillon est impossible. On rédige au brouillon l’**introduction** et la **conclusion**, et le plan détaillé du développement.",
+          },
+          {
+            id: "1re-francais-06-s3-p3",
+            prompt: "Quel registre convient à la rédaction d’une dissertation ?",
+            choices: [
+              "Familier, avec de nombreux « je »",
+              "Oral et spontané",
+              "Soutenu, avec « nous » ou des tournures impersonnelles",
+              "Poétique, en vers",
+            ],
+            answer: 2,
+            explanation: "La dissertation exige un registre **soutenu** : on évite le « je » envahissant au profit de « nous » ou de tournures comme « on peut penser que ». Les connecteurs logiques rendent la progression lisible.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-06-hw-1",
+        prompt: "Sur quoi porte la dissertation au bac de français ?",
+        choices: [
+          "Sur un texte inconnu",
+          "Sur une œuvre intégrale étudiée et son parcours associé",
+          "Sur une question de grammaire",
+          "Sur un sujet d’actualité",
+        ],
+        answer: 1,
+        explanation: "La dissertation porte sur l’une des **œuvres intégrales** au programme et sur le **parcours** qui l’accompagne. Le texte inconnu relève, lui, du commentaire.",
+      },
+      {
+        id: "1re-francais-06-hw-2",
+        prompt: "Le sujet « Comment Molière fait-il rire ? » appelle plutôt un plan :",
+        choices: ["dialectique", "linéaire", "analytique ou thématique", "chronologique"],
+        answer: 2,
+        explanation: "« Comment… ? » est une question **ouverte** : elle invite à explorer les procédés et les formes du rire, donc un plan analytique ou thématique. Le plan dialectique convient aux questions fermées.",
+      },
+      {
+        id: "1re-francais-06-hw-3",
+        prompt: "Que signifie le sigle A-E-A-L pour construire un paragraphe ?",
+        choices: [
+          "Argument, Exemple, Analyse, Lien au sujet",
+          "Amorce, Énoncé, Annonce, Lien",
+          "Antithèse, Exemple, Argument, Logique",
+          "Analyse, Explication, Argument, Lecture",
+        ],
+        answer: 0,
+        explanation: "Un paragraphe efficace enchaîne **Argument**, **Exemple**, **Analyse** de l’exemple et **Lien** au sujet. Cette structure garantit que chaque exemple sert la démonstration.",
+      },
+      {
+        id: "1re-francais-06-hw-4",
+        prompt: "Que fait la conclusion d’une dissertation ?",
+        choices: [
+          "Elle répond nettement à la question et propose une ouverture",
+          "Elle annonce le plan",
+          "Elle présente un nouvel argument décisif",
+          "Elle recopie la problématique sans y répondre",
+        ],
+        answer: 0,
+        explanation: "La conclusion **répond** clairement à la question posée en reprenant le parcours du développement. Elle se termine par une **ouverture** justifiée vers une autre œuvre, un autre genre ou une autre époque.",
       },
     ],
     exercise: [
@@ -1687,6 +2978,57 @@ export const chapters: Chapter[] = [
             "27-30 min : noter la conclusion et repasser mentalement la présentation de l’œuvre choisie.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "L’oral du bac de français en chiffres",
+          caption: "Vérifiez toujours les modalités de votre session.",
+          items: [
+            {
+              value: "30 min",
+              label: "de préparation",
+            },
+            {
+              value: "20 min",
+              label: "d’épreuve",
+            },
+            {
+              value: "12 min · 12 pts",
+              label: "lecture, explication linéaire, grammaire",
+            },
+            {
+              value: "8 min · 8 pts",
+              label: "présentation de l’œuvre choisie et entretien",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-07-s1-p1",
+            prompt: "Combien de temps de préparation le candidat a-t-il à l’oral ?",
+            choices: ["15 minutes", "20 minutes", "30 minutes", "1 heure"],
+            answer: 2,
+            explanation: "Le candidat dispose de **30 minutes** de préparation. L’épreuve elle-même dure ensuite 20 minutes.",
+          },
+          {
+            id: "1re-francais-07-s1-p2",
+            prompt: "Sur combien de points est notée la première partie de l’oral ?",
+            choices: ["8 points", "10 points", "12 points", "20 points"],
+            answer: 2,
+            explanation: "La première partie (lecture, explication linéaire, question de grammaire) dure 12 minutes et est notée sur **12 points**. La seconde partie, sur l’œuvre choisie et l’entretien, est notée sur 8 points.",
+          },
+          {
+            id: "1re-francais-07-s1-p3",
+            prompt: "Qui choisit le texte expliqué en première partie ?",
+            choices: [
+              "L’examinateur, dans le récapitulatif des textes",
+              "Le candidat",
+              "Le professeur de la classe le jour même",
+              "Un tirage au sort national",
+            ],
+            answer: 0,
+            explanation: "L’**examinateur** choisit un texte du récapitulatif apporté par le candidat, ainsi qu’une question de grammaire. Le candidat choisit en revanche l’œuvre présentée en seconde partie.",
+          },
+        ],
       },
       {
         title: "L’explication linéaire : méthode",
@@ -1716,6 +3058,64 @@ export const chapters: Chapter[] = [
             "Interprétation : le poète s’adresse à un « tu » dont l’identité reste mystérieuse, ce qui crée une attente que la chute résoudra.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Le déroulé de l’explication linéaire",
+          steps: [
+            {
+              label: "Présentation ciblée",
+              detail: "Auteur, œuvre, situation de l’extrait",
+            },
+            {
+              label: "Lecture expressive",
+              detail: "Fluide, juste, ton adapté",
+            },
+            {
+              label: "Problématique et mouvements",
+              detail: "Deux à quatre étapes avec lignes ou vers",
+            },
+            {
+              label: "Explication mouvement par mouvement",
+              detail: "Citation → procédé → effet → lien à la problématique",
+            },
+            {
+              label: "Conclusion",
+              detail: "Réponse à la problématique, ouverture éventuelle",
+            },
+            {
+              label: "Question de grammaire",
+              detail: "Réponse précise et justifiée",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-07-s2-p1",
+            prompt: "Qu’est-ce qui distingue l’explication linéaire du commentaire écrit ?",
+            choices: [
+              "Elle ne nécessite pas de problématique",
+              "Elle sépare la forme et le fond",
+              "Elle suit l’ordre du texte, mouvement par mouvement",
+              "Elle ne cite jamais le texte",
+            ],
+            answer: 2,
+            explanation: "L’explication linéaire **suit le texte dans son ordre** pour montrer comment le sens se construit progressivement. Le commentaire écrit, lui, adopte un plan thématique.",
+          },
+          {
+            id: "1re-francais-07-s2-p2",
+            prompt: "Combien de mouvements annonce-t-on généralement ?",
+            choices: ["Un seul", "Au moins six", "Autant que de phrases", "Deux à quatre"],
+            answer: 3,
+            explanation: "On découpe le texte en **deux à quatre** grandes étapes, en indiquant les lignes ou vers correspondants. Ce découpage doit refléter la progression du sens.",
+          },
+          {
+            id: "1re-francais-07-s2-p3",
+            prompt: "Combien de temps dure environ une explication linéaire réussie ?",
+            choices: ["Trois minutes", "Une dizaine de minutes", "Vingt minutes", "Trente minutes"],
+            answer: 1,
+            explanation: "L’explication dure environ **dix minutes**, car la première partie de l’épreuve (12 minutes) doit aussi laisser le temps de la question de grammaire. Il faut donc sélectionner les éléments les plus significatifs.",
+          },
+        ],
       },
       {
         title: "La lecture expressive, la présentation de l’œuvre et l’entretien",
@@ -1740,6 +3140,115 @@ export const chapters: Chapter[] = [
             "Conclure par ce que cette lecture vous a apporté, en ouvrant vers l’entretien.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Présenter l’œuvre choisie",
+          steps: [
+            {
+              label: "Identifier l’œuvre",
+              detail: "Auteur, titre, date, genre",
+            },
+            {
+              label: "Raison du choix",
+              detail: "Personnage, scène, idée ou style marquant",
+            },
+            {
+              label: "Passage précis",
+              detail: "Avec une citation courte",
+            },
+            {
+              label: "Lien au parcours",
+              detail: "Objet d’étude ou parcours",
+            },
+            {
+              label: "Ouverture vers l’entretien",
+              detail: "Ce que la lecture a apporté",
+            },
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-07-s3-p1",
+            prompt: "En poésie, que faut-il respecter lors de la lecture expressive ?",
+            choices: [
+              "Marquer une pause forte à la fin de chaque vers, même en cas d’enjambement",
+              "Lire le plus vite possible",
+              "Prononcer les e muets qui comptent dans le mètre et faire les diérèses nécessaires",
+              "Supprimer toutes les liaisons",
+            ],
+            answer: 2,
+            explanation: "Le respect du **mètre** suppose de prononcer les e muets comptés et les **diérèses**. Il ne faut pas pour autant marquer exagérément la fin du vers lorsqu’il y a enjambement.",
+          },
+          {
+            id: "1re-francais-07-s3-p2",
+            prompt: "La présentation de l’œuvre choisie doit surtout :",
+            choices: [
+              "expliquer pourquoi on l’a choisie, avec des références précises",
+              "résumer toute l’intrigue",
+              "réciter la biographie de l’auteur",
+              "lire un long extrait",
+            ],
+            answer: 0,
+            explanation: "L’examinateur attend une **lecture personnelle** : les raisons du choix, ce qui a marqué, appuyées sur des passages précis. Un simple résumé ne montre pas cette appropriation.",
+          },
+          {
+            id: "1re-francais-07-s3-p3",
+            prompt: "Quelle attitude est valorisée pendant l’entretien ?",
+            choices: [
+              "Répondre en un mot pour gagner du temps",
+              "Réciter une fiche apprise par cœur",
+              "Écouter, réfléchir et construire une réponse argumentée, quitte à reconnaître une limite",
+              "Refuser les questions imprévues",
+            ],
+            answer: 2,
+            explanation: "L’entretien évalue la capacité à **dialoguer**, justifier et nuancer. Construire une réponse sur le moment, même en reconnaissant une limite, montre l’autonomie attendue.",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-07-hw-1",
+        prompt: "Combien de temps dure l’épreuve orale (hors préparation) ?",
+        choices: ["20 minutes", "12 minutes", "30 minutes", "45 minutes"],
+        answer: 0,
+        explanation: "L’épreuve dure **20 minutes** : 12 minutes pour la première partie et 8 minutes pour la seconde. Elle est précédée de 30 minutes de préparation.",
+      },
+      {
+        id: "1re-francais-07-hw-2",
+        prompt: "Que doit-on rédiger au brouillon pendant la préparation ?",
+        choices: [
+          "L’explication entière, mot pour mot",
+          "Rien : tout doit être improvisé",
+          "Uniquement la question de grammaire",
+          "L’introduction, les mouvements avec citations et analyses clés, la conclusion et la réponse de grammaire",
+        ],
+        answer: 3,
+        explanation: "Le brouillon sert de **repères** : introduction rédigée, mouvements avec citations, conclusion et grammaire. Tout rédiger est impossible en 30 minutes et conduirait à lire ses notes.",
+      },
+      {
+        id: "1re-francais-07-hw-3",
+        prompt: "Dans « Demain, dès l’aube… », l’accumulation des compléments de temps au premier vers traduit :",
+        choices: [
+          "l’hésitation du poète",
+          "une détermination absolue",
+          "l’ironie de l’auteur",
+          "une description réaliste de la campagne",
+        ],
+        answer: 1,
+        explanation: "Les compléments de temps accumulés et le **futur** montrent que le départ est décidé et précis. Cette détermination prépare la révélation finale du rituel de deuil.",
+      },
+      {
+        id: "1re-francais-07-hw-4",
+        prompt: "Combien de temps environ faut-il prévoir pour la présentation de l’œuvre choisie, d’après le cours ?",
+        choices: [
+          "Environ trois minutes",
+          "Environ dix minutes",
+          "Environ vingt minutes",
+          "Moins de trente secondes",
+        ],
+        answer: 0,
+        explanation: "Le cours conseille de préparer une présentation d’**environ trois minutes**. Le reste de la seconde partie (8 minutes au total) est consacré à l’entretien.",
       },
     ],
     exercise: [
@@ -1974,6 +3483,62 @@ export const chapters: Chapter[] = [
             "Effet : la question sans réponse exprime le doute méthodique et l’humilité de l’humaniste face au savoir.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les formes de la négation",
+          headers: ["Type", "Forme", "Exemple"],
+          rows: [
+            ["Totale", "ne… pas, ne… point", "« Il ne vient pas. »"],
+            [
+              "Partielle",
+              "ne… jamais, plus, rien, personne, aucun, guère ; ni… ni",
+              "« Il ne vient jamais. »",
+            ],
+            [
+              "Restrictive (pas une négation)",
+              "ne… que = seulement",
+              "« Il n’a qu’un ami. »",
+            ],
+            [
+              "Ne explétif (sans valeur négative)",
+              "après craindre, avant que, à moins que",
+              "« Je crains qu’il ne vienne. »",
+            ],
+            [
+              "Lexicale",
+              "préfixes in-, im-, dé-, a- ; mots de sens négatif",
+              "« impossible », « refuser »",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-08-s1-p1",
+            prompt: "« Votre frère vient-il ? » présente une inversion :",
+            choices: ["complexe", "simple", "absente", "indirecte"],
+            answer: 0,
+            explanation: "Le sujet est un **nom** (« votre frère ») repris par un pronom (« il ») placé après le verbe : c’est une inversion **complexe**. L’inversion simple concerne un sujet pronom (« Venez-vous ? »).",
+          },
+          {
+            id: "1re-francais-08-s1-p2",
+            prompt: "« Je me demande s’il viendra » contient une interrogation :",
+            choices: ["directe totale", "directe partielle", "indirecte", "rhétorique"],
+            answer: 2,
+            explanation: "La question est intégrée dans une **subordonnée** introduite par « si », sans point d’interrogation : c’est une interrogation **indirecte**. Elle dépend du verbe « se demander ».",
+          },
+          {
+            id: "1re-francais-08-s1-p3",
+            prompt: "Dans « Il n’a qu’un ami », la tournure « ne… que » exprime :",
+            choices: [
+              "une négation totale",
+              "un ne explétif",
+              "une restriction (« seulement »)",
+              "une négation partielle de temps",
+            ],
+            answer: 2,
+            explanation: "« Ne… que » est une tournure **restrictive** qui signifie « seulement » : il a un seul ami. Ce n’est donc pas une vraie négation.",
+          },
+        ],
       },
       {
         title: "La phrase complexe et les propositions subordonnées",
@@ -2003,6 +3568,66 @@ export const chapters: Chapter[] = [
             "Relatives : « qui doute » (antécédent « l’homme ») et « qui affirme tout » (antécédent « celui »), toutes deux déterminatives.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les propositions subordonnées",
+          headers: ["Subordonnée", "Introduite par", "Fonction ou rôle", "Exemple"],
+          rows: [
+            [
+              "Relative",
+              "Pronom relatif (qui, que, dont, où…)",
+              "Complète un antécédent",
+              "« L’homme qui doute »",
+            ],
+            [
+              "Complétive",
+              "Conjonction que",
+              "Souvent COD du verbe",
+              "« Je pense que tu as raison »",
+            ],
+            [
+              "Interrogative indirecte",
+              "si, mot interrogatif",
+              "COD du verbe",
+              "« Je me demande si elle viendra »",
+            ],
+            [
+              "Infinitive",
+              "Pas de mot subordonnant",
+              "COD d’un verbe de perception",
+              "« J’entends les oiseaux chanter »",
+            ],
+            [
+              "Circonstancielle",
+              "Conjonction (quand, parce que, bien que…)",
+              "Temps, cause, but, concession…",
+              "« Bien qu’il soit tard »",
+            ],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-08-s2-p1",
+            prompt: "Combien de propositions compte la phrase « Je crois que l’homme qui doute est plus sage » ?",
+            choices: ["Deux", "Une", "Quatre", "Trois"],
+            answer: 3,
+            explanation: "On compte les **verbes conjugués** : crois, doute, est, soit **trois** propositions. Il y a une principale, une complétive et une relative.",
+          },
+          {
+            id: "1re-francais-08-s2-p2",
+            prompt: "Dans « Les élèves, qui avaient révisé, ont réussi », la relative est :",
+            choices: ["déterminative", "explicative", "complétive", "circonstancielle"],
+            answer: 1,
+            explanation: "Placée entre virgules et supprimable sans changer l’identité des élèves visés, la relative est **explicative**. Une relative déterminative restreindrait le groupe (seuls ceux qui ont révisé).",
+          },
+          {
+            id: "1re-francais-08-s2-p3",
+            prompt: "Quel mode appelle la conjonction « afin que » ?",
+            choices: ["L’indicatif", "Le conditionnel", "Le subjonctif", "L’impératif"],
+            answer: 2,
+            explanation: "Les subordonnées de **but** (afin que, pour que) et de concession (bien que, quoique) se construisent au **subjonctif** : « afin qu’il comprenne ».",
+          },
+        ],
       },
       {
         title: "L’accord du participe passé",
@@ -2033,6 +3658,118 @@ export const chapters: Chapter[] = [
             "Effet possible dans un texte : la tournure passive efface l’agent et met l’accent sur les promesses trahies.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Accorder le participe passé",
+          headers: ["Situation", "Règle", "Exemple"],
+          rows: [
+            [
+              "Sans auxiliaire",
+              "Accord avec le nom, comme un adjectif",
+              "des lettres oubliées",
+            ],
+            ["Auxiliaire être", "Accord avec le sujet", "Elles sont parties."],
+            [
+              "Auxiliaire avoir, COD placé avant",
+              "Accord avec le COD",
+              "Les fleurs que j’ai cueillies",
+            ],
+            [
+              "Auxiliaire avoir, COD après ou absent",
+              "Pas d’accord",
+              "J’ai cueilli des fleurs.",
+            ],
+            ["Pronominal, se COI", "Pas d’accord", "Ils se sont parlé."],
+          ],
+        },
+        practice: [
+          {
+            id: "1re-francais-08-s3-p1",
+            prompt: "Pourquoi écrit-on « Les fleurs que j’ai **cueillies** » ?",
+            choices: [
+              "Parce que le sujet est féminin pluriel",
+              "Parce que le participe s’accorde toujours avec avoir",
+              "Parce que le COD « que », mis pour « fleurs », est placé avant le verbe",
+              "Parce que c’est un verbe pronominal",
+            ],
+            answer: 2,
+            explanation: "Avec **avoir**, le participe passé s’accorde avec le **COD placé avant** : ici « que », qui reprend « les fleurs ». Il ne s’accorde jamais avec le sujet.",
+          },
+          {
+            id: "1re-francais-08-s3-p2",
+            prompt: "Quelle phrase est correctement orthographiée ?",
+            choices: [
+              "Des fleurs, j’en ai cueillies.",
+              "Les chaleurs qu’il a faites.",
+              "Elles se sont lavé les mains.",
+              "Ils se sont parlés.",
+            ],
+            answer: 2,
+            explanation: "Dans « Elles se sont **lavé** les mains », le COD « les mains » est placé après : pas d’accord. Avec « en », avec un verbe impersonnel (« il a fait ») et quand « se » est COI (« se parler »), le participe reste invariable.",
+          },
+          {
+            id: "1re-francais-08-s3-p3",
+            prompt: "« Elles se sont souvenues » : pourquoi le participe s’accorde-t-il avec le sujet ?",
+            choices: [
+              "Parce que « se souvenir » est essentiellement pronominal",
+              "Parce que « se » est COI",
+              "Parce que le COD est placé après",
+              "Parce que l’auxiliaire est avoir",
+            ],
+            answer: 0,
+            explanation: "Un verbe **essentiellement pronominal** n’existe qu’à la forme pronominale : son participe s’accorde avec le sujet. C’est le cas de « se souvenir » ou « s’évanouir ».",
+          },
+        ],
+      },
+    ],
+    homework: [
+      {
+        id: "1re-francais-08-hw-1",
+        prompt: "« Que sais-je ? » est une interrogation :",
+        choices: [
+          "totale, par intonation",
+          "totale, avec est-ce que",
+          "indirecte",
+          "partielle, avec inversion simple du sujet",
+        ],
+        answer: 3,
+        explanation: "Introduite par le pronom interrogatif « que », la question est **partielle** ; le sujet pronom « je » est placé après le verbe : inversion **simple**. Le registre est soutenu.",
+      },
+      {
+        id: "1re-francais-08-hw-2",
+        prompt: "Dans « Je crains qu’il ne vienne », le « ne » est :",
+        choices: [
+          "une négation totale",
+          "une négation partielle",
+          "un ne explétif",
+          "une restriction",
+        ],
+        answer: 2,
+        explanation: "Ce « ne » n’a **pas de valeur négative** : la phrase signifie « je crains qu’il vienne ». On l’appelle ne explétif ; il apparaît notamment après les verbes de crainte.",
+      },
+      {
+        id: "1re-francais-08-hw-3",
+        prompt: "Comment distinguer « que » pronom relatif de « que » conjonction ?",
+        choices: [
+          "Le pronom relatif a un antécédent, la conjonction n’en a pas",
+          "La conjonction est toujours en début de phrase",
+          "Le pronom relatif introduit toujours une complétive",
+          "Il n’y a aucune différence",
+        ],
+        answer: 0,
+        explanation: "Le pronom relatif reprend un **antécédent** et a une fonction dans la relative. La conjonction « que » introduit une complétive et ne remplace aucun nom.",
+      },
+      {
+        id: "1re-francais-08-hw-4",
+        prompt: "Dans « Les promesses qu’il avait faites furent oubliées », « oubliées » s’accorde car :",
+        choices: [
+          "le COD est placé avant",
+          "il s’agit d’un passif avec l’auxiliaire être",
+          "c’est un verbe impersonnel",
+          "le participe est employé sans auxiliaire",
+        ],
+        answer: 1,
+        explanation: "« Furent oubliées » est une forme **passive** construite avec l’auxiliaire **être** : le participe s’accorde avec le sujet « les promesses ». « Faites », lui, s’accorde avec le COD « qu’ » placé avant.",
       },
     ],
     exercise: [

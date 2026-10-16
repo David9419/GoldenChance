@@ -209,10 +209,6 @@ function SettingsCard({ data }: { data: AppData }) {
               </div>
             ))}
             <div className="grid gap-2">
-              <Label htmlFor="tm">Durée d’un contrôle (minutes)</Label>
-              <Input id="tm" type="number" min={5} max={120} value={s.testMinutes} onChange={(e) => set("testMinutes", Number(e.target.value) || 25)} />
-            </div>
-            <div className="grid gap-2">
               <Label htmlFor="cd">Correction des contrôles après (jours)</Label>
               <Input
                 id="cd"

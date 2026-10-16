@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Lightbulb, ListChecks, Sigma, Target } from "lucide-react";
 import type { Chapter } from "@/content/types";
 import { Card } from "@/components/ui/card";
+import { FigureView } from "./figure-view";
 import { RichText } from "./rich-text";
 
 export function Objectives({ chapter, color }: { chapter: Chapter; color: string }) {
@@ -26,7 +27,7 @@ export function Objectives({ chapter, color }: { chapter: Chapter; color: string
 
 /** Affiche les sections de cours demandées (toutes par défaut). */
 export function CourseSections({ chapter, sections, color }: { chapter: Chapter; sections?: number[]; color: string }) {
-  const list = (sections?.length ? sections : chapter.sections.map((_, i) => i)).map((i) => ({ i, s: chapter.sections[i] })).filter((x) => x.s);
+  const list = (sections ?? chapter.sections.map((_, i) => i)).map((i) => ({ i, s: chapter.sections[i] })).filter((x) => x.s);
   return (
     <div className="flex flex-col gap-5">
       {list.map(({ i, s }) => (
@@ -52,6 +53,8 @@ export function CourseSections({ chapter, sections, color }: { chapter: Chapter;
                 </p>
               ))}
             </div>
+
+            {s.figure && <FigureView figure={s.figure} color={color} />}
 
             {s.formulas && s.formulas.length > 0 && (
               <div className="mt-6 rounded-2xl border p-4 sm:p-5" style={{ borderColor: `${color}50`, background: `${color}12` }}>

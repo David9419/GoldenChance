@@ -40,6 +40,42 @@ export const chapters: Chapter[] = [
             "√25 − √2 = 5 − √2 : la somme d’un rationnel et d’un irrationnel est irrationnelle, donc ce nombre appartient seulement à ℝ.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les ensembles de nombres",
+          caption: "Chaque ensemble est inclus dans le suivant : ℕ ⊂ ℤ ⊂ 𝔻 ⊂ ℚ ⊂ ℝ.",
+          headers: ["Ensemble", "Nom", "Exemples"],
+          rows: [
+            ["ℕ", "entiers naturels", "0 ; 7 ; √9 = 3"],
+            ["ℤ", "entiers relatifs", "−4 ; −12/4 = −3"],
+            ["𝔻", "nombres décimaux", "0,35 ; 7/20 ; −2,5"],
+            ["ℚ", "nombres rationnels", "1/3 ; 2/3"],
+            ["ℝ", "nombres réels", "√2 ; π ; 5 − √2"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-01-s1-p1",
+            prompt: "Quel est le plus petit ensemble auquel appartient le nombre 21/7 ?",
+            choices: ["ℕ", "ℤ", "ℚ", "ℝ"],
+            answer: 0,
+            explanation: "On commence toujours par **simplifier** : 21/7 = 3. Or 3 est un entier positif, donc 21/7 ∈ ℕ. Il appartient aussi à ℤ, ℚ et ℝ (car ℕ est inclus dans ces ensembles), mais le plus petit ensemble est ℕ.",
+          },
+          {
+            id: "2nde-maths-01-s1-p2",
+            prompt: "Dans quel plus petit ensemble se trouve le nombre 3/8 ?",
+            choices: ["ℤ", "ℚ mais pas 𝔻", "𝔻", "ℝ seulement"],
+            answer: 2,
+            explanation: "On effectue la division : 3/8 = 0,375. L’écriture décimale est **finie** (trois chiffres après la virgule), donc 3/8 est un nombre décimal : 3/8 = 375/10³ ∈ 𝔻. Ce n’est pas un entier, donc 3/8 ∉ ℤ : le plus petit ensemble est 𝔻.",
+          },
+          {
+            id: "2nde-maths-01-s1-p3",
+            prompt: "Quelle affirmation est vraie ?",
+            choices: ["√16 ∉ ℕ", "−5 ∈ ℕ", "1/3 ∈ 𝔻", "π ∉ ℚ"],
+            answer: 3,
+            explanation: "π est un nombre **irrationnel** : il ne peut pas s’écrire comme quotient de deux entiers, donc π ∉ ℚ. Les autres sont fausses : √16 = 4 ∈ ℕ ; −5 est négatif donc −5 ∉ ℕ ; 1/3 = 0,333… a une écriture décimale illimitée donc 1/3 ∉ 𝔻.",
+          },
+        ],
       },
       {
         title: "Puissances et racines carrées",
@@ -73,6 +109,38 @@ export const chapters: Chapter[] = [
             "A = 3⁷ / 3⁴ = 3⁷⁻⁴ = 3³ = 27.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Puissances de 2",
+          caption: "Chaque fois que l’exposant augmente de 1, on multiplie par 2 ; a⁰ = 1 et a⁻ⁿ = 1/aⁿ.",
+          headers: ["n", "−3", "−2", "−1", "0", "1", "2", "3"],
+          rows: [
+            ["2ⁿ", "1/8", "1/4", "1/2", "1", "2", "4", "8"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-01-s2-p1",
+            prompt: "Que vaut 5³ × 5⁻⁵ ?",
+            choices: ["5⁻¹⁵", "1/25", "25", "5⁸"],
+            answer: 1,
+            explanation: "Pour un **produit** de puissances d’un même nombre, on additionne les exposants : 5³ × 5⁻⁵ = 5³⁺⁽⁻⁵⁾ = 5⁻². Puis, par définition, 5⁻² = 1/5² = 1/25. Le piège 5⁻¹⁵ vient d’une multiplication des exposants, qui ne concerne que (aᵐ)ⁿ.",
+          },
+          {
+            id: "2nde-maths-01-s2-p2",
+            prompt: "Quelle est l’écriture simplifiée de √50 ?",
+            choices: ["25√2", "2√5", "10√5", "5√2"],
+            answer: 3,
+            explanation: "On cherche le plus grand carré parfait qui divise 50 : 50 = 25 × 2. Donc √50 = √25 × √2 = 5√2. Vérification : (5√2)² = 25 × 2 = 50. ✓",
+          },
+          {
+            id: "2nde-maths-01-s2-p3",
+            prompt: "Quelle est l’écriture scientifique de 0,000 73 ?",
+            choices: ["7,3 × 10⁻⁴", "73 × 10⁻⁵", "7,3 × 10⁴", "0,73 × 10⁻³"],
+            answer: 0,
+            explanation: "L’écriture scientifique est a × 10ⁿ avec 1 ≤ |a| < 10 : ici a = 7,3. Pour passer de 7,3 à 0,000 73, on décale la virgule de 4 rangs vers la gauche, ce qui revient à multiplier par 10⁻⁴. Donc 0,000 73 = 7,3 × 10⁻⁴. Les écritures 73 × 10⁻⁵ et 0,73 × 10⁻³ sont égales au nombre mais ne sont pas scientifiques (73 ≥ 10 et 0,73 < 1).",
+          },
+        ],
       },
       {
         title: "Intervalles et valeur absolue",
@@ -102,6 +170,40 @@ export const chapters: Chapter[] = [
             "|x + 1| = |x − (−1)| est la distance entre x et −1. Elle est < 4 lorsque −1 − 4 < x < −1 + 4, soit x ∈ ]−5 ; 3[.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Résoudre |x − a| ≤ r",
+          caption: "Exemple : |x − 2| ≤ 3 ⇔ −1 ≤ x ≤ 5 ⇔ x ∈ [−1 ; 5].",
+          steps: [
+            { label: "Lire une distance", detail: "|x − a| est la distance entre x et a" },
+            { label: "Repérer centre et rayon", detail: "centre a, rayon r" },
+            { label: "Encadrer", detail: "a − r ≤ x ≤ a + r" },
+            { label: "Conclure", detail: "x ∈ [a − r ; a + r]" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-01-s3-p1",
+            prompt: "Comment s’écrit l’ensemble des réels x tels que −3 < x ≤ 4 ?",
+            choices: ["[−3 ; 4]", "]−3 ; 4]", "[−3 ; 4[", "]−3 ; 4["],
+            answer: 1,
+            explanation: "La borne −3 est **exclue** (inégalité stricte −3 < x) : le crochet est tourné vers l’extérieur, « ]−3 ». La borne 4 est **incluse** (x ≤ 4) : le crochet est tourné vers le nombre, « 4] ». On obtient ]−3 ; 4].",
+          },
+          {
+            id: "2nde-maths-01-s3-p2",
+            prompt: "On donne I = [0 ; 6] et J = ]4 ; 10[. Que vaut I ∩ J ?",
+            choices: ["[0 ; 10[", "[4 ; 6]", "]4 ; 6[", "]4 ; 6]"],
+            answer: 3,
+            explanation: "I ∩ J contient les réels qui sont **à la fois** dans I et dans J. Sur une droite graduée, ils vont de 4 à 6. La borne 4 est exclue (elle n’est pas dans J) et la borne 6 est incluse (elle est dans I et dans J, car 6 < 10). Donc I ∩ J = ]4 ; 6]. [0 ; 10[ est la réunion I ∪ J.",
+          },
+          {
+            id: "2nde-maths-01-s3-p3",
+            prompt: "Quel est l’ensemble des réels x tels que |x − 5| ≤ 2 ?",
+            choices: ["[3 ; 7]", "[−7 ; −3]", "]3 ; 7[", "[−2 ; 2]"],
+            answer: 0,
+            explanation: "|x − 5| est la distance entre x et 5. Elle est inférieure ou égale à 2 lorsque 5 − 2 ≤ x ≤ 5 + 2, soit 3 ≤ x ≤ 7. L’inégalité est large, donc les bornes sont incluses : x ∈ [3 ; 7].",
+          },
+        ],
       },
     ],
     exercise: [
@@ -220,6 +322,36 @@ export const chapters: Chapter[] = [
           "x² = (−5)² = 25, qui est positif : la racine existe. √25 = 5, car une racine carrée est toujours **positive**. Plus généralement √(x²) = |x|, et |−5| = 5. Répondre −5 est le piège classique (on « simplifie » à tort √(x²) en x).",
       },
     ],
+    homework: [
+      {
+        id: "2nde-maths-01-hw-1",
+        prompt: "Que vaut A = (2⁴ × 2⁻¹) / 2⁵ ?",
+        choices: ["4", "1/4", "2⁻¹⁰", "1/2"],
+        answer: 1,
+        explanation: "Au numérateur : 2⁴ × 2⁻¹ = 2⁴⁻¹ = 2³. Puis A = 2³ / 2⁵ = 2³⁻⁵ = 2⁻². Enfin 2⁻² = 1/2² = 1/4. Vérification numérique : (16 × 0,5)/32 = 8/32 = 1/4. ✓",
+      },
+      {
+        id: "2nde-maths-01-hw-2",
+        prompt: "Quelle est l’écriture simplifiée de √12 + √27 ?",
+        choices: ["√39", "6√3", "5√3", "13√3"],
+        answer: 2,
+        explanation: "On simplifie chaque racine : √12 = √(4 × 3) = 2√3 et √27 = √(9 × 3) = 3√3. On additionne ensuite comme des termes semblables : 2√3 + 3√3 = 5√3. Le piège √39 vient de l’erreur √a + √b = √(a + b), qui est fausse.",
+      },
+      {
+        id: "2nde-maths-01-hw-3",
+        prompt: "On donne I = ]−∞ ; 2] et J = [−1 ; 5[. Que vaut I ∪ J ?",
+        choices: ["[−1 ; 2]", "]−∞ ; 5[", "]−∞ ; 5]", "ℝ"],
+        answer: 1,
+        explanation: "I ∪ J contient les réels qui sont dans I **ou** dans J. I couvre tout ce qui est à gauche de 2 (inclus) et J prolonge jusqu’à 5 exclu. La réunion va donc de −∞ jusqu’à 5, borne exclue car 5 ∉ J et 5 ∉ I : I ∪ J = ]−∞ ; 5[. L’intervalle [−1 ; 2] est l’intersection I ∩ J.",
+      },
+      {
+        id: "2nde-maths-01-hw-4",
+        prompt: "Parmi ces nombres, lequel est décimal mais pas entier ?",
+        choices: ["√2", "1/6", "12/3", "9/4"],
+        answer: 3,
+        explanation: "9/4 = 2,25 : l’écriture décimale est finie, donc 9/4 ∈ 𝔻, et ce n’est pas un entier. Les autres ne conviennent pas : √2 est irrationnel ; 1/6 = 0,1666… a une écriture illimitée (rationnel non décimal) ; 12/3 = 4 est un entier.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 2 ─────────────────────────────
@@ -260,6 +392,39 @@ export const chapters: Chapter[] = [
             "Vérification avec x = 1 : forme initiale (−1) × 5 − 2 × 0 = −5 ; forme développée 2 + 3 − 10 = −5. ✓",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Double distributivité : (2x − 3)(x + 4)",
+          caption: "Chaque terme de la première parenthèse multiplie chaque terme de la seconde : 2x² + 8x − 3x − 12 = 2x² + 5x − 12.",
+          headers: ["×", "x", "+4"],
+          rows: [
+            ["2x", "2x²", "+8x"],
+            ["−3", "−3x", "−12"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-02-s1-p1",
+            prompt: "Quel est le développement de −4(3x − 2) ?",
+            choices: ["−12x − 8", "−12x + 8", "12x − 8", "−12x + 2"],
+            answer: 1,
+            explanation: "On multiplie **chaque** terme de la parenthèse par −4 : −4 × 3x = −12x et −4 × (−2) = +8 (moins par moins donne plus). Donc −4(3x − 2) = −12x + 8. Vérification avec x = 1 : −4 × 1 = −4 et −12 + 8 = −4. ✓",
+          },
+          {
+            id: "2nde-maths-02-s1-p2",
+            prompt: "Quel est le développement réduit de (x + 3)(x − 5) ?",
+            choices: ["x² − 15", "x² + 2x − 15", "x² − 2x − 15", "x² − 8x − 15"],
+            answer: 2,
+            explanation: "Double distributivité : (x + 3)(x − 5) = x × x + x × (−5) + 3 × x + 3 × (−5) = x² − 5x + 3x − 15. On réduit les termes en x : −5x + 3x = −2x. Résultat : x² − 2x − 15. Vérification avec x = 1 : 4 × (−4) = −16 et 1 − 2 − 15 = −16. ✓",
+          },
+          {
+            id: "2nde-maths-02-s1-p3",
+            prompt: "Quelle est la forme réduite de 5x − (2x − 7) ?",
+            choices: ["3x + 7", "3x − 7", "7x − 7", "7x + 7"],
+            answer: 0,
+            explanation: "Le signe « − » devant la parenthèse change le signe de **tous** les termes qu’elle contient : −(2x − 7) = −2x + 7. Donc 5x − (2x − 7) = 5x − 2x + 7 = 3x + 7. L’erreur fréquente 3x − 7 vient d’un oubli de changement de signe sur le −7.",
+          },
+        ],
       },
       {
         title: "Identités remarquables et factorisation",
@@ -291,6 +456,40 @@ export const chapters: Chapter[] = [
             "Vérification avec x = 0 : (0 + 3)² − 0 = 9 et 3 × 3 × 1 = 9. ✓",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les trois identités remarquables",
+          caption: "Lues de gauche à droite, elles développent ; lues de droite à gauche, elles factorisent.",
+          headers: ["Forme factorisée", "Forme développée", "Exemple"],
+          rows: [
+            ["(a + b)²", "a² + 2ab + b²", "(x + 5)² = x² + 10x + 25"],
+            ["(a − b)²", "a² − 2ab + b²", "(x − 3)² = x² − 6x + 9"],
+            ["(a + b)(a − b)", "a² − b²", "(x + 7)(x − 7) = x² − 49"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-02-s2-p1",
+            prompt: "Quel est le développement de (2x + 3)² ?",
+            choices: ["4x² + 9", "2x² + 12x + 9", "4x² + 6x + 9", "4x² + 12x + 9"],
+            answer: 3,
+            explanation: "On applique (a + b)² = a² + 2ab + b² avec a = 2x et b = 3. a² = (2x)² = 4x², 2ab = 2 × 2x × 3 = 12x et b² = 9. Donc (2x + 3)² = 4x² + 12x + 9. Le piège 4x² + 9 oublie le double produit.",
+          },
+          {
+            id: "2nde-maths-02-s2-p2",
+            prompt: "Quelle est la forme factorisée de x² − 25 ?",
+            choices: ["(x − 5)²", "(x − 5)(x + 5)", "(x − 25)(x + 25)", "x(x − 25)"],
+            answer: 1,
+            explanation: "x² − 25 = x² − 5² est une **différence de deux carrés** a² − b² avec a = x et b = 5. Elle se factorise en (a − b)(a + b) = (x − 5)(x + 5). Vérification : (x − 5)(x + 5) = x² + 5x − 5x − 25 = x² − 25. ✓",
+          },
+          {
+            id: "2nde-maths-02-s2-p3",
+            prompt: "Quelle est la forme factorisée de 4x(x + 2) − 3(x + 2) ?",
+            choices: ["(x + 2)(4x − 3)", "(x + 2)(4x + 3)", "4x − 3(x + 2)", "(x + 2)²(4x − 3)"],
+            answer: 0,
+            explanation: "Le **facteur commun** aux deux termes est l’expression (x + 2). On l’écrit en facteur et on recopie ce qui reste : 4x(x + 2) − 3(x + 2) = (x + 2)(4x − 3). Attention au signe : c’est bien « − 3 » qui reste dans la seconde parenthèse.",
+          },
+        ],
       },
       {
         title: "Calcul fractionnaire et expressions rationnelles",
@@ -320,6 +519,49 @@ export const chapters: Chapter[] = [
             "C = 1/2.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Additionner deux fractions",
+          caption: "Exemple : 5/6 − 3/4 = 10/12 − 9/12 = 1/12.",
+          steps: [
+            {
+              label: "Dénominateur commun",
+              detail: "de préférence le plus petit multiple commun",
+            },
+            {
+              label: "Transformer chaque fraction",
+              detail: "multiplier numérateur et dénominateur par le même nombre",
+            },
+            {
+              label: "Additionner les numérateurs",
+              detail: "on garde le dénominateur commun",
+            },
+            { label: "Simplifier", detail: "diviser par un facteur commun" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-02-s3-p1",
+            prompt: "Que vaut 3/4 + 5/6 ?",
+            choices: ["8/10", "15/24", "19/12", "19/24"],
+            answer: 2,
+            explanation: "Le plus petit multiple commun de 4 et 6 est 12. On écrit 3/4 = 9/12 et 5/6 = 10/12. Donc 3/4 + 5/6 = 9/12 + 10/12 = 19/12. Le piège 8/10 additionne numérateurs et dénominateurs entre eux, ce qui est faux.",
+          },
+          {
+            id: "2nde-maths-02-s3-p2",
+            prompt: "Que vaut (2/3) ÷ (4/9) ?",
+            choices: ["8/27", "2/3", "6/7", "3/2"],
+            answer: 3,
+            explanation: "Diviser par 4/9 revient à multiplier par son **inverse** 9/4 : (2/3) × (9/4) = 18/12. On simplifie par 6 : 18/12 = 3/2. Le piège 8/27 correspond au produit (2/3) × (4/9), et non au quotient.",
+          },
+          {
+            id: "2nde-maths-02-s3-p3",
+            prompt: "Quelle simplification est correcte ?",
+            choices: ["(x + 5)/5 = x", "(6x)/3 = 2x", "(x + 4)/(x + 2) = 2", "(3x + 1)/3 = x + 1"],
+            answer: 1,
+            explanation: "On ne simplifie que des **facteurs** : 6x/3 = (3 × 2x)/3 = 2x est correct. Dans (x + 5)/5, (x + 4)/(x + 2) et (3x + 1)/3, le numérateur est une somme : on ne peut pas « barrer » un terme. Par exemple pour x = 1, (3 × 1 + 1)/3 = 4/3, alors que x + 1 = 2.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -438,6 +680,36 @@ export const chapters: Chapter[] = [
           "99 × 101 = (100 − 1)(100 + 1) = 100² − 1² = 10 000 − 1 = 9 999, grâce à (a − b)(a + b) = a² − b². 9 801 est 99², et 10 001 serait 100² + 1.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-maths-02-hw-1",
+        prompt: "Quelle est la forme développée réduite de (x − 2)² − (x + 1)(x − 1) ?",
+        choices: ["−4x + 3", "−4x + 5", "2x² − 4x + 3", "−4x + 4"],
+        answer: 1,
+        explanation: "(x − 2)² = x² − 4x + 4 et (x + 1)(x − 1) = x² − 1. On soustrait entre crochets : x² − 4x + 4 − [x² − 1] = x² − 4x + 4 − x² + 1 = −4x + 5. Vérification avec x = 0 : (−2)² − (1)(−1) = 4 + 1 = 5 et −4 × 0 + 5 = 5. ✓",
+      },
+      {
+        id: "2nde-maths-02-hw-2",
+        prompt: "Quelle est la forme factorisée de 9x² − 12x + 4 ?",
+        choices: ["(9x − 2)²", "(3x + 2)²", "(3x − 4)(3x + 1)", "(3x − 2)²"],
+        answer: 3,
+        explanation: "On reconnaît a² − 2ab + b² avec a² = 9x² (a = 3x) et b² = 4 (b = 2) ; le double produit vaut bien 2 × 3x × 2 = 12x. Donc 9x² − 12x + 4 = (3x − 2)². Vérification : (3x − 2)² = 9x² − 12x + 4. ✓ (3x + 2)² donnerait +12x.",
+      },
+      {
+        id: "2nde-maths-02-hw-3",
+        prompt: "Quelle est la forme factorisée de (x + 1)² − 16 ?",
+        choices: ["(x − 4)(x + 4)", "(x − 3)(x − 5)", "(x − 3)(x + 5)", "(x − 15)(x + 17)"],
+        answer: 2,
+        explanation: "C’est une différence de deux carrés a² − b² avec a = x + 1 et b = 4. Donc (x + 1)² − 16 = [(x + 1) − 4][(x + 1) + 4] = (x − 3)(x + 5). Vérification avec x = 0 : 1 − 16 = −15 et (−3) × 5 = −15. ✓",
+      },
+      {
+        id: "2nde-maths-02-hw-4",
+        prompt: "Pour x ≠ 0 et x ≠ −1, à quoi est égal 1/x + 1/(x + 1) ?",
+        choices: ["2/(2x + 1)", "(2x + 1)/(x(x + 1))", "1/(x(x + 1))", "2/(x(x + 1))"],
+        answer: 1,
+        explanation: "Le dénominateur commun est x(x + 1). On écrit 1/x = (x + 1)/(x(x + 1)) et 1/(x + 1) = x/(x(x + 1)). En additionnant les numérateurs : (x + 1 + x)/(x(x + 1)) = (2x + 1)/(x(x + 1)). Vérification avec x = 1 : 1 + 1/2 = 3/2 et 3/(1 × 2) = 3/2. ✓",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 3 ─────────────────────────────
@@ -478,6 +750,40 @@ export const chapters: Chapter[] = [
             "Vérification : 3 × (3 − 2) + 4 = 7 et 5 × 3 − 8 = 7. ✓ Donc S = {3}.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Résoudre une équation du premier degré",
+          caption: "Exemple : 3(x − 2) + 4 = 5x − 8 ⇔ 3x − 2 = 5x − 8 ⇔ −2x = −6 ⇔ x = 3.",
+          steps: [
+            { label: "Développer et réduire", detail: "chaque membre séparément" },
+            { label: "Regrouper", detail: "les x d’un côté, les constantes de l’autre" },
+            { label: "Diviser", detail: "par le coefficient de x (non nul)" },
+            { label: "Vérifier et conclure", detail: "S = {…}" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-03-s1-p1",
+            prompt: "Quelle est la solution de l’équation 5x − 7 = 2x + 8 ?",
+            choices: ["x = 1/3", "x = 5", "x = 15", "x = −5"],
+            answer: 1,
+            explanation: "On soustrait 2x aux deux membres : 3x − 7 = 8. On ajoute 7 : 3x = 15. On divise par 3 (non nul) : x = 5. Vérification : 5 × 5 − 7 = 18 et 2 × 5 + 8 = 18. ✓ Donc S = {5}.",
+          },
+          {
+            id: "2nde-maths-03-s1-p2",
+            prompt: "Quel est l’ensemble des solutions de 2(x + 3) = 2x + 6 ?",
+            choices: ["S = {0}", "S = ∅", "S = ℝ", "S = {3}"],
+            answer: 2,
+            explanation: "On développe : 2x + 6 = 2x + 6. En soustrayant 2x, on obtient 6 = 6, égalité **toujours vraie** : les x ont disparu et tout réel est solution. Donc S = ℝ. Si l’on avait obtenu une égalité toujours fausse (comme 6 = 5), on aurait S = ∅.",
+          },
+          {
+            id: "2nde-maths-03-s1-p3",
+            prompt: "La somme de trois entiers consécutifs vaut 81. Quel est le plus petit de ces entiers ?",
+            choices: ["26", "27", "28", "25"],
+            answer: 0,
+            explanation: "On appelle n le plus petit entier ; les deux suivants sont n + 1 et n + 2. L’équation s’écrit n + (n + 1) + (n + 2) = 81, soit 3n + 3 = 81, donc 3n = 78 et n = 26. Vérification : 26 + 27 + 28 = 81. ✓",
+          },
+        ],
       },
       {
         title: "Équation produit nul et équations quotient",
@@ -508,6 +814,40 @@ export const chapters: Chapter[] = [
             "S = {−1 ; 5}. (Diviser par x + 1 aurait fait perdre la solution −1.)",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Nombre de solutions de x² = a",
+          caption: "Un carré est toujours positif ou nul : x² = a n’a pas de solution réelle si a < 0.",
+          headers: ["Cas", "Solutions", "Exemple"],
+          rows: [
+            ["a > 0", "√a et −√a", "x² = 9 : S = {−3 ; 3}"],
+            ["a = 0", "0", "x² = 0 : S = {0}"],
+            ["a < 0", "aucune", "x² = −4 : S = ∅"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-03-s2-p1",
+            prompt: "Quel est l’ensemble des solutions de (x − 4)(3x + 6) = 0 ?",
+            choices: ["S = {4 ; 2}", "S = {−4 ; 2}", "S = {4 ; −2}", "S = {4 ; −6}"],
+            answer: 2,
+            explanation: "Un produit est nul si et seulement si l’un de ses facteurs est nul : x − 4 = 0 ou 3x + 6 = 0. La première donne x = 4 ; la seconde 3x = −6, soit x = −2. Donc S = {4 ; −2}. Le piège −6 oublie de diviser par 3.",
+          },
+          {
+            id: "2nde-maths-03-s2-p2",
+            prompt: "Quel est l’ensemble des solutions de x² = 7x ?",
+            choices: ["S = {7}", "S = {0 ; 7}", "S = {−7 ; 7}", "S = {0}"],
+            answer: 1,
+            explanation: "On ne divise surtout pas par x ! On passe tout dans un membre : x² − 7x = 0, puis on factorise : x(x − 7) = 0. Produit nul : x = 0 ou x = 7, donc S = {0 ; 7}. Diviser par x aurait fait perdre la solution 0.",
+          },
+          {
+            id: "2nde-maths-03-s2-p3",
+            prompt: "Quel est l’ensemble des solutions de (x − 3)/(x + 2) = 0 ?",
+            choices: ["S = {−2}", "S = {−2 ; 3}", "S = ∅", "S = {3}"],
+            answer: 3,
+            explanation: "Valeur interdite : x + 2 = 0 ⇔ x = −2. Un quotient est nul si et seulement si son numérateur est nul et son dénominateur non nul : x − 3 = 0 donne x = 3, qui n’est pas interdite. Donc S = {3}. −2 ne peut pas être solution puisque le quotient n’y est pas défini.",
+          },
+        ],
       },
       {
         title: "Inéquations et tableaux de signes",
@@ -538,6 +878,40 @@ export const chapters: Chapter[] = [
             "On veut ≥ 0 : 2 est inclus (le quotient y vaut 0), 3 est exclu (valeur interdite). S = [2 ; 3[.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Tableau de signes de (x − 2)/(3 − x)",
+          caption: "La double barre ‖ signale la valeur interdite 3. Le quotient est positif ou nul sur [2 ; 3[.",
+          headers: ["x", "−∞", "", "2", "", "3", "", "+∞"],
+          rows: [
+            ["x − 2", "", "−", "0", "+", "", "+", ""],
+            ["3 − x", "", "+", "", "+", "0", "−", ""],
+            ["quotient", "", "−", "0", "+", "‖", "−", ""],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-03-s3-p1",
+            prompt: "Quel est l’ensemble des solutions de −2x + 5 > 11 ?",
+            choices: ["x > −3", "x < −3", "x > 3", "x < 8"],
+            answer: 1,
+            explanation: "On soustrait 5 aux deux membres : −2x > 6. On divise ensuite par −2, nombre **négatif** : le sens de l’inégalité **change**, d’où x < −3. Vérification avec x = −4 : −2 × (−4) + 5 = 13 > 11. ✓ Donc S = ]−∞ ; −3[.",
+          },
+          {
+            id: "2nde-maths-03-s3-p2",
+            prompt: "Sur quel intervalle l’expression −3x + 6 est-elle strictement positive ?",
+            choices: ["]2 ; +∞[", "]−∞ ; −2[", "]−∞ ; 2[", "]−2 ; +∞["],
+            answer: 2,
+            explanation: "−3x + 6 s’annule pour x = −6/(−3) = 2. Le coefficient a = −3 est négatif : l’expression est du signe de a (négative) à droite de 2 et du signe contraire (positive) à gauche. Elle est donc strictement positive sur ]−∞ ; 2[. Vérification : pour x = 0, on obtient 6 > 0. ✓",
+          },
+          {
+            id: "2nde-maths-03-s3-p3",
+            prompt: "Quel est l’ensemble des solutions de (x + 1)(x − 4) ≤ 0 ?",
+            choices: ["]−∞ ; −1] ∪ [4 ; +∞[", "]−1 ; 4[", "[−4 ; 1]", "[−1 ; 4]"],
+            answer: 3,
+            explanation: "Les facteurs s’annulent en −1 et en 4. Tableau de signes : x + 1 est négatif avant −1 et positif après ; x − 4 est négatif avant 4 et positif après. Le produit est donc positif sur ]−∞ ; −1[, négatif sur ]−1 ; 4[ et positif sur ]4 ; +∞[. On veut ≤ 0 : les bornes (où le produit vaut 0) sont incluses, d’où S = [−1 ; 4].",
+          },
+        ],
       },
     ],
     exercise: [
@@ -657,6 +1031,36 @@ export const chapters: Chapter[] = [
           "Soit ℓ la largeur (en cm) ; la longueur vaut ℓ + 3. Périmètre : 2(ℓ + ℓ + 3) = 30, soit 2(2ℓ + 3) = 30, donc 2ℓ + 3 = 15, 2ℓ = 12 et ℓ = 6. Vérification : largeur 6, longueur 9, périmètre 2 × 15 = 30. ✓ (9 cm est la longueur, pas la largeur.)",
       },
     ],
+    homework: [
+      {
+        id: "2nde-maths-03-hw-1",
+        prompt: "Quel est l’ensemble des solutions de (x + 2)² = 9 ?",
+        choices: ["S = {1}", "S = {1 ; −5}", "S = {−1 ; 5}", "S = {7}"],
+        answer: 1,
+        explanation: "Un carré vaut 9 si et seulement si le nombre élevé au carré vaut 3 ou −3 : x + 2 = 3 ou x + 2 = −3, soit x = 1 ou x = −5. On peut aussi écrire (x + 2)² − 9 = 0, puis (x + 2 − 3)(x + 2 + 3) = (x − 1)(x + 5) = 0. Donc S = {1 ; −5}. Oublier la solution négative est l’erreur classique.",
+      },
+      {
+        id: "2nde-maths-03-hw-2",
+        prompt: "Quel est l’ensemble des solutions de (2x − 1)(x + 3) − (2x − 1)(4 − x) = 0 ?",
+        choices: ["S = {1/2}", "S = {1/2 ; −3}", "S = {1/2 ; 4}", "S = ∅"],
+        answer: 0,
+        explanation: "On factorise par (2x − 1) : (2x − 1)[(x + 3) − (4 − x)] = 0. On réduit le crochet : x + 3 − 4 + x = 2x − 1. L’équation devient (2x − 1)(2x − 1) = (2x − 1)² = 0, d’où 2x − 1 = 0 et x = 1/2. Donc S = {1/2} : il n’y a qu’une solution, car les deux facteurs sont identiques.",
+      },
+      {
+        id: "2nde-maths-03-hw-3",
+        prompt: "Quel est l’ensemble des solutions de (2x − 6)/(x + 1) < 0 ?",
+        choices: ["]−1 ; 3]", "]−∞ ; −1[ ∪ ]3 ; +∞[", "[−1 ; 3[", "]−1 ; 3["],
+        answer: 3,
+        explanation: "Valeur interdite : x = −1. Le numérateur 2x − 6 s’annule en 3, négatif avant et positif après ; le dénominateur x + 1 est négatif avant −1 et positif après. Le quotient est donc positif sur ]−∞ ; −1[, négatif sur ]−1 ; 3[, nul en 3 et positif sur ]3 ; +∞[. On veut < 0 (strict) : 3 est exclu et −1 est interdit, donc S = ]−1 ; 3[.",
+      },
+      {
+        id: "2nde-maths-03-hw-4",
+        prompt: "Forfait A : 20 € par mois. Forfait B : 8 € par mois plus 0,50 € par Go consommé. À partir de quelle consommation (strictement au-delà) le forfait A devient-il plus avantageux ?",
+        choices: ["Plus de 12 Go", "Plus de 40 Go", "Plus de 24 Go", "Plus de 56 Go"],
+        answer: 2,
+        explanation: "On note g le nombre de Go. Le forfait B coûte 8 + 0,5g euros. A est plus avantageux quand 8 + 0,5g > 20, soit 0,5g > 12, donc g > 24 (on divise par 0,5, positif : le sens ne change pas). Vérification : pour 24 Go, B coûte 8 + 12 = 20 €, autant que A ; au-delà, B coûte plus cher.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 4 ─────────────────────────────
@@ -696,6 +1100,38 @@ export const chapters: Chapter[] = [
             "Antécédents de −1 : x² − 2x = −1 ⇔ x² − 2x + 1 = 0 ⇔ (x − 1)² = 0 ⇔ x = 1. Le réel −1 a un seul antécédent : 1.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Tableau de valeurs de f(x) = x² − 2x",
+          caption: "On y lit par exemple que 0 a deux antécédents (0 et 2) et que −1 a un seul antécédent (1).",
+          headers: ["x", "−2", "−1", "0", "1", "2", "3"],
+          rows: [
+            ["f(x)", "8", "3", "0", "−1", "0", "3"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-04-s1-p1",
+            prompt: "On considère f(x) = 2x² − 3x + 1. Quelle est l’image de −2 par f ?",
+            choices: ["3", "15", "−1", "11"],
+            answer: 1,
+            explanation: "On remplace x par (−2), entre parenthèses : f(−2) = 2 × (−2)² − 3 × (−2) + 1 = 2 × 4 + 6 + 1 = 15. Le piège 3 vient d’une erreur de signe sur −3 × (−2), qui vaut +6.",
+          },
+          {
+            id: "2nde-maths-04-s1-p2",
+            prompt: "On considère g(x) = 3x − 5. Quel est l’antécédent de 7 par g ?",
+            choices: ["16", "2/3", "4", "12"],
+            answer: 2,
+            explanation: "Pour trouver un antécédent de 7, on résout g(x) = 7 : 3x − 5 = 7, donc 3x = 12 et x = 4. Vérification : g(4) = 12 − 5 = 7. ✓ Le piège 16 est l’**image** de 7 (g(7) = 21 − 5 = 16), et non son antécédent.",
+          },
+          {
+            id: "2nde-maths-04-s1-p3",
+            prompt: "Quel est l’ensemble de définition de h(x) = √(2x − 8) ?",
+            choices: ["]4 ; +∞[", "ℝ \\ {4}", "[−4 ; +∞[", "[4 ; +∞["],
+            answer: 3,
+            explanation: "Le nombre sous la racine doit être **positif ou nul** : 2x − 8 ≥ 0 ⇔ 2x ≥ 8 ⇔ x ≥ 4. La valeur 4 est autorisée car √0 = 0 existe. Donc h est définie sur [4 ; +∞[.",
+          },
+        ],
       },
       {
         title: "Courbe représentative et parité",
@@ -721,6 +1157,53 @@ export const chapters: Chapter[] = [
             "Remarque : f(−x) = (−x)² + 1 = x² + 1 = f(x), donc f est paire et le point A′(2 ; 5) est lui aussi sur la courbe.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Parité : symétries des courbes",
+          caption: "La parabole y = x² est symétrique par rapport à l’axe des ordonnées (fonction paire) ; la courbe y = x³ est symétrique par rapport à l’origine (fonction impaire).",
+          xMin: -2,
+          xMax: 2,
+          yMin: -4,
+          yMax: 4,
+          curves: [
+            { expr: "x*x", label: "y = x² (paire)" },
+            { expr: "x*x*x", label: "y = x³ (impaire)" },
+          ],
+          points: [
+            { x: -1, y: 1, label: "(−1 ; 1)" },
+            { x: 1, y: 1, label: "(1 ; 1)" },
+            { x: -1, y: -1, label: "(−1 ; −1)" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-04-s2-p1",
+            prompt: "Lequel de ces points appartient à la courbe de f(x) = x² − 3 ?",
+            choices: ["A(2 ; 4)", "B(−1 ; −2)", "C(0 ; 3)", "D(3 ; 9)"],
+            answer: 1,
+            explanation: "Un point M(a ; b) est sur la courbe si et seulement si f(a) = b. f(−1) = (−1)² − 3 = 1 − 3 = −2 : c’est bien l’ordonnée de B, donc B ∈ 𝒞f. Pour les autres : f(2) = 1 ≠ 4, f(0) = −3 ≠ 3 et f(3) = 6 ≠ 9.",
+          },
+          {
+            id: "2nde-maths-04-s2-p2",
+            prompt: "On considère la fonction f définie sur ℝ par f(x) = x³ − 2x. Que peut-on dire de sa parité ?",
+            choices: ["f est paire.", "f n’est ni paire ni impaire.", "f est impaire.", "f est à la fois paire et impaire."],
+            answer: 2,
+            explanation:
+              "On calcule f(−x) = (−x)³ − 2 × (−x) = −x³ + 2x = −(x³ − 2x) = −f(x). Pour tout réel x, f(−x) = −f(x) : f est **impaire**, et sa courbe est symétrique par rapport à l’origine. Elle n’est pas paire, car par exemple f(1) = −1 alors que f(−1) = 1.",
+          },
+          {
+            id: "2nde-maths-04-s2-p3",
+            prompt: "Pour déterminer graphiquement les antécédents de 4 par f, que fait-on ?",
+            choices: [
+              "On lit l’ordonnée du point de 𝒞f d’abscisse 4.",
+              "On calcule f(4).",
+              "On lit les ordonnées des points d’intersection de 𝒞f avec la droite x = 4.",
+              "On lit les abscisses des points d’intersection de 𝒞f avec la droite y = 4.",
+            ],
+            answer: 3,
+            explanation: "Les antécédents de 4 sont les x tels que f(x) = 4 : ce sont les **abscisses** des points de la courbe dont l’ordonnée vaut 4, c’est-à-dire des points d’intersection avec la droite horizontale y = 4. Lire l’ordonnée du point d’abscisse 4 (ou calculer f(4)) donne au contraire l’**image** de 4.",
+          },
+        ],
       },
       {
         title: "Résolution graphique d’équations et d’inéquations",
@@ -746,6 +1229,46 @@ export const chapters: Chapter[] = [
             "Confirmation algébrique : x² − x − 2 = (x + 1)(x − 2), qui est négatif ou nul exactement sur [−1 ; 2].",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Résoudre graphiquement x² ≤ x + 2",
+          caption: "La parabole est sous la droite (ou la coupe) pour x entre −1 et 2 : S = [−1 ; 2].",
+          xMin: -3,
+          xMax: 3,
+          yMin: -1,
+          yMax: 9,
+          curves: [
+            { expr: "x*x", label: "f(x) = x²" },
+            { expr: "x+2", label: "g(x) = x + 2" },
+          ],
+          points: [
+            { x: -1, y: 1, label: "(−1 ; 1)" },
+            { x: 2, y: 4, label: "(2 ; 4)" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-04-s3-p1",
+            prompt: "Les courbes de f et de g se coupent exactement aux points (−2 ; 3) et (1 ; 0). Quel est l’ensemble des solutions de f(x) = g(x) ?",
+            choices: ["S = {−2 ; 1}", "S = {3 ; 0}", "S = {−2 ; 0}", "S = {(−2 ; 3)}"],
+            answer: 0,
+            explanation: "Les solutions de f(x) = g(x) sont les **abscisses** des points d’intersection des deux courbes. Ici ce sont −2 et 1, donc S = {−2 ; 1}. Les nombres 3 et 0 sont des ordonnées : ce sont les valeurs communes de f(x) et g(x), pas les solutions.",
+          },
+          {
+            id: "2nde-maths-04-s3-p2",
+            prompt: "Pour quelles valeurs de x la parabole y = x² est-elle strictement en dessous de la droite y = 4 ?",
+            choices: ["x ∈ [−2 ; 2]", "x ∈ ]−2 ; 2[", "x ∈ ]−∞ ; −2[ ∪ ]2 ; +∞[", "x ∈ ]0 ; 4["],
+            answer: 1,
+            explanation: "La parabole coupe la droite y = 4 aux points d’abscisses −2 et 2 (car (−2)² = 2² = 4). Entre ces deux valeurs elle est en dessous (par exemple 0² = 0 < 4), en dehors elle est au-dessus. L’inégalité x² < 4 est stricte, donc les bornes sont exclues : x ∈ ]−2 ; 2[.",
+          },
+          {
+            id: "2nde-maths-04-s3-p3",
+            prompt: "f est définie sur [−5 ; 5]. Sa courbe coupe la droite y = 1 en x = −3 et x = 2, est strictement au-dessus de cette droite pour x ∈ ]−3 ; 2[ et strictement en dessous ailleurs. Quel est l’ensemble des solutions de f(x) ≥ 1 ?",
+            choices: ["]−3 ; 2[", "[−5 ; −3] ∪ [2 ; 5]", "[−3 ; 2]", "{−3 ; 2}"],
+            answer: 2,
+            explanation: "On cherche les abscisses des points de la courbe situés au-dessus de la droite y = 1 **ou sur** cette droite. Au-dessus : ]−3 ; 2[ ; sur la droite : −3 et 2. L’inégalité est large, donc les bornes sont incluses : S = [−3 ; 2].",
+          },
+        ],
       },
     ],
     exercise: [
@@ -871,6 +1394,36 @@ export const chapters: Chapter[] = [
           "M ∈ 𝒞f ⇔ f(a) = 7 ⇔ 3a − 2 = 7 ⇔ 3a = 9 ⇔ a = 3. Ici on cherche un antécédent de 7. Le piège a = 19 correspond à l’image de 7 : f(7) = 19.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-maths-04-hw-1",
+        prompt: "On considère f(x) = (x − 1)/(x + 3). Quelle affirmation est vraie ?",
+        choices: ["f est définie sur ℝ.", "f(−1) = −1", "0 n’a pas d’antécédent par f.", "f(1) = 1/4"],
+        answer: 1,
+        explanation: "f(−1) = (−1 − 1)/(−1 + 3) = −2/2 = −1 : l’affirmation est vraie. Les autres sont fausses : f n’est pas définie en −3 (dénominateur nul), donc sur ℝ \\ {−3} ; 0 a pour antécédent 1, car f(1) = 0/4 = 0 ; et donc f(1) = 0, pas 1/4.",
+      },
+      {
+        id: "2nde-maths-04-hw-2",
+        prompt: "On considère f(x) = x² − 4x. Quels sont les antécédents de −4 par f ?",
+        choices: ["0 et 4", "−2 et 2", "aucun", "2 seulement"],
+        answer: 3,
+        explanation: "On résout f(x) = −4 : x² − 4x = −4 ⇔ x² − 4x + 4 = 0 ⇔ (x − 2)² = 0 ⇔ x = 2. Le réel −4 a donc un seul antécédent : 2. Vérification : f(2) = 4 − 8 = −4. ✓ Le piège « 0 et 4 » correspond aux antécédents de 0.",
+      },
+      {
+        id: "2nde-maths-04-hw-3",
+        prompt: "f est une fonction impaire définie sur ℝ et f(3) = −5. Que vaut f(−3) ?",
+        choices: ["5", "−5", "3", "−3"],
+        answer: 0,
+        explanation: "f impaire signifie f(−x) = −f(x) pour tout x. Avec x = 3 : f(−3) = −f(3) = −(−5) = 5. Graphiquement, les points (3 ; −5) et (−3 ; 5) sont symétriques par rapport à l’origine. Si f était paire, on aurait f(−3) = −5.",
+      },
+      {
+        id: "2nde-maths-04-hw-4",
+        prompt: "On considère f(x) = x² et g(x) = 2x + 3. Quel est l’ensemble des solutions de f(x) > g(x) ?",
+        choices: ["]−1 ; 3[", "[−1 ; 3]", "]−∞ ; −1[ ∪ ]3 ; +∞[", "]−∞ ; −3[ ∪ ]1 ; +∞["],
+        answer: 2,
+        explanation: "f(x) > g(x) ⇔ x² − 2x − 3 > 0. On factorise : (x + 1)(x − 3) = x² − 3x + x − 3 = x² − 2x − 3. ✓ Ce produit s’annule en −1 et 3 ; il est positif à l’extérieur de ces racines et négatif entre elles. Graphiquement, la parabole est strictement au-dessus de la droite pour x < −1 ou x > 3 : S = ]−∞ ; −1[ ∪ ]3 ; +∞[.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 5 ─────────────────────────────
@@ -914,6 +1467,48 @@ export const chapters: Chapter[] = [
             "Équation f(x) = 3 : 3 est compris entre −2 et 5 (une solution sur [−4 ; 1]) et entre 0 et 5 (une solution sur [1 ; 6]) : l’équation a deux solutions.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Tableau de variations de f sur [−4 ; 6]",
+          caption: "Maximum 5 atteint en x = 1 ; minimum −2 atteint en x = −4 (on compare −2 et 0).",
+          headers: ["x", "−4", "", "1", "", "6"],
+          rows: [
+            ["f(x)", "−2", "↗", "5", "↘", "0"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-05-s1-p1",
+            prompt: "f est croissante sur [0 ; 10]. Que peut-on dire de f(3) et f(7) ?",
+            choices: ["f(3) ≥ f(7)", "f(3) ≤ f(7)", "On ne peut pas les comparer.", "f(3) = f(7)"],
+            answer: 1,
+            explanation: "3 et 7 appartiennent à [0 ; 10], intervalle sur lequel f est croissante : f conserve l’ordre. Comme 3 ≤ 7, on en déduit f(3) ≤ f(7). Si f était décroissante, l’ordre serait inversé.",
+          },
+          {
+            id: "2nde-maths-05-s1-p2",
+            prompt: "Le tableau de variations de f est : x : −3 ; 0 ; 4 — f(x) : 2 ↘ −6 ↗ 1. Quel est le minimum de f sur [−3 ; 4] ?",
+            choices: [
+              "−3, atteint en x = 2",
+              "0, atteint en x = −6",
+              "1, atteint en x = 4",
+              "−6, atteint en x = 0",
+            ],
+            answer: 3,
+            explanation: "f décroît de 2 à −6 sur [−3 ; 0], puis croît de −6 à 1 sur [0 ; 4]. La plus petite valeur prise par f(x) est donc −6, atteinte pour x = 0. Attention à ne pas confondre la valeur du minimum (une valeur de f(x), lue sur la 2ᵉ ligne) et l’endroit où il est atteint (une valeur de x, lue sur la 1ʳᵉ ligne).",
+          },
+          {
+            id: "2nde-maths-05-s1-p3",
+            prompt: "Avec le même tableau (x : −3 ; 0 ; 4 — f(x) : 2 ↘ −6 ↗ 1), quel est le maximum de f sur [−3 ; 4] ?",
+            choices: [
+              "2, atteint en x = −3",
+              "1, atteint en x = 4",
+              "4, atteint en x = 1",
+              "0, atteint en x = −6",
+            ],
+            answer: 0,
+            explanation: "Le maximum ne peut être atteint qu’aux bornes, puisque f décroît puis croît. On compare les deux candidats : f(−3) = 2 et f(4) = 1. Comme 2 > 1, le maximum est 2, atteint en x = −3. Le piège « 1 » est la valeur à la borne droite, qui n’est pas la plus grande.",
+          },
+        ],
       },
       {
         title: "Fonctions affines",
@@ -939,6 +1534,52 @@ export const chapters: Chapter[] = [
             "f(x) = 0 ⇔ x = 4/3 : f(x) > 0 sur ]−∞ ; 4/3[ et f(x) < 0 sur ]4/3 ; +∞[.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Deux fonctions affines",
+          caption: "f(x) = 2x + 1 (m = 2 > 0) est croissante ; g(x) = −3x + 4 (m = −3 < 0) est décroissante et s’annule en 4/3.",
+          xMin: -2,
+          xMax: 3,
+          yMin: -5,
+          yMax: 8,
+          curves: [
+            { expr: "2*x+1", label: "f(x) = 2x + 1" },
+            { expr: "-3*x+4", label: "g(x) = −3x + 4" },
+          ],
+          points: [
+            { x: 0, y: 1, label: "p = 1" },
+            { x: 0, y: 4, label: "p = 4" },
+            { x: 4 / 3, y: 0, label: "x = 4/3" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-05-s2-p1",
+            prompt: "f est affine avec f(1) = 3 et f(4) = 12. Quelle est son expression ?",
+            choices: ["f(x) = 3x + 3", "f(x) = x + 2", "f(x) = 3x", "f(x) = 9x − 6"],
+            answer: 2,
+            explanation: "Coefficient directeur : m = (f(4) − f(1))/(4 − 1) = (12 − 3)/3 = 3. Donc f(x) = 3x + p, et f(1) = 3 donne 3 + p = 3, soit p = 0. Ainsi f(x) = 3x (fonction linéaire). Vérification : f(4) = 12. ✓",
+          },
+          {
+            id: "2nde-maths-05-s2-p2",
+            prompt: "On considère f(x) = −0,5x + 2. Quelle affirmation est vraie ?",
+            choices: [
+              "f est croissante et s’annule en 4.",
+              "f est décroissante et s’annule en 4.",
+              "f est décroissante et s’annule en −4.",
+              "f est croissante et s’annule en −4.",
+            ],
+            answer: 1,
+            explanation: "Le coefficient directeur m = −0,5 est négatif : f est strictement décroissante sur ℝ. f(x) = 0 ⇔ −0,5x + 2 = 0 ⇔ 0,5x = 2 ⇔ x = 4. Vérification : f(4) = −2 + 2 = 0. ✓",
+          },
+          {
+            id: "2nde-maths-05-s2-p3",
+            prompt: "Sur quel intervalle f(x) = 4x − 10 est-elle strictement négative ?",
+            choices: ["]−∞ ; 2,5[", "]2,5 ; +∞[", "]−∞ ; −2,5[", "]−∞ ; 10["],
+            answer: 0,
+            explanation: "4x − 10 s’annule en x = 10/4 = 2,5. Le coefficient m = 4 est positif : l’expression est du signe de m (positive) à droite de 2,5 et négative à gauche. Donc f(x) < 0 sur ]−∞ ; 2,5[. Vérification : f(0) = −10 < 0. ✓",
+          },
+        ],
       },
       {
         title: "Fonctions de référence : carré, inverse, racine carrée, cube",
@@ -971,6 +1612,47 @@ export const chapters: Chapter[] = [
             "Piège : si −2 ≤ x ≤ 5, x change de signe ; la valeur minimale de x² est 0 (en x = 0) et la maximale 25, donc 0 ≤ x² ≤ 25.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "Positions relatives sur [0 ; 2]",
+          caption: "Pour 0 < x < 1 : x³ < x² < x < √x. Pour x > 1, l’ordre s’inverse : √x < x < x² < x³. Toutes les courbes passent par (1 ; 1).",
+          xMin: 0,
+          xMax: 2,
+          yMin: 0,
+          yMax: 4,
+          curves: [
+            { expr: "Math.sqrt(x)", label: "y = √x" },
+            { expr: "x", label: "y = x" },
+            { expr: "x*x", label: "y = x²" },
+            { expr: "x*x*x", label: "y = x³" },
+          ],
+          points: [
+            { x: 1, y: 1, label: "(1 ; 1)" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-05-s3-p1",
+            prompt: "On sait que −5 ≤ x ≤ −2. Quel encadrement de x² est correct ?",
+            choices: ["−25 ≤ x² ≤ −4", "4 ≤ x² ≤ 25", "25 ≤ x² ≤ 4", "0 ≤ x² ≤ 25"],
+            answer: 1,
+            explanation: "Sur ]−∞ ; 0], la fonction carré est **décroissante** : elle inverse l’ordre. De −5 ≤ x ≤ −2, on déduit (−5)² ≥ x² ≥ (−2)², soit 25 ≥ x² ≥ 4, c’est-à-dire 4 ≤ x² ≤ 25. Un carré n’est jamais négatif, ce qui élimine la première proposition ; x ne change pas de signe ici, donc 0 n’est pas atteint.",
+          },
+          {
+            id: "2nde-maths-05-s3-p2",
+            prompt: "On sait que 4 ≤ x ≤ 8. Quel encadrement de 1/x est correct ?",
+            choices: ["1/4 ≤ 1/x ≤ 1/8", "−8 ≤ 1/x ≤ −4", "1/8 ≤ 1/x ≤ 1/4", "0 ≤ 1/x ≤ 1/4"],
+            answer: 2,
+            explanation: "Sur ]0 ; +∞[, la fonction inverse est **décroissante** : elle inverse l’ordre. De 4 ≤ x ≤ 8, on déduit 1/4 ≥ 1/x ≥ 1/8, soit 1/8 ≤ 1/x ≤ 1/4 (0,125 ≤ 1/x ≤ 0,25). La première proposition est mal ordonnée, car 1/4 > 1/8.",
+          },
+          {
+            id: "2nde-maths-05-s3-p3",
+            prompt: "Pour x = 0,25, quel classement est correct ?",
+            choices: ["√x < x < x²", "x < x² < √x", "x² < √x < x", "x² < x < √x"],
+            answer: 3,
+            explanation: "Calculons : x² = 0,0625, x = 0,25 et √x = √0,25 = 0,5. Donc x² < x < √x. C’est la règle du cours : pour 0 < x < 1, élever au carré fait diminuer le nombre et prendre la racine carrée le fait augmenter.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1095,6 +1777,36 @@ export const chapters: Chapter[] = [
           "On calcule : x = −0,5 ; x² = 0,25 ; x³ = (−0,5)³ = −0,125. Or −0,5 < −0,125 < 0,25, donc x < x³ < x². Les comparaisons valables pour 0 < x < 1 ne s’appliquent pas ici car x est négatif : il faut calculer.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-maths-05-hw-1",
+        prompt: "Quel est l’ensemble des solutions de x² ≤ 9 ?",
+        choices: ["]−∞ ; 3]", "[−3 ; 3]", "[0 ; 3]", "]−∞ ; −3] ∪ [3 ; +∞["],
+        answer: 1,
+        explanation: "D’après le cours, pour a > 0 : x² ≤ a ⇔ −√a ≤ x ≤ √a. Ici √9 = 3, donc −3 ≤ x ≤ 3 et S = [−3 ; 3]. Le piège ]−∞ ; 3] oublie que, par exemple, (−4)² = 16 > 9. La dernière proposition est l’ensemble des solutions de x² ≥ 9.",
+      },
+      {
+        id: "2nde-maths-05-hw-2",
+        prompt: "La droite représentant la fonction affine f passe par les points (−2 ; 5) et (2 ; −3). Quelle est l’expression de f ?",
+        choices: ["f(x) = 2x + 9", "f(x) = −0,5x + 4", "f(x) = −2x − 1", "f(x) = −2x + 1"],
+        answer: 3,
+        explanation: "m = (−3 − 5)/(2 − (−2)) = −8/4 = −2. Donc f(x) = −2x + p ; avec f(2) = −3 : −4 + p = −3, d’où p = 1. Ainsi f(x) = −2x + 1. Vérification : f(−2) = 4 + 1 = 5. ✓",
+      },
+      {
+        id: "2nde-maths-05-hw-3",
+        prompt: "Comment se comparent 1/π et 1/3,14 ?",
+        choices: ["1/π < 1/3,14", "1/π > 1/3,14", "1/π = 1/3,14", "On ne peut pas les comparer."],
+        answer: 0,
+        explanation: "On sait que π ≈ 3,1416, donc 0 < 3,14 < π. La fonction inverse est décroissante sur ]0 ; +∞[ : elle inverse l’ordre de deux nombres positifs. Donc 1/3,14 > 1/π, c’est-à-dire 1/π < 1/3,14.",
+      },
+      {
+        id: "2nde-maths-05-hw-4",
+        prompt: "f est définie sur [−2 ; 5] : elle décroît de f(−2) = 4 à f(1) = −3, puis croît jusqu’à f(5) = 6. Combien de solutions l’équation f(x) = 0 admet-elle ?",
+        choices: ["0", "1", "2", "3"],
+        answer: 2,
+        explanation: "Sur [−2 ; 1], f décroît de 4 à −3 : elle passe une seule fois par 0, qui est compris entre −3 et 4. Sur [1 ; 5], f croît de −3 à 6 : elle passe encore une seule fois par 0. L’équation f(x) = 0 a donc exactement 2 solutions, une dans chaque intervalle.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 6 ─────────────────────────────
@@ -1135,6 +1847,40 @@ export const chapters: Chapter[] = [
             "Comme A, B, C ne sont pas alignés, ce parallélogramme n’est pas aplati.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Les trois caractéristiques du vecteur AB⃗",
+          caption: "Deux vecteurs sont égaux lorsqu’ils ont même direction, même sens et même norme.",
+          headers: ["Caractéristique", "Pour AB⃗", "Pour BA⃗ = −AB⃗"],
+          rows: [
+            ["Direction", "celle de la droite (AB)", "la même"],
+            ["Sens", "de A vers B", "de B vers A (contraire)"],
+            ["Norme", "la longueur AB", "la même"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-06-s1-p1",
+            prompt: "Quelle égalité caractérise le fait que ABCD est un parallélogramme ?",
+            choices: ["AB⃗ = CD⃗", "AB⃗ = DC⃗", "AC⃗ = BD⃗", "AD⃗ = CB⃗"],
+            answer: 1,
+            explanation: "D’après la propriété fondamentale, ABCD est un parallélogramme si et seulement si AB⃗ = DC⃗ : les côtés [AB] et [DC] ont même direction, même longueur et même sens (de A vers B comme de D vers C). AB⃗ = CD⃗ est faux : ces deux vecteurs sont de sens contraires dans un parallélogramme ABCD.",
+          },
+          {
+            id: "2nde-maths-06-s1-p2",
+            prompt: "Quelle égalité traduit le fait que I est le milieu de [AB] ?",
+            choices: ["AI⃗ = BI⃗", "IA⃗ = IB⃗", "AI⃗ = IB⃗", "AB⃗ = IB⃗"],
+            answer: 2,
+            explanation: "I est le milieu de [AB] si et seulement si AI⃗ = IB⃗ : on va de A à I puis de I à B avec le même déplacement. AI⃗ = BI⃗ et IA⃗ = IB⃗ sont fausses, car ces vecteurs ont des sens contraires (AI⃗ = −BI⃗). Enfin AB⃗ = 2IB⃗, et non IB⃗.",
+          },
+          {
+            id: "2nde-maths-06-s1-p3",
+            prompt: "Quel vecteur est égal à −MN⃗ ?",
+            choices: ["MN⃗", "0⃗", "2MN⃗", "NM⃗"],
+            answer: 3,
+            explanation: "L’opposé de MN⃗ a même direction et même norme que MN⃗ mais un sens contraire : c’est NM⃗. Ainsi −MN⃗ = NM⃗, et MN⃗ + NM⃗ = MM⃗ = 0⃗. Retenir : changer l’ordre des lettres revient à prendre l’opposé.",
+          },
+        ],
       },
       {
         title: "Somme de vecteurs, relation de Chasles, produit par un réel",
@@ -1160,6 +1906,45 @@ export const chapters: Chapter[] = [
             "Conclusion : w⃗ = 2AB⃗.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Simplifier une somme de vecteurs",
+          caption: "Exemple : AB⃗ − AC⃗ = CA⃗ + AB⃗ = CB⃗.",
+          steps: [
+            { label: "Supprimer les signes moins", detail: "−CB⃗ = BC⃗" },
+            { label: "Réordonner les termes", detail: "pour que les lettres s’enchaînent" },
+            { label: "Appliquer Chasles", detail: "AB⃗ + BC⃗ = AC⃗" },
+            { label: "Conclure", detail: "un seul vecteur (ou 0⃗)" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-06-s2-p1",
+            prompt: "À quel vecteur est égale la somme AB⃗ + BC⃗ + CD⃗ ?",
+            choices: ["AC⃗", "AD⃗", "DA⃗", "BD⃗"],
+            answer: 1,
+            explanation: "On applique deux fois la relation de Chasles : AB⃗ + BC⃗ = AC⃗, puis AC⃗ + CD⃗ = AD⃗. Les lettres « s’enchaînent » (B puis C), il ne reste que la première origine A et la dernière extrémité D : AD⃗.",
+          },
+          {
+            id: "2nde-maths-06-s2-p2",
+            prompt: "À quel vecteur est égal MN⃗ − PN⃗ ?",
+            choices: ["MP⃗", "PM⃗", "NP⃗", "0⃗"],
+            answer: 0,
+            explanation: "On supprime la soustraction : −PN⃗ = NP⃗. Donc MN⃗ − PN⃗ = MN⃗ + NP⃗. Par la relation de Chasles, MN⃗ + NP⃗ = MP⃗.",
+          },
+          {
+            id: "2nde-maths-06-s2-p3",
+            prompt: "On a ‖u⃗‖ = 2. Que peut-on dire du vecteur −3u⃗ ?",
+            choices: [
+              "Sa norme vaut −6 et il est de sens contraire à u⃗.",
+              "Sa norme vaut 6 et il est de même sens que u⃗.",
+              "Sa norme vaut 6 et il est de sens contraire à u⃗.",
+              "Sa norme vaut 2/3 et il est de sens contraire à u⃗.",
+            ],
+            answer: 2,
+            explanation: "Le vecteur k u⃗ a pour norme |k| × ‖u⃗‖ : ici |−3| × 2 = 6. Comme k = −3 < 0, il est de sens contraire à u⃗ (et de même direction). Une norme est une longueur : elle n’est jamais négative, d’où l’erreur de « −6 ».",
+          },
+        ],
       },
       {
         title: "Coordonnées et colinéarité",
@@ -1191,6 +1976,42 @@ export const chapters: Chapter[] = [
             "AB⃗ et CD⃗ ne sont pas colinéaires : les droites (AB) et (CD) ne sont pas parallèles.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Calculer avec les coordonnées",
+          caption: "Exemple : u⃗(2 ; −3) et v⃗(−6 ; 9) : det = 2 × 9 − (−6) × (−3) = 18 − 18 = 0, ils sont colinéaires.",
+          headers: ["Objet", "Coordonnées ou formule"],
+          rows: [
+            ["AB⃗", "(xB − xA ; yB − yA)"],
+            ["u⃗ + v⃗", "(x + x′ ; y + y′)"],
+            ["k u⃗", "(kx ; ky)"],
+            ["‖u⃗‖ (repère orthonormé)", "√(x² + y²)"],
+            ["det(u⃗, v⃗)", "xy′ − x′y"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-06-s3-p1",
+            prompt: "On donne A(2 ; −1) et B(−3 ; 4). Quelles sont les coordonnées de AB⃗ ?",
+            choices: ["(5 ; −5)", "(−5 ; 5)", "(−1 ; 3)", "(−5 ; 3)"],
+            answer: 1,
+            explanation: "« Extrémité moins origine » : AB⃗(xB − xA ; yB − yA) = (−3 − 2 ; 4 − (−1)) = (−5 ; 5). Le piège (5 ; −5) correspond à BA⃗ (origine moins extrémité).",
+          },
+          {
+            id: "2nde-maths-06-s3-p2",
+            prompt: "Dans un repère orthonormé, quelle est la norme du vecteur u⃗(3 ; −4) ?",
+            choices: ["7", "√7", "25", "5"],
+            answer: 3,
+            explanation: "‖u⃗‖ = √(x² + y²) = √(3² + (−4)²) = √(9 + 16) = √25 = 5. Attention : (−4)² = 16 (positif), et l’on ne doit pas oublier la racine carrée (25 est le carré de la norme).",
+          },
+          {
+            id: "2nde-maths-06-s3-p3",
+            prompt: "Pour quelle valeur de k les vecteurs u⃗(2 ; −3) et v⃗(−6 ; k) sont-ils colinéaires ?",
+            choices: ["k = 9", "k = −9", "k = 4", "k = −4"],
+            answer: 0,
+            explanation: "u⃗ et v⃗ sont colinéaires ⇔ det(u⃗, v⃗) = 0. det(u⃗, v⃗) = 2 × k − (−6) × (−3) = 2k − 18. On résout 2k − 18 = 0 : k = 9. Vérification : v⃗(−6 ; 9) = −3 × u⃗(2 ; −3). ✓",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1309,6 +2130,41 @@ export const chapters: Chapter[] = [
           "M′ est l’image de M ⇔ MM′⃗ = u⃗ ⇔ (x′ − 3 ; y′ + 1) = (−2 ; 5). Donc x′ = 1 et y′ = 4 : M′(1 ; 4). On ajoute les coordonnées du vecteur à celles du point ; (5 ; −6) correspond à une soustraction.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-maths-06-hw-1",
+        prompt: "À quel vecteur est égale la somme AC⃗ + BA⃗ + CB⃗ ?",
+        choices: ["2AC⃗", "0⃗", "AB⃗", "BC⃗"],
+        answer: 1,
+        explanation: "On réordonne les termes pour enchaîner les lettres : BA⃗ + AC⃗ + CB⃗. Par Chasles, BA⃗ + AC⃗ = BC⃗, puis BC⃗ + CB⃗ = BB⃗ = 0⃗. La somme est donc le vecteur nul : on part de B et on revient en B.",
+      },
+      {
+        id: "2nde-maths-06-hw-2",
+        prompt: "On donne u⃗(1 ; 2) et v⃗(−3 ; 4). Quelles sont les coordonnées de 2u⃗ − v⃗ ?",
+        choices: ["(−1 ; 8)", "(5 ; 8)", "(5 ; 0)", "(−1 ; 0)"],
+        answer: 2,
+        explanation: "On calcule coordonnée par coordonnée : 2u⃗(2 ; 4), puis 2u⃗ − v⃗ = (2 − (−3) ; 4 − 4) = (5 ; 0). Le piège (−1 ; 8) correspond à 2u⃗ + v⃗.",
+      },
+      {
+        id: "2nde-maths-06-hw-3",
+        prompt: "On donne A(1 ; 2), B(3 ; 5) et C(7 ; 11). Que peut-on affirmer ?",
+        choices: [
+          "A, B, C ne sont pas alignés car det(AB⃗, AC⃗) = 6.",
+          "A, B, C sont alignés car AB = AC.",
+          "A, B, C ne sont pas alignés car AB⃗ ≠ AC⃗.",
+          "A, B, C sont alignés car det(AB⃗, AC⃗) = 0.",
+        ],
+        answer: 3,
+        explanation: "AB⃗(3 − 1 ; 5 − 2) = (2 ; 3) et AC⃗(7 − 1 ; 11 − 2) = (6 ; 9). det(AB⃗, AC⃗) = 2 × 9 − 6 × 3 = 18 − 18 = 0 : les vecteurs sont colinéaires (AC⃗ = 3AB⃗), donc A, B, C sont alignés. Le fait que AB⃗ ≠ AC⃗ n’empêche pas l’alignement.",
+      },
+      {
+        id: "2nde-maths-06-hw-4",
+        prompt: "On donne A(1 ; 1), B(4 ; 2) et C(5 ; 5). Quelles sont les coordonnées du point D tel que ABCD soit un parallélogramme ?",
+        choices: ["D(8 ; 6)", "D(2 ; 4)", "D(0 ; −2)", "D(4 ; 2)"],
+        answer: 1,
+        explanation: "ABCD est un parallélogramme ⇔ AB⃗ = DC⃗. AB⃗(3 ; 1) et DC⃗(5 − xD ; 5 − yD). On obtient 5 − xD = 3 et 5 − yD = 1, donc D(2 ; 4). Vérification par les diagonales : milieu de [AC] = (3 ; 3) et milieu de [BD] = ((4 + 2)/2 ; (2 + 4)/2) = (3 ; 3). ✓",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 7 ─────────────────────────────
@@ -1352,6 +2208,49 @@ export const chapters: Chapter[] = [
             "Conclusion : ABC est rectangle isocèle en B.",
           ],
         },
+        figure: {
+          type: "flow",
+          title: "Déterminer la nature d’un triangle (repère orthonormé)",
+          caption: "Exemple du cours : AB = BC = 5 et AB² + BC² = 50 = AC², donc ABC est rectangle isocèle en B.",
+          steps: [
+            {
+              label: "Calculer les trois longueurs",
+              detail: "AB = √((xB − xA)² + (yB − yA)²)",
+            },
+            {
+              label: "Comparer les longueurs",
+              detail: "deux égales : isocèle ; trois égales : équilatéral",
+            },
+            {
+              label: "Tester Pythagore",
+              detail: "plus grand côté² = somme des carrés des deux autres ?",
+            },
+            { label: "Conclure", detail: "par une phrase" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-07-s1-p1",
+            prompt: "On donne A(−3 ; 5) et B(7 ; −1). Quelles sont les coordonnées du milieu M de [AB] ?",
+            choices: ["(5 ; 3)", "(2 ; 2)", "(4 ; 4)", "(2 ; 3)"],
+            answer: 1,
+            explanation: "On fait la moyenne des abscisses et celle des ordonnées : xM = (−3 + 7)/2 = 4/2 = 2 et yM = (5 + (−1))/2 = 4/2 = 2. Donc M(2 ; 2). Le piège (5 ; 3) vient d’une demi-différence au lieu d’une demi-somme.",
+          },
+          {
+            id: "2nde-maths-07-s1-p2",
+            prompt: "Dans un repère orthonormé, on donne A(1 ; −2) et B(4 ; 2). Que vaut AB ?",
+            choices: ["7", "√7", "5", "25"],
+            answer: 2,
+            explanation: "AB = √((4 − 1)² + (2 − (−2))²) = √(3² + 4²) = √(9 + 16) = √25 = 5. Le piège 25 oublie la racine carrée ; 7 additionne les écarts 3 + 4 sans passer par les carrés.",
+          },
+          {
+            id: "2nde-maths-07-s1-p3",
+            prompt: "M(5 ; −1) est le milieu de [AB], avec A(2 ; 3). Quelles sont les coordonnées de B ?",
+            choices: ["(3,5 ; 1)", "(3 ; −4)", "(7 ; 2)", "(8 ; −5)"],
+            answer: 3,
+            explanation: "On utilise la formule du milieu « à l’envers » : xB = 2xM − xA = 10 − 2 = 8 et yB = 2yM − yA = −2 − 3 = −5. Donc B(8 ; −5). Vérification : milieu de [AB] = ((2 + 8)/2 ; (3 − 5)/2) = (5 ; −1). ✓ (3,5 ; 1) est le milieu de [AM], pas le point B.",
+          },
+        ],
       },
       {
         title: "Équations de droites",
@@ -1382,6 +2281,46 @@ export const chapters: Chapter[] = [
             "Vérification : pour A, 2 × 1 − 4 = −2 ✓ ; pour B, 2 × 4 − 4 = 4 ✓.",
           ],
         },
+        figure: {
+          type: "function",
+          title: "La droite d : y = 2x − 4",
+          caption: "Elle passe par A(1 ; −2) et B(4 ; 4) ; coefficient directeur m = 6/3 = 2, ordonnée à l’origine p = −4.",
+          xMin: -1,
+          xMax: 5,
+          yMin: -6,
+          yMax: 6,
+          curves: [
+            { expr: "2*x-4", label: "y = 2x − 4" },
+          ],
+          points: [
+            { x: 1, y: -2, label: "A(1 ; −2)" },
+            { x: 4, y: 4, label: "B(4 ; 4)" },
+            { x: 0, y: -4, label: "p = −4" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-07-s2-p1",
+            prompt: "Quelle est l’équation réduite de la droite passant par A(0 ; 3) et B(2 ; 7) ?",
+            choices: ["y = 2x + 3", "y = 3x + 2", "y = 0,5x + 3", "y = 2x + 7"],
+            answer: 0,
+            explanation: "Coefficient directeur : m = (yB − yA)/(xB − xA) = (7 − 3)/(2 − 0) = 2. A a pour abscisse 0, donc l’ordonnée à l’origine est p = 3. D’où y = 2x + 3. Vérification avec B : 2 × 2 + 3 = 7. ✓",
+          },
+          {
+            id: "2nde-maths-07-s2-p2",
+            prompt: "Quel est un vecteur directeur de la droite d’équation 3x − 2y + 5 = 0 ?",
+            choices: ["u⃗(3 ; −2)", "u⃗(2 ; 3)", "u⃗(−2 ; 3)", "u⃗(3 ; 2)"],
+            answer: 1,
+            explanation: "Pour ax + by + c = 0, un vecteur directeur est u⃗(−b ; a). Ici a = 3 et b = −2, donc u⃗(−(−2) ; 3) = u⃗(2 ; 3). Vérification : l’équation réduite est y = 1,5x + 2,5, de coefficient directeur 3/2, ce qui correspond bien à u⃗(2 ; 3).",
+          },
+          {
+            id: "2nde-maths-07-s2-p3",
+            prompt: "Laquelle de ces droites est parallèle à la droite d : y = −3x + 1 ?",
+            choices: ["y = 3x + 1", "y = x − 3", "y = −3x − 7", "y = (1/3)x + 1"],
+            answer: 2,
+            explanation: "Deux droites d’équations réduites sont parallèles si et seulement si elles ont le **même coefficient directeur**. d a pour coefficient directeur −3 ; seule y = −3x − 7 a aussi m = −3. Avoir la même ordonnée à l’origine (y = 3x + 1) ne rend pas deux droites parallèles.",
+          },
+        ],
       },
       {
         title: "Systèmes de deux équations à deux inconnues",
@@ -1408,6 +2347,45 @@ export const chapters: Chapter[] = [
             "S = {(2 ; 0,5)}.",
           ],
         },
+        figure: {
+          type: "table",
+          title: "Système de deux équations : les trois cas",
+          caption: "Pour le système { ax + by = c ; a′x + b′y = c′ }, on calcule ab′ − a′b.",
+          headers: ["Position des deux droites", "Critère", "Nombre de solutions"],
+          rows: [
+            ["sécantes", "ab′ − a′b ≠ 0", "une unique solution"],
+            ["parallèles distinctes", "ab′ − a′b = 0", "aucune solution"],
+            ["confondues", "ab′ − a′b = 0", "une infinité de solutions"],
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-07-s3-p1",
+            prompt: "Quelle est la solution du système { x + y = 10 ; x − y = 4 } ?",
+            choices: ["(3 ; 7)", "(7 ; 3)", "(6 ; 4)", "(14 ; −4)"],
+            answer: 1,
+            explanation: "Combinaison : en additionnant les deux équations, les y disparaissent : 2x = 14, donc x = 7. Puis 7 + y = 10 donne y = 3. Vérification : 7 − 3 = 4. ✓ S = {(7 ; 3)} ; le couple (3 ; 7) inverse x et y et ne vérifie pas la seconde équation.",
+          },
+          {
+            id: "2nde-maths-07-s3-p2",
+            prompt: "Quelle est la solution du système { 2x + y = 1 ; 3x − 2y = 12 } ?",
+            choices: ["(−3 ; 2)", "(2 ; 3)", "(2 ; −3)", "(1 ; −1)"],
+            answer: 2,
+            explanation: "Substitution : la première équation donne y = 1 − 2x. On remplace dans la seconde : 3x − 2(1 − 2x) = 12 ⇔ 3x − 2 + 4x = 12 ⇔ 7x = 14 ⇔ x = 2. Puis y = 1 − 4 = −3. Vérification : 2 × 2 + (−3) = 1 ✓ et 3 × 2 − 2 × (−3) = 6 + 6 = 12 ✓. S = {(2 ; −3)}.",
+          },
+          {
+            id: "2nde-maths-07-s3-p3",
+            prompt: "Combien de solutions le système { 2x − 4y = 3 ; −x + 2y = 5 } admet-il ?",
+            choices: [
+              "une unique solution",
+              "aucune solution",
+              "une infinité de solutions",
+              "exactement deux solutions",
+            ],
+            answer: 1,
+            explanation: "ab′ − a′b = 2 × 2 − (−1) × (−4) = 4 − 4 = 0 : les droites sont parallèles. En multipliant la seconde équation par −2, on obtient 2x − 4y = −10, incompatible avec 2x − 4y = 3 : les droites sont parallèles et **distinctes**, donc le système n’a aucune solution. Un système linéaire ne peut jamais avoir exactement deux solutions.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1531,6 +2509,46 @@ export const chapters: Chapter[] = [
           "xM = (xA + xB)/2 ⇔ xB = 2xM − xA = 6 − 1 = 5 ; yB = 2yM − yA = −2 − 2 = −4. B(5 ; −4). Vérification : ((1 + 5)/2 ; (2 − 4)/2) = (3 ; −1) ✓. B(2 ; 0,5) est le milieu de [AM], pas le point cherché.",
       },
     ],
+    homework: [
+      {
+        id: "2nde-maths-07-hw-1",
+        prompt: "Dans un repère orthonormé, on donne A(−1 ; 0), B(3 ; 2) et C(1 ; 6). Quelle est la nature du triangle ABC ?",
+        choices: ["équilatéral", "rectangle isocèle en B", "isocèle en A seulement", "rectangle en A"],
+        answer: 1,
+        explanation: "AB = √(4² + 2²) = √20 ; BC = √((−2)² + 4²) = √20 ; AC = √(2² + 6²) = √40. AB = BC, donc ABC est isocèle en B. De plus AB² + BC² = 20 + 20 = 40 = AC² : par la réciproque de Pythagore, il est rectangle en B. ABC est donc rectangle isocèle en B.",
+      },
+      {
+        id: "2nde-maths-07-hw-2",
+        prompt: "On donne A(1 ; 2), B(5 ; 3), C(6 ; 7) et D(2 ; 6) dans un repère orthonormé. Quelle affirmation est vraie ?",
+        choices: [
+          "ABCD est un rectangle car AC = BD.",
+          "ABCD n’est pas un parallélogramme.",
+          "Les diagonales [AC] et [BD] ont pour milieu commun (4 ; 5).",
+          "ABCD est un parallélogramme car [AC] et [BD] ont le même milieu.",
+        ],
+        answer: 3,
+        explanation: "Milieu de [AC] : ((1 + 6)/2 ; (2 + 7)/2) = (3,5 ; 4,5). Milieu de [BD] : ((5 + 2)/2 ; (3 + 6)/2) = (3,5 ; 4,5). Les diagonales ont le même milieu, donc ABCD est un parallélogramme. En revanche AC = √(5² + 5²) = √50 et BD = √((−3)² + 3²) = √18 : les diagonales n’ont pas la même longueur, ce n’est pas un rectangle.",
+      },
+      {
+        id: "2nde-maths-07-hw-3",
+        prompt: "Quelle est l’équation réduite de la droite passant par A(−2 ; 1) et parallèle à la droite d’équation y = 3x − 5 ?",
+        choices: ["y = 3x − 5", "y = 3x − 7", "y = 3x + 7", "y = −2x + 1"],
+        answer: 2,
+        explanation: "Une droite parallèle a le même coefficient directeur, m = 3 : son équation est y = 3x + p. Elle passe par A(−2 ; 1) : 1 = 3 × (−2) + p = −6 + p, donc p = 7. D’où y = 3x + 7. Vérification : 3 × (−2) + 7 = 1. ✓",
+      },
+      {
+        id: "2nde-maths-07-hw-4",
+        prompt: "Au cinéma, 3 places adulte et 2 places enfant coûtent 46 € ; 1 place adulte et 4 places enfant coûtent 42 €. Quel est le prix de chaque place ?",
+        choices: [
+          "adulte 10 €, enfant 8 €",
+          "adulte 8 €, enfant 10 €",
+          "adulte 12 €, enfant 5 €",
+          "adulte 14 €, enfant 2 €",
+        ],
+        answer: 0,
+        explanation: "On note a le prix adulte et e le prix enfant : { 3a + 2e = 46 ; a + 4e = 42 }. La seconde donne a = 42 − 4e ; on substitue : 3(42 − 4e) + 2e = 46 ⇔ 126 − 10e = 46 ⇔ e = 8, puis a = 42 − 32 = 10. Vérification : 30 + 16 = 46 ✓ et 10 + 32 = 42 ✓.",
+      },
+    ],
   },
 
   // ───────────────────────────── Chapitre 8 ─────────────────────────────
@@ -1575,6 +2593,41 @@ export const chapters: Chapter[] = [
             "Q₃ : 3 × 10/4 = 7,5, arrondi au rang 8 : Q₃ = 13. L’écart interquartile vaut 13 − 8 = 5.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Notes d’un devoir : effectifs",
+          caption: "Série de 12 notes : 8 (2 élèves), 10 (5 élèves), 12 (3 élèves), 15 (2 élèves). Moyenne 11, médiane 10.",
+          unit: "élèves",
+          data: [
+            { label: "8", value: 2 },
+            { label: "10", value: 5 },
+            { label: "12", value: 3 },
+            { label: "15", value: 2 },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-08-s1-p1",
+            prompt: "Dans une classe, les notes sont : 8 (2 élèves), 10 (5 élèves), 12 (3 élèves) et 15 (2 élèves). Quelle est la moyenne ?",
+            choices: ["11,25", "11", "10", "12"],
+            answer: 1,
+            explanation: "Effectif total : N = 2 + 5 + 3 + 2 = 12. Somme pondérée : 2 × 8 + 5 × 10 + 3 × 12 + 2 × 15 = 16 + 50 + 36 + 30 = 132. Moyenne : x̄ = 132/12 = 11. Le piège 11,25 est la moyenne des quatre valeurs sans tenir compte des effectifs (45/4).",
+          },
+          {
+            id: "2nde-maths-08-s1-p2",
+            prompt: "Avec la même série (8 : 2 élèves ; 10 : 5 ; 12 : 3 ; 15 : 2), quelle est la médiane ?",
+            choices: ["11", "12", "10", "10,5"],
+            answer: 2,
+            explanation: "Série rangée : 8 ; 8 ; 10 ; 10 ; 10 ; 10 ; 10 ; 12 ; 12 ; 12 ; 15 ; 15. N = 12 est pair : la médiane est la moyenne des valeurs de rangs 6 et 7, qui valent toutes deux 10. Donc Me = 10. On remarque qu’elle diffère de la moyenne (11).",
+          },
+          {
+            id: "2nde-maths-08-s1-p3",
+            prompt: "Une série a pour moyenne 11. On multiplie chaque valeur par 2, puis on ajoute 1. Quelle est la nouvelle moyenne ?",
+            choices: ["22", "24", "13", "23"],
+            answer: 3,
+            explanation: "Par linéarité de la moyenne, si chaque valeur xᵢ devient axᵢ + b, la moyenne devient a x̄ + b. Ici a = 2 et b = 1 : 2 × 11 + 1 = 23. Le piège 24 correspond à 2 × (11 + 1), qui inverse l’ordre des opérations.",
+          },
+        ],
       },
       {
         title: "Indicateurs de dispersion : étendue, écart interquartile, écart-type",
@@ -1605,6 +2658,40 @@ export const chapters: Chapter[] = [
             "Étendue : 10 − 2 = 8.",
           ],
         },
+        figure: {
+          type: "figures",
+          title: "Indicateurs de la série 4 ; 8 ; 6 ; 2 ; 10",
+          caption: "Calculs détaillés dans l’exemple corrigé ci-dessous.",
+          items: [
+            { value: "6", label: "moyenne x̄" },
+            { value: "8", label: "variance V" },
+            { value: "≈ 2,83", label: "écart-type σ = √8" },
+            { value: "8", label: "étendue (10 − 2)" },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-08-s2-p1",
+            prompt: "Quelle est l’étendue de la série 12 ; 4 ; 19 ; 7 ; 15 ?",
+            choices: ["15", "19", "11", "12"],
+            answer: 0,
+            explanation: "L’étendue est la différence entre la plus grande et la plus petite valeur : 19 − 4 = 15. Il faut bien repérer le minimum (4) et le maximum (19), même si la série n’est pas rangée.",
+          },
+          {
+            id: "2nde-maths-08-s2-p2",
+            prompt: "Quel est l’écart-type de la série 2 ; 4 ; 6 ; 8 ?",
+            choices: ["5", "√5", "√20", "2"],
+            answer: 1,
+            explanation: "Moyenne : (2 + 4 + 6 + 8)/4 = 20/4 = 5. Écarts à la moyenne : −3 ; −1 ; 1 ; 3, dont les carrés valent 9 ; 1 ; 1 ; 9. Variance : V = 20/4 = 5. Écart-type : σ = √V = √5 ≈ 2,24. Le piège 5 est la variance, pas l’écart-type.",
+          },
+          {
+            id: "2nde-maths-08-s2-p3",
+            prompt: "Une série a un écart-type de 3. On multiplie toutes les valeurs par 2, puis on ajoute 5. Quel est le nouvel écart-type ?",
+            choices: ["11", "8", "6", "3"],
+            answer: 2,
+            explanation: "Ajouter 5 à toutes les valeurs décale la série sans changer sa dispersion : l’écart-type n’est pas modifié par cet ajout. Multiplier par 2 multiplie l’écart-type par |2| = 2. Le nouvel écart-type vaut donc 2 × 3 = 6. Le piège 11 applique à tort la linéarité de la moyenne.",
+          },
+        ],
       },
       {
         title: "Probabilités et échantillonnage",
@@ -1634,6 +2721,48 @@ export const chapters: Chapter[] = [
             "Événement contraire : P(somme < 10) = 1 − 1/6 = 5/6.",
           ],
         },
+        figure: {
+          type: "bars",
+          title: "Somme de deux dés : nombre d’issues sur 36",
+          caption: "La somme 7 est la plus probable (6 issues sur 36, soit 1/6).",
+          unit: "issues",
+          data: [
+            { label: "2", value: 1 },
+            { label: "3", value: 2 },
+            { label: "4", value: 3 },
+            { label: "5", value: 4 },
+            { label: "6", value: 5 },
+            { label: "7", value: 6 },
+            { label: "8", value: 5 },
+            { label: "9", value: 4 },
+            { label: "10", value: 3 },
+            { label: "11", value: 2 },
+            { label: "12", value: 1 },
+          ],
+        },
+        practice: [
+          {
+            id: "2nde-maths-08-s3-p1",
+            prompt: "On lance un dé équilibré à 6 faces. Quelle est la probabilité d’obtenir un multiple de 3 ?",
+            choices: ["1/2", "1/3", "1/6", "2/3"],
+            answer: 1,
+            explanation: "Les issues sont équiprobables : 1, 2, 3, 4, 5, 6. Les multiples de 3 sont 3 et 6, soit 2 issues favorables sur 6. P = 2/6 = 1/3.",
+          },
+          {
+            id: "2nde-maths-08-s3-p2",
+            prompt: "On a P(A) = 0,35. Que vaut P(Ā) ?",
+            choices: ["0,65", "0,35", "−0,35", "1,35"],
+            answer: 0,
+            explanation: "L’événement contraire vérifie P(Ā) = 1 − P(A) = 1 − 0,35 = 0,65. Une probabilité est toujours comprise entre 0 et 1, ce qui élimine −0,35 et 1,35.",
+          },
+          {
+            id: "2nde-maths-08-s3-p3",
+            prompt: "On a P(A) = 0,5, P(B) = 0,4 et P(A ∩ B) = 0,15. Que vaut P(A ∪ B) ?",
+            choices: ["0,9", "0,2", "0,6", "0,75"],
+            answer: 3,
+            explanation: "On applique P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 0,5 + 0,4 − 0,15 = 0,75. Le piège 0,9 oublie de retirer P(A ∩ B) : les issues communes à A et B seraient comptées deux fois.",
+          },
+        ],
       },
     ],
     exercise: [
@@ -1762,6 +2891,36 @@ export const chapters: Chapter[] = [
         answer: 1,
         explanation:
           "La fréquence fluctue mais se rapproche de p = 0,5 quand n est grand. Avec n = 1 000, dans environ 95 % des cas elle est à moins de 1/√1000 ≈ 0,03 de 0,5, soit entre environ 0,47 et 0,53 : rien n’est garanti exactement (ni 500 piles, ni l’intervalle [0,49 ; 0,51]). La pièce n’a pas de mémoire : chaque lancer reste à probabilité 1/2.",
+      },
+    ],
+    homework: [
+      {
+        id: "2nde-maths-08-hw-1",
+        prompt: "On considère la série rangée 3 ; 7 ; 8 ; 10 ; 12 ; 14 ; 15 ; 18. Quel est son écart interquartile ?",
+        choices: ["15", "7", "11", "8"],
+        answer: 1,
+        explanation: "N = 8. Q₁ : 8/4 = 2, c’est la 2ᵉ valeur, soit Q₁ = 7. Q₃ : 3 × 8/4 = 6, c’est la 6ᵉ valeur, soit Q₃ = 14. Écart interquartile : Q₃ − Q₁ = 14 − 7 = 7. Le piège 15 est l’étendue (18 − 3) et 11 la médiane ((10 + 12)/2).",
+      },
+      {
+        id: "2nde-maths-08-hw-2",
+        prompt: "On lance deux dés équilibrés à 6 faces et on additionne les résultats. Quelle est la probabilité d’obtenir une somme égale à 8 ?",
+        choices: ["1/6", "1/12", "5/36", "8/36"],
+        answer: 2,
+        explanation: "Il y a 36 issues équiprobables. Somme égale à 8 : (2 ; 6), (3 ; 5), (4 ; 4), (5 ; 3), (6 ; 2), soit 5 issues. P = 5/36 ≈ 0,139. Le piège 1/6 correspond à la somme 7 (6 issues).",
+      },
+      {
+        id: "2nde-maths-08-hw-3",
+        prompt: "Un élève a obtenu 12 (coefficient 2), 9 (coefficient 3) et 15 (coefficient 1). Quelle est sa moyenne ?",
+        choices: ["11", "12", "10,5", "12,5"],
+        answer: 0,
+        explanation: "Moyenne pondérée : (2 × 12 + 3 × 9 + 1 × 15)/(2 + 3 + 1) = (24 + 27 + 15)/6 = 66/6 = 11. Le piège 12 est la moyenne sans coefficients ((12 + 9 + 15)/3 = 36/3).",
+      },
+      {
+        id: "2nde-maths-08-hw-4",
+        prompt: "On lance 400 fois une pièce équilibrée (p = 0,5). Dans environ 95 % des échantillons, entre quelles valeurs se situe la fréquence de « pile » ?",
+        choices: ["[0,49 ; 0,51]", "[0,4 ; 0,6]", "[0,3 ; 0,7]", "[0,45 ; 0,55]"],
+        answer: 3,
+        explanation: "D’après le cours, pour n assez grand, dans environ 95 % des échantillons l’écart entre la fréquence et p est inférieur à 1/√n. Ici 1/√400 = 1/20 = 0,05. La fréquence est donc en général dans [0,5 − 0,05 ; 0,5 + 0,05] = [0,45 ; 0,55].",
       },
     ],
   },

@@ -45,7 +45,7 @@ export function StaffDashboard({ data, role }: { data: AppData; role: Role }) {
   const today = toISO(now);
   const level = levelAt(today, data.settings) ?? "seconde";
   const p = data.profile!;
-  const sessions = allSessions(data.settings);
+  const sessions = allSessions(data);
   const todaySessions = sessions.filter((s) => s.date === today);
   const current = todaySessions.find((s) => at(s.date, s.start) <= now && now <= at(s.date, s.end));
   const avg = generalAverage(data, level, );

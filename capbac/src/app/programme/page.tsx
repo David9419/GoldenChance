@@ -21,7 +21,7 @@ export default function JourneyPage() {
   if (!data) return null;
   const s = data.settings;
   const today = toISO(new Date());
-  const sessions = allSessions(s);
+  const sessions = allSessions(data);
 
   const steps = [
     { id: "seconde", icon: Rocket, title: "Remise à niveau de Seconde", date: s.startDate, end: s.premiereStart, text: "Reprendre toutes les bases des 6 matières : cours, exercices notés et contrôles." },

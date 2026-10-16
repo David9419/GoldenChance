@@ -8,7 +8,8 @@ import { toast } from "./toast";
 import { Button } from "@/components/ui/button";
 import { getChapter } from "@/content";
 import { SUBJECTS } from "@/content/subjects";
-import { canCheckIn, checkInStatus, KIND_LABEL, liveStatus, type Session } from "@/lib/calendar";
+import { testTitle } from "@/lib/agenda";
+import { canCheckIn, checkInStatus, KIND_LABEL, liveStatus, sessionStarted, type Session } from "@/lib/calendar";
 import { formatHour } from "@/lib/dates";
 import { actions, type AppData } from "@/lib/store";
 import { cn } from "@/lib/utils";
@@ -76,13 +77,15 @@ export function SessionRow({ session, data, now, index = 0 }: { session: Session
           <p className="flex items-center gap-2 text-sm font-semibold">
             {meta.name}
             <span className="hidden rounded-md px-1.5 py-0.5 text-[0.65rem] font-bold sm:inline" style={{ background: `${meta.color}22`, color: meta.color }}>
-              {KIND_LABEL[session.kind]}
+              {session.test ? "Contrôle" : KIND_LABEL[session.kind]}
             </span>
-            {session.test && (
-              <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[0.65rem] font-bold text-amber-300">Contrôle</span>
+            {session.test?.long && (
+              <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[0.65rem] font-bold text-amber-300">2 h</span>
             )}
           </p>
-          <p className="truncate text-xs text-mist-500">{ref ? ref.chapter.title : "Programme bientôt disponible"}</p>
+          <p className="truncate text-xs text-mist-500">
+            {session.test ? testTitle(session) : !sessionStarted(session, now) ? "Leçon dévoilée au début du cours" : ref ? ref.chapter.title : "Programme bientôt disponible"}
+          </p>
         </div>
         <div className="flex shrink-0 items-center gap-2">
           <StatusPill status={status} justified={record?.justified} className="hidden md:inline-flex" />

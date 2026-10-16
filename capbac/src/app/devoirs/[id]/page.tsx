@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { ArrowLeft, CheckCircle2, ClipboardPen, PenLine, Send, Trash2, Trophy } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ClipboardPen, PenLine, Trash2, Trophy } from "lucide-react";
 import { EmptyState } from "@/components/app/common";
+import { GuardedText } from "@/components/app/guarded-text";
 import { Quiz } from "@/components/app/quiz";
 import { SubjectBadge } from "@/components/app/subject-icon";
 import { toast } from "@/components/app/toast";
@@ -27,7 +28,6 @@ export default function AssignmentPage() {
   const data = useData();
   const role = useRole();
   const router = useRouter();
-  const [text, setText] = useState("");
   const [grade, setGrade] = useState("");
   const [outOf, setOutOf] = useState("20");
   const [comment, setComment] = useState("");
@@ -96,14 +96,31 @@ export default function AssignmentPage() {
         )}
       </div>
 
-      {chapter ? (
+      {a.kind === "controle" && a.slot !== undefined ? (
+        <Card className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-300">
+            <Trophy className="size-6" />
+          </span>
+          <p className="flex-1 text-sm text-mist-300">Ce contrôle est placé dans l’emploi du temps : il se fait le jour même, pendant le créneau prévu.</p>
+          <Button asChild>
+            <Link href={`/seance/${a.dueDate}/${a.slot}`}>Ouvrir le contrôle</Link>
+          </Button>
+        </Card>
+      ) : chapter ? (
         <Quiz
-          chapterId={chapter.chapter.id}
-          kind={a.kind === "controle" ? "test" : "exercise"}
+          questions={a.kind === "controle" ? chapter.chapter.test : (chapter.chapter.homework ?? chapter.chapter.exercise)}
           context={`dv:${a.id}`}
-          assignment={a}
+          chapterId={chapter.chapter.id}
+          subject={a.subject}
+          level={a.level}
+          kind={a.kind === "controle" ? "test" : "exercise"}
+          mode={a.kind === "controle" ? "exam" : "homework"}
+          label={a.kind === "controle" ? "Contrôle" : "Devoir"}
           title={a.title}
-          availableFrom={a.kind === "controle" ? at(a.dueDate, "08:00") : undefined}
+          coef={a.coef}
+          assignment={a}
+          opensAt={a.kind === "controle" ? at(a.dueDate, "08:00") : undefined}
+          closesAt={at(a.dueDate, "23:59")}
         />
       ) : sub ? (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col gap-4">
@@ -158,25 +175,7 @@ export default function AssignmentPage() {
       ) : staff ? (
         <Card className="p-6 text-sm text-mist-300">L’élève n’a pas encore rendu ce devoir.</Card>
       ) : (
-        <Card className="grid gap-4 p-6">
-          <Label htmlFor="answer" className="text-base">
-            Ma réponse
-          </Label>
-          <Textarea id="answer" value={text} onChange={(e) => setText(e.target.value)} className="min-h-64 text-base leading-relaxed" placeholder="Écris ta réponse ici…" />
-          <div className="flex items-center justify-between gap-3">
-            <span className="text-xs text-mist-500">{text.trim().split(/\s+/).filter(Boolean).length} mots</span>
-            <Button
-              disabled={text.trim().length < 10}
-              onClick={() => {
-                if (!window.confirm("Rendre ta copie ? Tu ne pourras plus la modifier.")) return;
-                actions.submitAssignment({ assignmentId: a.id, text: text.trim(), submittedAt: new Date().toISOString() }, a.title);
-                toast("Copie rendue !", "success");
-              }}
-            >
-              <Send /> Rendre ma copie
-            </Button>
-          </div>
-        </Card>
+        <GuardedText assignment={a} />
       )}
     </div>
   );
