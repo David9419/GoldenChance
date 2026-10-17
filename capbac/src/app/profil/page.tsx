@@ -58,6 +58,7 @@ export default function ProfilePage() {
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="flex flex-col gap-6">
           {role === "prof" ? <StaffCard data={data} role="prof" /> : <IdentityCard data={data} title={role === "directeur" ? "Profil de l’élève" : "Mon identité"} />}
+          {role !== "prof" && <StudentPinCard data={data} />}
           {role === "directeur" && (
             <>
               <StaffCard data={data} role="directeur" />
@@ -92,12 +93,44 @@ export default function ProfilePage() {
   );
 }
 
+function StudentPinCard({ data }: { data: AppData }) {
+  const [pin, setPin] = useState(data.accounts.eleve.pin);
+  const others = [data.accounts.prof.pin, data.accounts.directeur.pin];
+  const ok = pin.length >= 4 && !others.includes(pin);
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <KeyRound className="size-5 text-brand-300" /> Code de connexion de l’élève
+        </CardTitle>
+        <CardDescription>Demandé à chaque connexion à l’espace élève (4 chiffres ou plus).</CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-end">
+        <div className="grid flex-1 gap-2">
+          <Label htmlFor="eleve-pin">Code</Label>
+          <Input id="eleve-pin" inputMode="numeric" value={pin} onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 8))} className="font-mono tracking-[0.3em]" />
+        </div>
+        <Button
+          disabled={!ok}
+          onClick={() => {
+            actions.saveStudentPin(pin);
+            toast("Code de l’élève mis à jour", "success");
+          }}
+        >
+          <Save /> Enregistrer
+        </Button>
+      </CardContent>
+      {!ok && pin.length >= 4 && <p className="px-6 pb-4 text-xs text-rose-300">Ce code est déjà utilisé par un autre compte.</p>}
+    </Card>
+  );
+}
+
 function StaffCard({ data, role }: { data: AppData; role: "prof" | "directeur" }) {
   const acc = data.accounts[role];
   const [name, setName] = useState(acc.name);
   const [pin, setPin] = useState(acc.pin);
-  const other = data.accounts[role === "prof" ? "directeur" : "prof"].pin;
-  const ok = name.trim() && pin.length >= 4 && pin !== other;
+  const others = [data.accounts[role === "prof" ? "directeur" : "prof"].pin, data.accounts.eleve.pin];
+  const ok = name.trim() && pin.length >= 4 && !others.includes(pin);
   return (
     <Card>
       <CardHeader>

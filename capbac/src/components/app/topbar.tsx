@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { Bell, BellRing, CalendarClock, ClipboardPen, LogOut, Moon, Radio, Settings, ShieldAlert, Sun, Trophy, UserRound, UserX } from "lucide-react";
+import { Bell, BellRing, CalendarClock, ClipboardPen, LogOut, MessageCircle, Moon, Radio, Settings, ShieldAlert, Sun, Trophy, UserRound, UserX } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ROLE_LABEL, signOut } from "@/lib/auth";
 import { formatLong, toISO } from "@/lib/dates";
+import { unreadFor } from "@/lib/messages";
 import { notificationsFor, type Notif } from "@/lib/notifications";
 import { actions, type AppData, type Role } from "@/lib/store";
 import { resolvedLight, setTheme, useTheme } from "@/lib/theme";
@@ -31,6 +32,7 @@ const NOTIF_ICON: Record<Notif["kind"], typeof Bell> = {
   absence: UserX,
   info: CalendarClock,
   alerte: ShieldAlert,
+  message: MessageCircle,
 };
 
 export function Topbar({ data, role }: { data: AppData; role: Role }) {
@@ -39,7 +41,8 @@ export function Topbar({ data, role }: { data: AppData; role: Role }) {
   const pref = useTheme();
   const light = typeof window !== "undefined" && resolvedLight(pref);
   const notifs = notificationsFor(role, data, now);
-  const unread = notifs.filter((n) => n.unread).length;
+  const unread = notifs.filter((n) => n.unread && n.kind !== "message").length;
+  const unreadMsg = unreadFor(role, data).length;
   const staff = role !== "eleve";
   const name = role === "eleve" ? `${data.profile!.firstName} ${data.profile!.lastName}`.trim() : data.accounts[role].name;
 
@@ -61,6 +64,20 @@ export function Topbar({ data, role }: { data: AppData; role: Role }) {
 
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
+
+          {/* Messages */}
+          <Link
+            href="/messages"
+            aria-label="Messages"
+            className="relative flex size-9 items-center justify-center rounded-xl border border-border bg-fg/[0.04] text-mist-300 transition-colors hover:text-mist-100"
+          >
+            <MessageCircle className="size-4" />
+            {unreadMsg > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-sky-500 px-1 text-[0.62rem] font-bold text-white">
+                {unreadMsg}
+              </span>
+            )}
+          </Link>
 
           {/* Notifications */}
           <DropdownMenu onOpenChange={(o) => !o && unread > 0 && actions.markSeen(role)}>
@@ -99,6 +116,7 @@ export function Topbar({ data, role }: { data: AppData; role: Role }) {
                           n.kind === "absence" && "bg-rose-500/15 text-rose-300",
                           n.kind === "info" && "bg-fg/[0.06] text-mist-300",
                           n.kind === "alerte" && "bg-rose-500/20 text-rose-300",
+                          n.kind === "message" && "bg-sky-500/20 text-sky-300",
                         )}
                       >
                         <Icon />

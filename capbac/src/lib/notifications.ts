@@ -3,12 +3,13 @@ import { SUBJECTS } from "@/content/subjects";
 import { testTitle } from "./agenda";
 import { allSessions, autoHomework, homeworkGiven, liveStatus } from "./calendar";
 import { addDays, at, formatHour, formatLong, toISO } from "./dates";
+import { displayName, unreadFor } from "./messages";
 import { isReleased, submissionsToGrade } from "./stats";
 import type { AppData, Role } from "./store";
 
 export type Notif = {
   id: string;
-  kind: "controle" | "devoir" | "note" | "absence" | "info" | "alerte";
+  kind: "controle" | "devoir" | "note" | "absence" | "info" | "alerte" | "message";
   title: string;
   text: string;
   href: string;
@@ -22,6 +23,20 @@ export function notificationsFor(role: Role, data: AppData, now = new Date()): N
   const today = toISO(now);
   const out: Notif[] = [];
   const sessions = allSessions(data);
+
+  // Messages non lus
+  for (const m of unreadFor(role, data)) {
+    out.push({
+      id: `msg-${m.id}`,
+      kind: "message",
+      title: `Message de ${displayName(m.from, data)}`,
+      text: m.text.length > 90 ? `${m.text.slice(0, 90)}…` : m.text,
+      href: "/messages",
+      at: m.at,
+      unread: true,
+      urgent: false,
+    });
+  }
 
   // Contrôles annoncés (2 semaines à l'avance) et alerte 1 h avant.
   for (const s of sessions) {

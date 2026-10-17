@@ -124,12 +124,35 @@ export type AttendanceRecord = {
   reason?: string;
 };
 
+/** Conversations : élève ↔ prof, élève ↔ direction, prof ↔ direction. */
+export type ThreadId = "eleve-prof" | "eleve-directeur" | "prof-directeur";
+
+export type Message = {
+  id: string;
+  thread: ThreadId;
+  from: Role;
+  text: string;
+  at: string;
+  /** Lu par le destinataire. */
+  readAt?: string;
+};
+
+export function threadOf(a: Role, b: Role): ThreadId {
+  const order: Role[] = ["eleve", "prof", "directeur"];
+  const [x, y] = [a, b].sort((m, n) => order.indexOf(m) - order.indexOf(n));
+  return `${x}-${y}` as ThreadId;
+}
+
+export function threadMembers(t: ThreadId): [Role, Role] {
+  return t.split("-") as [Role, Role];
+}
+
 export type Activity = { id: string; at: string; type: "presence" | "exercice" | "controle" | "devoir" | "note" | "absence" | "systeme" | "alerte"; text: string };
 
 export type AppData = {
   version: 2;
   profile: Profile | null;
-  accounts: { prof: StaffAccount; directeur: StaffAccount };
+  accounts: { eleve: { pin: string }; prof: StaffAccount; directeur: StaffAccount };
   settings: Settings;
   attempts: Attempt[];
   manualGrades: ManualGrade[];
@@ -144,6 +167,7 @@ export type AppData = {
   seen: Partial<Record<Role, string>>;
   /** Rattrapages accordés par le prof : contexte → jour autorisé. */
   retakes: Record<string, ISODate>;
+  messages: Message[];
 };
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -170,7 +194,8 @@ export const DEFAULT_SETTINGS: Settings = {
 
 export const DEFAULT_ACCOUNTS: AppData["accounts"] = {
   prof: { name: "Professeur", pin: "1111" },
-  directeur: { name: "Direction", pin: "9999" },
+  directeur: { name: "Stéphane Benhamou", pin: "9999" },
+  eleve: { pin: "2026" },
 };
 
 const KEY = "capbac:v1";
@@ -190,7 +215,16 @@ function emptyData(): AppData {
     activity: [],
     seen: {},
     retakes: {},
+    messages: [],
   };
+}
+
+function migrateAccounts(acc?: Partial<AppData["accounts"]>): AppData["accounts"] {
+  const merged = { ...DEFAULT_ACCOUNTS, ...(acc ?? {}) };
+  // Le compte direction s'appelle désormais Stéphane Benhamou (si le nom par défaut n'a pas été changé).
+  if (!acc?.directeur || acc.directeur.name === "Direction") merged.directeur = { ...merged.directeur, name: "Stéphane Benhamou" };
+  if (!acc?.eleve) merged.eleve = { pin: "2026" };
+  return merged;
 }
 
 /** Met à niveau des données enregistrées par une version précédente. */
@@ -217,7 +251,7 @@ function migrate(raw: Partial<AppData> & Record<string, unknown>): AppData {
     ...base,
     ...raw,
     version: 2,
-    accounts: { ...DEFAULT_ACCOUNTS, ...(raw.accounts ?? {}) },
+    accounts: migrateAccounts(raw.accounts),
     settings,
     attempts,
     assignments: raw.assignments ?? [],
@@ -225,6 +259,7 @@ function migrate(raw: Partial<AppData> & Record<string, unknown>): AppData {
     activity: raw.activity ?? [],
     seen: raw.seen ?? {},
     retakes: raw.retakes ?? {},
+    messages: raw.messages ?? [],
   } as AppData;
 }
 
@@ -321,6 +356,26 @@ export const actions = {
 
   grantRetake(context: string, day: ISODate) {
     update((d) => ({ ...d, retakes: { ...d.retakes, [context]: day }, activity: log(d, "controle", "Rattrapage de contrôle autorisé") }));
+  },
+
+  saveStudentPin(pin: string) {
+    update((d) => ({ ...d, accounts: { ...d.accounts, eleve: { pin } } }));
+  },
+
+  sendMessage(from: Role, to: Role, text: string) {
+    update((d) => ({
+      ...d,
+      messages: [...d.messages, { id: uid(), thread: threadOf(from, to), from, text, at: new Date().toISOString() }],
+    }));
+  },
+
+  /** Marque comme lus les messages reçus par `me` dans une conversation. */
+  readThread(thread: ThreadId, me: Role) {
+    update((d) => {
+      if (!d.messages.some((m) => m.thread === thread && m.from !== me && !m.readAt)) return d;
+      const now = new Date().toISOString();
+      return { ...d, messages: d.messages.map((m) => (m.thread === thread && m.from !== me && !m.readAt ? { ...m, readAt: now } : m)) };
+    });
   },
 
   saveAccount(role: "prof" | "directeur", acc: Partial<StaffAccount>) {

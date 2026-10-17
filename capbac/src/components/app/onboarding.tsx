@@ -25,17 +25,20 @@ export function Onboarding() {
   const [photo, setPhoto] = useState<string | undefined>();
   const [profName, setProfName] = useState("Professeur");
   const [profPin, setProfPin] = useState("1111");
-  const [dirName, setDirName] = useState("Direction");
+  const [dirName, setDirName] = useState("Stéphane Benhamou");
+  const [studentPin, setStudentPin] = useState("2026");
   const [dirPin, setDirPin] = useState("9999");
 
   const initials = `${firstName[0] ?? ""}${lastName[0] ?? ""}`.toUpperCase();
 
   function finish() {
     actions.saveAccount("prof", { name: profName.trim() || "Professeur", pin: profPin });
-    actions.saveAccount("directeur", { name: dirName.trim() || "Direction", pin: dirPin });
+    actions.saveAccount("directeur", { name: dirName.trim() || "Stéphane Benhamou", pin: dirPin });
+    actions.saveStudentPin(studentPin);
     actions.saveProfile({ firstName: firstName.trim(), lastName: lastName.trim(), photo });
   }
-  const pinsOk = profPin.length >= 4 && dirPin.length >= 4 && profPin !== dirPin;
+  const pinsOk =
+    profPin.length >= 4 && dirPin.length >= 4 && studentPin.length >= 4 && new Set([profPin, dirPin, studentPin]).size === 3;
 
   return (
     <div className="relative grid min-h-dvh place-items-center overflow-hidden px-4 py-10">
@@ -152,8 +155,18 @@ export function Onboarding() {
 
           {step === 3 && (
             <motion.div key="accounts" {...stepAnim} className="glass rounded-3xl p-6 sm:p-8">
-              <StepHeader n={3} title="Comptes professeur et direction" text="Choisis les noms et les codes d’accès (4 chiffres ou plus). Garde-les secrets." />
+              <StepHeader n={3} title="Codes de connexion" text="Chaque espace a son code (4 chiffres ou plus), tous différents. Garde-les secrets." />
               <div className="mt-6 grid gap-5">
+                <div className="grid gap-3 rounded-2xl border border-border p-4 sm:grid-cols-[1fr_120px]">
+                  <div className="grid gap-1">
+                    <Label style={{ color: "#a5b4fc" }}>Élève · {firstName.trim() || "élève"}</Label>
+                    <p className="text-xs text-mist-500">Code demandé à chaque connexion de l’élève.</p>
+                  </div>
+                  <div className="grid gap-2">
+                    <Label>Code</Label>
+                    <Input inputMode="numeric" value={studentPin} onChange={(e) => setStudentPin(e.target.value.replace(/\D/g, "").slice(0, 8))} className="font-mono tracking-[0.3em]" />
+                  </div>
+                </div>
                 {[
                   { label: "Professeur", name: profName, setName: setProfName, pin: profPin, setPin: setProfPin, color: "#34d399" },
                   { label: "Direction", name: dirName, setName: setDirName, pin: dirPin, setPin: setDirPin, color: "#fbbf24" },
@@ -169,7 +182,7 @@ export function Onboarding() {
                     </div>
                   </div>
                 ))}
-                {!pinsOk && <p className="text-sm text-rose-300">Les deux codes doivent faire au moins 4 chiffres et être différents.</p>}
+                {!pinsOk && <p className="text-sm text-rose-300">Les trois codes doivent faire au moins 4 chiffres et être tous différents.</p>}
               </div>
               <div className="mt-8 flex justify-between gap-3">
                 <Button variant="ghost" onClick={() => setStep(2)}>

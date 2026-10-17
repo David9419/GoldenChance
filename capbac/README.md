@@ -4,10 +4,11 @@ Application d’école à la maison : emploi du temps, cours de la Seconde (remi
 
 ## Ce que contient l’application
 
-- **3 comptes** sur l’écran de connexion :
-  - **Élève** : accès direct (sans code).
+- **Écran de démarrage** : logo + pourcentage (0 → 100 %), puis la **page d’accueil** : l’heure géante en fond avec un cadran et des orbites qui tournent, l’heure et la date du jour, la carte **Rentrée de Seconde (lundi 19 octobre 2026)** et un **compte à rebours en direct jusqu’au bac de français** (jours, heures, minutes, secondes).
+- **3 comptes**, chacun avec un **code de connexion** :
+  - **Élève** (code `2026` par défaut).
   - **Professeur** (code `1111` par défaut) : tableau de bord de suivi, devoirs et contrôles en plus, correction des copies, publication anticipée des corrections, vie scolaire.
-  - **Direction** (code `9999` par défaut) : vue d’ensemble en direct, toutes les pages, et les **Paramètres** (comptes et codes, calendrier, vacances, durée des contrôles, délai de correction, sauvegarde).
+  - **Direction — Stéphane Benhamou** (code `9999` par défaut) : vue d’ensemble en direct, toutes les pages, et les **Paramètres** (comptes et codes, calendrier, vacances, durée des contrôles, délai de correction, sauvegarde).
   - Les codes se choisissent à la première configuration et se changent dans Paramètres.
 - **Accès par niveau** : l’élève n’a accès qu’au programme de Seconde ; la Première s’ouvre automatiquement le 1er janvier 2027, la Terminale à la rentrée 2027.
 - **Emploi du temps** (repris du PDF) : lundi → jeudi 10h–16h30 (5 cours, déjeuner 12h30–13h30 et **3 petites pauses de 10 min** : 11h10, 14h25, 15h30), vendredi 10h–12h30. Pendant une pause, un bandeau invite l’élève à se lever et prendre l’air. La semaine en cours s’affiche du lundi au samedi, et **dès le dimanche, la semaine qui arrive**.
@@ -22,6 +23,7 @@ Application d’école à la maison : emploi du temps, cours de la Seconde (remi
 - **Prof** : peut ajouter des devoirs (QCM ou rédaction, corrigée par lui) et des contrôles en choisissant le jour (≥ 3 jours à l’avance) et le créneau remplacé (1 ou 2 heures).
 - **Notes** : exercice = coef 1, contrôle = coef 2, devoirs du prof = coef choisi. Moyenne par matière et moyenne générale.
 - **Vie scolaire** : bouton « Je suis présent » à chaque cours (15 min avant → fin du cours, retard après 10 min). **Un cours non pointé à la fin = absent automatiquement.** Le prof ou la direction peuvent corriger et justifier.
+- **Messagerie** : l’élève écrit à son professeur ou à la direction, et inversement (le prof et la direction peuvent aussi s’écrire). Badge de messages non lus, notification en direct dans l’application, notification de l’ordinateur si l’onglet est en arrière-plan, accusé « Lu ».
 - **Notifications** (cloche) : contrôles à venir, notes publiées, copies à corriger, absences du jour.
 - **Phrase motivante** différente chaque jour, **mode clair / sombre** (bouton en haut à droite et dans le menu du compte).
 

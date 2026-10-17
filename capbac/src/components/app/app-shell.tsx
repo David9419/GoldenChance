@@ -12,6 +12,7 @@ import {
   House,
   LayoutDashboard,
   ListTodo,
+  MessageCircle,
   Settings,
   Trophy,
 } from "lucide-react";
@@ -25,8 +26,11 @@ import { CheckInBanner } from "./checkin-banner";
 import { PauseBanner } from "./pause-banner";
 import { TestAlert } from "./test-alert";
 import { LoginScreen } from "./login";
-import { Logo, LogoMark } from "./logo";
+import { Logo } from "./logo";
+import { MessageWatcher } from "./message-watcher";
+import { unreadFor } from "@/lib/messages";
 import { Onboarding } from "./onboarding";
+import { SplashLoader } from "./splash-loader";
 import { Topbar } from "./topbar";
 
 type NavItem = { href: string; label: string; short?: string; icon: typeof House; mobile?: boolean };
@@ -40,6 +44,7 @@ const NAV: Record<Role, NavItem[]> = {
     { href: "/matieres", label: "Matières & cours", short: "Cours", icon: BookOpen, mobile: true },
     { href: "/notes", label: "Notes & bulletin", short: "Notes", icon: Trophy, mobile: true },
     { href: "/absences", label: "Vie scolaire", icon: ClipboardCheck },
+    { href: "/messages", label: "Messages", icon: MessageCircle },
     { href: "/programme", label: "Mon parcours", icon: GraduationCap },
   ],
   prof: [
@@ -48,6 +53,7 @@ const NAV: Record<Role, NavItem[]> = {
     { href: "/emploi-du-temps", label: "Emploi du temps", short: "EDT", icon: CalendarDays, mobile: true },
     { href: "/notes", label: "Notes & bulletin", short: "Notes", icon: Trophy, mobile: true },
     { href: "/absences", label: "Vie scolaire", short: "Absences", icon: ClipboardCheck, mobile: true },
+    { href: "/messages", label: "Messages", icon: MessageCircle },
     { href: "/agenda", label: "Agenda", icon: ListTodo },
     { href: "/matieres", label: "Programme & cours", icon: BookOpen },
     { href: "/programme", label: "Parcours de l’élève", icon: GraduationCap },
@@ -58,6 +64,7 @@ const NAV: Record<Role, NavItem[]> = {
     { href: "/absences", label: "Vie scolaire", short: "Absences", icon: ClipboardCheck, mobile: true },
     { href: "/emploi-du-temps", label: "Emploi du temps", short: "EDT", icon: CalendarDays, mobile: true },
     { href: "/devoirs", label: "Devoirs & contrôles", icon: ClipboardPen },
+    { href: "/messages", label: "Messages", icon: MessageCircle },
     { href: "/agenda", label: "Agenda", icon: ListTodo },
     { href: "/programme", label: "Parcours de l’élève", icon: GraduationCap },
     { href: "/matieres", label: "Programme & cours", icon: BookOpen },
@@ -72,15 +79,25 @@ function isActive(pathname: string, href: string) {
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const data = useData();
+  return (
+    <>
+      <ShellContent data={data}>{children}</ShellContent>
+      <SplashLoader ready={!!data} />
+    </>
+  );
+}
+
+function ShellContent({ data, children }: { data: ReturnType<typeof useData>; children: React.ReactNode }) {
   const role = useRole();
   const pathname = usePathname();
 
-  if (!data) return <Splash />;
+  if (!data) return <div className="min-h-dvh" />;
   if (!data.profile) return <Onboarding />;
   if (!role) return <LoginScreen data={data} />;
 
   const level = levelAt(toISO(new Date()), data.settings) ?? "seconde";
   const nav = NAV[role];
+  const unreadMessages = unreadFor(role, data).length;
   const accent = role === "eleve" ? "brand" : role === "prof" ? "emerald" : "amber";
 
   return (
@@ -121,7 +138,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   />
                 )}
                 <item.icon className={cn("relative size-[18px] transition-transform group-hover:scale-110", active && "text-brand-300")} />
-                <span className="relative">{item.label}</span>
+                <span className="relative flex-1">{item.label}</span>
+                {item.href === "/messages" && unreadMessages > 0 && (
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="relative flex h-5 min-w-5 items-center justify-center rounded-full bg-rose-500 px-1.5 text-[0.65rem] font-bold text-white"
+                  >
+                    {unreadMessages}
+                  </motion.span>
+                )}
               </Link>
             );
           })}
@@ -139,6 +165,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}
             className="mx-auto w-full max-w-[1180px] px-4 pt-6 pb-28 sm:px-6 lg:px-10 lg:pt-8 lg:pb-16"
           >
+            <MessageWatcher data={data} role={role} />
             {role === "eleve" && <TestAlert data={data} />}
             {role === "eleve" && <PauseBanner data={data} />}
             {role === "eleve" && <CheckInBanner data={data} />}
@@ -178,16 +205,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             );
           })}
       </nav>
-    </div>
-  );
-}
-
-function Splash() {
-  return (
-    <div className="grid min-h-dvh place-items-center">
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-        <LogoMark className="size-16 animate-float-slow" />
-      </motion.div>
     </div>
   );
 }
