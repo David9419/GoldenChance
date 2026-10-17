@@ -39,6 +39,8 @@ export type Settings = {
   correctionDelayHours: number;
   /** Jours de « rentrée en douceur » sans contrôle ni devoir. */
   rampUpDays: number;
+  /** Pas d'école pendant les fêtes et jeûnes juifs. */
+  jewishHolidays: boolean;
   /** Nombre de contrôles automatiques par semaine. */
   testsPerWeek: number;
   /** Version des réglages (migration des anciennes dates par défaut). */
@@ -161,6 +163,7 @@ export const DEFAULT_SETTINGS: Settings = {
   testMinutes: 25,
   correctionDelayHours: 48,
   rampUpDays: 14,
+  jewishHolidays: true,
   testsPerWeek: 3,
   settingsRev: 3,
 };

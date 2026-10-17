@@ -2,6 +2,7 @@ import { getChapter, PROGRAMS } from "@/content";
 import { SLOTS, WEEK } from "@/content/schedule";
 import type { Level, SubjectId } from "@/content/types";
 import { addDays, at, fromISO, mondayOf, toISO, type ISODate } from "./dates";
+import { jewishHolidays } from "./jewish";
 import type { AppData, Assignment, AttendanceRecord, Holiday, Settings } from "./store";
 
 /* -------------------------------------------------------------------------- */
@@ -80,13 +81,19 @@ export function levelRange(level: Level, s: Settings): [ISODate, ISODate] {
   return [s.terminaleStart, s.terminaleEnd];
 }
 
+/** Vacances et jours fériés réglés par la direction + fêtes et jeûnes juifs. */
+export function allHolidays(s: Settings): Holiday[] {
+  if (s.jewishHolidays === false) return s.holidays;
+  return [...s.holidays, ...jewishHolidays(addDays(s.startDate, -7), s.terminaleEnd)];
+}
+
 export function holidayOn(date: ISODate, holidays: Holiday[]): Holiday | undefined {
   return holidays.find((h) => date >= h.start && date <= h.end);
 }
 
 export function isSchoolDay(date: ISODate, s: Settings) {
   const dow = fromISO(date).getDay();
-  return dow >= 1 && dow <= 5 && !holidayOn(date, s.holidays) && levelAt(date, s) !== null;
+  return dow >= 1 && dow <= 5 && !holidayOn(date, allHolidays(s)) && levelAt(date, s) !== null;
 }
 
 /** Plan d'un chapitre sur `n` séances : une leçon par partie → exercice de synthèse → révisions. */
@@ -245,7 +252,7 @@ function profTestsOf(assignments: Assignment[], level: Level, s: Settings): Plan
 export function allSessions(src: CalendarSource): Session[] {
   const s = src.settings;
   const profAssignments = src.assignments.filter((a) => a.kind === "controle" && a.slot !== undefined);
-  const cacheKey = JSON.stringify([s.startDate, s.premiereStart, s.premiereEnd, s.terminaleStart, s.terminaleEnd, s.holidays, s.testsFrom, s.rampUpDays, s.testsPerWeek, profAssignments.map((a) => [a.id, a.dueDate, a.slot, a.long, a.chapterId, a.subject])]);
+  const cacheKey = JSON.stringify([s.startDate, s.premiereStart, s.premiereEnd, s.terminaleStart, s.terminaleEnd, s.holidays, s.jewishHolidays, s.testsFrom, s.rampUpDays, s.testsPerWeek, profAssignments.map((a) => [a.id, a.dueDate, a.slot, a.long, a.chapterId, a.subject])]);
   const hit = cache.get(cacheKey);
   if (hit) return hit;
 
@@ -401,7 +408,7 @@ const hwCache = new Map<string, AutoHomework[]>();
 
 export function autoHomework(src: CalendarSource): AutoHomework[] {
   const sessions = allSessions(src);
-  const key = JSON.stringify([sessions.length, sessions[0]?.key, sessions[sessions.length - 1]?.key, src.settings.holidays, src.settings.testsFrom, src.settings.rampUpDays, src.settings.startDate]);
+  const key = JSON.stringify([sessions.length, sessions[0]?.key, sessions[sessions.length - 1]?.key, src.settings.holidays, src.settings.jewishHolidays, src.settings.testsFrom, src.settings.rampUpDays, src.settings.startDate]);
   const hit = hwCache.get(key);
   if (hit) return hit;
 

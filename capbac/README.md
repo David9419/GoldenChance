@@ -10,7 +10,8 @@ Application d’école à la maison : emploi du temps, cours de la Seconde (remi
   - **Direction** (code `9999` par défaut) : vue d’ensemble en direct, toutes les pages, et les **Paramètres** (comptes et codes, calendrier, vacances, durée des contrôles, délai de correction, sauvegarde).
   - Les codes se choisissent à la première configuration et se changent dans Paramètres.
 - **Accès par niveau** : l’élève n’a accès qu’au programme de Seconde ; la Première s’ouvre automatiquement le 1er janvier 2027, la Terminale à la rentrée 2027.
-- **Emploi du temps** (repris du PDF) : la semaine en cours s’affiche du lundi au samedi, et **dès le dimanche, la semaine qui arrive**.
+- **Emploi du temps** (repris du PDF) : lundi → jeudi 10h–16h30 (5 cours, déjeuner 12h30–13h30 et **3 petites pauses de 10 min** : 11h10, 14h25, 15h30), vendredi 10h–12h30. Pendant une pause, un bandeau invite l’élève à se lever et prendre l’air. La semaine en cours s’affiche du lundi au samedi, et **dès le dimanche, la semaine qui arrive**.
+- **Fêtes et jeûnes juifs : pas d’école** (calculés automatiquement chaque année) : Roch Hachana, jeûne de Guedalia, Yom Kippour, Souccot (toute la fête), Chemini Atseret, Simhat Torah, 10 Tevet, jeûne d’Esther, Pourim, Pessah (8 jours), Chavouot, 17 Tamouz, Tisha Beav. Désactivable dans Paramètres.
 - **Leçons** : chaque créneau est relié automatiquement à un chapitre (une leçon par partie → exercice de synthèse → révisions). **Une leçon n’est visible qu’au début de son cours** (jour et heure) ; les leçons passées restent consultables. Les cours contiennent des schémas, graphiques, tableaux, frises et exemples corrigés.
 - **Exercices** : après la leçon, l’élève clique « J’ai compris et appris la leçon », ce qui débloque 1 ou 2 exercices sur cette leçon, **corrigés question par question** avec l’explication.
 - **Rentrée en douceur** : les 2 premières semaines, leçons et exercices seulement (pas de contrôle ni de devoir).

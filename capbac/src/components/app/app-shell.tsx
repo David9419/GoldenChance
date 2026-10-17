@@ -22,6 +22,7 @@ import { toISO } from "@/lib/dates";
 import { useData, type Role } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { CheckInBanner } from "./checkin-banner";
+import { PauseBanner } from "./pause-banner";
 import { TestAlert } from "./test-alert";
 import { LoginScreen } from "./login";
 import { Logo, LogoMark } from "./logo";
@@ -139,6 +140,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             className="mx-auto w-full max-w-[1180px] px-4 pt-6 pb-28 sm:px-6 lg:px-10 lg:pt-8 lg:pb-16"
           >
             {role === "eleve" && <TestAlert data={data} />}
+            {role === "eleve" && <PauseBanner data={data} />}
             {role === "eleve" && <CheckInBanner data={data} />}
             {children}
           </motion.div>

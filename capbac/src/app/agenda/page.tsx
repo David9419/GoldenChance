@@ -10,7 +10,7 @@ import { Card } from "@/components/ui/card";
 import { SUBJECTS } from "@/content/subjects";
 import { agendaItems } from "@/lib/agenda";
 import { useRole } from "@/lib/auth";
-import { holidayOn } from "@/lib/calendar";
+import { allHolidays, holidayOn } from "@/lib/calendar";
 import { addDays, formatLong, formatShort, formatWeekday, fromISO, mondayOf, toISO } from "@/lib/dates";
 import { useData } from "@/lib/store";
 import { useNow } from "@/lib/use-now";
@@ -86,7 +86,7 @@ export default function AgendaPage() {
           {days.map((d) => {
             const its = items.filter((i) => i.date === d);
             const weekend = [0, 6].includes(fromISO(d).getDay());
-            const holiday = holidayOn(d, data.settings.holidays);
+            const holiday = holidayOn(d, allHolidays(data.settings));
             return (
               <button
                 key={d}

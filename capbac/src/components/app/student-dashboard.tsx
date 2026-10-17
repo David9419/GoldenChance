@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { Fragment } from "react";
 import { motion } from "motion/react";
+import { BreakLine, breaksBetween } from "@/components/app/break-row";
 import { ArrowRight, BookOpenCheck, CalendarClock, Flame, GraduationCap, ListTodo, PartyPopper, Sparkles, Target, Trophy } from "lucide-react";
 import { AgendaRow } from "@/components/app/agenda-item";
 import { upcoming as upcomingItems } from "@/lib/agenda";
@@ -174,16 +176,11 @@ export function StudentDashboard() {
           <CardContent className="flex flex-col gap-2.5">
             {nextDaySessions.length ? (
               <>
-                {nextDaySessions.slice(0, 2).map((x, i) => (
-                  <SessionRow key={x.key} session={x} data={data} now={now} index={i} />
-                ))}
-                {nextDaySessions.length > 2 && (
-                  <div className="flex items-center gap-3 py-1 text-xs font-semibold text-mist-500">
-                    <span className="h-px flex-1 bg-border" /> Pause déjeuner · 12h30 – 13h30 <span className="h-px flex-1 bg-border" />
-                  </div>
-                )}
-                {nextDaySessions.slice(2).map((x, i) => (
-                  <SessionRow key={x.key} session={x} data={data} now={now} index={i + 2} />
+                {nextDaySessions.map((x, i) => (
+                  <Fragment key={x.key}>
+                    {i > 0 && breaksBetween(nextDaySessions[i - 1].end, x.start).map((b) => <BreakLine key={b.start} b={b} className="py-1" />)}
+                    <SessionRow session={x} data={data} now={now} index={i} />
+                  </Fragment>
                 ))}
               </>
             ) : (

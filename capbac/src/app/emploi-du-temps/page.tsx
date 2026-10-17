@@ -1,20 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronLeft, ChevronRight, Coffee, Palmtree, Printer, Sun, Trophy } from "lucide-react";
+import { ChevronLeft, ChevronRight, Coffee, Palmtree, Printer, Sun, Trophy, Wind } from "lucide-react";
 import { PageHeader, StatusPill } from "@/components/app/common";
 import { sessionHref } from "@/components/app/session-card";
 import { SubjectIcon } from "@/components/app/subject-icon";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getChapter } from "@/content";
-import { LUNCH, SLOTS, weeklyHours } from "@/content/schedule";
+import { breakAfter, SLOTS, weeklyHours } from "@/content/schedule";
+import { BreakLine, breaksBetween } from "@/components/app/break-row";
 import { LEVELS, SUBJECT_IDS, SUBJECTS } from "@/content/subjects";
 import { testTitle } from "@/lib/agenda";
 import { useRole } from "@/lib/auth";
-import { defaultWeek, holidayOn, KIND_LABEL, levelAt, liveStatus, sessionAtSlot, sessionsOn, sessionStarted, type Session } from "@/lib/calendar";
+import { allHolidays, defaultWeek, holidayOn, KIND_LABEL, levelAt, liveStatus, sessionAtSlot, sessionsOn, sessionStarted, type Session } from "@/lib/calendar";
 import { addDays, formatHour, formatShort, formatWeekday, fromISO, toISO } from "@/lib/dates";
 import { useData, type AppData } from "@/lib/store";
 import { useNow } from "@/lib/use-now";
@@ -49,7 +50,7 @@ export default function TimetablePage() {
       <PageHeader
         eyebrow={level ? `${LEVELS[level].name} · ${LEVELS[level].tagline}` : "Emploi du temps"}
         title="Emploi du temps"
-        description={`Semaine type : lundi → jeudi 10h – 16h30 (pause 12h30 – 13h30), vendredi 10h – 12h30. ${formatHoursFr(total)} de cours par semaine.`}
+        description={`Lundi → jeudi 10h – 16h30 (déjeuner 12h30 – 13h30) avec 3 petites pauses de 10 min, vendredi 10h – 12h30. ${formatHoursFr(total)} de cours par semaine.`}
         actions={
           <Button variant="secondary" size="sm" onClick={() => window.print()} className="no-print">
             <Printer /> Imprimer
@@ -103,20 +104,25 @@ export default function TimetablePage() {
                 );
               })}
 
-              {[0, 1, "lunch", 2, 3].map((row) => {
-                if (row === "lunch") {
-                  return (
-                    <div key="lunch" className="col-span-6 grid grid-cols-[64px_1fr] items-center gap-2">
-                      <p className="text-right text-xs text-mist-500">{formatHour(LUNCH.start)}</p>
-                      <div className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-border py-2 text-xs font-semibold text-mist-500">
-                        <Coffee className="size-3.5" /> Pause déjeuner · 12h30 – 13h30
-                      </div>
-                    </div>
-                  );
-                }
-                const slot = row as number;
+              {SLOTS.map((_, slot) => {
+                const b = breakAfter(slot);
                 return (
-                  <Row key={slot} slot={slot} days={days} data={data} now={now} today={today} />
+                  <Fragment key={slot}>
+                    <Row slot={slot} days={days} data={data} now={now} today={today} />
+                    {b && slot < SLOTS.length - 1 && (
+                      <div className="col-span-6 grid grid-cols-[64px_1fr] items-center gap-2">
+                        <p className="text-right text-xs text-mist-500">{formatHour(b.start)}</p>
+                        <div
+                          className={cn(
+                            "flex items-center justify-center gap-2 rounded-xl border border-dashed text-xs font-semibold",
+                            b.lunch ? "border-amber-400/25 py-2 text-amber-300/90" : "border-emerald-400/20 py-1 text-emerald-300/80",
+                          )}
+                        >
+                          {b.lunch ? <Coffee className="size-3.5" /> : <Wind className="size-3.5" />} {b.label} · {formatHour(b.start)} – {formatHour(b.end)}
+                        </div>
+                      </div>
+                    )}
+                  </Fragment>
                 );
               })}
             </div>
@@ -170,7 +176,7 @@ function Row({ slot, days, data, now, today }: { slot: number; days: string[]; d
         <span>{formatHour(SLOTS[slot].end)}</span>
       </div>
       {days.map((d) => {
-        const holiday = holidayOn(d, data.settings.holidays);
+        const holiday = holidayOn(d, allHolidays(data.settings));
         const sess = sessionAtSlot(d, slot, data);
         if (holiday) {
           return (
@@ -259,7 +265,7 @@ function Cell({ s, data, now, isToday }: { s: Session; data: AppData; now: Date;
 }
 
 function MobileDay({ date, data, now }: { date: string; data: AppData; now: Date }) {
-  const holiday = holidayOn(date, data.settings.holidays);
+  const holiday = holidayOn(date, allHolidays(data.settings));
   const list = sessionsOn(date, data);
   if (holiday)
     return (
@@ -273,11 +279,8 @@ function MobileDay({ date, data, now }: { date: string; data: AppData; now: Date
     <div className="flex flex-col gap-2.5">
       {list.map((s, i) => (
         <div key={s.key}>
-          {i === 2 && (
-            <div className="mb-2.5 flex items-center gap-3 text-xs font-semibold text-mist-500">
-              <span className="h-px flex-1 bg-border" /> <Coffee className="size-3.5" /> 12h30 – 13h30 <span className="h-px flex-1 bg-border" />
-            </div>
-          )}
+          {i > 0 &&
+            breaksBetween(list[i - 1].end, s.start).map((b) => <BreakLine key={b.start} b={b} className="mb-2.5" />)}
           <div className="grid grid-cols-[52px_1fr] gap-2">
             <div className="pt-2 text-right text-xs text-mist-500">
               <p className="font-bold text-mist-300">{formatHour(s.start)}</p>

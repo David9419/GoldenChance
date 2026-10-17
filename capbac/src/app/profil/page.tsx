@@ -12,9 +12,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { LEVELS } from "@/content/subjects";
 import { levelAt } from "@/lib/calendar";
-import { formatFull, formatShort, toISO } from "@/lib/dates";
+import { addDays, formatFull, formatShort, fromISO, toISO } from "@/lib/dates";
+import { jewishHolidays } from "@/lib/jewish";
 import { ROLE_LABEL, useRole } from "@/lib/auth";
 import { attendanceStats, fmtNote, generalAverage } from "@/lib/stats";
 import { actions, uid, useData, type AppData, type Settings } from "@/lib/store";
@@ -230,6 +232,30 @@ function SettingsCard({ data }: { data: AppData }) {
             </div>
           </div>
 
+          <div className="mt-2 rounded-2xl border border-border p-4">
+            <label className="flex items-center justify-between gap-3">
+              <span>
+                <span className="block text-sm font-semibold">Fêtes et jeûnes juifs : pas d’école</span>
+                <span className="block text-xs text-mist-500">
+                  Roch Hachana, jeûne de Guedalia, Yom Kippour, Souccot, Chemini Atseret, Simhat Torah, 10 Tevet, jeûne d’Esther, Pourim, Pessah, Chavouot,
+                  17 Tamouz, Tisha Beav — dates calculées automatiquement chaque année.
+                </span>
+              </span>
+              <Switch checked={s.jewishHolidays} onCheckedChange={(v) => set("jewishHolidays", v)} />
+            </label>
+            {s.jewishHolidays && (
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {jewishHolidays(toISO(new Date()), addDays(toISO(new Date()), 400))
+                  .filter((h) => ![0, 6].includes(fromISO(h.start).getDay()))
+                  .slice(0, 14)
+                  .map((h) => (
+                    <Badge key={h.id} variant="outline">
+                      {h.label} · {formatShort(h.start)}
+                    </Badge>
+                  ))}
+              </div>
+            )}
+          </div>
           <div className="mt-2">
             <p className="mb-2 flex items-center gap-2 text-sm font-semibold">
               <Palmtree className="size-4 text-amber-300" /> Vacances et jours fériés
